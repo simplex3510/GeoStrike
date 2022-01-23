@@ -1,7 +1,9 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - GameNetworkManager
+    - TempLobby
+    - TempMaster
+    - TempRoom
     PhotonUnityNetworking.Demos.dll:
     - Photon.Pun.Demo.Asteroids.Asteroid
     - Photon.Pun.Demo.Asteroids.Bullet
@@ -50,7 +52,58 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
-    Assets/Scenes/MainGame.unity:
+    Assets/Scenes/temp/TempLobby.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1470}
+    - Class: 114
+      Script: {instanceID: 1472}
+    - Class: 114
+      Script: {instanceID: 2820}
+    - Class: 114
+      Script: {instanceID: 3004}
+    - Class: 114
+      Script: {instanceID: 3250}
+    - Class: 114
+      Script: {instanceID: 3518}
+    - Class: 114
+      Script: {instanceID: 3530}
+    - Class: 114
+      Script: {instanceID: 3656}
+    - Class: 114
+      Script: {instanceID: 38034}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/temp/TempMaster.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -118,8 +171,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4306}
     - Class: 114
-      Script: {instanceID: 4654}
-    - Class: 114
       Script: {instanceID: 4752}
     - Class: 114
       Script: {instanceID: 4758}
@@ -133,6 +184,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 5828}
     - Class: 114
       Script: {instanceID: 6274}
+    - Class: 114
+      Script: {instanceID: 36282}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -162,6 +215,57 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
     - Class: 225
+      Script: {instanceID: 0}
+    Assets/Scenes/temp/TempRoom.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1470}
+    - Class: 114
+      Script: {instanceID: 1472}
+    - Class: 114
+      Script: {instanceID: 2820}
+    - Class: 114
+      Script: {instanceID: 3004}
+    - Class: 114
+      Script: {instanceID: 3250}
+    - Class: 114
+      Script: {instanceID: 3518}
+    - Class: 114
+      Script: {instanceID: 3530}
+    - Class: 114
+      Script: {instanceID: 3656}
+    - Class: 114
+      Script: {instanceID: 44608}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -1072,7 +1176,7 @@ ScriptsOnlyBuild:
     className: ActivationTrack
   - hash:
       serializedVersion: 2
-      Hash: 9c169c33339320acc47eebf4cca06e8a
+      Hash: 77ab3e8596535dd90c19670824e901ec
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameNetworkManager
@@ -1574,7 +1678,27 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit.Forms
     className: UserIdUiForm
+  - hash:
+      serializedVersion: 2
+      Hash: b1cee67706fc639f1f7db55666416991
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TempMaster
+  - hash:
+      serializedVersion: 2
+      Hash: b060254dee1397a1ccd2b90c02192008
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TempLobby
+  - hash:
+      serializedVersion: 2
+      Hash: 53d6d149d9644378c75f9939a9e43c00
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TempRoom
   platform: 19
   scenePathNames:
-  - Assets/Scenes/MainGame.unity
+  - Assets/Scenes/temp/TempMaster.unity
+  - Assets/Scenes/temp/TempLobby.unity
+  - Assets/Scenes/temp/TempRoom.unity
   playerPath: "C:/Users/202010961/\uBC14\uD0D5 \uD654\uBA74/\uD14C\uC2A4\uD2B8/TestNetwork.exe"

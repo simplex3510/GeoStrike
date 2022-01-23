@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 493277734}
   - component: {fileID: 493277733}
   m_Layer: 5
-  m_Name: Confirm State
+  m_Name: Confirm Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -551,7 +551,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1339772568}
         m_TargetAssemblyTypeName: GameNetworkManager, Assembly-CSharp
-        m_MethodName: LeaveRoom
+        m_MethodName: OnClickLeaveRoom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -972,7 +972,6 @@ GameObject:
   - component: {fileID: 1339772569}
   - component: {fileID: 1339772568}
   - component: {fileID: 1339772570}
-  - component: {fileID: 1339772571}
   m_Layer: 0
   m_Name: GameNetworkManager
   m_TagString: Untagged
@@ -992,7 +991,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1e1c49812fb0ea4aad0ee8f7c4d6ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomInfoText: {fileID: 493277733}
+  joinPlayerText: {fileID: 1515395680}
+  confirmPlayerText: {fileID: 493277733}
+  confirmButton: {fileID: 1933925099}
+  attackButton: {fileID: 1129795745}
+  defenseButton: {fileID: 1959247123}
 --- !u!4 &1339772569
 Transform:
   m_ObjectHideFlags: 0
@@ -1025,27 +1028,10 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents:
-  - {fileID: 1339772571}
+  ObservedComponents: []
   sceneViewId: 2
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &1339772571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1339772567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!1 &1515395678
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,7 +1044,7 @@ GameObject:
   - component: {fileID: 1515395681}
   - component: {fileID: 1515395680}
   m_Layer: 5
-  m_Name: Current Member
+  m_Name: Join Member
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1116,7 +1102,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\uD604\uC7AC \uC778\uC6D0: 0"
+  m_Text: "\uCC38\uAC00 \uC778\uC6D0: 0"
 --- !u!222 &1515395681
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1352,7 +1338,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1933925100}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1339772568}
+        m_TargetAssemblyTypeName: GameNetworkManager, Assembly-CSharp
+        m_MethodName: OnClickConfirm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1933925100
 MonoBehaviour:
   m_ObjectHideFlags: 0
