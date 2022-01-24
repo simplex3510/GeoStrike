@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - TempGame
     - TempLobby
     - TempMaster
     - TempRoom
@@ -52,6 +53,47 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
+    Assets/Scenes/temp/TempDefeat.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1470}
+    - Class: 114
+      Script: {instanceID: 2820}
+    - Class: 114
+      Script: {instanceID: 3004}
+    - Class: 114
+      Script: {instanceID: 3250}
+    - Class: 114
+      Script: {instanceID: 3530}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
     Assets/Scenes/temp/TempLobby.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -86,7 +128,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3656}
     - Class: 114
-      Script: {instanceID: 38034}
+      Script: {instanceID: 3770}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -169,23 +211,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3656}
     - Class: 114
-      Script: {instanceID: 4306}
+      Script: {instanceID: 4310}
     - Class: 114
-      Script: {instanceID: 4752}
+      Script: {instanceID: 4756}
     - Class: 114
-      Script: {instanceID: 4758}
+      Script: {instanceID: 4762}
     - Class: 114
-      Script: {instanceID: 4992}
+      Script: {instanceID: 4996}
     - Class: 114
-      Script: {instanceID: 5060}
+      Script: {instanceID: 5064}
     - Class: 114
-      Script: {instanceID: 5642}
+      Script: {instanceID: 5162}
     - Class: 114
-      Script: {instanceID: 5828}
+      Script: {instanceID: 5648}
     - Class: 114
-      Script: {instanceID: 6274}
+      Script: {instanceID: 5834}
     - Class: 114
-      Script: {instanceID: 36282}
+      Script: {instanceID: 6280}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -246,11 +288,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3518}
     - Class: 114
+      Script: {instanceID: 3528}
+    - Class: 114
       Script: {instanceID: 3530}
     - Class: 114
       Script: {instanceID: 3656}
     - Class: 114
-      Script: {instanceID: 44608}
+      Script: {instanceID: 4108}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -260,6 +304,47 @@ ScriptsOnlyBuild:
     - Class: 196
       Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/temp/TempVictory.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1470}
+    - Class: 114
+      Script: {instanceID: 2820}
+    - Class: 114
+      Script: {instanceID: 3004}
+    - Class: 114
+      Script: {instanceID: 3250}
+    - Class: 114
+      Script: {instanceID: 3530}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -828,6 +913,12 @@ ScriptsOnlyBuild:
     className: PhotonView
   - hash:
       serializedVersion: 2
+      Hash: 6584326abd645f055ccbced609ebc122
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TempGame
+  - hash:
+      serializedVersion: 2
       Hash: 748dd2a2a28da4e618912da5ac45684b
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -930,6 +1021,12 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
+      Hash: b060254dee1397a1ccd2b90c02192008
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TempLobby
+  - hash:
+      serializedVersion: 2
       Hash: c656dcc13ae391b68d594cc8f9c590b0
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit
@@ -1012,6 +1109,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: VerticalLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 84afc9fe8471f43a1c07f64f1ac68984
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TempRoom
   - hash:
       serializedVersion: 2
       Hash: cba6cca6bb3290c4c00d709cf63843db
@@ -1386,6 +1489,12 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: b1cee67706fc639f1f7db55666416991
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TempMaster
+  - hash:
+      serializedVersion: 2
       Hash: ef5c43f921427d03730f6ea4c848f07d
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -1678,27 +1787,11 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.Demos.dll
     namespaceName: Photon.Pun.Demo.Cockpit.Forms
     className: UserIdUiForm
-  - hash:
-      serializedVersion: 2
-      Hash: b1cee67706fc639f1f7db55666416991
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: TempMaster
-  - hash:
-      serializedVersion: 2
-      Hash: b060254dee1397a1ccd2b90c02192008
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: TempLobby
-  - hash:
-      serializedVersion: 2
-      Hash: 53d6d149d9644378c75f9939a9e43c00
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: TempRoom
   platform: 19
   scenePathNames:
   - Assets/Scenes/temp/TempMaster.unity
   - Assets/Scenes/temp/TempLobby.unity
   - Assets/Scenes/temp/TempRoom.unity
-  playerPath: "C:/Users/202010961/\uBC14\uD0D5 \uD654\uBA74/\uD14C\uC2A4\uD2B8/TestNetwork.exe"
+  - Assets/Scenes/temp/TempVictory.unity
+  - Assets/Scenes/temp/TempDefeat.unity
+  playerPath: "C:/Users/User/Desktop/\uD14C\uC2A4\uD2B8\uBE4C\uB4DC/TestNetwork.exe"

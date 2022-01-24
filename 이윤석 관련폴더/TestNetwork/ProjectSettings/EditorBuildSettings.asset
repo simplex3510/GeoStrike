@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/temp/TempRoom.unity
     guid: ff6d305575703f240a1a4c461fb11bdf
+  - enabled: 1
+    path: Assets/Scenes/temp/TempVictory.unity
+    guid: 3d98d69d2129c664f99e293deee92454
+  - enabled: 1
+    path: Assets/Scenes/temp/TempDefeat.unity
+    guid: 4d8a2900d279bf5428550e3fec612df6
   m_configObjects: {}
