@@ -1,7 +1,6 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - TempGame
     - TempLobby
     - TempMaster
     - TempRoom
@@ -27,7 +26,6 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -913,12 +911,6 @@ ScriptsOnlyBuild:
     className: PhotonView
   - hash:
       serializedVersion: 2
-      Hash: 6584326abd645f055ccbced609ebc122
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: TempGame
-  - hash:
-      serializedVersion: 2
       Hash: 748dd2a2a28da4e618912da5ac45684b
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -1794,4 +1786,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/temp/TempRoom.unity
   - Assets/Scenes/temp/TempVictory.unity
   - Assets/Scenes/temp/TempDefeat.unity
-  playerPath: "C:/Users/User/Desktop/\uD14C\uC2A4\uD2B8\uBE4C\uB4DC/TestNetwork.exe"
+  playerPath: "C:/Users/202010961/\uBC14\uD0D5 \uD654\uBA74/\uD14C\uC2A4\uD2B8/TestNetwork.exe"
