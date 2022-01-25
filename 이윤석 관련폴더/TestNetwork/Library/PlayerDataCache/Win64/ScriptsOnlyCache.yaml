@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - TempGame
     - TempLobby
     - TempMaster
     - TempRoom
@@ -71,13 +72,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1470}
     - Class: 114
-      Script: {instanceID: 2820}
+      Script: {instanceID: 2854}
     - Class: 114
-      Script: {instanceID: 3004}
+      Script: {instanceID: 3038}
     - Class: 114
-      Script: {instanceID: 3250}
+      Script: {instanceID: 3284}
     - Class: 114
-      Script: {instanceID: 3530}
+      Script: {instanceID: 3564}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -114,19 +115,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1472}
     - Class: 114
-      Script: {instanceID: 2820}
+      Script: {instanceID: 2854}
     - Class: 114
-      Script: {instanceID: 3004}
+      Script: {instanceID: 3038}
     - Class: 114
-      Script: {instanceID: 3250}
+      Script: {instanceID: 3284}
     - Class: 114
-      Script: {instanceID: 3518}
+      Script: {instanceID: 3552}
     - Class: 114
-      Script: {instanceID: 3530}
+      Script: {instanceID: 3564}
     - Class: 114
-      Script: {instanceID: 3656}
+      Script: {instanceID: 3690}
     - Class: 114
-      Script: {instanceID: 3770}
+      Script: {instanceID: 3804}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -183,49 +184,49 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1472}
     - Class: 114
-      Script: {instanceID: 1600}
+      Script: {instanceID: 1636}
     - Class: 114
-      Script: {instanceID: 1772}
+      Script: {instanceID: 1808}
     - Class: 114
-      Script: {instanceID: 1810}
+      Script: {instanceID: 1846}
     - Class: 114
-      Script: {instanceID: 1814}
+      Script: {instanceID: 1850}
     - Class: 114
-      Script: {instanceID: 2476}
+      Script: {instanceID: 2510}
     - Class: 114
-      Script: {instanceID: 2546}
+      Script: {instanceID: 2580}
     - Class: 114
-      Script: {instanceID: 2820}
+      Script: {instanceID: 2854}
     - Class: 114
-      Script: {instanceID: 3004}
+      Script: {instanceID: 3038}
     - Class: 114
-      Script: {instanceID: 3250}
+      Script: {instanceID: 3284}
     - Class: 114
-      Script: {instanceID: 3518}
+      Script: {instanceID: 3552}
     - Class: 114
-      Script: {instanceID: 3530}
+      Script: {instanceID: 3564}
     - Class: 114
-      Script: {instanceID: 3532}
+      Script: {instanceID: 3566}
     - Class: 114
-      Script: {instanceID: 3656}
+      Script: {instanceID: 3690}
     - Class: 114
-      Script: {instanceID: 4310}
+      Script: {instanceID: 4344}
     - Class: 114
-      Script: {instanceID: 4756}
+      Script: {instanceID: 4786}
     - Class: 114
-      Script: {instanceID: 4762}
+      Script: {instanceID: 4792}
     - Class: 114
-      Script: {instanceID: 4996}
+      Script: {instanceID: 5026}
     - Class: 114
-      Script: {instanceID: 5064}
+      Script: {instanceID: 5094}
     - Class: 114
-      Script: {instanceID: 5162}
+      Script: {instanceID: 5192}
     - Class: 114
-      Script: {instanceID: 5648}
+      Script: {instanceID: 5678}
     - Class: 114
-      Script: {instanceID: 5834}
+      Script: {instanceID: 5862}
     - Class: 114
-      Script: {instanceID: 6280}
+      Script: {instanceID: 6306}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -278,21 +279,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1472}
     - Class: 114
-      Script: {instanceID: 2820}
+      Script: {instanceID: 2854}
     - Class: 114
-      Script: {instanceID: 3004}
+      Script: {instanceID: 3038}
     - Class: 114
-      Script: {instanceID: 3250}
+      Script: {instanceID: 3284}
     - Class: 114
-      Script: {instanceID: 3518}
+      Script: {instanceID: 3552}
     - Class: 114
-      Script: {instanceID: 3528}
+      Script: {instanceID: 3562}
     - Class: 114
-      Script: {instanceID: 3530}
+      Script: {instanceID: 3564}
     - Class: 114
-      Script: {instanceID: 3656}
+      Script: {instanceID: 3690}
     - Class: 114
-      Script: {instanceID: 4108}
+      Script: {instanceID: 4142}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -329,13 +330,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1470}
     - Class: 114
-      Script: {instanceID: 2820}
+      Script: {instanceID: 2854}
     - Class: 114
-      Script: {instanceID: 3004}
+      Script: {instanceID: 3038}
     - Class: 114
-      Script: {instanceID: 3250}
+      Script: {instanceID: 3284}
     - Class: 114
-      Script: {instanceID: 3530}
+      Script: {instanceID: 3564}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -909,6 +910,12 @@ ScriptsOnlyBuild:
     assemblyName: PhotonUnityNetworking.dll
     namespaceName: Photon.Pun
     className: PhotonView
+  - hash:
+      serializedVersion: 2
+      Hash: 6584326abd645f055ccbced609ebc122
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TempGame
   - hash:
       serializedVersion: 2
       Hash: 748dd2a2a28da4e618912da5ac45684b
@@ -1786,4 +1793,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/temp/TempRoom.unity
   - Assets/Scenes/temp/TempVictory.unity
   - Assets/Scenes/temp/TempDefeat.unity
-  playerPath: "C:/Users/202010961/\uBC14\uD0D5 \uD654\uBA74/\uD14C\uC2A4\uD2B8/TestNetwork.exe"
+  playerPath: "C:/Users/User/Desktop/\uD14C\uC2A4\uD2B8\uBE4C\uB4DC/TestNetwork.exe"

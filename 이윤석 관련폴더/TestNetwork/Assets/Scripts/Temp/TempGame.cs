@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 
-enum E_Result
+enum EResult
 {
     NONE,
     VICTORY,
@@ -23,7 +23,7 @@ public class TempGame : MonoBehaviourPun
     int health = 100;
     int damage = 0;
     bool isDefense = false;
-    E_Result E_Result = E_Result.NONE;
+    EResult E_Result = EResult.NONE;
 
     [PunRPC]
     void Confirm()
