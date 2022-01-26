@@ -53,7 +53,19 @@
     <UnityVersion>2020.3.23f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\CameraController.cs" />
+    <Compile Include="Assets\Scripts\UI\TetrominoSlot.cs" />
+    <Compile Include="Assets\Scripts\Unit\Unit.cs" />
+    <Compile Include="Assets\Scripts\Tetromino\TileDetecter.cs" />
+    <Compile Include="Assets\Scripts\UI\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Unit\TranslocateField.cs" />
+    <Compile Include="Assets\Scripts\UI\Timer.cs" />
+    <Compile Include="Assets\Scripts\UI\Tile\TileContainer.cs" />
+    <Compile Include="Assets\Scripts\UI\MouseController.cs" />
+    <Compile Include="Assets\Scripts\UI\Tile\Tile.cs" />
+    <Compile Include="Assets\Scripts\Tetromino\TetrominoCreater.cs" />
+    <Compile Include="Assets\Scripts\Manager\GameMgr.cs" />
+    <Compile Include="Assets\Scripts\Tetromino\TetrominoPreview.cs" />
+    <Compile Include="Assets\Scripts\Tetromino\Tetromino.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
