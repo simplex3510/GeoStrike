@@ -22,7 +22,6 @@ public class TempRoom : MonoBehaviourPun
 
     [SerializeField] int  m_readyPlayer = 0;
     [SerializeField] int  m_confirmPlayer = 0;
-    [SerializeField] bool m_inRoom = true;
 
 
     void Awake() => Screen.SetResolution(1920, 1080, false);
@@ -31,14 +30,16 @@ public class TempRoom : MonoBehaviourPun
 
     public void OnClickBack()
     {
+        readyButton.interactable = true;
         PhotonNetwork.LeaveRoom();
+        photonView.RPC("UpdatePlayer", RpcTarget.MasterClient, !readyButton.interactable);
         PhotonNetwork.LoadLevel("TempLobby");
     }
 
     public void OnClickReady()
     {
         readyButton.interactable = false;
-        photonView.RPC("UpdateReady", RpcTarget.MasterClient, m_readyPlayer);
+        photonView.RPC("UpdatePlayer", RpcTarget.MasterClient, m_readyPlayer, !readyButton.interactable);
  
     }
 
@@ -53,29 +54,28 @@ public class TempRoom : MonoBehaviourPun
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            photonView.RPC("UpdateReady", RpcTarget.Others, m_readyPlayer);
-        }
-        print("참가 인원 업데이트");
-        joinMemberText.text = "참가 인원: " + PhotonNetwork.CurrentRoom.PlayerCount.ToString();
-        m_readyPlayerText.text = "준비: " + m_readyPlayer.ToString() + "/" + PhotonNetwork.CurrentRoom.MaxPlayers.ToString();
+            photonView.RPC("UpdateReady", RpcTarget.All, m_readyPlayer, false);
+        }  
     }
 
     [PunRPC]
-    void UpdateReady(int _readyPlayer)
+    void UpdateReady(int _readyPlayer, bool _isReady)
     {
-        print("준비 업데이트");
-        if(readyButton.interactable == false)
-        {
-            m_readyPlayer++;
-        }
-        else
+        print("준비 인원 업데이트");
+        if(PhotonNetwork.IsMasterClient)
         {
             m_readyPlayer = _readyPlayer;
+            if (_isReady)
+            {
+                m_readyPlayer++;
+            }
         }
 
+        print("인원 정보 업데이트");
+        joinMemberText.text = "참가 인원: " + PhotonNetwork.CurrentRoom.PlayerCount.ToString();
         m_readyPlayerText.text = "준비: " + m_readyPlayer.ToString() + "/" + PhotonNetwork.CurrentRoom.MaxPlayers.ToString();
 
-        if(m_readyPlayer == PhotonNetwork.CurrentRoom.MaxPlayers)
+        if (m_readyPlayer == PhotonNetwork.CurrentRoom.MaxPlayers)
         {
             m_readyPlayerText.gameObject.SetActive(false);
             readyButton.gameObject.SetActive(false);
@@ -90,17 +90,8 @@ public class TempRoom : MonoBehaviourPun
 
     void UpdateReady()
     {
-        print("준비 업데이트");
-        if (readyButton.interactable == false)
-        {
-            m_readyPlayer++;
-        }
-        else
-        {
-            m_readyPlayer = _readyPlayer;
-        }
-
-        m_readyPlayerText.text = "준비: " + m_readyPlayer.ToString() + "/" + PhotonNetwork.CurrentRoom.MaxPlayers.ToString();
+        print("준비 인원 업데이트");
+        m_readyPlayer--;
     }
 
     [PunRPC]

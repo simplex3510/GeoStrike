@@ -1014,15 +1014,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joinMemberText: {fileID: 2117753817}
-  readyPlayerText: {fileID: 1968305104}
+  m_readyPlayerText: {fileID: 1968305104}
   readyButton: {fileID: 565930335}
-  confirmPlayerText: {fileID: 1424526994}
+  m_confirmPlayerText: {fileID: 0}
   health: {fileID: 759158713}
   confirmButton: {fileID: 1962071971}
   attackButton: {fileID: 279765025}
   defenseButton: {fileID: 574727430}
-  readyPlayer: 0
-  confirmPlayer: 0
+  m_readyPlayer: 0
+  m_confirmPlayer: 0
 --- !u!114 &952139683
 MonoBehaviour:
   m_ObjectHideFlags: 0
