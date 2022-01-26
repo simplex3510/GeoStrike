@@ -8,7 +8,7 @@ public class TetrominoSlot : MonoBehaviour, IPointerClickHandler
 {
     // Components
     [SerializeField] private CameraController m_cameraController;
-    [SerializeField] private ObjectDetecter m_objDetecter;
+    [SerializeField] private TileDetector m_tileDetector;
 
     // Random block
     public Image m_buildImage;
@@ -57,7 +57,7 @@ public class TetrominoSlot : MonoBehaviour, IPointerClickHandler
         TetrominoPreview.instance.m_rectTransform.sizeDelta = TetrominoPreview.instance.m_clickSlot.m_tetrominoImgSize * 2.15f;
     }
 
-    public Vector3 Get_TilePos(Tile _tile)
+    public Vector3 Get_TilePos(TetrominoTile _tile)
     {
         if (_tile == null) { m_tilePos = Vector3.zero; }
         else
@@ -124,7 +124,7 @@ public class TetrominoSlot : MonoBehaviour, IPointerClickHandler
     {
         while (m_cameraController.m_mouseController.m_mouseMode == MouseController.E_MouseMode.create)
         {
-            TetrominoPreview.instance.transform.position = Camera.main.WorldToScreenPoint(Get_TilePos(m_objDetecter.m_tile)) - PreviewPosOffset();
+            TetrominoPreview.instance.transform.position = Camera.main.WorldToScreenPoint(Get_TilePos(m_tileDetector.m_tile)) - PreviewPosOffset();
 
             StartCoroutine(IE_Cancel());
             yield return null;

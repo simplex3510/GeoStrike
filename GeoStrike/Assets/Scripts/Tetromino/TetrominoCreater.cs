@@ -43,12 +43,12 @@ public class TetrominoCreater : MonoBehaviour
                 // Catch error
                 if (_idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height) 
                 {
-                    ObjectDetecter.m_canBuild = false; 
+                    TileDetector.m_canBuild = false; 
                     return; 
                 }
                 else if (_idx - TileContainer.LIST_WIDTH < 0)
                 {
-                    ObjectDetecter.m_canBuild = false;
+                    TileDetector.m_canBuild = false;
                     return;
                 }
                 // Preview
@@ -57,9 +57,9 @@ public class TetrominoCreater : MonoBehaviour
                      m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH].m_IsBuilding == false &&
                      m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].m_IsBuilding == false)
                 {
-                    ObjectDetecter.m_canBuild = true;
+                    TileDetector.m_canBuild = true;
                 }
-                else { ObjectDetecter.m_canBuild = false; }
+                else { TileDetector.m_canBuild = false; }
                 break;
             case 1: // Straight
                 switch (_rot)
@@ -68,7 +68,7 @@ public class TetrominoCreater : MonoBehaviour
                         // Catch error
                         if (_idx - TileContainer.LIST_WIDTH < 0 || _idx - 2 * TileContainer.LIST_WIDTH < 0 || _idx - 3 * TileContainer.LIST_WIDTH < 0)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         // Preview
@@ -76,8 +76,8 @@ public class TetrominoCreater : MonoBehaviour
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx - 2 * TileContainer.LIST_WIDTH].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx - 3 * TileContainer.LIST_WIDTH].m_IsBuilding == false)
-                        { ObjectDetecter.m_canBuild = true; }
-                        else { ObjectDetecter.m_canBuild = false; }
+                        { TileDetector.m_canBuild = true; }
+                        else { TileDetector.m_canBuild = false; }
                         break;
                     case 1:
                         // Catch error
@@ -85,15 +85,15 @@ public class TetrominoCreater : MonoBehaviour
                              _idx == (TileContainer.LIST_WIDTH - 2*TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height ||
                              _idx == (TileContainer.LIST_WIDTH - 3*TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height)
                         { 
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         if ( m_tileContainer.m_tileList[_idx].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx + TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx + 2 * TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx + 3 * TileContainer.LIST_ONE].m_IsBuilding == false)
-                        { ObjectDetecter.m_canBuild = true; }
-                        else { ObjectDetecter.m_canBuild = false; }
+                        { TileDetector.m_canBuild = true; }
+                        else { TileDetector.m_canBuild = false; }
                         break;
                 }
                 break;
@@ -104,12 +104,12 @@ public class TetrominoCreater : MonoBehaviour
                         // Catch error
                         if (_idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         else if (_idx - TileContainer.LIST_WIDTH < 0 || _idx - 2 * TileContainer.LIST_WIDTH < 0)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         // preview
@@ -117,20 +117,20 @@ public class TetrominoCreater : MonoBehaviour
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx - 2 * TileContainer.LIST_WIDTH].m_IsBuilding == false)
-                        { ObjectDetecter.m_canBuild = true; }
-                        else { ObjectDetecter.m_canBuild = false; }
+                        { TileDetector.m_canBuild = true; }
+                        else { TileDetector.m_canBuild = false; }
                         break;
                     case 1:
                         // Catch error
                         if ( _idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height ||
                              _idx == (TileContainer.LIST_WIDTH - 2*TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         else if (_idx - TileContainer.LIST_WIDTH < 0)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         // Preview
@@ -138,19 +138,19 @@ public class TetrominoCreater : MonoBehaviour
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH + 2 * TileContainer.LIST_ONE].m_IsBuilding == false) 
-                        { ObjectDetecter.m_canBuild = true; }
-                        else { ObjectDetecter.m_canBuild = false; }
+                        { TileDetector.m_canBuild = true; }
+                        else { TileDetector.m_canBuild = false; }
                         break;
                     case 2:
                         // Catch error
                         if (_idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         else if (_idx - TileContainer.LIST_WIDTH < 0 || _idx - 2*TileContainer.LIST_WIDTH < 0)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         // Preview
@@ -158,20 +158,20 @@ public class TetrominoCreater : MonoBehaviour
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx - 2 * TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].m_IsBuilding == false)
-                        { ObjectDetecter.m_canBuild = true; }
-                        else { ObjectDetecter.m_canBuild = false; }
+                        { TileDetector.m_canBuild = true; }
+                        else { TileDetector.m_canBuild = false; }
                         break;
                     case 3:
                         // Catch error
                         if (_idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height ||
                             _idx == (TileContainer.LIST_WIDTH - 2*TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         else if (_idx - TileContainer.LIST_WIDTH < 0)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         // Preview
@@ -179,8 +179,8 @@ public class TetrominoCreater : MonoBehaviour
                              m_tileContainer.m_tileList[_idx + TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx + 2 * TileContainer.LIST_ONE].m_IsBuilding == false)
-                        { ObjectDetecter.m_canBuild = true; }
-                        else { ObjectDetecter.m_canBuild = false; }
+                        { TileDetector.m_canBuild = true; }
+                        else { TileDetector.m_canBuild = false; }
                         break;
                 }
                 break;
@@ -192,12 +192,12 @@ public class TetrominoCreater : MonoBehaviour
                         if ( _idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height ||
                              _idx == (TileContainer.LIST_WIDTH - 2*TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         else if (_idx - TileContainer.LIST_WIDTH < 0)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         // Preview
@@ -205,19 +205,19 @@ public class TetrominoCreater : MonoBehaviour
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx + TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx + 2 * TileContainer.LIST_ONE].m_IsBuilding == false)
-                        { ObjectDetecter.m_canBuild = true; }
-                        else { ObjectDetecter.m_canBuild = false; }
+                        { TileDetector.m_canBuild = true; }
+                        else { TileDetector.m_canBuild = false; }
                         break;
                     case 1:
                         // Catch error
                         if (_idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         else if (_idx - TileContainer.LIST_WIDTH < 0 || _idx - 2*TileContainer.LIST_WIDTH < 0)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         // Preview
@@ -225,20 +225,20 @@ public class TetrominoCreater : MonoBehaviour
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx - 2 * TileContainer.LIST_WIDTH].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx - 2 * TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].m_IsBuilding == false)
-                        { ObjectDetecter.m_canBuild = true; }
-                        else { ObjectDetecter.m_canBuild = false; }
+                        { TileDetector.m_canBuild = true; }
+                        else { TileDetector.m_canBuild = false; }
                         break;
                     case 2:
                         // Catch error
                         if ( _idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height ||
                              _idx == (TileContainer.LIST_WIDTH - 2*TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         else if (_idx - TileContainer.LIST_WIDTH < 0)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         // Preview
@@ -246,19 +246,19 @@ public class TetrominoCreater : MonoBehaviour
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH + 2 * TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx + 2 * TileContainer.LIST_ONE].m_IsBuilding == false)
-                        { ObjectDetecter.m_canBuild = true; }
-                        else { ObjectDetecter.m_canBuild = false; }
+                        { TileDetector.m_canBuild = true; }
+                        else { TileDetector.m_canBuild = false; }
                         break;
                     case 3:
                         // Catch error
                         if (_idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         else if (_idx - TileContainer.LIST_WIDTH < 0 || _idx - 2*TileContainer.LIST_WIDTH < 0)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         // Preview
@@ -266,8 +266,8 @@ public class TetrominoCreater : MonoBehaviour
                              m_tileContainer.m_tileList[_idx + TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx + TileContainer.LIST_ONE - TileContainer.LIST_WIDTH].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx + TileContainer.LIST_ONE - 2 * TileContainer.LIST_WIDTH].m_IsBuilding == false)
-                        { ObjectDetecter.m_canBuild = true; }
-                        else { ObjectDetecter.m_canBuild = false; }
+                        { TileDetector.m_canBuild = true; }
+                        else { TileDetector.m_canBuild = false; }
                         break;
                 }
                 break;
@@ -279,12 +279,12 @@ public class TetrominoCreater : MonoBehaviour
                         if ( _idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height ||
                              _idx == (TileContainer.LIST_WIDTH - 2*TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         else if (_idx - TileContainer.LIST_WIDTH < 0)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         // Preview
@@ -292,19 +292,19 @@ public class TetrominoCreater : MonoBehaviour
                              m_tileContainer.m_tileList[_idx + TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx + 2 * TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx + 2 * TileContainer.LIST_ONE - TileContainer.LIST_WIDTH].m_IsBuilding == false)
-                        { ObjectDetecter.m_canBuild = true; }
-                        else { ObjectDetecter.m_canBuild = false; }
+                        { TileDetector.m_canBuild = true; }
+                        else { TileDetector.m_canBuild = false; }
                         break;
                     case 1:
                         // Catch error
                         if (_idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         else if (_idx - TileContainer.LIST_WIDTH < 0 || _idx - 2*TileContainer.LIST_WIDTH < 0)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         // Preview
@@ -312,20 +312,20 @@ public class TetrominoCreater : MonoBehaviour
                              m_tileContainer.m_tileList[_idx + TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx - 2 * TileContainer.LIST_WIDTH].m_IsBuilding == false)
-                        { ObjectDetecter.m_canBuild = true; }
-                        else { ObjectDetecter.m_canBuild = false; }
+                        { TileDetector.m_canBuild = true; }
+                        else { TileDetector.m_canBuild = false; }
                         break;
                     case 2:
                         // Catch error
                         if ( _idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height ||
                              _idx == (TileContainer.LIST_WIDTH - 2*TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         else if (_idx - TileContainer.LIST_WIDTH < 0)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         // Preview
@@ -333,19 +333,19 @@ public class TetrominoCreater : MonoBehaviour
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH + 2 * TileContainer.LIST_ONE].m_IsBuilding == false)
-                        { ObjectDetecter.m_canBuild = true; }
-                        else { ObjectDetecter.m_canBuild = false; }
+                        { TileDetector.m_canBuild = true; }
+                        else { TileDetector.m_canBuild = false; }
                         break;
                     case 3:
                         // Catch error
                         if (_idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         else if (_idx - TileContainer.LIST_WIDTH < 0 || _idx - 2*TileContainer.LIST_WIDTH < 0)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         // Preview
@@ -353,8 +353,8 @@ public class TetrominoCreater : MonoBehaviour
                              m_tileContainer.m_tileList[_idx - 2 * TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx + TileContainer.LIST_ONE].m_IsBuilding == false)
-                        { ObjectDetecter.m_canBuild = true; }
-                        else { ObjectDetecter.m_canBuild = false; }
+                        { TileDetector.m_canBuild = true; }
+                        else { TileDetector.m_canBuild = false; }
                         break;
                 }
                 break;
@@ -365,12 +365,12 @@ public class TetrominoCreater : MonoBehaviour
                         // Catch error
                         if (_idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         else if (_idx - TileContainer.LIST_WIDTH < 0 || _idx - 2*TileContainer.LIST_WIDTH < 0)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         // Preview
@@ -378,20 +378,20 @@ public class TetrominoCreater : MonoBehaviour
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx - 2 * TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].m_IsBuilding == false)
-                        { ObjectDetecter.m_canBuild = true; }
-                        else { ObjectDetecter.m_canBuild = false; }
+                        { TileDetector.m_canBuild = true; }
+                        else { TileDetector.m_canBuild = false; }
                         break;
                     case 1:
                         // Catch error
                         if ( _idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height ||
                              _idx == (TileContainer.LIST_WIDTH - 2*TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         else if (_idx - TileContainer.LIST_WIDTH < 0)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         // Preview
@@ -399,8 +399,8 @@ public class TetrominoCreater : MonoBehaviour
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx + TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx + 2 * TileContainer.LIST_ONE].m_IsBuilding == false)
-                        { ObjectDetecter.m_canBuild = true; }
-                        else { ObjectDetecter.m_canBuild = false; }
+                        { TileDetector.m_canBuild = true; }
+                        else { TileDetector.m_canBuild = false; }
                         break;
                 }
                 break;
@@ -411,12 +411,12 @@ public class TetrominoCreater : MonoBehaviour
                         // Catch error
                         if (_idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         else if (_idx - TileContainer.LIST_WIDTH < 0 || _idx - 2 * TileContainer.LIST_WIDTH < 0)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         // Preview
@@ -424,20 +424,20 @@ public class TetrominoCreater : MonoBehaviour
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx + TileContainer.LIST_ONE].m_IsBuilding == false)
-                        { ObjectDetecter.m_canBuild = true; }
-                        else { ObjectDetecter.m_canBuild = false; }
+                        { TileDetector.m_canBuild = true; }
+                        else { TileDetector.m_canBuild = false; }
                         break;
                     case 1:
                         // Catch error
                         if ( _idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height ||
                              _idx == (TileContainer.LIST_WIDTH - 2*TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * m_height)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         else if (_idx - TileContainer.LIST_WIDTH < 0)
                         {
-                            ObjectDetecter.m_canBuild = false;
+                            TileDetector.m_canBuild = false;
                             return;
                         }
                         // Preview
@@ -445,8 +445,8 @@ public class TetrominoCreater : MonoBehaviour
                              m_tileContainer.m_tileList[_idx + TileContainer.LIST_ONE].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx + TileContainer.LIST_ONE - TileContainer.LIST_WIDTH].m_IsBuilding == false &&
                              m_tileContainer.m_tileList[_idx + 2 * TileContainer.LIST_ONE - TileContainer.LIST_WIDTH].m_IsBuilding == false)
-                        { ObjectDetecter.m_canBuild = true; }
-                        else { ObjectDetecter.m_canBuild = false; }
+                        { TileDetector.m_canBuild = true; }
+                        else { TileDetector.m_canBuild = false; }
                         break;
                 }
                 break;
