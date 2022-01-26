@@ -5,6 +5,13 @@ using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 
+enum EPlayerState
+{
+    ENTER,
+    READY,
+    LEAVE,
+}
+
 public class TempRoom : MonoBehaviourPun
 {
     #region UI Field
@@ -26,21 +33,20 @@ public class TempRoom : MonoBehaviourPun
 
     void Awake() => Screen.SetResolution(1920, 1080, false);
 
-    void Start() => photonView.RPC("UpdatePlayer", RpcTarget.MasterClient);
+    void Start() => photonView.RPC("UpdateRoom", RpcTarget.MasterClient, EPlayerState.ENTER);
 
     public void OnClickBack()
     {
         readyButton.interactable = true;
+        photonView.RPC("UpdateRoom", RpcTarget.MasterClient, EPlayerState.LEAVE);
         PhotonNetwork.LeaveRoom();
-        photonView.RPC("UpdatePlayer", RpcTarget.MasterClient, !readyButton.interactable);
         PhotonNetwork.LoadLevel("TempLobby");
     }
 
     public void OnClickReady()
     {
         readyButton.interactable = false;
-        photonView.RPC("UpdatePlayer", RpcTarget.MasterClient, m_readyPlayer, !readyButton.interactable);
- 
+        photonView.RPC("UpdateRoom", RpcTarget.MasterClient, EPlayerState.READY);
     }
 
     public void OnClickConfirm()
@@ -50,25 +56,30 @@ public class TempRoom : MonoBehaviourPun
     }
 
     [PunRPC]
-    void UpdatePlayer()
+    void UpdateRoom(EPlayerState ePlayerState)
     {
-        if (PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient && ePlayerState == EPlayerState.ENTER)
         {
-            photonView.RPC("UpdateReady", RpcTarget.All, m_readyPlayer, false);
-        }  
+            photonView.RPC("UpdatePlayer", RpcTarget.All, m_readyPlayer, false);
+        }
+        else if (PhotonNetwork.IsMasterClient && ePlayerState == EPlayerState.READY)
+        {
+            photonView.RPC("UpdatePlayer", RpcTarget.All, m_readyPlayer, true);
+        }
+        else if (PhotonNetwork.IsMasterClient && ePlayerState == EPlayerState.LEAVE)
+        {
+            photonView.RPC("UpdatePlayer", RpcTarget.All);
+        }
     }
 
     [PunRPC]
-    void UpdateReady(int _readyPlayer, bool _isReady)
+    void UpdatePlayer(int _readyPlayer, bool _isReady)
     {
         print("준비 인원 업데이트");
-        if(PhotonNetwork.IsMasterClient)
+        m_readyPlayer = _readyPlayer;
+        if (_isReady)
         {
-            m_readyPlayer = _readyPlayer;
-            if (_isReady)
-            {
-                m_readyPlayer++;
-            }
+            m_readyPlayer++;
         }
 
         print("인원 정보 업데이트");
@@ -88,10 +99,15 @@ public class TempRoom : MonoBehaviourPun
         }
     }
 
-    void UpdateReady()
+    [PunRPC]
+    void UpdatePlayer()
     {
-        print("준비 인원 업데이트");
+        print("준비 감소 업데이트");
         m_readyPlayer--;
+
+        print("인원 정보 업데이트");
+        joinMemberText.text = "참가 인원: " + PhotonNetwork.CurrentRoom.PlayerCount.ToString();
+        m_readyPlayerText.text = "준비: " + m_readyPlayer.ToString() + "/" + PhotonNetwork.CurrentRoom.MaxPlayers.ToString();
     }
 
     [PunRPC]
