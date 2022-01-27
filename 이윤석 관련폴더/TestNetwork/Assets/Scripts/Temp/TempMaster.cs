@@ -15,7 +15,10 @@ public class TempMaster : MonoBehaviourPunCallbacks
     void Start()
     {
         currentStateText.text = "마스터 서버에 접속 중";
-        PhotonNetwork.ConnectUsingSettings();
+        if(!PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.ConnectUsingSettings();
+        }
     }
 
     public override void OnConnectedToMaster() => currentStateText.text = "온라인 : 마스터 서버 접속 완료";

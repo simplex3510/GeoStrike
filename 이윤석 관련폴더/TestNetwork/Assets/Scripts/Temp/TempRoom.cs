@@ -10,39 +10,28 @@ enum EPlayerState
     ENTER,
     READY,
     LEAVE,
+    CONFIRM
 }
 
 public class TempRoom : MonoBehaviourPunCallbacks
 {
     #region UI Field
     public Text joinMemberText;
-
-    public Text m_readyPlayerText;
+    public Text readyPlayerText;
     public Button readyButton;
-    
-    public Text m_confirmPlayerText;
-    public Text health;
-    public Button confirmButton;
-    public Button attackButton;
-    public Button defenseButton;
     #endregion 
 
-    [SerializeField] int  m_readyPlayer = 0;
-    [SerializeField] int  m_confirmPlayer = 0;
+    [SerializeField] int  readyPlayer = 0;
+    [SerializeField] int  confirmPlayer = 0;
 
     void Awake() => Screen.SetResolution(1920, 1080, false);
 
     void Start() => photonView.RPC("UpdateRoom", RpcTarget.MasterClient, EPlayerState.ENTER, !readyButton.interactable);
 
-    void Update()
-    {
-        print($"룸 참가 인원 수: {PhotonNetwork.CurrentRoom.PlayerCount}")
-    }
-
     public void OnClickBack()
     {
-        PhotonNetwork.LeaveRoom();
         photonView.RPC("UpdateRoom", RpcTarget.MasterClient, EPlayerState.LEAVE, !readyButton.interactable);
+        PhotonNetwork.LeaveRoom();
         PhotonNetwork.LoadLevel("TempMaster");
     }
 
@@ -55,71 +44,84 @@ public class TempRoom : MonoBehaviourPunCallbacks
     public void OnClickConfirm()
     {
         readyButton.interactable = false;
-        photonView.RPC("UpdateConfirm", RpcTarget.All, !readyButton.interactable);
+        photonView.RPC("UpdateRoom", RpcTarget.All, EPlayerState.CONFIRM , !readyButton.interactable);
     }
 
     [PunRPC]
-    void UpdateRoom(EPlayerState ePlayerState, bool _isReady)
+    void UpdateRoom(EPlayerState ePlayerState, bool _isCheck)
     {
-        if (PhotonNetwork.IsMasterClient && ePlayerState == EPlayerState.ENTER)
+        if (PhotonNetwork.IsMasterClient)
         {
-            photonView.RPC("UpdatePlayer", RpcTarget.All, m_readyPlayer, false);
-        }
-        else if (PhotonNetwork.IsMasterClient && ePlayerState == EPlayerState.READY)
-        {
-            photonView.RPC("UpdatePlayer", RpcTarget.All, m_readyPlayer, true);
-        }
-        else if (PhotonNetwork.IsMasterClient && ePlayerState == EPlayerState.LEAVE)
-        {
-            photonView.RPC("UpdatePlayer", RpcTarget.All, _isReady);
+            if(ePlayerState == EPlayerState.ENTER)
+            {
+                photonView.RPC("UpdatePlayer", RpcTarget.All, readyPlayer, false);
+            }
+            else if (ePlayerState == EPlayerState.READY)
+            {
+                photonView.RPC("UpdatePlayer", RpcTarget.All, readyPlayer, true);
+            }
+            else if (ePlayerState == EPlayerState.CONFIRM)
+            {
+                photonView.RPC("UpdateConfirm", RpcTarget.All, confirmPlayer, _isCheck);
+            }
+            else if (ePlayerState == EPlayerState.LEAVE)
+            {
+                photonView.RPC("UpdatePlayer", RpcTarget.All, _isCheck);
+            }
         }
     }
 
     [PunRPC]
-    void UpdatePlayer(int _readyPlayer, bool _isReady)
+    void UpdatePlayer(int _readyPlayer, bool _isCheck)
     {
-        print("준비 인원 업데이트");
-        m_readyPlayer = _readyPlayer;
-        if (_isReady)
+        readyPlayer = _readyPlayer;
+        if (_isCheck)
         {
-            m_readyPlayer++;
+            readyPlayer++;
         }
 
-        print("인원 정보 업데이트");
         joinMemberText.text = $"참가 인원: {PhotonNetwork.CurrentRoom.PlayerCount.ToString()}";
-        m_readyPlayerText.text = $"준비:  {m_readyPlayer.ToString()} / {PhotonNetwork.CurrentRoom.MaxPlayers.ToString()}";
+        readyPlayerText.text = $"준비: {readyPlayer.ToString()} / {PhotonNetwork.CurrentRoom.MaxPlayers.ToString()}";
 
-        if (m_readyPlayer == PhotonNetwork.CurrentRoom.MaxPlayers)
+        if (readyPlayer == PhotonNetwork.CurrentRoom.MaxPlayers)
         {
-            m_readyPlayerText.gameObject.SetActive(false);
+            joinMemberText.gameObject.SetActive(false);
+            readyPlayerText.gameObject.SetActive(false);
             readyButton.gameObject.SetActive(false);
 
-            m_confirmPlayerText.gameObject.SetActive(true);
-            health.gameObject.SetActive(true);
-            confirmButton.gameObject.SetActive(true);
-            attackButton.gameObject.SetActive(true);
-            defenseButton.gameObject.SetActive(true);
+            PhotonNetwork.Instantiate("GameUI", Vector3.zero, Quaternion.identity);
+            PhotonNetwork.Instantiate("GameUI", Vector3.zero, Quaternion.identity);
         }
     }
 
     [PunRPC]
-    void UpdatePlayer(bool _isReady)
+    void UpdatePlayer(bool _isCheck)
     {
         print("준비 감소 업데이트");
-        if(_isReady)
+        if(_isCheck)
         {
-            m_readyPlayer--;
+            readyPlayer--;
         }
 
-        print("인원 정보 업데이트");
-        joinMemberText.text = $"참가 인원: {PhotonNetwork.CurrentRoom.PlayerCount.ToString()}";
-        m_readyPlayerText.text = $"준비:  {m_readyPlayer.ToString()} / {PhotonNetwork.CurrentRoom.MaxPlayers.ToString()}";
+        joinMemberText.text = $"참가 인원: {(PhotonNetwork.CurrentRoom.PlayerCount - 1).ToString()}";
+        readyPlayerText.text = $"준비: {readyPlayer.ToString()} / {PhotonNetwork.CurrentRoom.MaxPlayers.ToString()}";
     }
 
     [PunRPC]
-    void UpdateConfirm()
+    void UpdateConfirm(int _confirmPlayer, bool _isCheck)
     {
-        m_confirmPlayer++;
-        m_confirmPlayerText.text = "완료: " + m_confirmPlayer.ToString() + "/" + PhotonNetwork.CurrentRoom.MaxPlayers.ToString();
+        print("준비 인원 업데이트");
+        confirmPlayer = _confirmPlayer;
+        if (_isCheck)
+        {
+            confirmPlayer++;
+            if(confirmPlayer == PhotonNetwork.CurrentRoom.MaxPlayers)
+            {
+                confirmPlayer = 0;
+            }
+        }
+
+        joinMemberText.text = $"참가 인원: {PhotonNetwork.CurrentRoom.PlayerCount.ToString()}";
+        readyPlayerText.text = $"준비: {readyPlayer.ToString()} / {PhotonNetwork.CurrentRoom.MaxPlayers.ToString()}";
     }
 }

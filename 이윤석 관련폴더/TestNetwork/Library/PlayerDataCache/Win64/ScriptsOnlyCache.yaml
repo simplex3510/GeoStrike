@@ -1,7 +1,6 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - TempGame
     - TempLobby
     - TempMaster
     - TempRoom
@@ -27,6 +26,7 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -47,6 +47,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.Image
     - UnityEngine.UI.Shadow
     - UnityEngine.UI.Slider
@@ -72,13 +73,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1470}
     - Class: 114
-      Script: {instanceID: 2824}
+      Script: {instanceID: 2820}
     - Class: 114
-      Script: {instanceID: 3008}
+      Script: {instanceID: 3004}
     - Class: 114
-      Script: {instanceID: 3254}
+      Script: {instanceID: 3250}
     - Class: 114
-      Script: {instanceID: 3534}
+      Script: {instanceID: 3530}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -115,19 +116,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1472}
     - Class: 114
-      Script: {instanceID: 2824}
+      Script: {instanceID: 2820}
     - Class: 114
-      Script: {instanceID: 3008}
+      Script: {instanceID: 3004}
     - Class: 114
-      Script: {instanceID: 3254}
+      Script: {instanceID: 3250}
     - Class: 114
-      Script: {instanceID: 3522}
+      Script: {instanceID: 3518}
     - Class: 114
-      Script: {instanceID: 3534}
+      Script: {instanceID: 3530}
     - Class: 114
-      Script: {instanceID: 3660}
+      Script: {instanceID: 3656}
     - Class: 114
-      Script: {instanceID: 3774}
+      Script: {instanceID: 3770}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -184,49 +185,49 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1472}
     - Class: 114
-      Script: {instanceID: 1604}
+      Script: {instanceID: 1600}
     - Class: 114
-      Script: {instanceID: 1776}
+      Script: {instanceID: 1772}
+    - Class: 114
+      Script: {instanceID: 1810}
     - Class: 114
       Script: {instanceID: 1814}
     - Class: 114
-      Script: {instanceID: 1818}
+      Script: {instanceID: 2476}
     - Class: 114
-      Script: {instanceID: 2480}
+      Script: {instanceID: 2546}
     - Class: 114
-      Script: {instanceID: 2550}
+      Script: {instanceID: 2820}
     - Class: 114
-      Script: {instanceID: 2824}
+      Script: {instanceID: 3004}
     - Class: 114
-      Script: {instanceID: 3008}
+      Script: {instanceID: 3250}
     - Class: 114
-      Script: {instanceID: 3254}
+      Script: {instanceID: 3518}
     - Class: 114
-      Script: {instanceID: 3522}
+      Script: {instanceID: 3530}
     - Class: 114
-      Script: {instanceID: 3534}
+      Script: {instanceID: 3532}
     - Class: 114
-      Script: {instanceID: 3536}
+      Script: {instanceID: 3656}
     - Class: 114
-      Script: {instanceID: 3660}
+      Script: {instanceID: 4310}
     - Class: 114
-      Script: {instanceID: 4314}
+      Script: {instanceID: 4756}
     - Class: 114
-      Script: {instanceID: 4760}
+      Script: {instanceID: 4762}
     - Class: 114
-      Script: {instanceID: 4766}
+      Script: {instanceID: 4996}
     - Class: 114
-      Script: {instanceID: 5000}
+      Script: {instanceID: 5064}
     - Class: 114
-      Script: {instanceID: 5068}
+      Script: {instanceID: 5162}
     - Class: 114
-      Script: {instanceID: 5166}
+      Script: {instanceID: 5650}
     - Class: 114
-      Script: {instanceID: 5654}
+      Script: {instanceID: 5836}
     - Class: 114
-      Script: {instanceID: 5840}
-    - Class: 114
-      Script: {instanceID: 6286}
+      Script: {instanceID: 6282}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -279,21 +280,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1472}
     - Class: 114
-      Script: {instanceID: 2824}
+      Script: {instanceID: 2820}
     - Class: 114
-      Script: {instanceID: 3008}
+      Script: {instanceID: 3004}
     - Class: 114
-      Script: {instanceID: 3254}
+      Script: {instanceID: 3250}
     - Class: 114
-      Script: {instanceID: 3522}
+      Script: {instanceID: 3518}
     - Class: 114
-      Script: {instanceID: 3532}
+      Script: {instanceID: 3530}
     - Class: 114
-      Script: {instanceID: 3534}
+      Script: {instanceID: 3656}
     - Class: 114
-      Script: {instanceID: 3660}
+      Script: {instanceID: 4108}
     - Class: 114
-      Script: {instanceID: 4112}
+      Script: {instanceID: 6172}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -330,13 +331,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1470}
     - Class: 114
-      Script: {instanceID: 2824}
+      Script: {instanceID: 2820}
     - Class: 114
-      Script: {instanceID: 3008}
+      Script: {instanceID: 3004}
     - Class: 114
-      Script: {instanceID: 3254}
+      Script: {instanceID: 3250}
     - Class: 114
-      Script: {instanceID: 3534}
+      Script: {instanceID: 3530}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1110,7 +1111,7 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 74895150a56b9ee489c1ded10e3d9ae9
+      Hash: b3c0d82474c945aaa043686c8ce19827
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TempRoom
@@ -1524,12 +1525,6 @@ ScriptsOnlyBuild:
     className: TMP_Settings
   - hash:
       serializedVersion: 2
-      Hash: 4336bf1a15807a4c3b231f13451e9e8b
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: TempRoom_
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.2D.Animation.Runtime.dll
     namespaceName: UnityEngine.U2D.Animation
@@ -1799,4 +1794,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/temp/TempRoom.unity
   - Assets/Scenes/temp/TempVictory.unity
   - Assets/Scenes/temp/TempDefeat.unity
-  playerPath: "C:/Users/202010961/\uBC14\uD0D5 \uD654\uBA74/\uD14C\uC2A4\uD2B8 \uBE4C\uB4DC/TestNetwork.exe"
+  playerPath: "C:/Users/User/Desktop/\uD14C\uC2A4\uD2B8\uBE4C\uB4DC/TestNetwork.exe"

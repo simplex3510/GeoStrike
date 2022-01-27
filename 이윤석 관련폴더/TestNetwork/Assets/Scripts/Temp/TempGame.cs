@@ -29,9 +29,9 @@ public class TempGame : MonoBehaviourPun
     [PunRPC]
     void Confirm()
     {
+        photonView.RPC("Battle", RpcTarget.Others);
         damage = 0;
         isDefense = false;
-        photonView.RPC("Battle", RpcTarget.Others);
     }
 
     [PunRPC]
@@ -44,19 +44,22 @@ public class TempGame : MonoBehaviourPun
 
         health -= damage;
         healthText.text = health.ToString();
-        photonView.RPC("ApplyResult", RpcTarget.All);
+        photonView.RPC("UpdateResult", RpcTarget.All);
+
+        // ÈÄÃ³¸®
+        damage = 0;
+        isDefense = false;
     }
 
     public void OnClickAttackOrPrepareAttack()
     {
-        if(isPrepareAttack == false)
+        if(isPrepareAttack)
         {
-            isPrepareAttack = true;
+            damage = Random.Range(MIN_DAMAGE, MAX_DAMAGE + 1);
         }
         else
         {
-            // photonView.RPC("OnClickAttackOrPrepareAttack")
-            damage = Random.Range(MIN_DAMAGE, MAX_DAMAGE + 1);
+            isPrepareAttack = true;
         }
     }
 
@@ -66,7 +69,7 @@ public class TempGame : MonoBehaviourPun
     }
 
     [PunRPC]
-    void ApplyResult()
+    void UpdateResult()
     {
         if (health <= 0)
         {

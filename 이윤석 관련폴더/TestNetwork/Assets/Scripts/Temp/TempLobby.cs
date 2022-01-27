@@ -24,7 +24,7 @@ public class TempLobby : MonoBehaviourPunCallbacks
 
     public void OnClickJoinOrCreateRoom()
     {
-        PhotonNetwork.JoinOrCreateRoom("Temp", new RoomOptions {MaxPlayers = 3}, null);
+        PhotonNetwork.JoinOrCreateRoom("Temp", new RoomOptions {MaxPlayers = 2}, null);
     }
 
     public override void OnJoinedRoom() => PhotonNetwork.LoadLevel("TempRoom");
