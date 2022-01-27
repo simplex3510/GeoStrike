@@ -12,7 +12,7 @@ enum EPlayerState
     LEAVE,
 }
 
-public class TempRoom : MonoBehaviourPun
+public class TempRoom : MonoBehaviourPunCallbacks
 {
     #region UI Field
     public Text joinMemberText;
@@ -30,10 +30,14 @@ public class TempRoom : MonoBehaviourPun
     [SerializeField] int  m_readyPlayer = 0;
     [SerializeField] int  m_confirmPlayer = 0;
 
-
     void Awake() => Screen.SetResolution(1920, 1080, false);
 
     void Start() => photonView.RPC("UpdateRoom", RpcTarget.MasterClient, EPlayerState.ENTER, !readyButton.interactable);
+
+    void Update()
+    {
+        print($"룸 참가 인원 수: {PhotonNetwork.CurrentRoom.PlayerCount}")
+    }
 
     public void OnClickBack()
     {
@@ -82,8 +86,8 @@ public class TempRoom : MonoBehaviourPun
         }
 
         print("인원 정보 업데이트");
-        joinMemberText.text = "참가 인원: " + PhotonNetwork.CurrentRoom.PlayerCount.ToString();
-        m_readyPlayerText.text = "준비: " + m_readyPlayer.ToString() + "/" + PhotonNetwork.CurrentRoom.MaxPlayers.ToString();
+        joinMemberText.text = $"참가 인원: {PhotonNetwork.CurrentRoom.PlayerCount.ToString()}";
+        m_readyPlayerText.text = $"준비:  {m_readyPlayer.ToString()} / {PhotonNetwork.CurrentRoom.MaxPlayers.ToString()}";
 
         if (m_readyPlayer == PhotonNetwork.CurrentRoom.MaxPlayers)
         {
@@ -108,8 +112,8 @@ public class TempRoom : MonoBehaviourPun
         }
 
         print("인원 정보 업데이트");
-        joinMemberText.text = "참가 인원: " + PhotonNetwork.CurrentRoom.PlayerCount.ToString();
-        m_readyPlayerText.text = "준비: " + m_readyPlayer.ToString() + "/" + PhotonNetwork.CurrentRoom.MaxPlayers.ToString();
+        joinMemberText.text = $"참가 인원: {PhotonNetwork.CurrentRoom.PlayerCount.ToString()}";
+        m_readyPlayerText.text = $"준비:  {m_readyPlayer.ToString()} / {PhotonNetwork.CurrentRoom.MaxPlayers.ToString()}";
     }
 
     [PunRPC]
