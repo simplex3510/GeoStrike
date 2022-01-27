@@ -13,16 +13,18 @@ enum EPlayerState
     CONFIRM
 }
 
-public class TempRoom : MonoBehaviourPunCallbacks
+public class TempRoom : MonoBehaviourPun
 {
     #region UI Field
+    public RectTransform gridPanel;
     public Text joinMemberText;
     public Text readyPlayerText;
     public Button readyButton;
+    public GameObject gameUIPrefab;
     #endregion 
 
-    [SerializeField] int  readyPlayer = 0;
-    [SerializeField] int  confirmPlayer = 0;
+    [SerializeField] int readyPlayer = 0;
+    [SerializeField] int confirmPlayer = 0;
 
     void Awake() => Screen.SetResolution(1920, 1080, false);
 
@@ -89,8 +91,8 @@ public class TempRoom : MonoBehaviourPunCallbacks
             readyPlayerText.gameObject.SetActive(false);
             readyButton.gameObject.SetActive(false);
 
-            PhotonNetwork.Instantiate("GameUI", Vector3.zero, Quaternion.identity);
-            PhotonNetwork.Instantiate("GameUI", Vector3.zero, Quaternion.identity);
+            Instantiate(gameUIPrefab, Vector3.zero, Quaternion.identity).transform.SetParent(gridPanel.transform);
+            Instantiate(gameUIPrefab, Vector3.zero, Quaternion.identity).transform.SetParent(gridPanel.transform);
         }
     }
 
