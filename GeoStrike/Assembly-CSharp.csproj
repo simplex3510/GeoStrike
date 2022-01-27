@@ -63,9 +63,9 @@
     <Compile Include="Assets\Scripts\Tetromino\Tetromino.cs" />
     <Compile Include="Assets\Scripts\Unit\TranslocateField.cs" />
     <Compile Include="Assets\Scripts\UI\TetrominoSlot.cs" />
+    <Compile Include="Assets\Scripts\Tetromino\TileDetector.cs" />
     <Compile Include="Assets\Scripts\Manager\GameMgr.cs" />
     <Compile Include="Assets\Scripts\UI\MouseController.cs" />
-    <Compile Include="Assets\Scripts\Tetromino\TileDetector.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
