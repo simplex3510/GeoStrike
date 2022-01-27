@@ -55,7 +55,7 @@ public class TempGame : MonoBehaviourPun
         }
         else
         {
-            photonView.RPC("OnClickAttackOrPrepareAttack")
+            // photonView.RPC("OnClickAttackOrPrepareAttack")
             damage = Random.Range(MIN_DAMAGE, MAX_DAMAGE + 1);
         }
     }

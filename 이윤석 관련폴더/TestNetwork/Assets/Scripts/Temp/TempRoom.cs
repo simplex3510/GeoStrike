@@ -33,29 +33,29 @@ public class TempRoom : MonoBehaviourPun
 
     void Awake() => Screen.SetResolution(1920, 1080, false);
 
-    void Start() => photonView.RPC("UpdateRoom", RpcTarget.MasterClient, EPlayerState.ENTER);
+    void Start() => photonView.RPC("UpdateRoom", RpcTarget.MasterClient, EPlayerState.ENTER, !readyButton.interactable);
 
     public void OnClickBack()
     {
         PhotonNetwork.LeaveRoom();
-        photonView.RPC("UpdateRoom", RpcTarget.MasterClient, EPlayerState.LEAVE);
-        PhotonNetwork.LoadLevel("TempLobby");
+        photonView.RPC("UpdateRoom", RpcTarget.MasterClient, EPlayerState.LEAVE, !readyButton.interactable);
+        PhotonNetwork.LoadLevel("TempMaster");
     }
 
     public void OnClickReady()
     {
         readyButton.interactable = false;
-        photonView.RPC("UpdateRoom", RpcTarget.MasterClient, EPlayerState.READY);
+        photonView.RPC("UpdateRoom", RpcTarget.MasterClient, EPlayerState.READY, !readyButton.interactable);
     }
 
     public void OnClickConfirm()
     {
         readyButton.interactable = false;
-        photonView.RPC("UpdateConfirm", RpcTarget.All);
+        photonView.RPC("UpdateConfirm", RpcTarget.All, !readyButton.interactable);
     }
 
     [PunRPC]
-    void UpdateRoom(EPlayerState ePlayerState)
+    void UpdateRoom(EPlayerState ePlayerState, bool _isReady)
     {
         if (PhotonNetwork.IsMasterClient && ePlayerState == EPlayerState.ENTER)
         {
@@ -67,7 +67,7 @@ public class TempRoom : MonoBehaviourPun
         }
         else if (PhotonNetwork.IsMasterClient && ePlayerState == EPlayerState.LEAVE)
         {
-            photonView.RPC("UpdatePlayer", RpcTarget.All);
+            photonView.RPC("UpdatePlayer", RpcTarget.All, _isReady);
         }
     }
 
@@ -99,10 +99,13 @@ public class TempRoom : MonoBehaviourPun
     }
 
     [PunRPC]
-    void UpdatePlayer()
+    void UpdatePlayer(bool _isReady)
     {
         print("준비 감소 업데이트");
-        m_readyPlayer--;
+        if(_isReady)
+        {
+            m_readyPlayer--;
+        }
 
         print("인원 정보 업데이트");
         joinMemberText.text = "참가 인원: " + PhotonNetwork.CurrentRoom.PlayerCount.ToString();
