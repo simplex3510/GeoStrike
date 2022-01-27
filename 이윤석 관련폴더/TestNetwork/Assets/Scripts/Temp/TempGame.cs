@@ -7,7 +7,7 @@ using Photon.Realtime;
 
 enum EResult
 {
-    NONE,
+    BATTLE,
     VICTORY,
     DEFEATE
 }
@@ -22,8 +22,9 @@ public class TempGame : MonoBehaviourPun
     int confirm = 0;
     int health = 100;
     int damage = 0;
+    bool isPrepareAttack = false;
     bool isDefense = false;
-    EResult E_Result = EResult.NONE;
+    EResult eResult = EResult.BATTLE;
 
     [PunRPC]
     void Confirm()
@@ -38,12 +39,30 @@ public class TempGame : MonoBehaviourPun
     {
         if(isDefense)
         {
-            damage = 0;
+            damage = 0;	
         }
 
         health -= damage;
         healthText.text = health.ToString();
         photonView.RPC("ApplyResult", RpcTarget.All);
+    }
+
+    public void OnClickAttackOrPrepareAttack()
+    {
+        if(isPrepareAttack == false)
+        {
+            isPrepareAttack = true;
+        }
+        else
+        {
+            photonView.RPC("OnClickAttackOrPrepareAttack")
+            damage = Random.Range(MIN_DAMAGE, MAX_DAMAGE + 1);
+        }
+    }
+
+    public void OnClickDefense()
+    {
+        isDefense = true;
     }
 
     [PunRPC]
@@ -59,15 +78,5 @@ public class TempGame : MonoBehaviourPun
             print("victory");
             PhotonNetwork.LoadLevel("TempVictory");
         }
-    }
-
-    public void OnClickAttack()
-    {
-        damage = Random.Range(MIN_DAMAGE, MAX_DAMAGE + 1);
-    }
-
-    public void OnClickDefense()
-    {
-        isDefense = true;
     }
 }

@@ -37,9 +37,8 @@ public class TempRoom : MonoBehaviourPun
 
     public void OnClickBack()
     {
-        readyButton.interactable = true;
-        photonView.RPC("UpdateRoom", RpcTarget.MasterClient, EPlayerState.LEAVE);
         PhotonNetwork.LeaveRoom();
+        photonView.RPC("UpdateRoom", RpcTarget.MasterClient, EPlayerState.LEAVE);
         PhotonNetwork.LoadLevel("TempLobby");
     }
 
