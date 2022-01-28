@@ -6,17 +6,17 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     // World timer
-    [SerializeField] private Text m_worldTimeTXT;
-    private float m_sec = 0f;
-    private int m_min = 0;
+    [SerializeField] private Text worldTimeTXT;
+    private float sec = 0f;
+    private int min = 0;
     private readonly int MAX_SEC = 59;
 
     // Player timer
-    [SerializeField] private Text m_playerTimeTXT;
-    [SerializeField] private float m_waitingTime;
-    public float m_playerATime = 0f;
-    public float m_playerBTime = 0f;
-    public bool m_isReady = false;
+    [SerializeField] private Text playerTimeTXT;
+    [SerializeField] private float waitingTime;
+    public float playerATime = 0f;
+    public float playerBTime = 0f;
+    public bool isReady = false;
 
     private void Update()
     {
@@ -26,25 +26,25 @@ public class Timer : MonoBehaviour
 
     private void PlayerTimer()
     {
-        m_playerATime += Time.deltaTime;
-        m_playerTimeTXT.text = string.Format("{0:D}s", (int)m_playerATime);
+        playerATime += Time.deltaTime;
+        playerTimeTXT.text = string.Format("{0:D}s", (int)playerATime);
 
-        if (m_playerATime >= m_waitingTime) 
+        if (playerATime >= waitingTime) 
         {
-            m_isReady = true;
-            m_playerATime = 0f;
+            isReady = true;
+            playerATime = 0f;
         }
     }
 
     private void WorldTimer()
     {
-        m_sec += Time.deltaTime;
-        m_worldTimeTXT.text = string.Format("{0:D2} : {1:D2}", m_min, (int)m_sec);
+        sec += Time.deltaTime;
+        worldTimeTXT.text = string.Format("{0:D2} : {1:D2}", min, (int)sec);
 
-        if((int)m_sec > MAX_SEC)
+        if((int)sec > MAX_SEC)
         {
-            m_sec = 0;
-            m_min++;
+            sec = 0;
+            min++;
         }
     }
 }

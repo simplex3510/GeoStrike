@@ -6,25 +6,25 @@ using UnityEngine.UI;
 
 public class TetrominoTile : MonoBehaviour
 {
-    public bool m_IsBuilding { get; set; }
-    public SpriteRenderer m_Image;
+    public bool isBuilding { get; set; }
+    public SpriteRenderer image;
 
     private void Awake()
     {
-        if (m_Image == null) { m_Image = GetComponent<SpriteRenderer>(); }
-        m_IsBuilding = false;
+        if (image == null) { image = GetComponent<SpriteRenderer>(); }
+        isBuilding = false;
     }
 
     private void Update()
     {
-        Set_color(m_IsBuilding);
+        Set_color(isBuilding);
     }
 
     public void Set_color(bool _bool)
     {
-        if (m_IsBuilding)
+        if (isBuilding)
         {
-            m_Image.color = Color.black;
+            image.color = Color.black;
         }
     }
 }

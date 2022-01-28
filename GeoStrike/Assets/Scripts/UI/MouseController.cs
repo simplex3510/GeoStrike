@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class MouseController : MonoBehaviour
 {
-    public enum E_MouseMode
+    public enum EMouseMode
     {
         normal,
         create
     }
 
-    public Vector3 m_mousePos;
-    public E_MouseMode m_mouseMode;
+    public Vector3 mousePos;
+    public EMouseMode emouseMode;
 
     private void Update()
     {
-        m_mousePos = Input.mousePosition;
+        mousePos = Input.mousePosition;
     }
 
     public void CursorVisible(bool _bool)

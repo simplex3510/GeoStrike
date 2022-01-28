@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Tetromino\TileDetector.cs" />
     <Compile Include="Assets\Scripts\Manager\GameMgr.cs" />
     <Compile Include="Assets\Scripts\UI\MouseController.cs" />
+    <Compile Include="Assets\Scripts\UI\TetrominoSlotContainer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -95,8 +95,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d79ed7540622b64e9fb9c2c0f34e4e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_rotateTetrominoObjList:
+  rotateTetrominoObjList:
   - {fileID: 4443474530963257734}
   - {fileID: 8895830472588059912, guid: 5c16a6a1aef714d4d87dae5a3b112577, type: 3}
   - {fileID: 5337201497820464270, guid: 8942c92243674e345994c6478386058c, type: 3}
   - {fileID: 1216555880886485629, guid: 2f1e8717fb067a54b899dc50bcccb7bb, type: 3}
+  slotSprite: {fileID: 21300000, guid: 79de276e82501f94fbdb7efd5719166a, type: 3}

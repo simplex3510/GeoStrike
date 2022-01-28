@@ -39,6 +39,5 @@ public class GameMgr : MonoBehaviour
     #endregion
 
     // Slot °ü¸®
-    public List<Tetromino> m_tetrtominoList = new List<Tetromino>();
-    public List<TetrominoSlot> m_slotList = new List<TetrominoSlot>();
+    public List<Tetromino> tetrtominoList = new List<Tetromino>();
 }

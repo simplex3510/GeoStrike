@@ -10,27 +10,27 @@ public class TetrominoPreview : MonoBehaviour
     public static TetrominoPreview instance;
 
     public Image m_previewImage;
-    public TetrominoSlot m_clickSlot;
+    public TetrominoSlot clickSlot;
     public Vector3 m_previewOriginPos;
 
     // Preview size controll
-    public RectTransform m_rectTransform;
+    public RectTransform rectTransform;
     public Vector2 m_previewOriginSize;
 
     private void Start()
     {
         instance = this;
         m_previewOriginPos = transform.position;
-        m_previewOriginSize = m_rectTransform.sizeDelta;
+        m_previewOriginSize = rectTransform.sizeDelta;
     }
 
     public void ClearPreview()
     {
-        m_cameraController.m_mouseController.m_mouseMode = MouseController.E_MouseMode.normal;
+        m_cameraController.mouseController.emouseMode = MouseController.EMouseMode.normal;
         transform.position = m_previewOriginPos;
         m_previewImage.sprite = null;
-        m_rectTransform.sizeDelta = m_previewOriginSize;
-        instance.m_clickSlot = null;
-        m_cameraController.m_mouseController.CursorVisible(true);
+        rectTransform.sizeDelta = m_previewOriginSize;
+        instance.clickSlot = null;
+        m_cameraController.mouseController.CursorVisible(true);
     }
 }

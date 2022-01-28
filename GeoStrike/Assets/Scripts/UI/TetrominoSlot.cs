@@ -7,23 +7,25 @@ using UnityEngine.EventSystems;
 public class TetrominoSlot : MonoBehaviour, IPointerClickHandler
 {
     // Components
-    [SerializeField] private CameraController m_cameraController;
-    [SerializeField] private TileDetector m_tileDetector;
+    [SerializeField] private CameraController cameraController;
+    [SerializeField] private TileDetector tileDetector;
+    [SerializeField] private TetrominoSlotContainer slotContainer;
 
     // Random block
-    public Image m_buildImage;
-    public GameObject m_tetrominoPrefab;
+    public Image showSlotImage;
+    public Image forPreviewImage;
+    public GameObject tetrominoPrefab;
 
-    public int m_currentBlockShape;
-    public int m_currentBlockRotation;
+    public int currentBlockShape;
+    public int currentBlockRotation;
 
-    public Vector3 m_currentBlockAngle;
-    public Vector3 m_tilePos;
-    public Vector3 m_tileSize;
+    public Vector3 imageAngle;
+    public Vector3 tilePos;
+    public Vector3 tileSize;
 
     // Size
-    public Vector2 m_tetrominoImgSize;
-    public Vector3 m_offset;
+    public Vector2 tetrominoImgSize;
+    public Vector3 offset;
 
     private void Start()
     {
@@ -33,10 +35,10 @@ public class TetrominoSlot : MonoBehaviour, IPointerClickHandler
     // When choice slot.
     public void ChoiceTetromino()
     {
-        TetrominoPreview.instance.m_clickSlot = this;
-        TetrominoPreview.instance.m_previewImage.sprite = m_buildImage.sprite;
-        m_cameraController.m_mouseController.m_mouseMode = MouseController.E_MouseMode.create;
-        StartCoroutine(IE_TetrominoPreviewPos());
+        TetrominoPreview.instance.clickSlot = this;
+        TetrominoPreview.instance.m_previewImage.sprite = forPreviewImage.sprite;
+        cameraController.mouseController.emouseMode = MouseController.EMouseMode.create;
+        StartCoroutine(CTetrominoPreviewPos());
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -46,94 +48,121 @@ public class TetrominoSlot : MonoBehaviour, IPointerClickHandler
             ChoiceTetromino();
             PreviewImgSize();
 
-            m_cameraController.m_mouseController.CursorVisible(false);
+            cameraController.mouseController.CursorVisible(false);
         }
     }
 
     // Set preview size
     private void PreviewImgSize()
     {
-        m_tetrominoImgSize = m_buildImage.sprite.rect.size;
-        TetrominoPreview.instance.m_rectTransform.sizeDelta = TetrominoPreview.instance.m_clickSlot.m_tetrominoImgSize * 2.15f;
+        tetrominoImgSize = forPreviewImage.sprite.rect.size;
+        TetrominoPreview.instance.rectTransform.sizeDelta = TetrominoPreview.instance.clickSlot.tetrominoImgSize * 2.15f;
     }
 
     public Vector3 Get_TilePos(TetrominoTile _tile)
     {
-        if (_tile == null) { m_tilePos = Vector3.zero; }
+        if (_tile == null) { tilePos = Vector3.zero; }
         else
         {
-            m_tilePos = _tile.transform.position;
+            tilePos = _tile.transform.position;
         }
-        return m_tilePos;
+        return tilePos;
     }
 
     public void RandomTetromino()
     {
         int RandShape = Random.Range(0, 7);
-        m_currentBlockShape = RandShape;
+        currentBlockShape = RandShape;
 
         switch (RandShape)
         {
             // 'け' - Has 0 type
             case 0:
-                m_currentBlockRotation = 0;
+                currentBlockRotation = 0;
                 break;
             // 'び' - Has 2types
             case 1:
-                m_currentBlockRotation = Random.Range(0, 2);
+                currentBlockRotation = Random.Range(0, 2);
                 break;
             // 'た' - Has 4types
             case 2:
-                m_currentBlockRotation = Random.Range(0, 4);
+                currentBlockRotation = Random.Range(0, 4);
                 break;
             // 'い' - Has 4types
             case 3:
-                m_currentBlockRotation = Random.Range(0, 4);
+                currentBlockRotation = Random.Range(0, 4);
                 break;
             // '-い' - Has 4types
             case 4:
-                m_currentBlockRotation = Random.Range(0, 4);
+                currentBlockRotation = Random.Range(0, 4);
                 break;
             // 'Z' - Has 2types
             case 5:
-                m_currentBlockRotation = Random.Range(0, 2);
+                currentBlockRotation = Random.Range(0, 2);
                 break;
             // '-Z' - Has 2types
             case 6:
-                m_currentBlockRotation = Random.Range(0, 2);
+                currentBlockRotation = Random.Range(0, 2);
                 break;
         }
 
         // Random tetromino data
-        m_tetrominoPrefab = GameMgr.instance.m_tetrtominoList[m_currentBlockShape].GetComponent<Tetromino>().m_rotateTetrominoObjList[m_currentBlockRotation];
-        m_buildImage.sprite = m_tetrominoPrefab.GetComponent<SpriteRenderer>().sprite;
+        tetrominoPrefab = GameMgr.instance.tetrtominoList[currentBlockShape].GetComponent<Tetromino>().rotateTetrominoObjList[currentBlockRotation];
+        ShowSlotImage(RandShape, currentBlockRotation);
+        forPreviewImage.sprite = tetrominoPrefab.GetComponent<SpriteRenderer>().sprite;
     }
 
-    IEnumerator IE_Cancel()
+    private Vector3 ImageRotation(int _rot)
+    {
+        switch (_rot)
+        {
+            case 0:
+                imageAngle = Vector3.zero;
+                break;
+            case 1:
+                imageAngle = new Vector3(0f, 0f, -90f);
+                break;
+            case 2:
+                imageAngle = new Vector3(0f, 0f, -180f);
+                break;
+            case 3:
+                imageAngle = new Vector3(0f, 0f, -270f);
+                break;
+        }  
+        return imageAngle;
+    }
+
+    private void ShowSlotImage(int _shape, int _rot) 
+    {
+        showSlotImage.sprite = GameMgr.instance.tetrtominoList[currentBlockShape].GetComponent<Tetromino>().slotSprite;
+        showSlotImage.GetComponent<RectTransform>().rotation = Quaternion.Euler(ImageRotation(_rot));
+    }
+
+    IEnumerator CCancel()
     {
         if (Input.GetKeyDown(KeyCode.Escape) || (Input.GetMouseButtonDown(1)))
         {
             TetrominoPreview.instance.ClearPreview();
 
-            m_cameraController.m_mouseController.CursorVisible(true);
+            cameraController.mouseController.CursorVisible(true);
         }
         yield return null;
     }
 
-    IEnumerator IE_TetrominoPreviewPos()
+    IEnumerator CTetrominoPreviewPos()
     {
-        while (m_cameraController.m_mouseController.m_mouseMode == MouseController.E_MouseMode.create)
+        while (cameraController.mouseController.emouseMode == MouseController.EMouseMode.create)
         {
-            TetrominoPreview.instance.transform.position = Camera.main.WorldToScreenPoint(Get_TilePos(m_tileDetector.m_tile)) - PreviewPosOffset();
+            TetrominoPreview.instance.transform.position = Camera.main.WorldToScreenPoint(Get_TilePos(tileDetector.tile)) - PreviewPosOffset();
 
-            StartCoroutine(IE_Cancel());
+            StartCoroutine(CCancel());
             yield return null;
         }
     }
 
     public Vector3 PreviewPosOffset()
     {
-        m_offset = new Vector3(53f, 51f);
-        return m_offset;
+        offset = new Vector3(53f, 51f);
+        return offset;
     }
 }

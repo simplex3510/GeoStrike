@@ -5,5 +5,6 @@ using UnityEngine.UI;
 
 public class Tetromino : MonoBehaviour
 {
-    public List<GameObject> m_rotateTetrominoObjList = new List<GameObject>();
+    public List<GameObject> rotateTetrominoObjList = new List<GameObject>();
+    public Sprite slotSprite;
 }

@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class TileDetector : MonoBehaviour
 {
-    [SerializeField] private CameraController m_cameraController;
-    [SerializeField] private TetrominoCreater m_creater;
+    [SerializeField] private CameraController cameraController;
+    [SerializeField] private TetrominoCreater creater;
 
-    private Camera m_mainCamera;
-    private Ray m_ray;
-    private RaycastHit m_hit;
-    [HideInInspector] public TetrominoTile m_tile;
-    private int m_tileIdx;
-    public static bool m_canBuild { get; set; }
+    private Camera mainCamera;
+    private Ray ray;
+    private RaycastHit hit;
+    [HideInInspector] public TetrominoTile tile;
+    private int tileIdx;
+    public static bool canBuild { get; set; }
 
     private void Awake()
     {
-        m_mainCamera = Camera.main;
-        m_canBuild = true;
+        mainCamera = Camera.main;
+        canBuild = true;
     }
 
     private void Update()
@@ -27,25 +27,25 @@ public class TileDetector : MonoBehaviour
 
     private Vector3 Get_TileSize()
     {
-        float tileX = m_tile.GetComponent<SpriteRenderer>().bounds.size.x / 2;
-        float tileY = m_tile.GetComponent<SpriteRenderer>().bounds.size.y / 2;
-        Vector3 tilePointer = m_hit.transform.position - new Vector3(tileX, tileY);
+        float tileX = tile.GetComponent<SpriteRenderer>().bounds.size.x / 2;
+        float tileY = tile.GetComponent<SpriteRenderer>().bounds.size.y / 2;
+        Vector3 tilePointer = hit.transform.position - new Vector3(tileX, tileY);
 
         return tilePointer;
     }
 
     private void CheckBuildPreview()
     {
-        if (m_cameraController.m_mouseController.m_mouseMode == MouseController.E_MouseMode.create)
+        if (cameraController.mouseController.emouseMode == MouseController.EMouseMode.create)
         {
-            m_ray = m_mainCamera.ScreenPointToRay(m_cameraController.m_mouseController.m_mousePos);
-            if (Physics.Raycast(m_ray, out m_hit, Mathf.Infinity))
+            ray = mainCamera.ScreenPointToRay(cameraController.mouseController.mousePos);
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                if (m_hit.transform.CompareTag("BuildTile") && m_cameraController.m_mouseController.m_mouseMode == MouseController.E_MouseMode.create)
+                if (hit.transform.CompareTag("TetrominoTile") && cameraController.mouseController.emouseMode == MouseController.EMouseMode.create)
                 {
                     // Get the index of the tile at the selected position
-                    m_tile = m_hit.transform.GetComponent<TetrominoTile>();
-                    m_tileIdx = m_creater.m_tileContainer.m_tileList.IndexOf(m_tile);
+                    tile = hit.transform.GetComponent<TetrominoTile>();
+                    tileIdx = creater.tileContainer.tileList.IndexOf(tile);
 
                     // Check tile befor Build tetromino
                     StartCoroutine(CheckTile());
@@ -57,12 +57,12 @@ public class TileDetector : MonoBehaviour
     IEnumerator CheckTile()
     {
         // Check tile
-        m_creater.CanBuildPreview(TetrominoPreview.instance.m_clickSlot.m_currentBlockShape, TetrominoPreview.instance.m_clickSlot.m_currentBlockRotation, m_tileIdx);
+        creater.CanBuildPreview(TetrominoPreview.instance.clickSlot.currentBlockShape, TetrominoPreview.instance.clickSlot.currentBlockRotation, tileIdx);
 
         // Build tetromino
-        if (Input.GetMouseButton(0) && m_canBuild)
+        if (Input.GetMouseButton(0) && canBuild)
         {
-            m_creater.BuildTetromino(TetrominoPreview.instance.m_clickSlot.m_tetrominoPrefab, Get_TileSize(), TetrominoPreview.instance.m_clickSlot.m_currentBlockRotation, m_tileIdx);
+            creater.BuildTetromino(TetrominoPreview.instance.clickSlot.tetrominoPrefab, Get_TileSize(), TetrominoPreview.instance.clickSlot.currentBlockRotation, tileIdx);
         }
 
         yield return null;

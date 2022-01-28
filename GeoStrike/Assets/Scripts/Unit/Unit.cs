@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    public enum E_UnitState
+    public enum EUnitState
     {
         Wait,
         Move
     }
 
-    public E_UnitState E_unitState;
+    public EUnitState eUnitState;
 }

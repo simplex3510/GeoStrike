@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private Camera m_mainCamera;
-    public MouseController m_mouseController;
+    [SerializeField] private Camera mainCamera;
+    public MouseController mouseController;
 
     // Camera Movement by mouse Position
-    [SerializeField] private RectTransform m_rectTransform;     // Resolution 1920 x 1080
-    [SerializeField] private float m_cameraSpeed;
+    [SerializeField] private RectTransform rectTransform;     // Resolution 1920 x 1080
+    [SerializeField] private float cameraSpeed;
     private readonly int ZERO = 0;
 
     // Camera Zoom
-    [SerializeField] float m_zoomSpeed = 0f;
-    [SerializeField] float m_zoomIn = 0f;
-    [SerializeField] float m_zoomOut = 0f;
+    [SerializeField] float zoomSpeed = 0f;
+    [SerializeField] float zoomIn = 0f;
+    [SerializeField] float zoomOut = 0f;
 
     private void Awake()
     {
-        if (m_mainCamera == null) { m_mainCamera = GetComponent<Camera>(); }
-        if (m_mouseController == null) { m_mouseController = GetComponent<MouseController>(); }
+        if (mainCamera == null) { mainCamera = GetComponent<Camera>(); }
+        if (mouseController == null) { mouseController = GetComponent<MouseController>(); }
     }
 
     private void Update()
@@ -34,36 +34,36 @@ public class CameraController : MonoBehaviour
         Vector3 velocity;
     
         // Camera move horizotnal
-        if ((m_mouseController.m_mousePos.x >= m_rectTransform.rect.width) || (Input.GetKey(KeyCode.RightArrow)))
+        if ((mouseController.mousePos.x >= rectTransform.rect.width) || (Input.GetKey(KeyCode.RightArrow)))
         {
             velocity = transform.position + Vector3.right;
-            transform.position = Vector3.Lerp(transform.position, velocity, m_cameraSpeed);
+            transform.position = Vector3.Lerp(transform.position, velocity, cameraSpeed);
         }
-        else if (m_mouseController.m_mousePos.x <= ZERO || (Input.GetKey(KeyCode.LeftArrow)))
+        else if (mouseController.mousePos.x <= ZERO || (Input.GetKey(KeyCode.LeftArrow)))
         {
             velocity = transform.position - Vector3.right;
-            transform.position = Vector3.Lerp(transform.position, velocity, m_cameraSpeed);
+            transform.position = Vector3.Lerp(transform.position, velocity, cameraSpeed);
         }
 
         // Camera move vertical
-        if (m_mouseController.m_mousePos.y >= m_rectTransform.rect.height || (Input.GetKey(KeyCode.UpArrow)))
+        if (mouseController.mousePos.y >= rectTransform.rect.height || (Input.GetKey(KeyCode.UpArrow)))
         {
             velocity = transform.position + Vector3.up;
-            transform.position = Vector3.Lerp(transform.position, velocity, m_cameraSpeed);
+            transform.position = Vector3.Lerp(transform.position, velocity, cameraSpeed);
         }
-        else if (m_mouseController.m_mousePos.y <= ZERO || (Input.GetKey(KeyCode.DownArrow)))
+        else if (mouseController.mousePos.y <= ZERO || (Input.GetKey(KeyCode.DownArrow)))
         {
             velocity = transform.position - Vector3.up;
-            transform.position = Vector3.Lerp(transform.position, velocity, m_cameraSpeed);
+            transform.position = Vector3.Lerp(transform.position, velocity, cameraSpeed);
         }
     }
 
     private void CameraZoom()
     {
         float zoomDir = Input.GetAxis("Mouse ScrollWheel");
-        float currentSize = m_mainCamera.orthographicSize - zoomDir * m_zoomSpeed;
+        float currentSize = mainCamera.orthographicSize - zoomDir * zoomSpeed;
 
-        m_mainCamera.orthographicSize = Mathf.Clamp(currentSize, m_zoomIn, m_zoomOut);
+        mainCamera.orthographicSize = Mathf.Clamp(currentSize, zoomIn, zoomOut);
     }
 
     
