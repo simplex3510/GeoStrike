@@ -548,9 +548,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd401ff6bbc2064459d48c3182ed0cc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridPanel: {fileID: 1562184300}
   joinMemberText: {fileID: 2117753817}
   readyPlayerText: {fileID: 1968305104}
   readyButton: {fileID: 565930335}
+  gameUIPrefab: {fileID: 4346220668872717975, guid: 123f6c57a1b2dd0428a76b7e4f75fce9, type: 3}
   readyPlayer: 0
   confirmPlayer: 0
 --- !u!114 &952139683

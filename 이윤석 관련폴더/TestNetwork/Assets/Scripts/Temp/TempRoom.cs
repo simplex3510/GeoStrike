@@ -13,20 +13,27 @@ enum EPlayerState
     CONFIRM
 }
 
-public class TempRoom : MonoBehaviourPunCallbacks
+public class TempRoom : MonoBehaviourPun
 {
     #region UI Field
+    public RectTransform gridPanel;
     public Text joinMemberText;
     public Text readyPlayerText;
     public Button readyButton;
+
+    public GameObject gameUIPrefab;
     #endregion 
 
-    [SerializeField] int  readyPlayer = 0;
-    [SerializeField] int  confirmPlayer = 0;
+    [SerializeField] int readyPlayer = 0;
+    [SerializeField] int confirmPlayer = 0;
 
     void Awake() => Screen.SetResolution(1920, 1080, false);
 
-    void Start() => photonView.RPC("UpdateRoom", RpcTarget.MasterClient, EPlayerState.ENTER, !readyButton.interactable);
+    void Start()
+    {
+        tempGame = new TempGame();
+        photonView.RPC("UpdateRoom", RpcTarget.MasterClient, EPlayerState.ENTER, !readyButton.interactable);
+    }
 
     public void OnClickBack()
     {
@@ -89,15 +96,16 @@ public class TempRoom : MonoBehaviourPunCallbacks
             readyPlayerText.gameObject.SetActive(false);
             readyButton.gameObject.SetActive(false);
 
-            PhotonNetwork.Instantiate("GameUI", Vector3.zero, Quaternion.identity);
-            PhotonNetwork.Instantiate("GameUI", Vector3.zero, Quaternion.identity);
+            if (photonView.IsMine)
+            {
+                Instantiate(gameUIPrefab, Vector3.zero, Quaternion.identity).transform.SetParent(gridPanel.transform);
+            }
         }
     }
 
     [PunRPC]
     void UpdatePlayer(bool _isCheck)
     {
-        print("준비 감소 업데이트");
         if(_isCheck)
         {
             readyPlayer--;
@@ -110,7 +118,6 @@ public class TempRoom : MonoBehaviourPunCallbacks
     [PunRPC]
     void UpdateConfirm(int _confirmPlayer, bool _isCheck)
     {
-        print("준비 인원 업데이트");
         confirmPlayer = _confirmPlayer;
         if (_isCheck)
         {
