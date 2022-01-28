@@ -27,15 +27,14 @@ public class TempGame : MonoBehaviourPun
     EResult eResult = EResult.BATTLE;
 
     [PunRPC]
-    void Confirm()
+    // RpcTarget.All로 수신
+    void Confirm() 
     {
-        photonView.RPC("Battle", RpcTarget.Others);
-        damage = 0;
-        isDefense = false;
+        photonView.RPC("Battle", RpcTarget.All);    // instantiate로 하면 all, 아니면 others
     }
 
     [PunRPC]
-    void Battle()
+    void Battle(int _damage, bool _isDefense, bool _isPrepareAttack)
     {
         if(isDefense)
         {
@@ -46,14 +45,14 @@ public class TempGame : MonoBehaviourPun
         healthText.text = health.ToString();
         photonView.RPC("UpdateResult", RpcTarget.All);
 
-        // 후처리
+        // Post-Processing
         damage = 0;
         isDefense = false;
     }
 
     public void OnClickAttackOrPrepareAttack()
     {
-        if(isPrepareAttack)
+        if (isPrepareAttack)
         {
             damage = Random.Range(MIN_DAMAGE, MAX_DAMAGE + 1);
         }

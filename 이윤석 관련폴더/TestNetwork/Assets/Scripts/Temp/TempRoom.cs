@@ -20,6 +20,7 @@ public class TempRoom : MonoBehaviourPun
     public Text joinMemberText;
     public Text readyPlayerText;
     public Button readyButton;
+
     public GameObject gameUIPrefab;
     #endregion 
 
@@ -28,7 +29,11 @@ public class TempRoom : MonoBehaviourPun
 
     void Awake() => Screen.SetResolution(1920, 1080, false);
 
-    void Start() => photonView.RPC("UpdateRoom", RpcTarget.MasterClient, EPlayerState.ENTER, !readyButton.interactable);
+    void Start()
+    {
+        tempGame = new TempGame();
+        photonView.RPC("UpdateRoom", RpcTarget.MasterClient, EPlayerState.ENTER, !readyButton.interactable);
+    }
 
     public void OnClickBack()
     {
@@ -91,15 +96,16 @@ public class TempRoom : MonoBehaviourPun
             readyPlayerText.gameObject.SetActive(false);
             readyButton.gameObject.SetActive(false);
 
-            Instantiate(gameUIPrefab, Vector3.zero, Quaternion.identity).transform.SetParent(gridPanel.transform);
-            Instantiate(gameUIPrefab, Vector3.zero, Quaternion.identity).transform.SetParent(gridPanel.transform);
+            if (photonView.IsMine)
+            {
+                Instantiate(gameUIPrefab, Vector3.zero, Quaternion.identity).transform.SetParent(gridPanel.transform);
+            }
         }
     }
 
     [PunRPC]
     void UpdatePlayer(bool _isCheck)
     {
-        print("준비 감소 업데이트");
         if(_isCheck)
         {
             readyPlayer--;
@@ -112,7 +118,6 @@ public class TempRoom : MonoBehaviourPun
     [PunRPC]
     void UpdateConfirm(int _confirmPlayer, bool _isCheck)
     {
-        print("준비 인원 업데이트");
         confirmPlayer = _confirmPlayer;
         if (_isCheck)
         {
