@@ -25,6 +25,7 @@ public class TempRoom : MonoBehaviourPun
     public Text readyPlayerText;
     public Button readyButton;
     [SerializeField] Button confirmButton;
+    [SerializeField] GameObject[] UI;
     #endregion 
 
     [SerializeField] int readyPlayer = 0;
@@ -63,6 +64,7 @@ public class TempRoom : MonoBehaviourPun
 
     public void OnClickConfirm()
     {
+        UI = GameObject.FindGameObjectsWithTag("GameUI");
         readyButton.interactable = false;
         photonView.RPC("UpdateRoom", RpcTarget.All, EPlayerState.CONFIRM , !readyButton.interactable);
     }
@@ -114,8 +116,7 @@ public class TempRoom : MonoBehaviourPun
 
             if (gameUI.GetComponent<PhotonView>().IsMine)
             {
-                confirmButton = gameUI.GetComponentInChildren<Button>();
-                confirmButton.onClick.AddListener(() => photonView.RPC("UpdateUI", RpcTarget.All));
+                photonView.RPC("UpdateUI", RpcTarget.All);
 
                 gameUI.transform.GetChild(6).gameObject.SetActive(false);
             }
@@ -149,5 +150,17 @@ public class TempRoom : MonoBehaviourPun
 
         joinMemberText.text = $"참가 인원: {PhotonNetwork.CurrentRoom.PlayerCount.ToString()}";
         readyPlayerText.text = $"준비: {readyPlayer.ToString()} / {PhotonNetwork.CurrentRoom.MaxPlayers.ToString()}";
+    }
+
+    [PunRPC]
+    void UpdateUI()
+    {
+        UI = GameObject.FindGameObjectsWithTag("GameUI");
+
+        for(int i=0; i<UI.Length; i++)
+        {
+            UI[i].transform.SetParent(gridPanel.transform);
+            UI[i].GetComponentInChildren<Text>().text = $"[{PhotonNetwork.NickName}]";
+        }
     }
 }
