@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5637002985393292650}
   - component: {fileID: -2458649745124797629}
   m_Layer: 0
-  m_Name: Zskew
+  m_Name: ZSkew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,4 +98,4 @@ MonoBehaviour:
   rotateTetrominoObjList:
   - {fileID: 7078651781152966997}
   - {fileID: 6943276394592810218, guid: cb13bc08baf078a418c7b77409ab60a2, type: 3}
-  slotSprite: {fileID: 21300000, guid: 55671f2c59d238c4598a214ea6251b7b, type: 3}
+  slotSprite: {fileID: 21300000, guid: 552cd41fbcc9ef74ca3c2f96c118ac7c, type: 3}
