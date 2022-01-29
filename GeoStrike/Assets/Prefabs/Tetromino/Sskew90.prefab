@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7479325775243552583}
   - component: {fileID: 8610017094449749466}
   m_Layer: 0
-  m_Name: Sskew90
+  m_Name: SSkew90
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

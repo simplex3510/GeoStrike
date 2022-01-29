@@ -97,4 +97,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateTetrominoObjList:
   - {fileID: 2812866871731714634}
-  slotSprite: {fileID: 21300000, guid: f0b4749a538c357488400ae295c17171, type: 3}
+  slotSprite: {fileID: 21300000, guid: bf60be9fea1480148991aa3cc05a9b15, type: 3}

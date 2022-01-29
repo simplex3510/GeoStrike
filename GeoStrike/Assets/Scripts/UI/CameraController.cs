@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    [Header("< Componenet >")]
     [SerializeField] private Camera mainCamera;
     public MouseController mouseController;
+    [SerializeField] private RectTransform rectTransform;     // Resolution 1920 x 1080
 
     // Camera Movement by mouse Position
-    [SerializeField] private RectTransform rectTransform;     // Resolution 1920 x 1080
+    [Header("< Camera controller >")]
     [SerializeField] private float cameraSpeed;
     private readonly int ZERO = 0;
 
     // Camera Zoom
-    [SerializeField] float zoomSpeed = 0f;
-    [SerializeField] float zoomIn = 0f;
-    [SerializeField] float zoomOut = 0f;
+    [SerializeField] private float zoomSpeed = 0f;
+    [SerializeField] private float zoomIn = 0f;
+    [SerializeField] private float zoomOut = 0f;
+
+    // Auto Move BuildZone
+    public bool onZone { get; set; }
+
 
     private void Awake()
     {
@@ -60,11 +66,18 @@ public class CameraController : MonoBehaviour
 
     private void CameraZoom()
     {
-        float zoomDir = Input.GetAxis("Mouse ScrollWheel");
-        float currentSize = mainCamera.orthographicSize - zoomDir * zoomSpeed;
+        if (mouseController.emouseMode == MouseController.EMouseMode.normal)
+        {
+            float zoomDir = Input.GetAxis("Mouse ScrollWheel");
+            float currentSize = mainCamera.orthographicSize - zoomDir * zoomSpeed;
 
-        mainCamera.orthographicSize = Mathf.Clamp(currentSize, zoomIn, zoomOut);
+            mainCamera.orthographicSize = Mathf.Clamp(currentSize, zoomIn, zoomOut);
+        }
+        else
+        {
+            mainCamera.orthographicSize = zoomIn;
+        }
     }
 
-    
+     
 }

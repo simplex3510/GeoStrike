@@ -7,37 +7,40 @@ public class Timer : MonoBehaviour
 {
     // World timer
     [SerializeField] private Text worldTimeTXT;
-    private float sec = 0f;
+    public float sec = 0f;
     private int min = 0;
     private readonly int MAX_SEC = 59;
 
     // Player timer
-    [SerializeField] private Text playerTimeTXT;
-    [SerializeField] private float waitingTime;
-    public float playerATime = 0f;
-    public float playerBTime = 0f;
+    [SerializeField] private Text battleTimeTXT;
+    [SerializeField] private float battleTime;
+    public float battleTimer = 0f;
     public bool isReady = false;
+
+    // test
+    [SerializeField] private Geo geo;
 
     private void Update()
     {
-        WorldTimer();
-        PlayerTimer();
+        WorldTime();
+        BattleTime();
     }
 
-    private void PlayerTimer()
+    private void BattleTime()
     {
-        playerATime += Time.deltaTime;
-        playerTimeTXT.text = string.Format("{0:D}s", (int)playerATime);
+        battleTimer += Time.deltaTime;
+        battleTimeTXT.text = string.Format("{0:D}s", (int)battleTimer);
 
-        if (playerATime >= waitingTime) 
+        if (battleTimer >= battleTime) 
         {
             isReady = true;
-            playerATime = 0f;
+            battleTimer = 0f;
         }
     }
 
-    private void WorldTimer()
+    private void WorldTime()
     {
+        //geo.DeltaGeo(sec);
         sec += Time.deltaTime;
         worldTimeTXT.text = string.Format("{0:D2} : {1:D2}", min, (int)sec);
 

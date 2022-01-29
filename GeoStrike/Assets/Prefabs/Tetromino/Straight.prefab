@@ -98,4 +98,4 @@ MonoBehaviour:
   rotateTetrominoObjList:
   - {fileID: 7874045047282112759}
   - {fileID: 1027311065556305536, guid: b5dd046c7e90e1649bcccd195437a483, type: 3}
-  slotSprite: {fileID: 21300000, guid: 7b6c8c7a8b345ef479ff2f96a0b517fd, type: 3}
+  slotSprite: {fileID: 21300000, guid: ec6b90c63c98bee408ffd6441324d050, type: 3}

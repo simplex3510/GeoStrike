@@ -8,6 +8,7 @@ using Photon.Realtime;
 public class TempMaster : MonoBehaviourPunCallbacks
 {
     public Text currentStateText;
+    public InputField nickname;
     public Button joinLobbyText;
 
     void Awake() => Screen.SetResolution(1920, 1080, false);
@@ -28,9 +29,14 @@ public class TempMaster : MonoBehaviourPunCallbacks
 
     public void OnClickJoinLobby()
     {
-        if(PhotonNetwork.IsConnected)
+        if(PhotonNetwork.IsConnected && nickname.text != "")
         {
+            PhotonNetwork.NickName = nickname.text;
             PhotonNetwork.JoinLobby();
+        }
+        else
+        {
+            currentStateText.text = $"닉네임 필요";
         }
     }
 
