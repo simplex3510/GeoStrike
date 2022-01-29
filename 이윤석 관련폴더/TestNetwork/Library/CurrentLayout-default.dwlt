@@ -19,9 +19,9 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Console
+  m_Title: Game
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 875, y: 492}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 434, y: 271}
   m_MaxSize: {x: 14004, y: 10021}
   vertical: 0
-  controlID: 72
+  controlID: 38
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_MinSize: {x: 434, y: 392}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 1
-  controlID: 103
+  controlID: 96
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -148,7 +148,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 875, y: 492}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 911, y: 442}
   m_MaxSize: {x: 22006, y: 14042}
   vertical: 0
-  controlID: 37
+  controlID: 136
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 442}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 46
+  controlID: 137
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -505,9 +505,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 802.9357, y: 535.72394, z: -174.72415}
+    m_Target: {x: 848.688, y: 527.07367, z: -266.39615}
     speed: 2
-    m_Value: {x: 802.9357, y: 535.72394, z: -174.72415}
+    m_Value: {x: 848.688, y: 527.07367, z: -266.39615}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -558,9 +558,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 683.62823
+    m_Target: 645.90796
     speed: 2
-    m_Value: 683.62823
+    m_Value: 645.90796
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -613,9 +613,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: bc060000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 8cf9ffff
+      m_ExpandedIDs: ba84ffff2687ffffb48affffd28affffd48affffd88affffdc8affffe08affffe48affff548bffff728bffff2a8dffff2e8dffff388dffff3e8dffff428dffff7093ffff8e93ffff4695ffff4a95ffff5495ffff5a95ffff5e95ffff8096ffff9e96ffff5698ffff5a98ffff6498ffff6a98ffff6e98ffff8a9bffffac9fffff20a2ffff2ea3ffff4ca3ffff4ea3ffff52a3ffff56a3ffff5aa3ffff5ea3ffffc6a3ffffe4a3ffff9ca5ffffa0a5ffffaaa5ffffb0a5ffffb4a5ffff90a9ffff1cacffff2eaeffffc8b0ffff52b7ffffa2baffff9cbbffffbabbffffbcbbffffc0bbffffc4bbffffc8bbffffccbbffff7abcffff98bcffff58beffff66beffff7abeffff8abeffff98beffff1ac2ffff3ac3ffff58c3ffff5ac3ffff5ec3ffff62c3ffff66c3ffff6ac3ffffaec3ffffccc3ffffcec3ffffd2c3ffffd6c3ffffdac3ffffdec3ffff24c4ffff42c4fffffac5fffffec5ffff08c6ffff0ec6ffff12c6ffff3ecbffffaeccffff3ccfffff58d0ffff76d0ffff2ed2ffff32d2ffff3cd2ffff42d2ffff46d2ffff16d5ffff36d7ffff7cd9ffff64dfffff82e0ffffa0e0ffffa2e0ffffa6e0ffffaae0ffffaee0ffffb2e0ffff46e2ffff64e2ffff66e2ffff6ae2ffff6ee2ffff72e2ffff76e2ffffc6e2ffffe4e2ffffe6e2ffffeae2ffffeee2fffff2e2fffff6e2ffff3ae3ffff58e3ffff10e5ffff14e5ffff1ee5ffff24e5ffff28e5ffff36ecffff78edffff96edffff52efffff5aefffff68efffff72efffff7aefffff8ef0ffffb0f9ffff84fafffff4ffffffb44500001e5b0000325b0000ca680000de680000746a0000886a0000c06c0000d46c0000367000004a700000787200008c72000094730000a87300008c7c0000a07c0000b6820000ca820000dc830000e6830000f0830000448600005886000092880000a6880000ba890000ce890000888f00009c8f0000b0900000c4900000dc910000f09100003aa0000060a1000074a10000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -677,21 +677,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Temp
+    - Assets/Resources
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 0
   m_StartGridSize: 16
   m_LastFolders: []
   m_LastFoldersGridSize: 16
-  m_LastProjectPath: "C:\\Users\\Owner\\Desktop\\GeoStrike\\\uC774\uC724\uC11D \uAD00\uB828\uD3F4\uB354\\TestNetwork"
+  m_LastProjectPath: "C:\\Users\\User\\Desktop\\GeoStrike\\\uC774\uC724\uC11D \uAD00\uB828\uD3F4\uB354\\TestNetwork"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: a8420000
     m_LastClickedID: 17064
-    m_ExpandedIDs: 00000000e4380000e6380000e8380000ea380000ec380000ee380000f0380000f2380000f4380000f6380000f8380000fa380000
+    m_ExpandedIDs: 000000005c4100005e41000060410000624100006441000066410000684100006a4100006c4100006e410000704100007241000074410000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -719,21 +719,21 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000e4380000e6380000e8380000ea380000ec380000ee380000f0380000f2380000f4380000f6380000f8380000fa380000
+    m_ExpandedIDs: ffffffff000000005c4100005e41000060410000624100006441000066410000684100006a4100006c4100006e410000704100007241000074410000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: TempRoom
+      m_OriginalName: TempRoom
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 16794
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 2}
     m_SearchString: 

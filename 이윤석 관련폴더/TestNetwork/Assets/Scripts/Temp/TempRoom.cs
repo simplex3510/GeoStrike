@@ -16,22 +16,35 @@ enum EPlayerState
 public class TempRoom : MonoBehaviourPun
 {
     #region UI Field
+    public RectTransform readyUIPrefab;
+    public RectTransform gameUIPrefab;
+
+    public Canvas canvas;
     public RectTransform gridPanel;
     public Text joinMemberText;
     public Text readyPlayerText;
     public Button readyButton;
-
-    public GameObject gameUIPrefab;
+    [SerializeField] Button confirmButton;
     #endregion 
 
     [SerializeField] int readyPlayer = 0;
     [SerializeField] int confirmPlayer = 0;
+    GameObject readyUI;
+    GameObject gameUI;
 
     void Awake() => Screen.SetResolution(1920, 1080, false);
 
     void Start()
     {
-        tempGame = new TempGame();
+        readyUI = Instantiate(readyUIPrefab, new Vector3(960, 540, 0), Quaternion.identity).gameObject;
+        readyUI.transform.SetParent(canvas.transform);
+
+        Text[] textComponents = readyUI.GetComponentsInChildren<Text>();
+        joinMemberText = textComponents[0];                         // 현재 멤버 텍스트 할당
+        readyPlayerText = textComponents[1];                        // 준비 멤버 텍스트 할당
+        readyButton = readyUI.GetComponentInChildren<Button>();     // 준비 버튼 할당
+        readyButton.onClick.AddListener(OnClickReady);              // 버튼에 함수 할당
+
         photonView.RPC("UpdateRoom", RpcTarget.MasterClient, EPlayerState.ENTER, !readyButton.interactable);
     }
 
@@ -92,13 +105,19 @@ public class TempRoom : MonoBehaviourPun
 
         if (readyPlayer == PhotonNetwork.CurrentRoom.MaxPlayers)
         {
-            joinMemberText.gameObject.SetActive(false);
-            readyPlayerText.gameObject.SetActive(false);
-            readyButton.gameObject.SetActive(false);
+            Destroy(readyUI);
 
-            if (photonView.IsMine)
+            print($"Create Game UI - {PhotonNetwork.NickName}");
+
+            gameUI = PhotonNetwork.Instantiate("gameUIPrefab", Vector3.zero, Quaternion.identity);
+            gameUI.transform.SetParent(gridPanel.transform);
+
+            if (gameUI.GetComponent<PhotonView>().IsMine)
             {
-                Instantiate(gameUIPrefab, Vector3.zero, Quaternion.identity).transform.SetParent(gridPanel.transform);
+                confirmButton = gameUI.GetComponentInChildren<Button>();
+                confirmButton.onClick.AddListener(() => photonView.RPC("UpdateUI", RpcTarget.All));
+
+                gameUI.transform.GetChild(6).gameObject.SetActive(false);
             }
         }
     }
