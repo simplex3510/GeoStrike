@@ -160,7 +160,7 @@ public class TempRoom : MonoBehaviourPun
         for(int i=0; i<UI.Length; i++)
         {
             UI[i].transform.SetParent(gridPanel.transform);
-            UI[i].GetComponentInChildren<Text>().text = $"[{PhotonNetwork.NickName}]";
+            UI[i].GetComponentInChildren<Text>().text = $"[{UI[i].GetComponent<PhotonView>().Owner.NickName}]";
         }
     }
 }
