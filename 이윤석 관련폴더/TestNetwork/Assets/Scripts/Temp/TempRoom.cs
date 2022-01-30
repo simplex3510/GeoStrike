@@ -15,7 +15,7 @@ enum EPlayerState
 
 public class TempRoom : MonoBehaviourPun
 {
-    #region UI Field
+    #region gameUI Field
     public RectTransform readyUIPrefab;
     public RectTransform gameUIPrefab;
 
@@ -24,29 +24,32 @@ public class TempRoom : MonoBehaviourPun
     public Text joinMemberText;
     public Text readyPlayerText;
     public Button readyButton;
-    [SerializeField] Button confirmButton;
-    [SerializeField] GameObject[] UI;
     #endregion 
+
+    readonly int MAX_PLAYER = 2;
 
     [SerializeField] int readyPlayer = 0;
     [SerializeField] int confirmPlayer = 0;
+    TempGame tempGame;
     GameObject readyUI;
     GameObject gameUI;
 
     void Awake() => Screen.SetResolution(1920, 1080, false);
-
-    void Start()
+    
+    // 준비 gameUI 생성
+    void Start()    
     {
+        // 준비 gameUI 생성 및 위치 설정
         readyUI = Instantiate(readyUIPrefab, new Vector3(960, 540, 0), Quaternion.identity).gameObject;
         readyUI.transform.SetParent(canvas.transform);
 
-        Text[] textComponents = readyUI.GetComponentsInChildren<Text>();
-        joinMemberText = textComponents[0];                         // 현재 멤버 텍스트 할당
-        readyPlayerText = textComponents[1];                        // 준비 멤버 텍스트 할당
-        readyButton = readyUI.GetComponentInChildren<Button>();     // 준비 버튼 할당
-        readyButton.onClick.AddListener(OnClickReady);              // 버튼에 함수 할당
+        // 준비 gameUI 개체 할당
+        joinMemberText = readyUI.transform.GetChild(0).GetComponent<Text>();    // 현재 멤버 텍스트 할당
+        readyPlayerText = readyUI.transform.GetChild(1).GetComponent<Text>();   // 준비 멤버 텍스트 할당
+        readyButton = readyUI.transform.GetChild(2).GetComponent<Button>();     // 준비 버튼 할당
+        readyButton.onClick.AddListener(OnClickReady);                          // 준비 버튼에 메서드 할당
 
-        photonView.RPC("UpdateRoom", RpcTarget.MasterClient, EPlayerState.ENTER, !readyButton.interactable);
+        photonView.RPC("UpdateRoom", RpcTarget.MasterClient, EPlayerState.ENTER, false);
     }
 
     public void OnClickBack()
@@ -64,8 +67,7 @@ public class TempRoom : MonoBehaviourPun
 
     public void OnClickConfirm()
     {
-        UI = GameObject.FindGameObjectsWithTag("GameUI");
-        readyButton.interactable = false;
+        gameUI[0].transform.GetChild(3).GetComponent<Button>().interactable = false;
         photonView.RPC("UpdateRoom", RpcTarget.All, EPlayerState.CONFIRM , !readyButton.interactable);
     }
 
@@ -76,11 +78,11 @@ public class TempRoom : MonoBehaviourPun
         {
             if(ePlayerState == EPlayerState.ENTER)
             {
-                photonView.RPC("UpdatePlayer", RpcTarget.All, readyPlayer, false);
+                photonView.RPC("UpdateReady", RpcTarget.All, readyPlayer, _isCheck);
             }
             else if (ePlayerState == EPlayerState.READY)
             {
-                photonView.RPC("UpdatePlayer", RpcTarget.All, readyPlayer, true);
+                photonView.RPC("UpdateReady", RpcTarget.All, readyPlayer, _isCheck);
             }
             else if (ePlayerState == EPlayerState.CONFIRM)
             {
@@ -88,13 +90,13 @@ public class TempRoom : MonoBehaviourPun
             }
             else if (ePlayerState == EPlayerState.LEAVE)
             {
-                photonView.RPC("UpdatePlayer", RpcTarget.All, _isCheck);
+                photonView.RPC("UpdateReady", RpcTarget.All, _isCheck);
             }
         }
     }
 
     [PunRPC]
-    void UpdatePlayer(int _readyPlayer, bool _isCheck)
+    void UpdateReady(int _readyPlayer, bool _isCheck)
     {
         readyPlayer = _readyPlayer;
         if (_isCheck)
@@ -102,29 +104,28 @@ public class TempRoom : MonoBehaviourPun
             readyPlayer++;
         }
 
+        // 준비 gameUI 업데이트
         joinMemberText.text = $"참가 인원: {PhotonNetwork.CurrentRoom.PlayerCount.ToString()}";
-        readyPlayerText.text = $"준비: {readyPlayer.ToString()} / {PhotonNetwork.CurrentRoom.MaxPlayers.ToString()}";
+        readyPlayerText.text = $"준비: {readyPlayer.ToString()} / {MAX_PLAYER.ToString()}";
 
-        if (readyPlayer == PhotonNetwork.CurrentRoom.MaxPlayers)
+        if (readyPlayer == MAX_PLAYER)
         {
             Destroy(readyUI);
+            tempGame.gameObject.SetActive(true);
 
-            print($"Create Game UI - {PhotonNetwork.NickName}");
+            print($"Create Game gameUI - {photonView.Owner.NickName}");
 
             gameUI = PhotonNetwork.Instantiate("gameUIPrefab", Vector3.zero, Quaternion.identity);
-            gameUI.transform.SetParent(gridPanel.transform);
-
-            if (gameUI.GetComponent<PhotonView>().IsMine)
+ 
+            if (PhotonNetwork.IsMasterClient)
             {
-                photonView.RPC("UpdateUI", RpcTarget.All);
-
-                gameUI.transform.GetChild(6).gameObject.SetActive(false);
+                photonView.RPC("UpdateGameUI", RpcTarget.All);
             }
         }
     }
 
     [PunRPC]
-    void UpdatePlayer(bool _isCheck)
+    void UpdateReady(bool _isCheck)
     {
         if(_isCheck)
         {
@@ -132,7 +133,7 @@ public class TempRoom : MonoBehaviourPun
         }
 
         joinMemberText.text = $"참가 인원: {(PhotonNetwork.CurrentRoom.PlayerCount - 1).ToString()}";
-        readyPlayerText.text = $"준비: {readyPlayer.ToString()} / {PhotonNetwork.CurrentRoom.MaxPlayers.ToString()}";
+        readyPlayerText.text = $"준비: {readyPlayer.ToString()} / {MAX_PLAYER.ToString()}";
     }
 
     [PunRPC]
@@ -142,25 +143,52 @@ public class TempRoom : MonoBehaviourPun
         if (_isCheck)
         {
             confirmPlayer++;
-            if(confirmPlayer == PhotonNetwork.CurrentRoom.MaxPlayers)
+            if(confirmPlayer == MAX_PLAYER)
             {
                 confirmPlayer = 0;
+                gameUI[0].transform.GetChild(3).GetComponent<Button>().interactable = true;
+                gameUI[1].transform.GetChild(3).GetComponent<Button>().interactable = true;
             }
         }
 
-        joinMemberText.text = $"참가 인원: {PhotonNetwork.CurrentRoom.PlayerCount.ToString()}";
-        readyPlayerText.text = $"준비: {readyPlayer.ToString()} / {PhotonNetwork.CurrentRoom.MaxPlayers.ToString()}";
+        gameUI[0].transform.GetChild(1).GetComponent<Text>().text = $"완료: {confirmPlayer.ToString()} / {MAX_PLAYER.ToString()}";
+        gameUI[1].transform.GetChild(1).GetComponent<Text>().text = $"완료: {confirmPlayer.ToString()} / {MAX_PLAYER.ToString()}";
     }
 
     [PunRPC]
-    void UpdateUI()
+    void UpdateGameUI()
     {
-        UI = GameObject.FindGameObjectsWithTag("GameUI");
+        var gameUI = GameObject.FindGameObjectsWithTag("GameUI");
 
-        for(int i=0; i<UI.Length; i++)
+        for(int i=0; i<gameUI.Length; i++)
         {
-            UI[i].transform.SetParent(gridPanel.transform);
-            UI[i].GetComponentInChildren<Text>().text = $"[{UI[i].GetComponent<PhotonView>().Owner.NickName}]";
+            gameUI[i].transform.SetParent(gridPanel.transform);
+
+            gameUI[i].transform.GetChild(0).GetComponent<Text>().text = $"[{gameUI[i].GetComponent<PhotonView>().Owner.NickName}]";             // 플레이어 닉네임
+            gameUI[i].transform.GetChild(1).GetComponent<Text>().text = $"완료: {confirmPlayer.ToString()} / {MAX_PLAYER.ToString()}";
+            gameUI[i].transform.GetChild(2).GetComponent<Text>().text = $"HP: 100";
+            if (gameUI[i].GetComponent<PhotonView>().Owner.IsLocal)
+            {
+                TempGame.Instance.localHealthText = gameUI[i].transform.GetChild(2).GetComponent<Text>();
+            }
+            else
+            {
+                TempGame.Instance.remoteHealthText = gameUI[i].transform.GetChild(2).GetComponent<Text>();
+            }
+
+            if (photonView.IsMine)
+            {
+                gameUI[i].transform.GetChild(3).GetComponent<Button>().onClick.AddListener(OnClickConfirm);                                      // 
+                TempGame.Instance.confirmButton = gameUI[0].transform.GetChild(3).GetComponent<Button>();
+                gameUI[i].transform.GetChild(4).GetComponent<Button>().onClick.AddListener(TempGame.Instance.OnClickAttackOrPrepareAttack);      //
+                TempGame.Instance.attackButton = gameUI[0].transform.GetChild(4).GetComponent<Button>();
+                gameUI[i].transform.GetChild(5).GetComponent<Button>().onClick.AddListener(TempGame.Instance.OnClickDefense);                    // 
+                TempGame.Instance.defenseButton = gameUI[0].transform.GetChild(5).GetComponent<Button>();
+
+                gameUI[i].transform.GetChild(6).gameObject.SetActive(false);   // 패널 비활성화 - 클릭 차단 해제
+            }
         }
+        
+        
     }
 }
