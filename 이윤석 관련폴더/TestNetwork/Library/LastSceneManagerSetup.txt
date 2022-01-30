@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/temp/TempMaster.unity
+- path: Assets/Scenes/temp/TempRoom.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

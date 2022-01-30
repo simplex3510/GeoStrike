@@ -305,6 +305,7 @@ MonoBehaviour:
   joinMemberText: {fileID: 0}
   readyPlayerText: {fileID: 0}
   readyButton: {fileID: 0}
+  UI: []
   readyPlayer: 0
   confirmPlayer: 0
 --- !u!114 &952139683
@@ -360,7 +361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &970034708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,7 +396,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 280fec169316610438ec6623d68eb151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthText: {fileID: 0}
+  localHealthText: {fileID: 0}
+  remoteHealthText: {fileID: 0}
+  confirmButton: {fileID: 0}
+  attackButton: {fileID: 0}
+  defenseButton: {fileID: 0}
+  confirm: 0
+  health: 100
+  damage: 0
 --- !u!4 &970034710
 Transform:
   m_ObjectHideFlags: 0
