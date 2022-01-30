@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 773641298824530625}
   - component: {fileID: 9143057619978600293}
   - component: {fileID: 2938681906968066070}
+  - component: {fileID: -7780663508799298349}
+  - component: {fileID: -5315551313228217598}
   m_Layer: 0
   m_Name: L
   m_TagString: Untagged
@@ -101,3 +103,29 @@ MonoBehaviour:
   - {fileID: 5337201497820464270, guid: 8942c92243674e345994c6478386058c, type: 3}
   - {fileID: 1216555880886485629, guid: 2f1e8717fb067a54b899dc50bcccb7bb, type: 3}
   slotSprite: {fileID: 21300000, guid: 15468338e04706343bbc97e15442f151, type: 3}
+--- !u!114 &-7780663508799298349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4443474530963257734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e47b21eb35cbf14ab57ffd257f798c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5315551313228217598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4443474530963257734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e3a10d8a0c2e348bfa9bd889ab8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eBuildingState: 0
+  BuildTime: 5

@@ -5,12 +5,10 @@ using UnityEngine.UI;
 
 public class Geo : MonoBehaviour
 {
-    [SerializeField] Timer timer;
-
     [SerializeField] private Image geoImage;
     [SerializeField] private Sprite getSprite;
     [SerializeField] private Text geoTXT;
-    public float currentGeo = 0;
+    private float currentGeo = 0;
 
     private void Awake()
     {
@@ -20,11 +18,12 @@ public class Geo : MonoBehaviour
     private void Update()
     {
         GeoTxT();
+        DeltaGeo(Time.deltaTime / 2);
     }
 
     private void GeoTxT()
     {
-        geoTXT.text = string.Format(": {0}", currentGeo);
+        geoTXT.text = string.Format(": {0}", (int)currentGeo);
     }
 
     public void DeltaGeo(float _delta)

@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7479325775243552583}
   - component: {fileID: 8610017094449749466}
+  - component: {fileID: 3579450468459823152}
+  - component: {fileID: -8250772551465862895}
   m_Layer: 0
-  m_Name: SSkew90
+  m_Name: Sskew90
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,3 +84,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3579450468459823152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322370700199949107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e47b21eb35cbf14ab57ffd257f798c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8250772551465862895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322370700199949107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e3a10d8a0c2e348bfa9bd889ab8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eBuildingState: 0
+  BuildTime: 5

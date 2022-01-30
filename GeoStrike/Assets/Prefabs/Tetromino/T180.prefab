@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3860691025642326647}
   - component: {fileID: 348304538433350837}
+  - component: {fileID: 4288934221957189832}
+  - component: {fileID: -104091814585344242}
   m_Layer: 0
   m_Name: T180
   m_TagString: Untagged
@@ -82,3 +84,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4288934221957189832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2260017224675340265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e47b21eb35cbf14ab57ffd257f798c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-104091814585344242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2260017224675340265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e3a10d8a0c2e348bfa9bd889ab8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eBuildingState: 0
+  BuildTime: 5

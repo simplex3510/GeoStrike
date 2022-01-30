@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3283724197612490326}
   - component: {fileID: 6761043203608346083}
+  - component: {fileID: -5032783878736325311}
+  - component: {fileID: -7058965417033876529}
   m_Layer: 0
   m_Name: J90
   m_TagString: Untagged
@@ -82,3 +84,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-5032783878736325311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8999401913233365432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e47b21eb35cbf14ab57ffd257f798c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7058965417033876529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8999401913233365432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e3a10d8a0c2e348bfa9bd889ab8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eBuildingState: 0
+  BuildTime: 5

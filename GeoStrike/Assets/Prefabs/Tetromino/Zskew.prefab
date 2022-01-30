@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 4815419243005072339}
   - component: {fileID: 5637002985393292650}
   - component: {fileID: -2458649745124797629}
+  - component: {fileID: 2069533491610383013}
+  - component: {fileID: -1927105773898216983}
   m_Layer: 0
-  m_Name: ZSkew
+  m_Name: Zskew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,3 +101,29 @@ MonoBehaviour:
   - {fileID: 7078651781152966997}
   - {fileID: 6943276394592810218, guid: cb13bc08baf078a418c7b77409ab60a2, type: 3}
   slotSprite: {fileID: 21300000, guid: 552cd41fbcc9ef74ca3c2f96c118ac7c, type: 3}
+--- !u!114 &2069533491610383013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078651781152966997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e47b21eb35cbf14ab57ffd257f798c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1927105773898216983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078651781152966997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8e3a10d8a0c2e348bfa9bd889ab8171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eBuildingState: 0
+  BuildTime: 5

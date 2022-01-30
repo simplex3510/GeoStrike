@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,23 +53,27 @@
     <UnityVersion>2020.3.23f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\Scripts\UI\Tile\TetrominoTile.cs" />
+    <Compile Include="Assets\Scripts\AutoMoveCamera.cs" />
     <Compile Include="Assets\Scripts\UI\Tile\TileContainer.cs" />
     <Compile Include="Assets\Scripts\Tetromino\TetrominoPreview.cs" />
     <Compile Include="Assets\Scripts\Unit\Unit.cs" />
     <Compile Include="Assets\Scripts\Tetromino\TetrominoCreater.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitCreation.cs" />
     <Compile Include="Assets\Scripts\UI\CameraController.cs" />
     <Compile Include="Assets\Scripts\UI\Timer.cs" />
     <Compile Include="Assets\Scripts\Tetromino\Tetromino.cs" />
     <Compile Include="Assets\Scripts\Unit\TranslocateField.cs" />
     <Compile Include="Assets\Scripts\UI\TetrominoSlot.cs" />
+    <Compile Include="Assets\Scripts\UI\Geo.cs" />
     <Compile Include="Assets\Scripts\UI\TetrominoSlotContainer.cs" />
     <Compile Include="Assets\Scripts\Tetromino\TileDetector.cs" />
     <Compile Include="Assets\Scripts\Manager\GameMgr.cs" />
     <Compile Include="Assets\Scripts\UI\MouseController.cs" />
-    <Compile Include="Assets\Scripts\AutoMoveCamera.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitCreation.cs" />
-    <Compile Include="Assets\Scripts\UI\Geo.cs" />
+    <Compile Include="Assets\Scripts\Tetromino\BuildingState.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

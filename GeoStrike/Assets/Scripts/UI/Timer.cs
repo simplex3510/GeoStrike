@@ -40,7 +40,6 @@ public class Timer : MonoBehaviour
 
     private void WorldTime()
     {
-        //geo.DeltaGeo(sec);
         sec += Time.deltaTime;
         worldTimeTXT.text = string.Format("{0:D2} : {1:D2}", min, (int)sec);
 
