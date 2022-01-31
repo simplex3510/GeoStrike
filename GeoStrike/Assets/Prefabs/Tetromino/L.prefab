@@ -127,5 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e3a10d8a0c2e348bfa9bd889ab8171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eBuildingState: 0
-  BuildTime: 5
+  eTetrominoState: 0
+  buildTime: 5
+  currentTime: 0
+  spriteRenderer: {fileID: 0}
+  color: {r: 0, g: 0, b: 0, a: 0}
