@@ -305,9 +305,8 @@ MonoBehaviour:
   joinMemberText: {fileID: 0}
   readyPlayerText: {fileID: 0}
   readyButton: {fileID: 0}
-  UI: []
+  tempGame: {fileID: 970034707}
   readyPlayer: 0
-  confirmPlayer: 0
 --- !u!114 &952139683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,8 +395,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 280fec169316610438ec6623d68eb151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridPanel: {fileID: 1562184300}
+  nicknameText: {fileID: 0}
   localHealthText: {fileID: 0}
-  remoteHealthText: {fileID: 0}
   confirmButton: {fileID: 0}
   attackButton: {fileID: 0}
   defenseButton: {fileID: 0}

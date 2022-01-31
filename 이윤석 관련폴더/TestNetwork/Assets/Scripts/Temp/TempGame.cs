@@ -15,7 +15,10 @@ enum EResult
 public class TempGame : MonoBehaviourPun
 {
     #region UI
+    public RectTransform gridPanel;
+
     public Text nicknameText;
+    public Text confirmPlayerText;
     public Text localHealthText;
     public Text remoteHealthText;
     public Button confirmButton;
@@ -27,12 +30,12 @@ public class TempGame : MonoBehaviourPun
     readonly int MAX_DAMAGE = 25;
     readonly int MAX_PLAYER = 2;
 
+    [SerializeField] GameObject gameUI;
     [SerializeField] int confirm = 0;
     [SerializeField] int health = 100;
     [SerializeField] int damage = 0;
-    GameObject gameUI;
-    bool isPrepareAttack = false;
-    bool isDefense = false;
+    [SerializeField] bool isPrepareAttack = false;
+    [SerializeField] bool isDefense = false;
     EResult eResult = EResult.BATTLE;
 
     void OnEnable()
@@ -43,8 +46,8 @@ public class TempGame : MonoBehaviourPun
 
     public void OnClickConfirm()
     {
-        // gameUI[0].transform.GetChild(3).GetComponent<Button>().interactable = false;
-        photonView.RPC("UpdateConfirm", RpcTarget.MasterClient);
+        confirmButton.interactable = false;
+        photonView.RPC("UpdateGame", RpcTarget.MasterClient);
     }
 
     public void OnClickAttackOrPrepareAttack()
@@ -67,38 +70,46 @@ public class TempGame : MonoBehaviourPun
     }
 
     [PunRPC]
-    void UpdateConfirm(int _confirmPlayer, bool _isCheck)
+    void UpdateGame()
     {
-        print($"Confirm - {photonView.Owner}");
+        if (PhotonNetwork.IsMasterClient)
+        {
+            photonView.RPC("UpdateConfirm", RpcTarget.All, confirm, !confirmButton.interactable);
+        }
+    }
 
-        confirm = _confirmPlayer;
+    [PunRPC]
+    void UpdateConfirm(int _confirm, bool _isCheck)
+    {
+        print($"Confirm - {gameUI.GetComponent<PhotonView>().Owner}");
+
+        confirm = _confirm;
         if (_isCheck)
         {
             confirm++;
-            if (confirm == MAX_PLAYER)
-            {
-                confirm = 0;
-                photonView.RPC("Battle", RpcTarget.Others, damage, isDefense, isPrepareAttack);
-                //gameUI[0].transform.GetChild(3).GetComponent<Button>().interactable = true;
-                //gameUI[1].transform.GetChild(3).GetComponent<Button>().interactable = true;
-            }
         }
 
-        //gameUI[0].transform.GetChild(1).GetComponent<Text>().text = $"완료: {confirmPlayer.ToString()} / {MAX_PLAYER.ToString()}";
-        //gameUI[1].transform.GetChild(1).GetComponent<Text>().text = $"완료: {confirmPlayer.ToString()} / {MAX_PLAYER.ToString()}";
+        if (confirm == MAX_PLAYER)
+        {
+            confirm = 0;
+            photonView.RPC("Battle", RpcTarget.Others, damage, isDefense, isPrepareAttack);
+            confirmButton.interactable = true;
+        }
+
+        confirmPlayerText.text = $"완료: {confirm.ToString()} / {MAX_PLAYER.ToString()}";
     }
 
     [PunRPC]
     public void Battle(int _damage, bool _isDefense, bool _isPrepareAttack)
     {
-        print($"Battle - {photonView.Owner}");
+        print($"Battle - {gameUI.GetComponent<PhotonView>().Owner}");
         if (isDefense)
         {
             damage = 0;
         }
 
         health -= damage;
-        localHealthText.text = health.ToString();
+        localHealthText.text = $"HP: {health.ToString()}";
         // photonView.RPC("UpdateResult", RpcTarget.All);
 
         // Post-Processing
@@ -130,26 +141,34 @@ public class TempGame : MonoBehaviourPun
         {
             gameUI[i].transform.SetParent(gridPanel.transform);
 
-            gameUI[i].transform.GetChild(0).GetComponent<Text>().text = $"[{gameUI[i].GetComponent<PhotonView>().Owner.NickName}]";             // 플레이어 닉네임
-            gameUI[i].transform.GetChild(1).GetComponent<Text>().text = $"완료: {confirm.ToString()} / {MAX_PLAYER.ToString()}";
-            gameUI[i].transform.GetChild(2).GetComponent<Text>().text = $"HP: {health.ToString()}";
-            if (gameUI[i].GetComponent<PhotonView>().Owner.IsLocal)
+            nicknameText = gameUI[i].transform.GetChild(0).GetComponent<Text>();
+            nicknameText.text = $"[{gameUI[i].GetComponent<PhotonView>().Owner.NickName}]";
+
+            confirmPlayerText = gameUI[i].transform.GetChild(1).GetComponent<Text>();
+            confirmPlayerText.text = $"완료: {confirm.ToString()} / {MAX_PLAYER.ToString()}";
+
+            if (gameUI[i].GetComponent<PhotonView>().IsMine)
             {
                 localHealthText = gameUI[i].transform.GetChild(2).GetComponent<Text>();
+                localHealthText.text = $"HP: {health.ToString()}";
             }
             else
             {
                 remoteHealthText = gameUI[i].transform.GetChild(2).GetComponent<Text>();
+                remoteHealthText.text = $"HP: {health.ToString()}";
             }
 
-            if (photonView.IsMine)
+            if (gameUI[i].GetComponent<PhotonView>().IsMine)
             {
-                gameUI[i].transform.GetChild(3).GetComponent<Button>().onClick.AddListener(OnClickConfirm);                    // 
-                confirmButton = gameUI[0].transform.GetChild(3).GetComponent<Button>();
-                gameUI[i].transform.GetChild(4).GetComponent<Button>().onClick.AddListener(OnClickAttackOrPrepareAttack);      //
-                attackButton = gameUI[0].transform.GetChild(4).GetComponent<Button>();
-                gameUI[i].transform.GetChild(5).GetComponent<Button>().onClick.AddListener(OnClickDefense);                    // 
-                defenseButton = gameUI[0].transform.GetChild(5).GetComponent<Button>();
+                confirmButton = gameUI[i].transform.GetChild(3).GetComponent<Button>();
+                confirmButton.onClick.AddListener(OnClickConfirm);
+
+                attackButton = gameUI[i].transform.GetChild(4).GetComponent<Button>();
+                attackButton.onClick.AddListener(OnClickAttackOrPrepareAttack);      //
+
+                defenseButton = gameUI[i].transform.GetChild(5).GetComponent<Button>();
+                defenseButton.onClick.AddListener(OnClickDefense);                    // 
+
 
                 gameUI[i].transform.GetChild(6).gameObject.SetActive(false);   // 패널 비활성화 - 클릭 차단 해제
             }

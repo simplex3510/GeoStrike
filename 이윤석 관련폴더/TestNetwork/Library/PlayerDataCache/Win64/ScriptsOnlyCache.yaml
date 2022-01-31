@@ -888,7 +888,7 @@ ScriptsOnlyBuild:
     className: PhotonView
   - hash:
       serializedVersion: 2
-      Hash: d36aee151851dc3ee9114e753002e361
+      Hash: db5f32512d56c8a6be9e8563724c45dc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TempGame
@@ -1062,7 +1062,7 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 2e497e4b3ce51ac7827726818fe654f5
+      Hash: 5f444dd4747d35cc5ef5ab8147ad8fc9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TempRoom
