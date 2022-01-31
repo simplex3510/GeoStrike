@@ -59,7 +59,7 @@ public class TranslocateField : MonoBehaviour
     {
         for (int idx = 0; idx < unitList.Count; idx++)
         {
-            unitList[idx].gameObject.transform.parent = null;
+            //unitList[idx].gameObject.transform.parent = null;
         }
         unitList.Clear();
         parent.transform.position = parentOriginPos.position;

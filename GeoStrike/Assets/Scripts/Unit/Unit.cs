@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour
+[CreateAssetMenu(fileName = "Unit", menuName = "Create Unit data Object")]
+public class Unit : ScriptableObject
 {
-    public enum EUnitState
-    {
-        Wait,
-        Move
-    }
+    [Header("< Main status > ")]
+    public string unitName;
+    public int hp;
+    public int damage;
+    public int defense;
 
-    public EUnitState eUnitState;
+    [Header(" < Sub status > ")]
+    public float attackRange;
+    public float attackSpeed;
+    public float movementSpeed;
 }
