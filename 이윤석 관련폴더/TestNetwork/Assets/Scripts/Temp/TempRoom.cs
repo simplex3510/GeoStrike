@@ -26,11 +26,8 @@ public class TempRoom : MonoBehaviourPun
     #endregion 
 
     readonly int MAX_PLAYER = 2;
-
-    [SerializeField] GameObject tempGame;
     [SerializeField] int readyPlayer = 0;
     GameObject readyUI;
-    GameObject gameUI;
 
     void Awake() => Screen.SetResolution(1920, 1080, false);
     
@@ -99,7 +96,7 @@ public class TempRoom : MonoBehaviourPun
         if (readyPlayer == MAX_PLAYER)
         {
             Destroy(readyUI);
-            tempGame.gameObject.SetActive(true);
+            PhotonNetwork.Instantiate("GameUIPrefab", Vector3.zero, Quaternion.identity);
         }
     }
 

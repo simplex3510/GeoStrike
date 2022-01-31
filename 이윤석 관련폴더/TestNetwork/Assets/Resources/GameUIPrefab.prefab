@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1375174886553633236}
+  - component: {fileID: 7975580689767243516}
   - component: {fileID: 1237136447507071534}
   m_Layer: 5
   m_Name: GameUIPrefab
@@ -43,6 +44,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7975580689767243516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4346220668872717975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280fec169316610438ec6623d68eb151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridPanel: {fileID: 0}
+  nicknameText: {fileID: 0}
+  confirmPlayerText: {fileID: 0}
+  localHealthText: {fileID: 0}
+  confirmButton: {fileID: 0}
+  attackButton: {fileID: 0}
+  defenseButton: {fileID: 0}
+  gameUI: {fileID: 0}
+  confirm: 0
+  health: 100
+  damage: 0
+  isPrepareAttack: 0
+  isDefense: 0
 --- !u!114 &1237136447507071534
 MonoBehaviour:
   m_ObjectHideFlags: 0

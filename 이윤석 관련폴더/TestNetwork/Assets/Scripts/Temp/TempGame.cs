@@ -15,12 +15,11 @@ enum EResult
 public class TempGame : MonoBehaviourPun
 {
     #region UI
-    public RectTransform gridPanel;
+    public GameObject gridPanel;
 
     public Text nicknameText;
     public Text confirmPlayerText;
     public Text localHealthText;
-    public Text remoteHealthText;
     public Button confirmButton;
     public Button attackButton;
     public Button defenseButton;
@@ -38,9 +37,10 @@ public class TempGame : MonoBehaviourPun
     [SerializeField] bool isDefense = false;
     EResult eResult = EResult.BATTLE;
 
-    void OnEnable()
+    void Start()
     {
-        gameUI = PhotonNetwork.Instantiate("gameUIPrefab", Vector3.zero, Quaternion.identity);
+        gridPanel = GameObject.Find("GridPanel");
+        gameUI = this.gameObject;
         photonView.RPC("UpdateGameUI", RpcTarget.All);
     }
 
@@ -103,6 +103,7 @@ public class TempGame : MonoBehaviourPun
     public void Battle(int _damage, bool _isDefense, bool _isPrepareAttack)
     {
         print($"Battle - {gameUI.GetComponent<PhotonView>().Owner}");
+
         if (isDefense)
         {
             damage = 0;
@@ -135,43 +136,26 @@ public class TempGame : MonoBehaviourPun
     [PunRPC]
     void UpdateGameUI()
     {
-        var gameUI = GameObject.FindGameObjectsWithTag("GameUI");
+        gameUI.transform.SetParent(gridPanel.transform);
 
-        for (int i = 0; i < gameUI.Length; i++)
-        {
-            gameUI[i].transform.SetParent(gridPanel.transform);
+        nicknameText = gameUI.transform.GetChild(0).GetComponent<Text>();
+        nicknameText.text = $"[{gameUI.GetComponent<PhotonView>().Owner.NickName}]";
 
-            nicknameText = gameUI[i].transform.GetChild(0).GetComponent<Text>();
-            nicknameText.text = $"[{gameUI[i].GetComponent<PhotonView>().Owner.NickName}]";
+        confirmPlayerText = gameUI.transform.GetChild(1).GetComponent<Text>();
+        confirmPlayerText.text = $"완료: {confirm.ToString()} / {MAX_PLAYER.ToString()}";
 
-            confirmPlayerText = gameUI[i].transform.GetChild(1).GetComponent<Text>();
-            confirmPlayerText.text = $"완료: {confirm.ToString()} / {MAX_PLAYER.ToString()}";
+        localHealthText = gameUI.transform.GetChild(2).GetComponent<Text>();
+        localHealthText.text = $"HP: {health.ToString()}";
 
-            if (gameUI[i].GetComponent<PhotonView>().IsMine)
-            {
-                localHealthText = gameUI[i].transform.GetChild(2).GetComponent<Text>();
-                localHealthText.text = $"HP: {health.ToString()}";
-            }
-            else
-            {
-                remoteHealthText = gameUI[i].transform.GetChild(2).GetComponent<Text>();
-                remoteHealthText.text = $"HP: {health.ToString()}";
-            }
+        confirmButton = gameUI.transform.GetChild(3).GetComponent<Button>();
+        confirmButton.onClick.AddListener(OnClickConfirm);
 
-            if (gameUI[i].GetComponent<PhotonView>().IsMine)
-            {
-                confirmButton = gameUI[i].transform.GetChild(3).GetComponent<Button>();
-                confirmButton.onClick.AddListener(OnClickConfirm);
+        attackButton = gameUI.transform.GetChild(4).GetComponent<Button>();
+        attackButton.onClick.AddListener(OnClickAttackOrPrepareAttack);
 
-                attackButton = gameUI[i].transform.GetChild(4).GetComponent<Button>();
-                attackButton.onClick.AddListener(OnClickAttackOrPrepareAttack);      //
+        defenseButton = gameUI.transform.GetChild(5).GetComponent<Button>();
+        defenseButton.onClick.AddListener(OnClickDefense);
 
-                defenseButton = gameUI[i].transform.GetChild(5).GetComponent<Button>();
-                defenseButton.onClick.AddListener(OnClickDefense);                    // 
-
-
-                gameUI[i].transform.GetChild(6).gameObject.SetActive(false);   // 패널 비활성화 - 클릭 차단 해제
-            }
-        }
+        gameUI.transform.GetChild(6).gameObject.SetActive(false);             // 패널 비활성화 - 클릭 차단 해제
     }
 }

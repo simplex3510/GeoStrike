@@ -198,6 +198,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2960}
     - Class: 114
+      Script: {instanceID: 2968}
+    - Class: 114
       Script: {instanceID: 2970}
     - Class: 114
       Script: {instanceID: 2972}
@@ -888,7 +890,7 @@ ScriptsOnlyBuild:
     className: PhotonView
   - hash:
       serializedVersion: 2
-      Hash: db5f32512d56c8a6be9e8563724c45dc
+      Hash: ec9eeeaa613bc936107d59a34efb78fd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TempGame
@@ -1062,7 +1064,7 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 5f444dd4747d35cc5ef5ab8147ad8fc9
+      Hash: 3e24befe2707b2eada9dc79a3ed44b6e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TempRoom
