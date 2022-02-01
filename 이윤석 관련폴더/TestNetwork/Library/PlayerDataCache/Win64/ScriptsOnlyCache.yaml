@@ -64,11 +64,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2452}
     - Class: 114
-      Script: {instanceID: 2576}
+      Script: {instanceID: 2574}
     - Class: 114
-      Script: {instanceID: 2758}
+      Script: {instanceID: 2756}
     - Class: 114
-      Script: {instanceID: 2970}
+      Script: {instanceID: 2968}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -109,15 +109,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2452}
     - Class: 114
-      Script: {instanceID: 2576}
+      Script: {instanceID: 2574}
     - Class: 114
-      Script: {instanceID: 2758}
+      Script: {instanceID: 2756}
     - Class: 114
-      Script: {instanceID: 2960}
+      Script: {instanceID: 2958}
     - Class: 114
-      Script: {instanceID: 2970}
+      Script: {instanceID: 2968}
     - Class: 114
-      Script: {instanceID: 3136}
+      Script: {instanceID: 3134}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -190,37 +190,37 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2452}
     - Class: 114
-      Script: {instanceID: 2576}
+      Script: {instanceID: 2574}
     - Class: 114
-      Script: {instanceID: 2758}
+      Script: {instanceID: 2756}
     - Class: 114
-      Script: {instanceID: 2804}
+      Script: {instanceID: 2802}
     - Class: 114
-      Script: {instanceID: 2960}
+      Script: {instanceID: 2958}
+    - Class: 114
+      Script: {instanceID: 2966}
     - Class: 114
       Script: {instanceID: 2968}
     - Class: 114
       Script: {instanceID: 2970}
     - Class: 114
-      Script: {instanceID: 2972}
+      Script: {instanceID: 3516}
     - Class: 114
-      Script: {instanceID: 3518}
+      Script: {instanceID: 3832}
     - Class: 114
-      Script: {instanceID: 3834}
+      Script: {instanceID: 3836}
     - Class: 114
-      Script: {instanceID: 3838}
+      Script: {instanceID: 4006}
     - Class: 114
-      Script: {instanceID: 4008}
+      Script: {instanceID: 4050}
     - Class: 114
-      Script: {instanceID: 4052}
+      Script: {instanceID: 4116}
     - Class: 114
-      Script: {instanceID: 4118}
+      Script: {instanceID: 4450}
     - Class: 114
-      Script: {instanceID: 4452}
+      Script: {instanceID: 4594}
     - Class: 114
-      Script: {instanceID: 4596}
-    - Class: 114
-      Script: {instanceID: 4902}
+      Script: {instanceID: 4900}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -277,19 +277,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2452}
     - Class: 114
-      Script: {instanceID: 2576}
+      Script: {instanceID: 2574}
     - Class: 114
-      Script: {instanceID: 2758}
+      Script: {instanceID: 2756}
     - Class: 114
-      Script: {instanceID: 2960}
+      Script: {instanceID: 2958}
     - Class: 114
       Script: {instanceID: 2968}
     - Class: 114
-      Script: {instanceID: 2970}
+      Script: {instanceID: 3360}
     - Class: 114
-      Script: {instanceID: 3362}
-    - Class: 114
-      Script: {instanceID: 4830}
+      Script: {instanceID: 4828}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -328,11 +326,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2452}
     - Class: 114
-      Script: {instanceID: 2576}
+      Script: {instanceID: 2574}
     - Class: 114
-      Script: {instanceID: 2758}
+      Script: {instanceID: 2756}
     - Class: 114
-      Script: {instanceID: 2970}
+      Script: {instanceID: 2968}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -734,12 +732,6 @@ ScriptsOnlyBuild:
     className: CurrentRoomPropertiesListedInLobbyProperty
   - hash:
       serializedVersion: 2
-      Hash: acef826c944d81c57e929578ad5e519f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Test
-  - hash:
-      serializedVersion: 2
       Hash: 46a296a078af6e2a02857aa18e9cdf2b
     assemblyName: PhotonUnityNetworking.Utilities.dll
     namespaceName: Photon.Pun.UtilityScripts
@@ -890,7 +882,7 @@ ScriptsOnlyBuild:
     className: PhotonView
   - hash:
       serializedVersion: 2
-      Hash: ec9eeeaa613bc936107d59a34efb78fd
+      Hash: bad3701ab509d5b2565179516812d722
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TempGame
@@ -1064,7 +1056,7 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 3e24befe2707b2eada9dc79a3ed44b6e
+      Hash: f4fe0633137670b8c5b7b882a01f10b3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TempRoom

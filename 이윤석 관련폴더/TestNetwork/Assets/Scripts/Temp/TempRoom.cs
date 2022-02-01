@@ -15,8 +15,7 @@ enum EPlayerState
 public class TempRoom : MonoBehaviourPun
 {
     #region gameUI Field
-    public RectTransform readyUIPrefab;
-    public RectTransform gameUIPrefab;
+    public GameObject readyUIPrefab;
 
     public Canvas canvas;
     public RectTransform gridPanel;
@@ -30,17 +29,20 @@ public class TempRoom : MonoBehaviourPun
     GameObject readyUI;
 
     void Awake() => Screen.SetResolution(1920, 1080, false);
-    
+
     // 준비 gameUI 생성
-    void Start()    
+    void Start()
     {
-        // 준비 gameUI 생성 및 위치 설정
-        readyUI = Instantiate(readyUIPrefab, new Vector3(960, 540, 0), Quaternion.identity).gameObject;
+        // 준비 gameUI 생성, 할당 및 위치 설정
+        readyUI = Instantiate(readyUIPrefab, new Vector3(960, 540, 0), Quaternion.identity);
         readyUI.transform.SetParent(canvas.transform);
 
-        // 준비 gameUI 개체 할당
-        joinMemberText = readyUI.transform.GetChild(0).GetComponent<Text>();    // 현재 멤버 텍스트 할당
+        joinMemberText = readyUI.transform.GetChild(0).GetComponent<Text>();
+        joinMemberText.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString();
+
         readyPlayerText = readyUI.transform.GetChild(1).GetComponent<Text>();   // 준비 멤버 텍스트 할당
+        readyPlayerText.text = $"준비: {readyPlayer.ToString()}/{MAX_PLAYER.ToString()}";
+
         readyButton = readyUI.transform.GetChild(2).GetComponent<Button>();     // 준비 버튼 할당
         readyButton.onClick.AddListener(OnClickReady);                          // 준비 버튼에 메서드 할당
 
@@ -65,7 +67,7 @@ public class TempRoom : MonoBehaviourPun
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            if(ePlayerState == EPlayerState.ENTER)
+            if (ePlayerState == EPlayerState.ENTER)
             {
                 photonView.RPC("UpdateReady", RpcTarget.All, readyPlayer, _isCheck);
             }
@@ -97,18 +99,55 @@ public class TempRoom : MonoBehaviourPun
         {
             Destroy(readyUI);
             PhotonNetwork.Instantiate("GameUIPrefab", Vector3.zero, Quaternion.identity);
+            photonView.RPC("UpdateGameUI", RpcTarget.All);
         }
     }
 
     [PunRPC]
     void UpdateReady(bool _isCheck)
     {
-        if(_isCheck)
+        if (_isCheck)
         {
             readyPlayer--;
         }
 
         joinMemberText.text = $"참가 인원: {(PhotonNetwork.CurrentRoom.PlayerCount - 1).ToString()}";
         readyPlayerText.text = $"준비: {readyPlayer.ToString()} / {MAX_PLAYER.ToString()}";
+    }
+
+    [PunRPC]
+    void UpdateGameUI()
+    {
+        var _gameUI = GameObject.FindGameObjectsWithTag("GameUI");
+        foreach (var gameUI in _gameUI)
+        {
+            gameUI.transform.SetParent(gridPanel.transform);
+            gameUI.name = $"GameUI - ({gameUI.GetPhotonView().Owner.NickName})";
+
+            var tempGame = gameUI.GetComponent<TempGame>();      // gmaeUI의 TempGame 할당
+            
+            tempGame.nicknameText = gameUI.transform.GetChild(0).GetComponent<Text>();
+            tempGame.nicknameText.text = $"[{gameUI.GetPhotonView().Owner.NickName}]";
+
+            tempGame.confirmPlayerText = gameUI.transform.GetChild(1).GetComponent<Text>();
+            tempGame.confirmPlayerText.text = $"완료: 0 / {MAX_PLAYER.ToString()}";
+
+            tempGame.localHealthText = gameUI.transform.GetChild(2).GetComponent<Text>();
+            tempGame.localHealthText.text = $"HP: 0";
+
+            if (gameUI.GetPhotonView().IsMine)
+            {
+                tempGame.confirmButton = gameUI.transform.GetChild(3).GetComponent<Button>();
+                tempGame.confirmButton.onClick.AddListener(tempGame.OnClickConfirm);
+
+                tempGame.attackButton = gameUI.transform.GetChild(4).GetComponent<Button>();
+                tempGame.attackButton.onClick.AddListener(tempGame.OnClickAttackOrPrepareAttack);
+
+                tempGame.defenseButton = gameUI.transform.GetChild(5).GetComponent<Button>();
+                tempGame.defenseButton.onClick.AddListener(tempGame.OnClickDefense);
+
+                gameUI.transform.GetChild(6).gameObject.SetActive(false);             // 패널 비활성화 - 클릭 차단 해제
+            }
+        }
     }
 }

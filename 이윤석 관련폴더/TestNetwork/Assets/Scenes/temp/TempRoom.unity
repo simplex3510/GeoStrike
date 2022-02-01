@@ -298,14 +298,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd401ff6bbc2064459d48c3182ed0cc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  readyUIPrefab: {fileID: 4327177782272076125, guid: 121ddbc876d98914f83bbb63d1c112fc, type: 3}
-  gameUIPrefab: {fileID: 1375174886553633236, guid: 123f6c57a1b2dd0428a76b7e4f75fce9, type: 3}
+  readyUIPrefab: {fileID: 4327177782272076122, guid: 121ddbc876d98914f83bbb63d1c112fc, type: 3}
   canvas: {fileID: 1189688492}
   gridPanel: {fileID: 1562184300}
   joinMemberText: {fileID: 0}
   readyPlayerText: {fileID: 0}
   readyButton: {fileID: 0}
-  tempGame: {fileID: 0}
   readyPlayer: 0
 --- !u!114 &952139683
 MonoBehaviour:
