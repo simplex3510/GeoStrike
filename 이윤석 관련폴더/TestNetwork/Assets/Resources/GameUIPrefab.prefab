@@ -63,10 +63,10 @@ MonoBehaviour:
   confirmButton: {fileID: 0}
   attackButton: {fileID: 0}
   defenseButton: {fileID: 0}
-  gameUI: {fileID: 0}
   confirm: 0
   health: 100
   damage: 0
+  isCheck: 0
   isPrepareAttack: 0
   isDefense: 0
 --- !u!114 &1237136447507071534

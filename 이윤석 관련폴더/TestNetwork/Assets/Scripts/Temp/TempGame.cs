@@ -39,7 +39,9 @@ public class TempGame : MonoBehaviourPun
 
     void Start()
     {
-
+        confirmButton.onClick.AddListener(OnClickConfirm);
+        attackButton.onClick.AddListener(OnClickAttackOrPrepareAttack);
+        defenseButton.onClick.AddListener(OnClickDefense);
     }
 
     public void OnClickConfirm()
@@ -69,7 +71,7 @@ public class TempGame : MonoBehaviourPun
     [PunRPC]
     void UpdateGame()
     {
-        if (PhotonNetwork.IsMasterClient)
+        if (photonView.IsMine)
         {
             photonView.RPC("UpdateConfirm", RpcTarget.All, confirm, !confirmButton.interactable);
         }
@@ -99,7 +101,7 @@ public class TempGame : MonoBehaviourPun
     [PunRPC]
     public void Battle(int _damage, bool _isDefense, bool _isPrepareAttack)
     {
-        print($"Confirm - {this.gameObject.GetComponent<PhotonView>().Owner.NickName}");
+        print($"Battle - {this.gameObject.GetComponent<PhotonView>().Owner.NickName}");
 
         if (isDefense)
         {
