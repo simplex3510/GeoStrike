@@ -11,11 +11,11 @@ public class TetrominoPreview : MonoBehaviour
 
     public Image m_previewImage;
     public TetrominoSlot clickSlot;
-    public Vector3 m_previewOriginPos;
+    [HideInInspector] public Vector3 m_previewOriginPos;
 
     // Preview size controll
     public RectTransform rectTransform;
-    public Vector2 m_previewOriginSize;
+    [HideInInspector] public Vector2 m_previewOriginSize;
 
     private void Start()
     {

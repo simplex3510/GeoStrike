@@ -19,9 +19,14 @@ public class TetrominoState : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Color color;
 
+    [SerializeField] private UnitCreation unitCreation;
+    [SerializeField] private Timer timer;
+
     private void Awake()
     {
         if (spriteRenderer == null) { spriteRenderer = GetComponent<SpriteRenderer>(); }
+        if (unitCreation == null) { unitCreation = GetComponent<UnitCreation>(); }
+        if (timer == null) { timer = GameMgr.instance.canvas.GetComponentInChildren<Timer>(); }
     }
 
     private void Start()
@@ -74,15 +79,19 @@ public class TetrominoState : MonoBehaviour
         {
             // 유닛 소환
             Debug.Log("Summone unit");
+            unitCreation.UnitSpawn();
             Set_State(ETetrominoState.FSM_Summoned);
         }
     }
 
     IEnumerator FSM_Summoned()
     {
-        // 대기
         Debug.Log("Summoned");
-        yield return new WaitForSeconds(20);
+        while (timer.battleTimer != 0)
+        {
+            // battleTimer가 0이 될때까지 대기
+            yield return null;
+        }
         Set_State(ETetrominoState.FSM_Normal);
     }
 }

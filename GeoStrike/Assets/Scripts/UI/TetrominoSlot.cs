@@ -6,26 +6,25 @@ using UnityEngine.EventSystems;
 
 public class TetrominoSlot : MonoBehaviour, IPointerClickHandler
 {
-    // Components
+    [Header("< Components >")]
     [SerializeField] private CameraController cameraController;
-    [SerializeField] private TileDetector tileDetector;
-    [SerializeField] private TetrominoSlotContainer slotContainer;
+    [SerializeField] private Detector tileDetector;
 
-    // Random block
+    [Header("< Random Block >")]
     public Image showSlotImage;
     public Image forPreviewImage;
     public GameObject tetrominoPrefab;
 
-    public int currentBlockShape;
-    public int currentBlockRotation;
+    [HideInInspector] public int currentBlockShape;
+    [HideInInspector] public int currentBlockRotation;
 
-    public Vector3 imageAngle;
-    public Vector3 tilePos;
-    public Vector3 tileSize;
+    [HideInInspector] public Vector3 imageAngle;
+    [HideInInspector] public Vector3 tilePos;
+    [HideInInspector] public Vector3 tileSize;
 
     // Size
-    public Vector2 tetrominoImgSize;
-    public Vector3 offset;
+    [HideInInspector] public Vector2 tetrominoImgSize;
+    [HideInInspector] public Vector3 offset;
 
     private void Start()
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [Header("< Componenet >")]
-    [SerializeField] private Camera mainCamera;
+    public Camera mainCamera;
     public MouseController mouseController;
     [SerializeField] private RectTransform rectTransform;     // Resolution 1920 x 1080
 

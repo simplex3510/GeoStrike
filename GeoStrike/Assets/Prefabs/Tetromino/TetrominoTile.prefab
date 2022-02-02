@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8002610452188457418}
   - component: {fileID: 2925172778386903062}
   - component: {fileID: 5957297071214197433}
+  - component: {fileID: -6567158867698624161}
   m_Layer: 0
   m_Name: TetrominoTile
   m_TagString: Untagged
@@ -96,3 +97,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-6567158867698624161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930232651926191783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b09a6a2b16538784bbba3f97daa039e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 0}

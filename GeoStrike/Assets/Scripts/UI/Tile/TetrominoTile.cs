@@ -6,23 +6,22 @@ using UnityEngine.UI;
 
 public class TetrominoTile : MonoBehaviour
 {
-    public bool isBuilding { get; set; }
+    public bool isEmty = true;
     public SpriteRenderer image;
 
     private void Awake()
     {
         if (image == null) { image = GetComponent<SpriteRenderer>(); }
-        isBuilding = false;
     }
 
     private void Update()
     {
-        Set_color(isBuilding);
+        Set_color();
     }
 
-    public void Set_color(bool _bool)
+    public void Set_color()
     {
-        if (isBuilding)
+        if (!isEmty)
         {
             image.color = Color.black;
         }

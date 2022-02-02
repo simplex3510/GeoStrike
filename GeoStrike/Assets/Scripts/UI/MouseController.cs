@@ -10,7 +10,7 @@ public class MouseController : MonoBehaviour
         create
     }
 
-    public Vector3 mousePos;
+    [HideInInspector] public Vector3 mousePos;
     public EMouseMode emouseMode;
 
     private void Update()

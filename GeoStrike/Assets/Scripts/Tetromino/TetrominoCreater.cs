@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TetrominoCreater : MonoBehaviour
 {
-    public TileContainer tileContainer;
+    public TetrominoTileContainer tileContainer;
     public TetrominoSlotContainer slotContainer;
 
     private int height { get; set; }
@@ -22,14 +22,14 @@ public class TetrominoCreater : MonoBehaviour
     // _idx = 마우스 위치의 tile Idx
     private int Get_LimitHeight(int _idx)
     {
-        if (_idx < TileContainer.LIST_WIDTH) { height = 0; }
-        else if (_idx >= TileContainer.LIST_WIDTH && _idx < 2*TileContainer.LIST_WIDTH) { height = 1; }
-        else if (_idx >= 2*TileContainer.LIST_WIDTH && _idx < 3*TileContainer.LIST_WIDTH) { height = 2; }
-        else if (_idx >= 3*TileContainer.LIST_WIDTH && _idx < 4*TileContainer.LIST_WIDTH) { height = 3; }
-        else if (_idx >= 4*TileContainer.LIST_WIDTH && _idx < 5*TileContainer.LIST_WIDTH) { height = 4; }
-        else if (_idx >= 5*TileContainer.LIST_WIDTH && _idx < 6*TileContainer.LIST_WIDTH) { height = 5; }
-        else if (_idx >= 6*TileContainer.LIST_WIDTH && _idx < 7*TileContainer.LIST_WIDTH) { height = 6; }
-        else if (_idx >= 7*TileContainer.LIST_WIDTH && _idx < 8*TileContainer.LIST_WIDTH) { height = 7; }
+        if (_idx < TetrominoTileContainer.LIST_WIDTH) { height = 0; }
+        else if (_idx >= TetrominoTileContainer.LIST_WIDTH && _idx < 2*TetrominoTileContainer.LIST_WIDTH) { height = 1; }
+        else if (_idx >= 2*TetrominoTileContainer.LIST_WIDTH && _idx < 3*TetrominoTileContainer.LIST_WIDTH) { height = 2; }
+        else if (_idx >= 3*TetrominoTileContainer.LIST_WIDTH && _idx < 4*TetrominoTileContainer.LIST_WIDTH) { height = 3; }
+        else if (_idx >= 4*TetrominoTileContainer.LIST_WIDTH && _idx < 5*TetrominoTileContainer.LIST_WIDTH) { height = 4; }
+        else if (_idx >= 5*TetrominoTileContainer.LIST_WIDTH && _idx < 6*TetrominoTileContainer.LIST_WIDTH) { height = 5; }
+        else if (_idx >= 6*TetrominoTileContainer.LIST_WIDTH && _idx < 7*TetrominoTileContainer.LIST_WIDTH) { height = 6; }
+        else if (_idx >= 7*TetrominoTileContainer.LIST_WIDTH && _idx < 8*TetrominoTileContainer.LIST_WIDTH) { height = 7; }
 
         return height;
     }
@@ -43,59 +43,59 @@ public class TetrominoCreater : MonoBehaviour
         {
             case 0: // Square
                 // Catch error
-                if (_idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height) 
+                if (_idx == (TetrominoTileContainer.LIST_WIDTH - TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height) 
                 {
-                    TileDetector.canBuild = false; 
+                    Detector.canBuild = false; 
                     return; 
                 }
-                else if (_idx - TileContainer.LIST_WIDTH < 0)
+                else if (_idx - TetrominoTileContainer.LIST_WIDTH < 0)
                 {
-                    TileDetector.canBuild = false;
+                    Detector.canBuild = false;
                     return;
                 }
                 // Preview
-                if ( tileContainer.tileList[_idx].isBuilding == false &&
-                     tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding == false &&
-                     tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding == false &&
-                     tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding == false)
+                if ( tileContainer.TetrominotileList[_idx].isEmty == true &&
+                     tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                     tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty == true &&
+                     tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty == true)
                 {
-                    TileDetector.canBuild = true;
+                    Detector.canBuild = true;
                 }
-                else { TileDetector.canBuild = false; }
+                else { Detector.canBuild = false; }
                 break;
             case 1: // Straight
                 switch (_rot)
                 {
                     case 0:
                         // Catch error
-                        if (_idx - TileContainer.LIST_WIDTH < 0 || _idx - 2 * TileContainer.LIST_WIDTH < 0 || _idx - 3 * TileContainer.LIST_WIDTH < 0)
+                        if (_idx - TetrominoTileContainer.LIST_WIDTH < 0 || _idx - 2 * TetrominoTileContainer.LIST_WIDTH < 0 || _idx - 3 * TetrominoTileContainer.LIST_WIDTH < 0)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
                         // Preview
-                        if ( tileContainer.tileList[_idx].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding == false &&
-                             tileContainer.tileList[_idx - 2 * TileContainer.LIST_WIDTH].isBuilding == false &&
-                             tileContainer.tileList[_idx - 3 * TileContainer.LIST_WIDTH].isBuilding == false)
-                        { TileDetector.canBuild = true; }
-                        else { TileDetector.canBuild = false; }
+                        if ( tileContainer.TetrominotileList[_idx].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - 2 * TetrominoTileContainer.LIST_WIDTH].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - 3 * TetrominoTileContainer.LIST_WIDTH].isEmty == true)
+                        { Detector.canBuild = true; }
+                        else { Detector.canBuild = false; }
                         break;
                     case 1:
                         // Catch error
-                        if ( _idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height ||
-                             _idx == (TileContainer.LIST_WIDTH - 2*TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height ||
-                             _idx == (TileContainer.LIST_WIDTH - 3*TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height)
+                        if ( _idx == (TetrominoTileContainer.LIST_WIDTH - TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height ||
+                             _idx == (TetrominoTileContainer.LIST_WIDTH - 2*TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height ||
+                             _idx == (TetrominoTileContainer.LIST_WIDTH - 3*TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height)
                         { 
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
-                        if ( tileContainer.tileList[_idx].isBuilding == false &&
-                             tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx + 2 * TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx + 3 * TileContainer.LIST_ONE].isBuilding == false)
-                        { TileDetector.canBuild = true; }
-                        else { TileDetector.canBuild = false; }
+                        if ( tileContainer.TetrominotileList[_idx].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + 2 * TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + 3 * TetrominoTileContainer.LIST_ONE].isEmty == true)
+                        { Detector.canBuild = true; }
+                        else { Detector.canBuild = false; }
                         break;
                 }
                 break;
@@ -104,85 +104,85 @@ public class TetrominoCreater : MonoBehaviour
                 {
                     case 0:
                         // Catch error
-                        if (_idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height)
+                        if (_idx == (TetrominoTileContainer.LIST_WIDTH - TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
-                        else if (_idx - TileContainer.LIST_WIDTH < 0 || _idx - 2 * TileContainer.LIST_WIDTH < 0)
+                        else if (_idx - TetrominoTileContainer.LIST_WIDTH < 0 || _idx - 2 * TetrominoTileContainer.LIST_WIDTH < 0)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
                         // preview
-                        if ( tileContainer.tileList[_idx].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx - 2 * TileContainer.LIST_WIDTH].isBuilding == false)
-                        { TileDetector.canBuild = true; }
-                        else { TileDetector.canBuild = false; }
+                        if ( tileContainer.TetrominotileList[_idx].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - 2 * TetrominoTileContainer.LIST_WIDTH].isEmty == true)
+                        { Detector.canBuild = true; }
+                        else { Detector.canBuild = false; }
                         break;
                     case 1:
                         // Catch error
-                        if ( _idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height ||
-                             _idx == (TileContainer.LIST_WIDTH - 2*TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height)
+                        if ( _idx == (TetrominoTileContainer.LIST_WIDTH - TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height ||
+                             _idx == (TetrominoTileContainer.LIST_WIDTH - 2*TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
-                        else if (_idx - TileContainer.LIST_WIDTH < 0)
+                        else if (_idx - TetrominoTileContainer.LIST_WIDTH < 0)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
                         // Preview
-                        if ( tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + 2 * TileContainer.LIST_ONE].isBuilding == false) 
-                        { TileDetector.canBuild = true; }
-                        else { TileDetector.canBuild = false; }
+                        if ( tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + 2 * TetrominoTileContainer.LIST_ONE].isEmty == true ) 
+                        { Detector.canBuild = true; }
+                        else { Detector.canBuild = false; }
                         break;
                     case 2:
                         // Catch error
-                        if (_idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height)
+                        if (_idx == (TetrominoTileContainer.LIST_WIDTH - TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
-                        else if (_idx - TileContainer.LIST_WIDTH < 0 || _idx - 2*TileContainer.LIST_WIDTH < 0)
+                        else if (_idx - TetrominoTileContainer.LIST_WIDTH < 0 || _idx - 2*TetrominoTileContainer.LIST_WIDTH < 0)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
                         // Preview
-                        if ( tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx - 2 * TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding == false)
-                        { TileDetector.canBuild = true; }
-                        else { TileDetector.canBuild = false; }
+                        if ( tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - 2 * TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty == true)
+                        { Detector.canBuild = true; }
+                        else { Detector.canBuild = false; }
                         break;
                     case 3:
                         // Catch error
-                        if (_idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height ||
-                            _idx == (TileContainer.LIST_WIDTH - 2*TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height)
+                        if (_idx == (TetrominoTileContainer.LIST_WIDTH - TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height ||
+                            _idx == (TetrominoTileContainer.LIST_WIDTH - 2*TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
-                        else if (_idx - TileContainer.LIST_WIDTH < 0)
+                        else if (_idx - TetrominoTileContainer.LIST_WIDTH < 0)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
                         // Preview
-                        if ( tileContainer.tileList[_idx].isBuilding == false &&
-                             tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx + 2 * TileContainer.LIST_ONE].isBuilding == false)
-                        { TileDetector.canBuild = true; }
-                        else { TileDetector.canBuild = false; }
+                        if ( tileContainer.TetrominotileList[_idx].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + 2 * TetrominoTileContainer.LIST_ONE].isEmty == true)
+                        { Detector.canBuild = true; }
+                        else { Detector.canBuild = false; }
                         break;
                 }
                 break;
@@ -191,85 +191,85 @@ public class TetrominoCreater : MonoBehaviour
                 {
                     case 0:
                         // Catch error
-                        if ( _idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height ||
-                             _idx == (TileContainer.LIST_WIDTH - 2*TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height)
+                        if ( _idx == (TetrominoTileContainer.LIST_WIDTH - TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height ||
+                             _idx == (TetrominoTileContainer.LIST_WIDTH - 2*TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
-                        else if (_idx - TileContainer.LIST_WIDTH < 0)
+                        else if (_idx - TetrominoTileContainer.LIST_WIDTH < 0)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
                         // Preview
-                        if ( tileContainer.tileList[_idx].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding == false &&
-                             tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx + 2 * TileContainer.LIST_ONE].isBuilding == false)
-                        { TileDetector.canBuild = true; }
-                        else { TileDetector.canBuild = false; }
+                        if ( tileContainer.TetrominotileList[_idx].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + 2 * TetrominoTileContainer.LIST_ONE].isEmty == true)
+                        { Detector.canBuild = true; }
+                        else { Detector.canBuild = false; }
                         break;
                     case 1:
                         // Catch error
-                        if (_idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height)
+                        if (_idx == (TetrominoTileContainer.LIST_WIDTH - TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
-                        else if (_idx - TileContainer.LIST_WIDTH < 0 || _idx - 2*TileContainer.LIST_WIDTH < 0)
+                        else if (_idx - TetrominoTileContainer.LIST_WIDTH < 0 || _idx - 2*TetrominoTileContainer.LIST_WIDTH < 0)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
                         // Preview
-                        if ( tileContainer.tileList[_idx].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding == false &&
-                             tileContainer.tileList[_idx - 2 * TileContainer.LIST_WIDTH].isBuilding == false &&
-                             tileContainer.tileList[_idx - 2 * TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding == false)
-                        { TileDetector.canBuild = true; }
-                        else { TileDetector.canBuild = false; }
+                        if ( tileContainer.TetrominotileList[_idx].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - 2 * TetrominoTileContainer.LIST_WIDTH].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - 2 * TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty == true)
+                        { Detector.canBuild = true; }
+                        else { Detector.canBuild = false; }
                         break;
                     case 2:
                         // Catch error
-                        if ( _idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height ||
-                             _idx == (TileContainer.LIST_WIDTH - 2*TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height)
+                        if ( _idx == (TetrominoTileContainer.LIST_WIDTH - TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height ||
+                             _idx == (TetrominoTileContainer.LIST_WIDTH - 2*TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
-                        else if (_idx - TileContainer.LIST_WIDTH < 0)
+                        else if (_idx - TetrominoTileContainer.LIST_WIDTH < 0)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
                         // Preview
-                        if ( tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + 2 * TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx + 2 * TileContainer.LIST_ONE].isBuilding == false)
-                        { TileDetector.canBuild = true; }
-                        else { TileDetector.canBuild = false; }
+                        if ( tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + 2 * TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + 2 * TetrominoTileContainer.LIST_ONE].isEmty == true)
+                        { Detector.canBuild = true; }
+                        else { Detector.canBuild = false; }
                         break;
                     case 3:
                         // Catch error
-                        if (_idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height)
+                        if (_idx == (TetrominoTileContainer.LIST_WIDTH - TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
-                        else if (_idx - TileContainer.LIST_WIDTH < 0 || _idx - 2*TileContainer.LIST_WIDTH < 0)
+                        else if (_idx - TetrominoTileContainer.LIST_WIDTH < 0 || _idx - 2*TetrominoTileContainer.LIST_WIDTH < 0)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
                         // Preview
-                        if ( tileContainer.tileList[_idx].isBuilding == false &&
-                             tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx + TileContainer.LIST_ONE - TileContainer.LIST_WIDTH].isBuilding == false &&
-                             tileContainer.tileList[_idx + TileContainer.LIST_ONE - 2 * TileContainer.LIST_WIDTH].isBuilding == false)
-                        { TileDetector.canBuild = true; }
-                        else { TileDetector.canBuild = false; }
+                        if ( tileContainer.TetrominotileList[_idx].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE - TetrominoTileContainer.LIST_WIDTH].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE - 2 * TetrominoTileContainer.LIST_WIDTH].isEmty == true)
+                        { Detector.canBuild = true; }
+                        else { Detector.canBuild = false; }
                         break;
                 }
                 break;
@@ -278,85 +278,85 @@ public class TetrominoCreater : MonoBehaviour
                 {
                     case 0:
                         // Catch error
-                        if ( _idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height ||
-                             _idx == (TileContainer.LIST_WIDTH - 2*TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height)
+                        if ( _idx == (TetrominoTileContainer.LIST_WIDTH - TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height ||
+                             _idx == (TetrominoTileContainer.LIST_WIDTH - 2*TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
-                        else if (_idx - TileContainer.LIST_WIDTH < 0)
+                        else if (_idx - TetrominoTileContainer.LIST_WIDTH < 0)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
                         // Preview
-                        if ( tileContainer.tileList[_idx].isBuilding == false &&
-                             tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx + 2 * TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx + 2 * TileContainer.LIST_ONE - TileContainer.LIST_WIDTH].isBuilding == false)
-                        { TileDetector.canBuild = true; }
-                        else { TileDetector.canBuild = false; }
+                        if ( tileContainer.TetrominotileList[_idx].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + 2 * TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + 2 * TetrominoTileContainer.LIST_ONE - TetrominoTileContainer.LIST_WIDTH].isEmty == true)
+                        { Detector.canBuild = true; }
+                        else { Detector.canBuild = false; }
                         break;
                     case 1:
                         // Catch error
-                        if (_idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height)
+                        if (_idx == (TetrominoTileContainer.LIST_WIDTH - TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
-                        else if (_idx - TileContainer.LIST_WIDTH < 0 || _idx - 2*TileContainer.LIST_WIDTH < 0)
+                        else if (_idx - TetrominoTileContainer.LIST_WIDTH < 0 || _idx - 2*TetrominoTileContainer.LIST_WIDTH < 0)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
                         // Preview
-                        if ( tileContainer.tileList[_idx].isBuilding == false &&
-                             tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding == false &&
-                             tileContainer.tileList[_idx - 2 * TileContainer.LIST_WIDTH].isBuilding == false)
-                        { TileDetector.canBuild = true; }
-                        else { TileDetector.canBuild = false; }
+                        if ( tileContainer.TetrominotileList[_idx].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - 2 * TetrominoTileContainer.LIST_WIDTH].isEmty == true)
+                        { Detector.canBuild = true; }
+                        else { Detector.canBuild = false; }
                         break;
                     case 2:
                         // Catch error
-                        if ( _idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height ||
-                             _idx == (TileContainer.LIST_WIDTH - 2*TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height)
+                        if ( _idx == (TetrominoTileContainer.LIST_WIDTH - TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height ||
+                             _idx == (TetrominoTileContainer.LIST_WIDTH - 2*TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
-                        else if (_idx - TileContainer.LIST_WIDTH < 0)
+                        else if (_idx - TetrominoTileContainer.LIST_WIDTH < 0)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
                         // Preview
-                        if ( tileContainer.tileList[_idx].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + 2 * TileContainer.LIST_ONE].isBuilding == false)
-                        { TileDetector.canBuild = true; }
-                        else { TileDetector.canBuild = false; }
+                        if ( tileContainer.TetrominotileList[_idx].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + 2 * TetrominoTileContainer.LIST_ONE].isEmty == true)
+                        { Detector.canBuild = true; }
+                        else { Detector.canBuild = false; }
                         break;
                     case 3:
                         // Catch error
-                        if (_idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height)
+                        if (_idx == (TetrominoTileContainer.LIST_WIDTH - TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
-                        else if (_idx - TileContainer.LIST_WIDTH < 0 || _idx - 2*TileContainer.LIST_WIDTH < 0)
+                        else if (_idx - TetrominoTileContainer.LIST_WIDTH < 0 || _idx - 2*TetrominoTileContainer.LIST_WIDTH < 0)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
                         // Preview
-                        if ( tileContainer.tileList[_idx - 2 * TileContainer.LIST_WIDTH].isBuilding == false &&
-                             tileContainer.tileList[_idx - 2 * TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding == false)
-                        { TileDetector.canBuild = true; }
-                        else { TileDetector.canBuild = false; }
+                        if ( tileContainer.TetrominotileList[_idx - 2 * TetrominoTileContainer.LIST_WIDTH].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - 2 * TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty == true)
+                        { Detector.canBuild = true; }
+                        else { Detector.canBuild = false; }
                         break;
                 }
                 break;
@@ -365,44 +365,44 @@ public class TetrominoCreater : MonoBehaviour
                 {
                     case 0:
                         // Catch error
-                        if (_idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height)
+                        if (_idx == (TetrominoTileContainer.LIST_WIDTH - TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
-                        else if (_idx - TileContainer.LIST_WIDTH < 0 || _idx - 2*TileContainer.LIST_WIDTH < 0)
+                        else if (_idx - TetrominoTileContainer.LIST_WIDTH < 0 || _idx - 2*TetrominoTileContainer.LIST_WIDTH < 0)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
                         // Preview
-                        if ( tileContainer.tileList[_idx].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx - 2 * TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding == false)
-                        { TileDetector.canBuild = true; }
-                        else { TileDetector.canBuild = false; }
+                        if ( tileContainer.TetrominotileList[_idx].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - 2 * TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty == true)
+                        { Detector.canBuild = true; }
+                        else { Detector.canBuild = false; }
                         break;
                     case 1:
                         // Catch error
-                        if ( _idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height ||
-                             _idx == (TileContainer.LIST_WIDTH - 2*TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height)
+                        if ( _idx == (TetrominoTileContainer.LIST_WIDTH - TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height ||
+                             _idx == (TetrominoTileContainer.LIST_WIDTH - 2*TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
-                        else if (_idx - TileContainer.LIST_WIDTH < 0)
+                        else if (_idx - TetrominoTileContainer.LIST_WIDTH < 0)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
                         // Preview
-                        if (tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx + 2 * TileContainer.LIST_ONE].isBuilding == false)
-                        { TileDetector.canBuild = true; }
-                        else { TileDetector.canBuild = false; }
+                        if (tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + 2 * TetrominoTileContainer.LIST_ONE].isEmty == true)
+                        { Detector.canBuild = true; }
+                        else { Detector.canBuild = false; }
                         break;
                 }
                 break;
@@ -411,44 +411,44 @@ public class TetrominoCreater : MonoBehaviour
                 {
                     case 0:
                         // Catch error
-                        if (_idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height)
+                        if (_idx == (TetrominoTileContainer.LIST_WIDTH - TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
-                        else if (_idx - TileContainer.LIST_WIDTH < 0 || _idx - 2 * TileContainer.LIST_WIDTH < 0)
+                        else if (_idx - TetrominoTileContainer.LIST_WIDTH < 0 || _idx - 2 * TetrominoTileContainer.LIST_WIDTH < 0)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
                         // Preview
-                        if ( tileContainer.tileList[_idx - 2 * TileContainer.LIST_WIDTH].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding == false &&
-                             tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding == false)
-                        { TileDetector.canBuild = true; }
-                        else { TileDetector.canBuild = false; }
+                        if ( tileContainer.TetrominotileList[_idx - 2 * TetrominoTileContainer.LIST_WIDTH].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty == true)
+                        { Detector.canBuild = true; }
+                        else { Detector.canBuild = false; }
                         break;
                     case 1:
                         // Catch error
-                        if ( _idx == (TileContainer.LIST_WIDTH - TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height ||
-                             _idx == (TileContainer.LIST_WIDTH - 2*TileContainer.LIST_ONE) + TileContainer.LIST_WIDTH * height)
+                        if ( _idx == (TetrominoTileContainer.LIST_WIDTH - TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height ||
+                             _idx == (TetrominoTileContainer.LIST_WIDTH - 2*TetrominoTileContainer.LIST_ONE) + TetrominoTileContainer.LIST_WIDTH * height)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
-                        else if (_idx - TileContainer.LIST_WIDTH < 0)
+                        else if (_idx - TetrominoTileContainer.LIST_WIDTH < 0)
                         {
-                            TileDetector.canBuild = false;
+                            Detector.canBuild = false;
                             return;
                         }
                         // Preview
-                        if ( tileContainer.tileList[_idx].isBuilding == false &&
-                             tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding == false &&
-                             tileContainer.tileList[_idx + TileContainer.LIST_ONE - TileContainer.LIST_WIDTH].isBuilding == false &&
-                             tileContainer.tileList[_idx + 2 * TileContainer.LIST_ONE - TileContainer.LIST_WIDTH].isBuilding == false)
-                        { TileDetector.canBuild = true; }
-                        else { TileDetector.canBuild = false; }
+                        if ( tileContainer.TetrominotileList[_idx].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE - TetrominoTileContainer.LIST_WIDTH].isEmty == true &&
+                             tileContainer.TetrominotileList[_idx + 2 * TetrominoTileContainer.LIST_ONE - TetrominoTileContainer.LIST_WIDTH].isEmty == true)
+                        { Detector.canBuild = true; }
+                        else { Detector.canBuild = false; }
                         break;
                 }
                 break;
@@ -463,26 +463,26 @@ public class TetrominoCreater : MonoBehaviour
         {
             // Square
             case 0:
-                tileContainer.tileList[_idx].isBuilding = true;
-                tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding = true;
-                tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding = true;
-                tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding = true;
+                tileContainer.TetrominotileList[_idx].isEmty = false;
+                tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty = false;
+                tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty = false;
                 break;
             // Straight
             case 1:
                 switch (_rot)
                 {
                     case 0: // Z angle : 0
-                        tileContainer.tileList[_idx].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding = true;
-                        tileContainer.tileList[_idx - 2*TileContainer.LIST_WIDTH].isBuilding = true;
-                        tileContainer.tileList[_idx - 3*TileContainer.LIST_WIDTH].isBuilding = true;
+                        tileContainer.TetrominotileList[_idx].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - 2*TetrominoTileContainer.LIST_WIDTH].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - 3*TetrominoTileContainer.LIST_WIDTH].isEmty = false;
                         break;
                     case 1: // Z angle : -90
-                        tileContainer.tileList[_idx].isBuilding = true;
-                        tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx + 2*TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx + 3*TileContainer.LIST_ONE].isBuilding = true;
+                        tileContainer.TetrominotileList[_idx].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + 2*TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + 3*TetrominoTileContainer.LIST_ONE].isEmty = false;
                         break;
                 }
                 break;
@@ -491,28 +491,28 @@ public class TetrominoCreater : MonoBehaviour
                 switch (_rot)
                 {
                     case 0: // Z angle : 0
-                        tileContainer.tileList[_idx].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx - 2*TileContainer.LIST_WIDTH].isBuilding = true;
+                        tileContainer.TetrominotileList[_idx].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - 2*TetrominoTileContainer.LIST_WIDTH].isEmty = false;
                         break;
                     case 1: // Z angle : -90
-                        tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + 2*TileContainer.LIST_ONE].isBuilding = true;
+                        tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + 2*TetrominoTileContainer.LIST_ONE].isEmty = false;
                         break;
                     case 2: // Z angle : -180
-                        tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx - 2 * TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding = true;
+                        tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - 2 * TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty = false;
                         break;
                     case 3: // Z angle : -270
-                        tileContainer.tileList[_idx].isBuilding = true;
-                        tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx + 2 * TileContainer.LIST_ONE].isBuilding = true;
+                        tileContainer.TetrominotileList[_idx].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + 2 * TetrominoTileContainer.LIST_ONE].isEmty = false;
                         break;
                 }
                 break;
@@ -521,28 +521,28 @@ public class TetrominoCreater : MonoBehaviour
                 switch (_rot)
                 {
                     case 0: // Z angle : 0
-                        tileContainer.tileList[_idx].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding = true;
-                        tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx + 2*TileContainer.LIST_ONE].isBuilding = true;
+                        tileContainer.TetrominotileList[_idx].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + 2*TetrominoTileContainer.LIST_ONE].isEmty = false;
                         break;
                     case 1: // Z angle : -90
-                        tileContainer.tileList[_idx].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding = true;
-                        tileContainer.tileList[_idx - 2*TileContainer.LIST_WIDTH].isBuilding = true;
-                        tileContainer.tileList[_idx - 2*TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding = true;
+                        tileContainer.TetrominotileList[_idx].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - 2*TetrominoTileContainer.LIST_WIDTH].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - 2*TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty = false;
                         break;
                     case 2: // Z angle : -180
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + 2*TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx + 2*TileContainer.LIST_ONE].isBuilding = true;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + 2*TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + 2*TetrominoTileContainer.LIST_ONE].isEmty = false;
                         break;
                     case 3: // Z angle : -270
-                        tileContainer.tileList[_idx].isBuilding = true;
-                        tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx + TileContainer.LIST_ONE - TileContainer.LIST_WIDTH].isBuilding = true;
-                        tileContainer.tileList[_idx + TileContainer.LIST_ONE - 2*TileContainer.LIST_WIDTH].isBuilding = true;
+                        tileContainer.TetrominotileList[_idx].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE - TetrominoTileContainer.LIST_WIDTH].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE - 2*TetrominoTileContainer.LIST_WIDTH].isEmty = false;
                         break;
                 }
                 break;
@@ -551,28 +551,28 @@ public class TetrominoCreater : MonoBehaviour
                 switch (_rot)
                 {
                     case 0: // Z angle : 0
-                        tileContainer.tileList[_idx].isBuilding = true;
-                        tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx + 2*TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx + 2*TileContainer.LIST_ONE - TileContainer.LIST_WIDTH].isBuilding = true;
+                        tileContainer.TetrominotileList[_idx].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + 2*TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + 2*TetrominoTileContainer.LIST_ONE - TetrominoTileContainer.LIST_WIDTH].isEmty = false;
                         break;
                     case 1: // Z angle : -90
-                        tileContainer.tileList[_idx].isBuilding = true;
-                        tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding = true;
-                        tileContainer.tileList[_idx - 2*TileContainer.LIST_WIDTH].isBuilding = true;
+                        tileContainer.TetrominotileList[_idx].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - 2*TetrominoTileContainer.LIST_WIDTH].isEmty = false;
                         break;
                     case 2: // Z angle : -180
-                        tileContainer.tileList[_idx].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + 2*TileContainer.LIST_ONE].isBuilding = true;
+                        tileContainer.TetrominotileList[_idx].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + 2*TetrominoTileContainer.LIST_ONE].isEmty = false;
                         break;
                     case 3: // Z angle : -270
-                        tileContainer.tileList[_idx - 2*TileContainer.LIST_WIDTH].isBuilding = true;
-                        tileContainer.tileList[_idx - 2*TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding = true;
+                        tileContainer.TetrominotileList[_idx - 2*TetrominoTileContainer.LIST_WIDTH].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - 2*TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty = false;
                         break;
                 }
                 break;
@@ -581,16 +581,16 @@ public class TetrominoCreater : MonoBehaviour
                 switch (_rot)
                 {
                     case 0: // Z angle : 0
-                        tileContainer.tileList[_idx].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx - 2 * TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding = true;
+                        tileContainer.TetrominotileList[_idx].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - 2 * TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty = false;
                         break;
                     case 1: // Z angle : -90
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx + 2 * TileContainer.LIST_ONE].isBuilding = true;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + 2 * TetrominoTileContainer.LIST_ONE].isEmty = false;
                         break;
                 }
                 break;
@@ -599,16 +599,16 @@ public class TetrominoCreater : MonoBehaviour
                 switch (_rot)
                 {
                     case 0: // Z angle : 0
-                        tileContainer.tileList[_idx - 2 * TileContainer.LIST_WIDTH].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH].isBuilding = true;
-                        tileContainer.tileList[_idx - TileContainer.LIST_WIDTH + TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding = true;
+                        tileContainer.TetrominotileList[_idx - 2 * TetrominoTileContainer.LIST_WIDTH].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH].isEmty = false;
+                        tileContainer.TetrominotileList[_idx - TetrominoTileContainer.LIST_WIDTH + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty = false;
                         break;
                     case 1: // Z angle : -90
-                        tileContainer.tileList[_idx].isBuilding = true;
-                        tileContainer.tileList[_idx + TileContainer.LIST_ONE].isBuilding = true;
-                        tileContainer.tileList[_idx + TileContainer.LIST_ONE - TileContainer.LIST_WIDTH].isBuilding = true;
-                        tileContainer.tileList[_idx + 2 * TileContainer.LIST_ONE - TileContainer.LIST_WIDTH].isBuilding = true;
+                        tileContainer.TetrominotileList[_idx].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + TetrominoTileContainer.LIST_ONE - TetrominoTileContainer.LIST_WIDTH].isEmty = false;
+                        tileContainer.TetrominotileList[_idx + 2 * TetrominoTileContainer.LIST_ONE - TetrominoTileContainer.LIST_WIDTH].isEmty = false;
                         break;
                 }
                 break;

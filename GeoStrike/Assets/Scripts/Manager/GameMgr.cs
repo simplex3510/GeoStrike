@@ -40,4 +40,7 @@ public class GameMgr : MonoBehaviour
 
     // Slot °ü¸®
     public List<Tetromino> tetrtominoList = new List<Tetromino>();
+
+    public Grid grid;
+    public Canvas canvas;
 }

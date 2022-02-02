@@ -5,20 +5,17 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    // World timer
+    [Header("< World Time >")]
     [SerializeField] private Text worldTimeTXT;
     public float sec = 0f;
     private int min = 0;
     private readonly int MAX_SEC = 59;
 
-    // Player timer
+    [Header("< Battle Timer >")]
     [SerializeField] private Text battleTimeTXT;
     [SerializeField] private float battleTime;
     public float battleTimer = 0f;
     public bool isReady = false;
-
-    // test
-    [SerializeField] private Geo geo;
 
     private void Update()
     {
