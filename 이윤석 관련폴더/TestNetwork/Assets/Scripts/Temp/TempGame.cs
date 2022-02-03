@@ -37,12 +37,12 @@ public class TempGame : MonoBehaviourPun
     [SerializeField] bool isDefense = false;
     EResult eResult = EResult.BATTLE;
 
-    void Start()
-    {
-        confirmButton.onClick.AddListener(OnClickConfirm);
-        attackButton.onClick.AddListener(OnClickAttackOrPrepareAttack);
-        defenseButton.onClick.AddListener(OnClickDefense);
-    }
+    //void Start()
+    //{
+    //    confirmButton.onClick.AddListener(OnClickConfirm);
+    //    attackButton.onClick.AddListener(OnClickAttackOrPrepareAttack);
+    //    defenseButton.onClick.AddListener(OnClickDefense);
+    //}
 
     public void OnClickConfirm()
     {
@@ -80,7 +80,7 @@ public class TempGame : MonoBehaviourPun
     [PunRPC]
     void UpdateConfirm(int _confirm, bool _isCheck)
     {
-        print($"Confirm - {this.gameObject.GetComponent<PhotonView>().Owner.NickName}");
+        print($"Confirm - {gameObject.GetComponent<PhotonView>().Owner.NickName}");
 
         confirm = _confirm;
         if (_isCheck)
@@ -101,7 +101,7 @@ public class TempGame : MonoBehaviourPun
     [PunRPC]
     public void Battle(int _damage, bool _isDefense, bool _isPrepareAttack)
     {
-        print($"Battle - {this.gameObject.GetComponent<PhotonView>().Owner.NickName}");
+        print($"Battle - {gameObject.GetComponent<PhotonView>().Owner.NickName}");
 
         if (isDefense)
         {
