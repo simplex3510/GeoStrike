@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitTileContainer: {fileID: 0}
-  unitPrefab: {fileID: 3773080401695551178, guid: 0d0664471d53ab04a8cb20a374c00bf8, type: 3}
+  unit: {fileID: -2529365124054563753, guid: 0d0664471d53ab04a8cb20a374c00bf8, type: 3}
 --- !u!114 &8910641358568008340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,4 +115,3 @@ MonoBehaviour:
   currentTime: 0
   spriteRenderer: {fileID: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
-  unitCreation: {fileID: 0}

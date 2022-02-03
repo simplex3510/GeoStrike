@@ -7,5 +7,4 @@ public class Tetromino : MonoBehaviour
 {
     public List<GameObject> rotateTetrominoObjList = new List<GameObject>();
     public Sprite slotSprite;
-
 }

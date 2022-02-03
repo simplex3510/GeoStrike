@@ -54,12 +54,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\UI\Tile\TetrominoTile.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitInfo.cs" />
     <Compile Include="Assets\Scripts\AutoMoveCamera.cs" />
     <Compile Include="Assets\Scripts\UI\Tile\UnitTileContainer.cs" />
     <Compile Include="Assets\Scripts\Tetromino\TetrominoPreview.cs" />
+    <Compile Include="Assets\Scripts\ObjectPoolMgr.cs" />
     <Compile Include="Assets\Scripts\Tetromino\TetrominoCreater.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitCreation.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitState.cs" />
+    <Compile Include="Assets\Scripts\Unit\Unit.cs" />
     <Compile Include="Assets\Scripts\UI\CameraController.cs" />
     <Compile Include="Assets\Scripts\UI\Tile\UnitTile.cs" />
     <Compile Include="Assets\Scripts\UI\Timer.cs" />
@@ -73,9 +75,7 @@
     <Compile Include="Assets\Scripts\UI\MouseController.cs" />
     <Compile Include="Assets\Scripts\Tetromino\TetrominoState.cs" />
     <Compile Include="Assets\Scripts\UI\Tile\TetrominoTileContainer.cs" />
-    <Compile Include="Assets\Scripts\Manager\ObjectPoolingMgr.cs" />
     <Compile Include="Assets\Scripts\Pool.cs" />
-    <Compile Include="Assets\Scripts\Unit\Unit.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -6,7 +6,9 @@ public class UnitCreation : MonoBehaviour
 {
     [SerializeField] private UnitTileContainer unitTileContainer;
 
-    [SerializeField] private GameObject unitPrefab;
+    public Unit unit;
+
+    [SerializeField] private int unitIdx; 
 
     private void Start()
     {
@@ -15,13 +17,14 @@ public class UnitCreation : MonoBehaviour
 
     public void UnitSpawn()
     {
-        for(int idx = 0; idx < unitTileContainer.UnitTileList.Count; idx++)
+        for(int idx = 0; idx < unitTileContainer.unitTileList.Count; idx++)
         {
-            if (unitTileContainer.UnitTileList[idx].isEmty)
-            {
-                // Instantiate(unitPrefab, unitTileContainer.UnitTileList[idx].transform.position, Quaternion.identity);
-                UnitState obj = Pool.instance.Get_Objeet();
-                unitTileContainer.UnitTileList[idx].isEmty = false;
+            if (unitTileContainer.unitTileList[idx].isEmty)
+            { 
+                
+                Unit obj = ObjectPoolMgr.instance.GetObject(unit, unitIdx);
+                obj.transform.position = unitTileContainer.unitTileList[idx].transform.position;
+                unitTileContainer.unitTileList[idx].isEmty = false;
                 break;
             }
         }

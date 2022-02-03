@@ -65,7 +65,7 @@ public class Detector : MonoBehaviour
         }
     }
 
-    private Vector3 Get_TileSize()
+    private Vector3 GetTileSize()
     {
         float tileX = tile.GetComponent<SpriteRenderer>().bounds.size.x / 2;
         float tileY = tile.GetComponent<SpriteRenderer>().bounds.size.y / 2;
@@ -83,7 +83,7 @@ public class Detector : MonoBehaviour
         // Build tetromino
         if (Input.GetMouseButton(0) && canBuild)
         {
-            creater.BuildTetromino(TetrominoPreview.instance.clickSlot.tetrominoPrefab, Get_TileSize(), TetrominoPreview.instance.clickSlot.currentBlockRotation, tileIdx);
+            creater.BuildTetromino(TetrominoPreview.instance.clickSlot.tetrominoPrefab, GetTileSize(), TetrominoPreview.instance.clickSlot.currentBlockRotation, tileIdx);
         }
 
         yield return null;

@@ -19,8 +19,8 @@ public class TetrominoState : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Color color;
 
-    [SerializeField] private UnitCreation unitCreation;
-    [SerializeField] private Timer timer;
+    [HideInInspector] private UnitCreation unitCreation;
+    [HideInInspector] private Timer timer;
 
     private void Awake()
     {
@@ -63,7 +63,7 @@ public class TetrominoState : MonoBehaviour
 
     IEnumerator FSM_InComplete()
     {
-        StartCoroutine(CInCompleteColor()); ;
+        StartCoroutine(CInCompleteColor());
         yield return new WaitForSeconds(buildTime);
         Debug.Log("Build Complete");
 

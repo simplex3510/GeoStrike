@@ -20,7 +20,7 @@ public class TetrominoCreater : MonoBehaviour
     }
 
     // _idx = 마우스 위치의 tile Idx
-    private int Get_LimitHeight(int _idx)
+    private int GetLimitHeight(int _idx)
     {
         if (_idx < TetrominoTileContainer.LIST_WIDTH) { height = 0; }
         else if (_idx >= TetrominoTileContainer.LIST_WIDTH && _idx < 2*TetrominoTileContainer.LIST_WIDTH) { height = 1; }
@@ -37,7 +37,7 @@ public class TetrominoCreater : MonoBehaviour
     // 빌드 가능지역 미리보기 - 모양, 회전, Idx
     public void CanBuildPreview(int _tetromino, int _rot, int _idx)
     {
-        Get_LimitHeight(_idx);
+        GetLimitHeight(_idx);
 
         switch (_tetromino)
         {

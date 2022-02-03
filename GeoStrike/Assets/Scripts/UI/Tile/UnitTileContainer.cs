@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class UnitTileContainer : MonoBehaviour
 {
-    public List<UnitTile> UnitTileList = new List<UnitTile>();
+    public List<UnitTile> unitTileList = new List<UnitTile>();
     [SerializeField] private Transform parent;
 
     private void Awake()
     {
-        UnitTileList.AddRange(parent.GetComponentsInChildren<UnitTile>());
+        unitTileList.AddRange(parent.GetComponentsInChildren<UnitTile>());
     }
 }

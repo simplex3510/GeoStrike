@@ -2,17 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Unit", menuName = "Create Unit data Object")]
-public class Unit : ScriptableObject
+public class Unit : MonoBehaviour
 {
-    [Header("< Main status > ")]
-    public string unitName;
-    public int hp;
-    public int damage;
-    public int defense;
-
-    [Header(" < Sub status > ")]
-    public float attackRange;
-    public float attackSpeed;
-    public float movementSpeed;
+    public UnitInfo unit;
 }

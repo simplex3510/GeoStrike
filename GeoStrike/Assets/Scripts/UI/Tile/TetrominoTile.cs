@@ -16,10 +16,10 @@ public class TetrominoTile : MonoBehaviour
 
     private void Update()
     {
-        Set_color();
+        SetColor();
     }
 
-    public void Set_color()
+    public void SetColor()
     {
         if (!isEmty)
         {

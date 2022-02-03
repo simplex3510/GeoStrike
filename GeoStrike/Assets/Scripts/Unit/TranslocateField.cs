@@ -8,7 +8,7 @@ public class TranslocateField : MonoBehaviour
     [SerializeField] private GameObject unitPrefabs;
 
     // Unit state
-    [SerializeField] private List<Unit> unitList = new List<Unit>();
+    [SerializeField] private List<UnitInfo> unitList = new List<UnitInfo>();
 
     // Waiting unit translocate
     [SerializeField] private Timer playerTime;
@@ -40,7 +40,7 @@ public class TranslocateField : MonoBehaviour
     {
         if (_collision.gameObject.CompareTag("Unit"))
         {
-            unitList.Add(_collision.gameObject.GetComponent<Unit>());
+            unitList.Add(_collision.gameObject.GetComponent<UnitInfo>());
             _collision.gameObject.transform.SetParent(parent.transform);
         }
     }
