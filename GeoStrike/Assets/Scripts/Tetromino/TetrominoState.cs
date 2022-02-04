@@ -19,13 +19,13 @@ public class TetrominoState : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Color color;
 
-    [HideInInspector] private UnitCreation unitCreation;
+    [HideInInspector] private UnitCreator unitCreation;
     [HideInInspector] private Timer timer;
 
     private void Awake()
     {
         if (spriteRenderer == null) { spriteRenderer = GetComponent<SpriteRenderer>(); }
-        if (unitCreation == null) { unitCreation = GetComponent<UnitCreation>(); }
+        if (unitCreation == null) { unitCreation = GetComponent<UnitCreator>(); }
         if (timer == null) { timer = GameMgr.instance.canvas.GetComponentInChildren<Timer>(); }
     }
 

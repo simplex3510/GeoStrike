@@ -28,7 +28,7 @@ public class GameMgr : MonoBehaviour
     {
         if (_instance != null)
         {
-            Debug.LogError(" UIMgr duplicated.  ");
+            Debug.LogError(" Mgr duplicated.  ");
             GameObject.Destroy(this.gameObject);
         }
         else
