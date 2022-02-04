@@ -157,9 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4af38117996f844a46da7dc66271a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolArr: []
-  unitIdx: 4
-  unit: {fileID: -2529365124054563753, guid: f255ec7ca6afe484ab57420919102e00, type: 3}
+  unitNum: 5
+  unit: {fileID: -2529365124054563753, guid: 8145f3cb487fef547ba4047fa44f539e, type: 3}
 --- !u!4 &15294395
 Transform:
   m_ObjectHideFlags: 0
@@ -13894,52 +13893,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
   m_PrefabInstance: {fileID: 1639241952}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &139590368
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 139590371}
-  - component: {fileID: 139590369}
-  m_Layer: 0
-  m_Name: Pool_UnitG
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &139590369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 139590368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e4af38117996f844a46da7dc66271a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poolArr: []
-  unitIdx: 6
-  unit: {fileID: -2529365124054563753, guid: a186ef41fbef667468ab6977fc36111c, type: 3}
---- !u!4 &139590371
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 139590368}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1831583731}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &153539015 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -16111,9 +16064,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4af38117996f844a46da7dc66271a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolArr: []
-  unitIdx: 1
-  unit: {fileID: -2529365124054563753, guid: 75b5dadf822663a4db45e3020e413f85, type: 3}
+  unitNum: 2
+  unit: {fileID: -2529365124054563753, guid: a1b772d1207f34e4eabcbe707948c42d, type: 3}
 --- !u!4 &447538823 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -16790,8 +16742,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 909.3738, y: 515.5565}
-  m_SizeDelta: {x: -1818.7476, y: -1031.113}
+  m_AnchoredPosition: {x: 855.1277, y: 503.3246}
+  m_SizeDelta: {x: -1710.2552, y: -1006.6491}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &526165011
 CanvasRenderer:
@@ -18850,8 +18802,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25.313, y: 0}
-  m_SizeDelta: {x: 50.626, y: 30}
+  m_AnchoredPosition: {x: 47.64967, y: -2}
+  m_SizeDelta: {x: 95.2993, y: 45.2319}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &734590014
 MonoBehaviour:
@@ -18875,18 +18827,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 2
+    m_MaxSize: 102
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Geo
+  m_Text: 9999
 --- !u!222 &734590015
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28498,7 +28450,7 @@ GameObject:
   - component: {fileID: 1831583731}
   - component: {fileID: 1831583729}
   m_Layer: 0
-  m_Name: ObjectPoolMgr
+  m_Name: ObjectPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28523,9 +28475,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  unitIdx: 0
-  unit: {fileID: 0}
 --- !u!4 &1831583731
 Transform:
   m_ObjectHideFlags: 0
@@ -28543,7 +28492,6 @@ Transform:
   - {fileID: 2060515608}
   - {fileID: 15294395}
   - {fileID: 1892045311}
-  - {fileID: 139590371}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -29153,9 +29101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4af38117996f844a46da7dc66271a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolArr: []
-  unitIdx: 0
-  unit: {fileID: -2529365124054563753, guid: 0d0664471d53ab04a8cb20a374c00bf8, type: 3}
+  unitNum: 1
+  unit: {fileID: -2529365124054563753, guid: 75b5dadf822663a4db45e3020e413f85, type: 3}
 --- !u!4 &1869637839
 Transform:
   m_ObjectHideFlags: 0
@@ -29401,9 +29348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4af38117996f844a46da7dc66271a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolArr: []
-  unitIdx: 5
-  unit: {fileID: -2529365124054563753, guid: 8145f3cb487fef547ba4047fa44f539e, type: 3}
+  unitNum: 6
+  unit: {fileID: -2529365124054563753, guid: a186ef41fbef667468ab6977fc36111c, type: 3}
 --- !u!4 &1892045311
 Transform:
   m_ObjectHideFlags: 0
@@ -29923,9 +29869,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4af38117996f844a46da7dc66271a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolArr: []
-  unitIdx: 2
-  unit: {fileID: -2529365124054563753, guid: a1b772d1207f34e4eabcbe707948c42d, type: 3}
+  unitNum: 3
+  unit: {fileID: -2529365124054563753, guid: a0732f10e32d79c4397d5b162276cff6, type: 3}
 --- !u!4 &1983566707
 Transform:
   m_ObjectHideFlags: 0
@@ -30642,9 +30587,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4af38117996f844a46da7dc66271a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolArr: []
-  unitIdx: 3
-  unit: {fileID: -2529365124054563753, guid: a0732f10e32d79c4397d5b162276cff6, type: 3}
+  unitNum: 4
+  unit: {fileID: -2529365124054563753, guid: f255ec7ca6afe484ab57420919102e00, type: 3}
 --- !u!4 &2060515608
 Transform:
   m_ObjectHideFlags: 0

@@ -19,3 +19,4 @@ MonoBehaviour:
   attackRange: 1
   attackSpeed: 1
   movementSpeed: 1
+  unitIdx: 1

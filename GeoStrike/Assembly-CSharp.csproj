@@ -59,7 +59,7 @@
     <Compile Include="Assets\Scripts\UI\Tile\UnitTileContainer.cs" />
     <Compile Include="Assets\Scripts\Pool.cs" />
     <Compile Include="Assets\Scripts\Tetromino\TetrominoPreview.cs" />
-    <Compile Include="Assets\Scripts\ObjectPoolMgr.cs" />
+    <Compile Include="Assets\Scripts\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Tetromino\TetrominoCreater.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitCreator.cs" />
     <Compile Include="Assets\Scripts\Unit\Unit.cs" />

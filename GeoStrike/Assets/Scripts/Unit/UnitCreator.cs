@@ -7,12 +7,12 @@ public class UnitCreator : MonoBehaviour
     [SerializeField] private UnitTileContainer unitTileContainer;
 
     public Unit unit;
-
-    [SerializeField] private int unitIdx; 
+    private Geo geo;
 
     private void Start()
     {
-        unitTileContainer = GameMgr.instance.grid.GetComponentInChildren<UnitTileContainer>();
+        if (unitTileContainer == null) { unitTileContainer = GameMgr.instance.grid.GetComponentInChildren<UnitTileContainer>(); }
+        if (geo == null) { geo = GameMgr.instance.canvas.GetComponentInChildren<Geo>(); }
     }
 
     public void UnitSpawn()
@@ -21,10 +21,21 @@ public class UnitCreator : MonoBehaviour
         {
             if (unitTileContainer.unitTileList[idx].isEmty)
             {
-                //Unit obj = ObjectPoolMgr.instance.poolArr[unitIdx].GetObject(unitIdx);
-                //obj.transform.position = unitTileContainer.unitTileList[idx].transform.position;
-                //unitTileContainer.unitTileList[idx].isEmty = false;
-                //break;
+                // ÀÚ¿ø È¹µæ
+                if (unit.unitIdx == 0) 
+                {
+                    Debug.Log("Get GEO : " + Geo.GEO_SQUARE);
+                    geo.DeltaGeo(Geo.GEO_SQUARE);
+                    break;
+                }
+                // Unit »ý¼º
+                else
+                {
+                    Unit obj = ObjectPool.instance.poolArr[unit.unitIdx - 1].GetObject();
+                    obj.transform.position = unitTileContainer.unitTileList[idx].transform.position;
+                    unitTileContainer.unitTileList[idx].isEmty = false;
+                    break;
+                }
             }
         }
     }
