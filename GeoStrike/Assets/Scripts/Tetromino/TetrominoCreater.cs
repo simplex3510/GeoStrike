@@ -9,6 +9,15 @@ public class TetrominoCreater : MonoBehaviour
 
     private int height { get; set; }
 
+    // Temp
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            Set_AllRandomSlot();
+        }
+    }
+
     // Build tetromino
     public void BuildTetromino(GameObject _tetromino, Vector3 _pos, int _rot, int _idx)
     {

@@ -10,6 +10,10 @@ public class Geo : MonoBehaviour
     [SerializeField] private Text geoTXT;
     private float currentGeo = 0;
 
+    public static readonly float GEO_INCREASE = 2;
+    public static readonly float GEO_SQUARE = 3;
+    public static readonly float GEO_BOUNUS = 10;
+
     private void Awake()
     {
         geoImage.sprite = getSprite;
@@ -18,7 +22,7 @@ public class Geo : MonoBehaviour
     private void Update()
     {
         GeoTxT();
-        DeltaGeo(Time.deltaTime / 2);
+        DeltaGeo(Time.deltaTime / GEO_INCREASE);
     }
 
     private void GeoTxT()
