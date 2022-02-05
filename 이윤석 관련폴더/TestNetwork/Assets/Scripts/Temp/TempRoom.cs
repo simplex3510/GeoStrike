@@ -99,7 +99,6 @@ public class TempRoom : MonoBehaviourPun
         {
             Destroy(readyUI);
             PhotonNetwork.Instantiate("GameUIPrefab", Vector3.zero, Quaternion.identity);
-            Debug.Log("나 몇번 실행");
             photonView.RPC("UpdateGameUI", RpcTarget.All);
         }
     }
@@ -144,8 +143,7 @@ public class TempRoom : MonoBehaviourPun
 
             if (gameUI.GetPhotonView().IsMine)
             {
-                Debug.Log(gameUI.gameObject.name);                
-                Debug.Log("fdsfsdfsda");
+                Debug.Log(gameUI.gameObject.name);
                 tempGame.confirmButton = gameUI.transform.GetChild(3).GetComponent<Button>();
                 tempGame.confirmButton.onClick.AddListener(tempGame.OnClickConfirm);
 

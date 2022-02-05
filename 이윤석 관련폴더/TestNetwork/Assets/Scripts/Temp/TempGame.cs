@@ -37,13 +37,6 @@ public class TempGame : MonoBehaviourPun
     [SerializeField] bool isDefense = false;
     EResult eResult = EResult.BATTLE;
 
-    //void Start()
-    //{
-    //    confirmButton.onClick.AddListener(OnClickConfirm);
-    //    attackButton.onClick.AddListener(OnClickAttackOrPrepareAttack);
-    //    defenseButton.onClick.AddListener(OnClickDefense);
-    //}
-
     public void OnClickConfirm()
     {
         confirmButton.interactable = false;
