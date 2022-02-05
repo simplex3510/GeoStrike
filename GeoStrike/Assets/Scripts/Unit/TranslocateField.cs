@@ -4,64 +4,35 @@ using UnityEngine;
 
 public class TranslocateField : MonoBehaviour
 {
-    // Instantiate (temp)
-    [SerializeField] private GameObject unitPrefabs;
-
     // Unit state
-    [SerializeField] private List<UnitInfo> unitList = new List<UnitInfo>();
+    public List<Unit> unitList = new List<Unit>();
 
     // Waiting unit translocate
-    [SerializeField] private Timer playerTime;
     [SerializeField] private GameObject moveToBattleField;
 
     // Waiting unit parent
-    [SerializeField] private GameObject parent;
-    private Transform parentOriginPos;
+    public GameObject parent;
+    public Vector3 parentOriginPos;
 
     private void Awake()
     {
-        parentOriginPos = parent.transform;
+        parentOriginPos = parent.transform.position;
     }
 
-    private void Start()
+    public void TranslocateUnits() 
     {
-        // for test
-        Instantiate(unitPrefabs, new Vector3(-4f, 0f, -1f), Quaternion.identity);
-        Instantiate(unitPrefabs, new Vector3(-4f, 1f, -1f), Quaternion.identity);
-        Instantiate(unitPrefabs, new Vector3(-4f, -1f, -1f), Quaternion.identity);
-    }
-
-    private void Update()
-    {
-        TranslocateUnits();
-    }
-
-    private void OnTriggerEnter2D(Collider2D _collision)
-    {
-        if (_collision.gameObject.CompareTag("Unit"))
-        {
-            unitList.Add(_collision.gameObject.GetComponent<UnitInfo>());
-            _collision.gameObject.transform.SetParent(parent.transform);
-        }
-    }
-
-    private void TranslocateUnits() 
-    {
-        if (playerTime.isReady)
-        {
-            playerTime.isReady = false;
-            parent.transform.position = moveToBattleField.transform.position;
-            ClearList();
-        }
+        parent.transform.position = moveToBattleField.transform.position;
+        ClearList();
     }
 
     private void ClearList()
     {
         for (int idx = 0; idx < unitList.Count; idx++)
         {
-            //unitList[idx].gameObject.transform.parent = null;
+            unitList[idx].transform.parent = null;
         }
+
         unitList.Clear();
-        parent.transform.position = parentOriginPos.position;
+        parent.transform.position = parentOriginPos;
     }
 }

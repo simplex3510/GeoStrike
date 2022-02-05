@@ -15,7 +15,13 @@ public class Timer : MonoBehaviour
     [SerializeField] private Text battleTimeTXT;
     [SerializeField] private float battleTime;
     public float battleTimer = 0f;
-    public bool isReady = false;
+
+    private TranslocateField translocateField;
+
+    private void Awake()
+    {
+        if (translocateField == null) { translocateField = FindObjectOfType<TranslocateField>(); }
+    }
 
     private void Update()
     {
@@ -30,8 +36,10 @@ public class Timer : MonoBehaviour
 
         if (battleTimer >= battleTime) 
         {
-            isReady = true;
             battleTimer = 0f;
+
+            translocateField.TranslocateUnits();
+            translocateField.gameObject.GetComponent<UnitTileContainer>().TileAllClear();
         }
     }
 

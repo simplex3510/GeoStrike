@@ -34,7 +34,6 @@ public class Pool : MonoBehaviour
     // Pool에서 유닛 가져오기
     public Unit GetObject()
     {
-        Debug.Log("CheckPoint");
         // Pool에 Object가 있을 경우
         if (poolingObjectQueue.Count > 0)
         {

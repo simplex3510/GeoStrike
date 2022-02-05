@@ -5,6 +5,7 @@ using UnityEngine;
 public class UnitCreator : MonoBehaviour
 {
     [SerializeField] private UnitTileContainer unitTileContainer;
+    [SerializeField] private TranslocateField translocateField;
 
     public Unit unit;
     private Geo geo;
@@ -12,6 +13,7 @@ public class UnitCreator : MonoBehaviour
     private void Start()
     {
         if (unitTileContainer == null) { unitTileContainer = GameMgr.instance.grid.GetComponentInChildren<UnitTileContainer>(); }
+        if (translocateField == null) { translocateField = unitTileContainer.gameObject.GetComponent<TranslocateField>(); }
         if (geo == null) { geo = GameMgr.instance.canvas.GetComponentInChildren<Geo>(); }
     }
 
@@ -34,6 +36,9 @@ public class UnitCreator : MonoBehaviour
                     Unit obj = ObjectPool.instance.poolArr[unit.unitIdx - 1].GetObject();
                     obj.transform.position = unitTileContainer.unitTileList[idx].transform.position;
                     unitTileContainer.unitTileList[idx].isEmty = false;
+
+                    translocateField.unitList.Add(obj);
+                    obj.transform.SetParent(translocateField.parent.transform);
                     break;
                 }
             }

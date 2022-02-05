@@ -11,4 +11,12 @@ public class UnitTileContainer : MonoBehaviour
     {
         unitTileList.AddRange(parent.GetComponentsInChildren<UnitTile>());
     }
+
+    public void TileAllClear()
+    {
+        for(int idx = 0; idx < unitTileList.Count; idx++)
+        {
+            unitTileList[idx].isEmty = true;
+        }
+    }
 }
