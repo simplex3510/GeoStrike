@@ -12,21 +12,20 @@ public class TetrominoState : MonoBehaviour
         FSM_Summoned    // 소환 완료 상태
     }
 
-    public ETetrominoState eTetrominoState = ETetrominoState.FSM_InComplete;
+    private ETetrominoState eTetrominoState = ETetrominoState.FSM_InComplete;
 
     [SerializeField] private float buildTime;
     [SerializeField] private float currentTime = 0f;
+    
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Color color;
 
     [HideInInspector] private UnitCreator unitCreation;
-    [HideInInspector] private Timer timer;
 
     private void Awake()
     {
         if (spriteRenderer == null) { spriteRenderer = GetComponent<SpriteRenderer>(); }
         if (unitCreation == null) { unitCreation = GetComponent<UnitCreator>(); }
-        if (timer == null) { timer = GameMgr.instance.canvas.GetComponentInChildren<Timer>(); }
     }
 
     private void Start()
@@ -72,10 +71,11 @@ public class TetrominoState : MonoBehaviour
 
     IEnumerator FSM_Normal()
     {
+        // 1초 대기시간 후 유닛 소환
         yield return new WaitForSeconds(1);
+        GameMgr.instance.Set_State(EGameState.FSM_SpawnCount);
 
-        // 건물 완성 후 1초 대기 시간을 가짐, 1초 대기 시간동안 배틀 시간이 되면 소환 불가 
-        if (eTetrominoState == ETetrominoState.FSM_Normal) 
+        if (GameMgr.instance.Get_State() == EGameState.FSM_SpawnCount)
         {
             // 유닛 소환
             Debug.Log("Summone unit");
@@ -84,12 +84,12 @@ public class TetrominoState : MonoBehaviour
         }
     }
 
+    // 배틀 타임이 될때까지 대기, 유닛이 이동되고 다시 소환대기 상태로 전환
     IEnumerator FSM_Summoned()
     {
         Debug.Log("Summoned");
-        while (timer.battleTimer != 0)
-        {
-            // battleTimer가 0이 될때까지 대기
+        while (GameMgr.instance.Get_State() == EGameState.FSM_SpawnCount)
+        {   
             yield return null;
         }
         Set_State(ETetrominoState.FSM_Normal);

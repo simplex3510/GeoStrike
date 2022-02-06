@@ -2,6 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum EGameState
+{
+    FSM_Standby,        // 게임 시작 전 준비 단계
+    FSM_SpawnCount,     // 실시간 유닛 스폰 시간 0s ~ 스폰시간s
+    FSM_Battle,         // 유닛 스폰시간
+    FSM_GameEnd,        // 게임 종료
+}
+
 public class GameMgr : MonoBehaviour
 {
     #region singleton
@@ -38,9 +47,22 @@ public class GameMgr : MonoBehaviour
     }
     #endregion
 
+    [SerializeField] private EGameState eGameState = EGameState.FSM_Standby;
+
     // Slot 관리
     public List<Tetromino> tetrtominoList = new List<Tetromino>();
 
     public Grid grid;
     public Canvas canvas;
+
+
+    public EGameState Get_State()
+    {
+        return eGameState;
+    }
+
+    public void Set_State(EGameState _state)
+    {
+        eGameState = _state;
+    }
 }

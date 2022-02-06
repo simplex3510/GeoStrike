@@ -15,12 +15,23 @@ public class Timer : MonoBehaviour
     [SerializeField] private Text battleTimeTXT;
     [SerializeField] private float battleTime;
     public float battleTimer = 0f;
-    public bool isReady = false;
+
+    private TranslocateField translocateField;
+    private GameState gameState;
+
+    private void Awake()
+    {
+        if (translocateField == null) { translocateField = FindObjectOfType<TranslocateField>(); }
+        if (gameState == null) { gameState = GetComponent<GameState>(); }
+    }
 
     private void Update()
     {
-        WorldTime();
-        BattleTime();
+        if (GameMgr.instance.Get_State() != EGameState.FSM_Standby)
+        {
+            WorldTime();
+            BattleTime();
+        }
     }
 
     private void BattleTime()
@@ -30,8 +41,11 @@ public class Timer : MonoBehaviour
 
         if (battleTimer >= battleTime) 
         {
-            isReady = true;
+            GameMgr.instance.Set_State(EGameState.FSM_Battle);
             battleTimer = 0f;
+
+            translocateField.TranslocateUnits();
+            translocateField.gameObject.GetComponent<UnitTileContainer>().TileAllClear();
         }
     }
 
