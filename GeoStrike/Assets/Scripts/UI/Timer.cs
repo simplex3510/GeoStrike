@@ -17,16 +17,21 @@ public class Timer : MonoBehaviour
     public float battleTimer = 0f;
 
     private TranslocateField translocateField;
+    private GameState gameState;
 
     private void Awake()
     {
         if (translocateField == null) { translocateField = FindObjectOfType<TranslocateField>(); }
+        if (gameState == null) { gameState = GetComponent<GameState>(); }
     }
 
     private void Update()
     {
-        WorldTime();
-        BattleTime();
+        if (GameMgr.instance.Get_State() != EGameState.FSM_Standby)
+        {
+            WorldTime();
+            BattleTime();
+        }
     }
 
     private void BattleTime()
@@ -36,6 +41,7 @@ public class Timer : MonoBehaviour
 
         if (battleTimer >= battleTime) 
         {
+            GameMgr.instance.Set_State(EGameState.FSM_Battle);
             battleTimer = 0f;
 
             translocateField.TranslocateUnits();

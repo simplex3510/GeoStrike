@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4af38117996f844a46da7dc66271a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitNum: 5
+  unitCount: 0
   unit: {fileID: -2529365124054563753, guid: 8145f3cb487fef547ba4047fa44f539e, type: 3}
 --- !u!4 &15294395
 Transform:
@@ -16065,7 +16065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4af38117996f844a46da7dc66271a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitNum: 2
+  unitCount: 0
   unit: {fileID: -2529365124054563753, guid: a1b772d1207f34e4eabcbe707948c42d, type: 3}
 --- !u!4 &447538823 stripped
 Transform:
@@ -24218,6 +24218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1306418363}
   - component: {fileID: 1306418364}
+  - component: {fileID: 1306418365}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -24263,6 +24264,18 @@ MonoBehaviour:
   battleTimeTXT: {fileID: 471647460}
   battleTime: 10
   battleTimer: 0
+--- !u!114 &1306418365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306418362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 194f2cdf06723214593d9162eb665b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1309564098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29149,7 +29162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4af38117996f844a46da7dc66271a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitNum: 1
+  unitCount: 0
   unit: {fileID: -2529365124054563753, guid: 75b5dadf822663a4db45e3020e413f85, type: 3}
 --- !u!4 &1869637839
 Transform:
@@ -29426,7 +29439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4af38117996f844a46da7dc66271a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitNum: 6
+  unitCount: 0
   unit: {fileID: -2529365124054563753, guid: a186ef41fbef667468ab6977fc36111c, type: 3}
 --- !u!4 &1892045311
 Transform:
@@ -29567,6 +29580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2cd25cff3350746b13378ece6346e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eGameState: 0
   tetrtominoList:
   - {fileID: 7009266540797699098, guid: df6a6ab211cb07148bdf7d61158ac61a, type: 3}
   - {fileID: 4385028721781496008, guid: 04cfdc298cd96d547a8d0745d75f91c8, type: 3}
@@ -29947,7 +29961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4af38117996f844a46da7dc66271a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitNum: 3
+  unitCount: 0
   unit: {fileID: -2529365124054563753, guid: a0732f10e32d79c4397d5b162276cff6, type: 3}
 --- !u!4 &1983566707
 Transform:
@@ -30665,7 +30679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4af38117996f844a46da7dc66271a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitNum: 4
+  unitCount: 0
   unit: {fileID: -2529365124054563753, guid: f255ec7ca6afe484ab57420919102e00, type: 3}
 --- !u!4 &2060515608
 Transform:

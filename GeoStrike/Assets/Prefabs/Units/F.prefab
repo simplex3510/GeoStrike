@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: -2529365124054563753}
   - component: {fileID: 168720660598073712}
   - component: {fileID: -5010504933606909926}
+  - component: {fileID: 3532702475509949436}
+  - component: {fileID: -6460164925785577385}
   m_Layer: 11
   m_Name: F
   m_TagString: Unit
@@ -99,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitInfo: {fileID: 11400000, guid: 4078c476bec734740bda2a69753613c9, type: 2}
   unitIdx: 6
+  unitMovement: {fileID: 2194982821265488550, guid: 8145f3cb487fef547ba4047fa44f539e, type: 3}
 --- !u!70 &168720660598073712
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -136,3 +139,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &3532702475509949436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3773080401695551178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f338856b6bc20468fce44ec7964214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigid2D: {fileID: 0}
+--- !u!114 &-6460164925785577385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3773080401695551178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776d2433532c35347bfef407e84823ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eUnitState: 0
