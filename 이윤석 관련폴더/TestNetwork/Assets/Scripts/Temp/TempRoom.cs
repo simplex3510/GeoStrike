@@ -99,7 +99,7 @@ public class TempRoom : MonoBehaviourPun
         {
             Destroy(readyUI);
             PhotonNetwork.Instantiate("GameUIPrefab", Vector3.zero, Quaternion.identity);
-            photonView.RPC("UpdateGameUI", RpcTarget.All);
+            photonView.RPC("UpdateGameUI", RpcTarget.Others);
         }
     }
 

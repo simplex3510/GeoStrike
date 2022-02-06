@@ -40,7 +40,7 @@ public class TempGame : MonoBehaviourPun
     public void OnClickConfirm()
     {
         confirmButton.interactable = false;
-        photonView.RPC("UpdateGame", RpcTarget.All);
+        photonView.RPC("UpdateGame", RpcTarget.MasterClient);
     }
 
     public void OnClickAttackOrPrepareAttack()
@@ -64,7 +64,7 @@ public class TempGame : MonoBehaviourPun
     [PunRPC]
     void UpdateGame()
     {
-        if (photonView.IsMine)
+        if (PhotonNetwork.IsMasterClient)
         {
             photonView.RPC("UpdateConfirm", RpcTarget.All, confirm, !confirmButton.interactable);
         }
