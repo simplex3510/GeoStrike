@@ -58,7 +58,9 @@
     <Compile Include="Assets\Scripts\UI\AutoMoveCamera.cs" />
     <Compile Include="Assets\Scripts\Tile\UnitTileContainer.cs" />
     <Compile Include="Assets\Scripts\ObjectPool\Pool.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitState.cs" />
     <Compile Include="Assets\Scripts\Tetromino\TetrominoPreview.cs" />
+    <Compile Include="Assets\Scripts\Unit\UnitMovement.cs" />
     <Compile Include="Assets\Scripts\ObjectPool\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Tetromino\TetrominoCreater.cs" />
     <Compile Include="Assets\Scripts\Tetromino\UnitCreator.cs" />
@@ -67,6 +69,7 @@
     <Compile Include="Assets\Scripts\Tile\UnitTile.cs" />
     <Compile Include="Assets\Scripts\UI\Timer.cs" />
     <Compile Include="Assets\Scripts\Tetromino\Tetromino.cs" />
+    <Compile Include="Assets\Scripts\GameState.cs" />
     <Compile Include="Assets\Scripts\Tile\TranslocateField.cs" />
     <Compile Include="Assets\Scripts\UI\TetrominoSlot.cs" />
     <Compile Include="Assets\Scripts\UI\Geo.cs" />
@@ -76,9 +79,6 @@
     <Compile Include="Assets\Scripts\UI\MouseController.cs" />
     <Compile Include="Assets\Scripts\Tetromino\TetrominoState.cs" />
     <Compile Include="Assets\Scripts\Tile\TetrominoTileContainer.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitState.cs" />
-    <Compile Include="Assets\Scripts\GameState.cs" />
-    <Compile Include="Assets\Scripts\Unit\UnitMovement.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

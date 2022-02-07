@@ -287,7 +287,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28265479}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.81, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1882125539}
@@ -19614,7 +19614,7 @@ GameObject:
   - component: {fileID: 799690814}
   - component: {fileID: 799690813}
   m_Layer: 5
-  m_Name: EtcSlot
+  m_Name: KeySlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28174,7 +28174,7 @@ GameObject:
   - component: {fileID: 1763289380}
   - component: {fileID: 1763289379}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: GridField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
