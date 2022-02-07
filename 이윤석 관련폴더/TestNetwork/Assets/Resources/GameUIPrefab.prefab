@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 2342089264815758541}
   - component: {fileID: 5779099086573308801}
   m_Layer: 5
-  m_Name: Join Member
+  m_Name: NicknameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -606,7 +606,7 @@ GameObject:
   - component: {fileID: 6439681487789880573}
   - component: {fileID: 6439681487789880574}
   m_Layer: 5
-  m_Name: HP
+  m_Name: HealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -685,7 +685,7 @@ GameObject:
   - component: {fileID: 6439681487943544276}
   - component: {fileID: 6439681487943544277}
   m_Layer: 5
-  m_Name: Confirm Player
+  m_Name: ConfirmText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
