@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6239d2f07ccdfe44a81c9cd16c8db9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitInfo: {fileID: 11400000, guid: b6582e2e65bc7b0499eb4283ecf29386, type: 2}
+  unitInfo: {fileID: 11400000, guid: 87039da18e3460f488d4e2c79f1a4c2a, type: 2}
   unitIdx: 4
-  unitMovement: {fileID: 2194982821265488550, guid: 8145f3cb487fef547ba4047fa44f539e, type: 3}
+  unitMovement: {fileID: 2905420078533202597}
 --- !u!70 &168720660598073712
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

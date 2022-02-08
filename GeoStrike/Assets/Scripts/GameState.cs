@@ -6,7 +6,10 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
+    [SerializeField] private StandbyCount standbyCount;
+    
     public static readonly int GAMESTATE_STANDBYTIME = 5;
+    public static readonly int GAMESTATE_COUNT = 1;
 
     private void Start()
     {
@@ -26,11 +29,11 @@ public class GameState : MonoBehaviour
     {
         for(int count = GAMESTATE_STANDBYTIME; count > 0; count--)
         {
-            Debug.Log("Start count : " + count);
-            yield return new WaitForSeconds(1);
+            standbyCount.stanbyCountTXT.text = string.Format("{0}", count);
+            yield return new WaitForSeconds(GAMESTATE_COUNT);
         }
+        standbyCount.gameObject.SetActive(false);
 
-        //yield return new WaitForSeconds(GAMESTATE_STANDBYTIME);
         Debug.Log("Game Start");
         GameMgr.instance.Set_State(EGameState.FSM_SpawnCount);
     }

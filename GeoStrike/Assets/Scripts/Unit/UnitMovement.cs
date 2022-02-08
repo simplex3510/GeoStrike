@@ -9,8 +9,8 @@ public class UnitMovement : MonoBehaviour
 
     private void Start()
     {
-        rigid2D = GetComponent<Rigidbody2D>();
-        unit = GetComponent<Unit>();
+        if (rigid2D == null) { rigid2D = GetComponent<Rigidbody2D>(); }
+        if (unit == null) { unit = GetComponent<Unit>(); }
     }
 
     public void Move()

@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\UI\MouseController.cs" />
     <Compile Include="Assets\Scripts\Tetromino\TetrominoState.cs" />
     <Compile Include="Assets\Scripts\Tile\TetrominoTileContainer.cs" />
+    <Compile Include="Assets\Scripts\UI\StandbyCount.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
