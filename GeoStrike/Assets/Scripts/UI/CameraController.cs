@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class CameraController : MonoBehaviour
+public class CameraController : MonoBehaviourPunCallbacks
 {
     [Header("< Componenet >")]
     public Camera mainCamera;
@@ -22,17 +23,30 @@ public class CameraController : MonoBehaviour
     // Auto Move BuildZone
     public bool onZone { get; set; }
 
+    // test Photon
+    private bool isMine = false;
 
     private void Awake()
     {
         if (mainCamera == null) { mainCamera = GetComponent<Camera>(); }
         if (mouseController == null) { mouseController = GetComponent<MouseController>(); }
+
+        // Photon test
+        //if (photonView.IsMine) { isMine = true; }
+        //else { isMine = false; }
     }
 
     private void Update()
     {
         CameraMovement();
         CameraZoom();
+
+        // Photon test
+        //if (test)
+        //{
+        //    CameraMovement();
+        //    CameraZoom();
+        //}
     }
 
     private void CameraMovement()

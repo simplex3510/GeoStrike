@@ -43,6 +43,7 @@ public class UnitState : MonoBehaviour
     // UnitField에 소환 되어 있을 때
     IEnumerator FSM_Standby()
     {
+        unit.unitMovement.Set_FreezePosition();
         while (GameMgr.instance.Get_State() == EGameState.FSM_SpawnCount)
         {
             // -> Unit 배치 구현하기
@@ -54,6 +55,7 @@ public class UnitState : MonoBehaviour
     // BattleField로 소환된 뒤 x초 후 이동
     IEnumerator FSM_SpawnBattleField()
     {
+        unit.unitMovement.Set_RevertPosition();
         //  -> if 적이 감지되면 Attack모드 구현
         yield return new WaitForSeconds(SPAWN_STANDBY);
 

@@ -17,4 +17,14 @@ public class UnitMovement : MonoBehaviour
     {
         rigid2D.MovePosition(rigid2D.position + new Vector2(1, 0) * unit.unitInfo.movementSpeed * Time.deltaTime);
     }
+
+    public void Set_FreezePosition()
+    {
+        rigid2D.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+
+    public void Set_RevertPosition()
+    {
+        rigid2D.constraints = RigidbodyConstraints2D.None;
+    }
 }
