@@ -15,7 +15,7 @@ MonoBehaviour:
   unitName: warrior
   hp: 100
   damage: 10
-  defense: 1
-  attackRange: 1
-  attackSpeed: 1
-  movementSpeed: 1
+  defense: 10
+  attackRange: 10
+  attackSpeed: 10
+  movementSpeed: 100

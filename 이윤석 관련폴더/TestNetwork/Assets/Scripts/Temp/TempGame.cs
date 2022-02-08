@@ -73,7 +73,7 @@ public class TempGame : MonoBehaviourPun
     [PunRPC]
     void UpdateConfirm(int _confirm, bool _isCheck)
     {
-        print($"Confirm - {gameObject.GetComponent<PhotonView>().Owner.NickName}");
+        print($"Confirm - {photonView.Owner.NickName}");
 
         confirm = _confirm;
         if (_isCheck)
@@ -92,9 +92,9 @@ public class TempGame : MonoBehaviourPun
     }
 
     [PunRPC]
-    public void Battle(int _damage, bool _isDefense, bool _isPrepareAttack)
+    void Battle(int _damage, bool _isDefense, bool _isPrepareAttack)
     {
-        print($"Battle - {gameObject.GetComponent<PhotonView>().Owner.NickName}");
+        print($"Battle - {photonView.Owner.NickName}");
 
         if (isDefense)
         {

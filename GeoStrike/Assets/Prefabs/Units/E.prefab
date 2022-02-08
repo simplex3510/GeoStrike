@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6239d2f07ccdfe44a81c9cd16c8db9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitInfo: {fileID: 11400000, guid: 4078c476bec734740bda2a69753613c9, type: 2}
+  unitInfo: {fileID: 11400000, guid: b6582e2e65bc7b0499eb4283ecf29386, type: 2}
   unitIdx: 5
   unitMovement: {fileID: 2194982821265488550}
 --- !u!70 &168720660598073712
@@ -138,7 +138,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!114 &2194982821265488550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigid2D: {fileID: 0}
+  unit: {fileID: 0}
 --- !u!114 &5162582814025870578
 MonoBehaviour:
   m_ObjectHideFlags: 0

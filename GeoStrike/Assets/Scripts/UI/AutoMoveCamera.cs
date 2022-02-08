@@ -16,7 +16,6 @@ public class AutoMoveCamera : MonoBehaviour
         if (_collision.gameObject.CompareTag("BuildZone"))
         {
             mainCamera.onZone = true;
-            Debug.Log(mainCamera.onZone);
         }
     }
 
