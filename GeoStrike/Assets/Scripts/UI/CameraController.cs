@@ -51,6 +51,7 @@ public class CameraController : MonoBehaviour
         else if (mouseController.mousePos.x <= ZERO || (Input.GetKey(KeyCode.LeftArrow)))
         {
             velocity = transform.position - Vector3.right;
+            Debug.Log(velocity);
             transform.position = Vector3.Lerp(transform.position, velocity, cameraSpeed);
         }
 
