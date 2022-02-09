@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class CameraController : MonoBehaviourPunCallbacks
+public class CameraController : MonoBehaviour
 {
     [Header("< Componenet >")]
     public Camera mainCamera;
@@ -30,23 +30,12 @@ public class CameraController : MonoBehaviourPunCallbacks
     {
         if (mainCamera == null) { mainCamera = GetComponent<Camera>(); }
         if (mouseController == null) { mouseController = GetComponent<MouseController>(); }
-
-        // Photon test
-        //if (photonView.IsMine) { isMine = true; }
-        //else { isMine = false; }
     }
 
     private void Update()
     {
         CameraMovement();
         CameraZoom();
-
-        // Photon test
-        //if (test)
-        //{
-        //    CameraMovement();
-        //    CameraZoom();
-        //}
     }
 
     private void CameraMovement()
@@ -80,7 +69,7 @@ public class CameraController : MonoBehaviourPunCallbacks
 
     private void CameraZoom()
     {
-        if (mouseController.eMouseMode == MouseController.EMouseMode.normal)
+        if (mouseController.GetMode() == MouseController.EMouseMode.normal)
         {
             float zoomDir = Input.GetAxis("Mouse ScrollWheel");
             float currentSize = mainCamera.orthographicSize - zoomDir * zoomSpeed;

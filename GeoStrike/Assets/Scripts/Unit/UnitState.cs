@@ -49,7 +49,7 @@ public class UnitState : MonoBehaviour
     IEnumerator FSM_Standby()
     {
         unit.unitMovement.Set_FreezePosition();
-        while (GameMgr.instance.Get_State() == EGameState.FSM_SpawnCount)
+        while (GameMgr.instance.GetState() == EGameState.FSM_SpawnCount)
         {
             // -> Unit 배치 구현하기
             yield return null;

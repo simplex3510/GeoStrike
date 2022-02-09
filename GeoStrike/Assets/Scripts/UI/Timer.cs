@@ -27,7 +27,7 @@ public class Timer : MonoBehaviour
 
     private void Update()
     {
-        if (GameMgr.instance.Get_State() != EGameState.FSM_Standby)
+        if (GameMgr.instance.GetState() != EGameState.FSM_Standby)
         {
             WorldTime();
             BattleTime();
@@ -41,7 +41,7 @@ public class Timer : MonoBehaviour
 
         if (battleTimer >= battleTime) 
         {
-            GameMgr.instance.Set_State(EGameState.FSM_Battle);
+            GameMgr.instance.SetState(EGameState.FSM_Battle);
             battleTimer = 0f;
 
             translocateField.TranslocateUnits();

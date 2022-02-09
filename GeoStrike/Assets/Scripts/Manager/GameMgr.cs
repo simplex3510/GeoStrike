@@ -56,12 +56,12 @@ public class GameMgr : MonoBehaviour
     public Canvas canvas;
 
 
-    public EGameState Get_State()
+    public EGameState GetState()
     {
         return eGameState;
     }
 
-    public void Set_State(EGameState _state)
+    public void SetState(EGameState _state)
     {
         eGameState = _state;
     }

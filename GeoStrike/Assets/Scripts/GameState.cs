@@ -20,7 +20,7 @@ public class GameState : MonoBehaviour
     {
         while (true)
         {
-            yield return StartCoroutine(GameMgr.instance.Get_State().ToString());
+            yield return StartCoroutine(GameMgr.instance.GetState().ToString());
         }
     }
 
@@ -35,13 +35,13 @@ public class GameState : MonoBehaviour
         standbyCount.gameObject.SetActive(false);
 
         Debug.Log("Game Start");
-        GameMgr.instance.Set_State(EGameState.FSM_SpawnCount);
+        GameMgr.instance.SetState(EGameState.FSM_SpawnCount);
     }
 
     // BattleTimer 0s ~ Xs 사이
     IEnumerator FSM_SpawnCount()
     {
-        while (GameMgr.instance.Get_State() == EGameState.FSM_SpawnCount)
+        while (GameMgr.instance.GetState() == EGameState.FSM_SpawnCount)
         {
             yield return null;
         }
@@ -50,7 +50,7 @@ public class GameState : MonoBehaviour
     // 0s가 되는 순간 (SpawnTime)
     IEnumerator FSM_Battle()
     {
-        while(GameMgr.instance.Get_State() == EGameState.FSM_Battle)
+        while(GameMgr.instance.GetState() == EGameState.FSM_Battle)
         {
             yield return null;
         }

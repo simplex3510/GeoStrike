@@ -21,7 +21,7 @@ public class Geo : MonoBehaviour
 
     private void Update()
     {
-        if (GameMgr.instance.Get_State() != EGameState.FSM_Standby)
+        if (GameMgr.instance.GetState() != EGameState.FSM_Standby)
         {
             GeoTxT();
             DeltaGeo(Time.deltaTime / GEO_INCREASE);

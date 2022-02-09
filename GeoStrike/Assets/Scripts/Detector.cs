@@ -30,23 +30,23 @@ public class Detector : MonoBehaviour
 
     private void OnClickEvent()
     {
-        if (cameraController.mouseController.eMouseMode == MouseController.EMouseMode.normal && Input.GetMouseButtonDown(0))
+        if (cameraController.mouseController.GetMode() == MouseController.EMouseMode.normal && Input.GetMouseButtonDown(0))
         {
             Vector2 pos = cameraController.mainCamera.ScreenToWorldPoint(cameraController.mouseController.mousePos);
             hit2D = Physics2D.Raycast(pos, Vector2.zero, 0f, mask);
             if (hit2D.collider != null)
             {
-                // 유닛 정보 불러오기
-                if (hit2D.collider.CompareTag("Unit"))
-                {
-                    // 정보창에 유닛 띄우기
-                    Debug.Log("Unit Status : " + hit2D);
-                    if (hit2D.collider.GetComponent<UnitState>().GetState() == UnitState.EUnitState.FSM_Standby)
-                    {
-                        // 배치모드
-                        StartCoroutine(CBatchMode());
-                    }
-                }
+                //// 유닛 정보 불러오기
+                //if (hit2D.collider.CompareTag("Unit"))
+                //{
+                //    // 정보창에 유닛 띄우기
+                //    Debug.Log("Unit Status : " + hit2D);
+                //    if (hit2D.collider.GetComponent<UnitState>().GetState() == UnitState.EUnitState.FSM_Standby)
+                //    {
+                //        // 배치모드
+                //        StartCoroutine(CBatchMode());
+                //    }
+                //}
 
                 //if (hit2D.collider.CompareTag("Tetromino"))
                 //{
@@ -58,7 +58,7 @@ public class Detector : MonoBehaviour
 
     private void CheckBuildPreview()
     {
-        if (cameraController.mouseController.eMouseMode == MouseController.EMouseMode.create)
+        if (cameraController.mouseController.GetMode() == MouseController.EMouseMode.create)
         {
             ray = cameraController.mainCamera.ScreenPointToRay(cameraController.mouseController.mousePos);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
