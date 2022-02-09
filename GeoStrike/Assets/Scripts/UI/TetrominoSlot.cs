@@ -36,7 +36,7 @@ public class TetrominoSlot : MonoBehaviour, IPointerClickHandler
     {
         TetrominoPreview.instance.clickSlot = this;
         TetrominoPreview.instance.m_previewImage.sprite = forPreviewImage.sprite;
-        cameraController.mouseController.emouseMode = MouseController.EMouseMode.create;
+        cameraController.mouseController.eMouseMode = MouseController.EMouseMode.create;
         StartCoroutine(CTetrominoPreviewPos());
     }
 
@@ -150,7 +150,7 @@ public class TetrominoSlot : MonoBehaviour, IPointerClickHandler
 
     IEnumerator CTetrominoPreviewPos()
     {
-        while (cameraController.mouseController.emouseMode == MouseController.EMouseMode.create)
+        while (cameraController.mouseController.eMouseMode == MouseController.EMouseMode.create)
         {
             TetrominoPreview.instance.transform.position = Camera.main.WorldToScreenPoint(Get_TilePos(tileDetector.tile)) - PreviewPosOffset();
 

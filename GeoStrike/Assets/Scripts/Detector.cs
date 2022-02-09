@@ -15,6 +15,11 @@ public class Detector : MonoBehaviour
     [HideInInspector] public TetrominoTile tile;
     private int tileIdx;
     public static bool canBuild = true;
+    public static bool canMove = true;
+
+    private Vector2 battchModeMousePos;
+    private RaycastHit2D unitTileHit2D;
+    private static bool cancel = false;
 
     private void Update()
     {
@@ -25,7 +30,7 @@ public class Detector : MonoBehaviour
 
     private void OnClickEvent()
     {
-        if (cameraController.mouseController.emouseMode == MouseController.EMouseMode.normal && Input.GetMouseButtonDown(0))
+        if (cameraController.mouseController.eMouseMode == MouseController.EMouseMode.normal && Input.GetMouseButtonDown(0))
         {
             Vector2 pos = cameraController.mainCamera.ScreenToWorldPoint(cameraController.mouseController.mousePos);
             hit2D = Physics2D.Raycast(pos, Vector2.zero, 0f, mask);
@@ -34,20 +39,26 @@ public class Detector : MonoBehaviour
                 // 유닛 정보 불러오기
                 if (hit2D.collider.CompareTag("Unit"))
                 {
+                    // 정보창에 유닛 띄우기
                     Debug.Log("Unit Status : " + hit2D);
+                    if (hit2D.collider.GetComponent<UnitState>().GetState() == UnitState.EUnitState.FSM_Standby)
+                    {
+                        // 배치모드
+                        StartCoroutine(CBatchMode());
+                    }
                 }
 
-                if (hit2D.collider.CompareTag("UnitTile"))
-                {
-                    Debug.Log("UnitTile : " + hit2D);
-                }
+                //if (hit2D.collider.CompareTag("Tetromino"))
+                //{
+                //    Debug.Log("UnitTile : " + hit2D);
+                //}
             }
         }
     }
 
     private void CheckBuildPreview()
     {
-        if (cameraController.mouseController.emouseMode == MouseController.EMouseMode.create)
+        if (cameraController.mouseController.eMouseMode == MouseController.EMouseMode.create)
         {
             ray = cameraController.mainCamera.ScreenPointToRay(cameraController.mouseController.mousePos);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
@@ -59,7 +70,7 @@ public class Detector : MonoBehaviour
                     tileIdx = creater.tileContainer.TetrominotileList.IndexOf(tile);
 
                     // Check tile befor Build tetromino
-                    StartCoroutine(CheckTile());
+                    StartCoroutine(CCheckTile());
                 }
             }
         }
@@ -75,7 +86,7 @@ public class Detector : MonoBehaviour
     }
 
 
-    IEnumerator CheckTile()
+    IEnumerator CCheckTile()
     {
         // Check tile
         creater.CanBuildPreview(TetrominoPreview.instance.clickSlot.currentBlockShape, TetrominoPreview.instance.clickSlot.currentBlockRotation, tileIdx);
@@ -87,5 +98,22 @@ public class Detector : MonoBehaviour
         }
 
         yield return null;
+    }
+
+    IEnumerator CBatchMode()
+    {
+        Debug.Log("set");
+        while (cancel == Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1))
+        {
+            hit2D.transform.GetComponent<UnitTile>().SetColor();
+
+            if (Input.GetMouseButton(0) && canMove)
+            {
+                // 유닛 이동  or 스왑
+                Debug.Log("move");
+            }
+            Debug.Log("Cancel");
+            yield return null;
+        }
     }
 }

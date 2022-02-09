@@ -7,11 +7,11 @@ using UnityEngine.UI;
 public class TetrominoTile : MonoBehaviour
 {
     public bool isEmty = true;
-    public SpriteRenderer image;
+    public SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
-        if (image == null) { image = GetComponent<SpriteRenderer>(); }
+        if (spriteRenderer == null) { spriteRenderer = GetComponent<SpriteRenderer>(); }
     }
 
     private void Update()
@@ -23,7 +23,7 @@ public class TetrominoTile : MonoBehaviour
     {
         if (!isEmty)
         {
-            image.color = Color.black;
+            spriteRenderer.color = Color.black;
         }
     }
 }

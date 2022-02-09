@@ -26,7 +26,7 @@ public class TetrominoPreview : MonoBehaviour
 
     public void ClearPreview()
     {
-        m_cameraController.mouseController.emouseMode = MouseController.EMouseMode.normal;
+        m_cameraController.mouseController.eMouseMode = MouseController.EMouseMode.normal;
         transform.position = m_previewOriginPos;
         m_previewImage.sprite = null;
         rectTransform.sizeDelta = m_previewOriginSize;

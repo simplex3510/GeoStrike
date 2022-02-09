@@ -27,7 +27,12 @@ public class UnitState : MonoBehaviour
         StartCoroutine(FSM());
     }
 
-    private void Set_State(EUnitState _state)
+    public EUnitState GetState()
+    {
+        return eUnitState;
+    }
+
+    private void SetState(EUnitState _state)
     {
         eUnitState = _state;
     }
@@ -49,7 +54,7 @@ public class UnitState : MonoBehaviour
             // -> Unit 배치 구현하기
             yield return null;
         }
-        Set_State(EUnitState.FSM_SpawnBattleField);
+        SetState(EUnitState.FSM_SpawnBattleField);
     }
 
     // BattleField로 소환된 뒤 x초 후 이동
@@ -59,7 +64,7 @@ public class UnitState : MonoBehaviour
         //  -> if 적이 감지되면 Attack모드 구현
         yield return new WaitForSeconds(SPAWN_STANDBY);
 
-        Set_State(EUnitState.FSM_Move);
+        SetState(EUnitState.FSM_Move);
     }
 
     IEnumerator FSM_Move()

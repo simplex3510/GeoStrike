@@ -11,7 +11,7 @@ public class MouseController : MonoBehaviour
     }
 
     [HideInInspector] public Vector3 mousePos;
-    public EMouseMode emouseMode;
+    public EMouseMode eMouseMode;
 
     private void Update()
     {
