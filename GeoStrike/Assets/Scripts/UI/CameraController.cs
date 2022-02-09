@@ -43,7 +43,7 @@ public class CameraController : MonoBehaviour
         Vector3 velocity;
     
         // Camera move horizotnal
-        if ((mouseController.mousePos.x >= rectTransform.rect.width) || (Input.GetKey(KeyCode.RightArrow)))
+        if (mouseController.mousePos.x >= rectTransform.rect.width || (Input.GetKey(KeyCode.RightArrow)))
         {
             velocity = transform.position + Vector3.right;
             transform.position = Vector3.Lerp(transform.position, velocity, cameraSpeed);

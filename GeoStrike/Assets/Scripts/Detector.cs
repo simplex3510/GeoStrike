@@ -20,6 +20,7 @@ public class Detector : MonoBehaviour
     private Vector2 battchModeMousePos;
     private RaycastHit2D unitTileHit2D;
     private static bool cancel = false;
+    [SerializeField] private GameObject clickedObject;      // 클릭한 Object
 
     private void Update()
     {
@@ -36,17 +37,18 @@ public class Detector : MonoBehaviour
             hit2D = Physics2D.Raycast(pos, Vector2.zero, 0f, mask);
             if (hit2D.collider != null)
             {
-                //// 유닛 정보 불러오기
-                //if (hit2D.collider.CompareTag("Unit"))
-                //{
-                //    // 정보창에 유닛 띄우기
-                //    Debug.Log("Unit Status : " + hit2D);
-                //    if (hit2D.collider.GetComponent<UnitState>().GetState() == UnitState.EUnitState.FSM_Standby)
-                //    {
-                //        // 배치모드
-                //        StartCoroutine(CBatchMode());
-                //    }
-                //}
+                // 유닛 정보 불러오기
+                clickedobject = hit2d.collider.gameobject;
+                if (clickedObject.comparetag("unit"))
+                {
+                    // 정보창에 유닛 띄우기
+                    debug.log("unit status : " + hit2d);
+                    if (hit2d.collider.getcomponent<unitstate>().getstate() == unitstate.eunitstate.FSM_Standby)
+                    {
+                        // 배치모드
+                        startcoroutine(cbatchmode());
+                    }
+                }
 
                 //if (hit2D.collider.CompareTag("Tetromino"))
                 //{
