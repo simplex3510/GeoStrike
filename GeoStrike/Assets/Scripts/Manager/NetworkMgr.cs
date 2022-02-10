@@ -5,6 +5,13 @@ using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 
+enum EReadyState
+{
+    Enter,
+    Ready,
+    Cancle
+}
+
 public class NetworkMgr : MonoBehaviourPunCallbacks
 {
     public Text stateText;
@@ -28,6 +35,7 @@ public class NetworkMgr : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         stateText.text = "온라인 : 마스터 서버 접속 완료";
+        button.onClick.AddListener(OnClickJoinOrCreateRoom);
         button.interactable = true;
     }
 
@@ -55,16 +63,59 @@ public class NetworkMgr : MonoBehaviourPunCallbacks
         nickname.gameObject.SetActive(false);
         readyText.gameObject.SetActive(true);
 
-        readyText.text = $"준비: {readyPlayer.ToString()} / {MAX_PLAYER.ToString()}";
+        photonView.RPC("CurrentReady", RpcTarget.MasterClient, EReadyState.Enter);
         button.GetComponentInChildren<Text>().text = "Ready";
+        button.onClick.RemoveAllListeners();
+        button.onClick.AddListener(OnClickReady);
+    }
+
+    public void OnClickReady()
+    {
+        button.interactable = false;
+        photonView.RPC("CurrentReady", RpcTarget.MasterClient, EReadyState.Ready);
     }
 
     [PunRPC]
-    void UpdateReady()
+    void CurrentReady(EReadyState state)
     {
-        
+        switch (state)
+        {
+            case EReadyState.Enter:
+                photonView.RPC("RefreshReady", RpcTarget.All, readyPlayer);
+                break;
+            case EReadyState.Ready:
+                photonView.RPC("UpReady", RpcTarget.All);
+                break;
+            case EReadyState.Cancle:
+                photonView.RPC("DownReady", RpcTarget.MasterClient);
+                break;
+        }
     }
 
+    [PunRPC]
+    void RefreshReady(int _readyPlayer)
+    {
+        print("RefreshReady");
+        readyPlayer = _readyPlayer;
+        readyText.text = $"준비: {readyPlayer.ToString()} / {MAX_PLAYER.ToString()}";
+    }
 
+    [PunRPC]
+    void UpReady()
+    {
+        readyPlayer++;
+        readyText.text = $"준비: {readyPlayer.ToString()} / {MAX_PLAYER.ToString()}";
 
+        if(readyPlayer == MAX_PLAYER)
+        {
+            PhotonNetwork.LoadLevel("MainScene");
+        }
+    }
+
+    [PunRPC]
+    void DownReady()
+    {
+        readyPlayer--;
+        readyText.text = $"준비: {readyPlayer.ToString()} / {MAX_PLAYER.ToString()}";
+    }
 }
