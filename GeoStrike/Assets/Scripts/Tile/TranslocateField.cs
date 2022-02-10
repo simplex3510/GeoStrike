@@ -11,17 +11,17 @@ public class TranslocateField : MonoBehaviour
     [SerializeField] private GameObject moveToBattleField;
 
     // Waiting unit parent
-    public GameObject parent;
-    public Vector3 parentOriginPos;
+    public GameObject spawnPos;
+    public Vector3 originPos;
 
     private void Awake()
     {
-        parentOriginPos = parent.transform.position;
+        originPos = spawnPos.transform.position;
     }
 
     public void TranslocateUnits() 
     {
-        parent.transform.position = moveToBattleField.transform.position;
+        spawnPos.transform.position = moveToBattleField.transform.position;
         ClearList();
     }
 
@@ -33,6 +33,6 @@ public class TranslocateField : MonoBehaviour
         }
 
         unitList.Clear();
-        parent.transform.position = parentOriginPos;
+        spawnPos.transform.position = originPos;
     }
 }

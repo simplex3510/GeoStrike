@@ -38,15 +38,15 @@ public class Detector : MonoBehaviour
             if (hit2D.collider != null)
             {
                 // 유닛 정보 불러오기
-                clickedobject = hit2d.collider.gameobject;
-                if (clickedObject.comparetag("unit"))
+                clickedObject = hit2D.collider.gameObject;
+                if (clickedObject.CompareTag("unit"))
                 {
                     // 정보창에 유닛 띄우기
-                    debug.log("unit status : " + hit2d);
-                    if (hit2d.collider.getcomponent<unitstate>().getstate() == unitstate.eunitstate.FSM_Standby)
+                    Debug.Log("unit status : " + hit2D);
+                    if (hit2D.collider.GetComponent<UnitState>().GetState() == UnitState.EUnitState.FSM_Standby)
                     {
                         // 배치모드
-                        startcoroutine(cbatchmode());
+                        StartCoroutine(CBatchMode());
                     }
                 }
 

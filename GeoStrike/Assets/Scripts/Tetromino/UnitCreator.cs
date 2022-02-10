@@ -38,7 +38,7 @@ public class UnitCreator : MonoBehaviour
                     unitTileContainer.unitTileList[idx].isEmty = false;
 
                     translocateField.unitList.Add(obj);
-                    obj.transform.SetParent(translocateField.parent.transform);
+                    obj.transform.SetParent(translocateField.spawnPos.transform);
                     break;
                 }
             }

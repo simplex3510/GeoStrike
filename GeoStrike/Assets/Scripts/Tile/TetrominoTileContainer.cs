@@ -12,6 +12,7 @@ public class TetrominoTileContainer : MonoBehaviour
 
     private void Awake()
     {
+        parent = this.gameObject;
         TetrominotileList.AddRange(parent.GetComponentsInChildren<TetrominoTile>());
     }
 }

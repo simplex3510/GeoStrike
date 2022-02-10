@@ -9,6 +9,7 @@ public class UnitTileContainer : MonoBehaviour
 
     private void Awake()
     {
+        parent = this.transform;
         unitTileList.AddRange(parent.GetComponentsInChildren<UnitTile>());
     }
 
