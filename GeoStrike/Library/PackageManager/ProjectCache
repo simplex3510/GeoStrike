@@ -5,7 +5,11 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< Updated upstream
       ticks: 637800023360075917
+=======
+      ticks: 637799216991290092
+>>>>>>> Stashed changes
     m_Hash: 555573643
   m_LockFileStatus:
     m_FilePath: C:/Users/User/Desktop/GeoStrike/GeoStrike/Packages/packages-lock.json
@@ -13,7 +17,11 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
+<<<<<<< Updated upstream
       ticks: 637800023360075917
+=======
+      ticks: 637799216991290092
+>>>>>>> Stashed changes
     m_Hash: 3219680356
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
