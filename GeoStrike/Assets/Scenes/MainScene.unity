@@ -44053,8 +44053,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eGameState: 0
   playerList:
-  - {fileID: 561500044}
-  - {fileID: 1851009167}
+  - {fileID: 0}
+  - {fileID: 0}
   tetrtominoList:
   - {fileID: 7009266540797699098, guid: df6a6ab211cb07148bdf7d61158ac61a, type: 3}
   - {fileID: 4385028721781496008, guid: 04cfdc298cd96d547a8d0745d75f91c8, type: 3}
