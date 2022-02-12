@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/ConnectScene.unity
     guid: b96b3842d201be94aa7b642299bd6348
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
+    path: Assets/Scenes/GameScene.unity
     guid: ff4c3077845ef9a4aad765912122f5bb
   m_configObjects: {}

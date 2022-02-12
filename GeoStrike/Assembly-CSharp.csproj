@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\UI\CameraController.cs" />
     <Compile Include="Assets\Scripts\Tile\UnitTile.cs" />
     <Compile Include="Assets\Scripts\UI\Timer.cs" />
+    <Compile Include="Assets\Scripts\UI\UIMainMenu.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
     <Compile Include="Assets\Scripts\Tetromino\Tetromino.cs" />
     <Compile Include="Assets\Scripts\GameState.cs" />
@@ -93,10 +94,10 @@
     <Compile Include="Assets\Scripts\UI\MouseController.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
     <Compile Include="Assets\Scripts\Tetromino\TetrominoState.cs" />
-    <Compile Include="Assets\Scripts\Manager\NetworkMgr.cs" />
+    <Compile Include="Assets\Scripts\Manager\ConnectMgr.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Tile\TetrominoTileContainer.cs" />
-    <Compile Include="Assets\Scripts\UI\UIMainMenu.cs" />
+    <Compile Include="Assets\Scripts\Manager\PlayerMgr.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />
