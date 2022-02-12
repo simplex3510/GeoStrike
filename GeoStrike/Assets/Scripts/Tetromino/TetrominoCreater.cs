@@ -9,6 +9,11 @@ public class TetrominoCreater : MonoBehaviour
 
     private int height { get; set; }
 
+    private void Awake()
+    {
+        if (slotContainer == null) { slotContainer = GameMgr.instance.canvas.GetComponentInChildren<TetrominoSlotContainer>(); }
+    }
+
     // Temp
     private void Update()
     {

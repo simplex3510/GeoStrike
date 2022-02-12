@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 
-public class CameraController : MonoBehaviour
+public class CameraController : MonoBehaviourPunCallbacks
 {
     [Header("< Componenet >")]
     public Camera mainCamera;
@@ -24,13 +25,12 @@ public class CameraController : MonoBehaviour
     // Auto Move BuildZone
     public bool onZone { get; set; }
 
-    // test Photon
-    private bool isMine = false;
-
     private void Awake()
     {
         if (mainCamera == null) { mainCamera = GetComponent<Camera>(); }
         if (mouseController == null) { mouseController = GetComponent<MouseController>(); }
+
+        InitStartPos();
     }
 
     private void Update()
@@ -38,6 +38,18 @@ public class CameraController : MonoBehaviour
         CameraMovement();
         CameraZoom();
     }
+
+    private void InitStartPos()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            mainCamera.transform.position = new Vector3(-27, -24,-10);
+        }
+        else
+        {
+            mainCamera.transform.position = new Vector3(37, -24, -10);
+        }
+    } 
 
     private void CameraMovement()
     {
@@ -52,11 +64,10 @@ public class CameraController : MonoBehaviour
         else if (mouseController.mousePos.x <= ZERO || (Input.GetKey(KeyCode.LeftArrow)))
         {
             velocity = transform.position - Vector3.right;
-            Debug.Log(velocity);
             transform.position = Vector3.Lerp(transform.position, velocity, cameraSpeed);
         }
 
-        // Camera move vertical
+        // Camera move verticals
         if (mouseController.mousePos.y >= rectTransform.rect.height || (Input.GetKey(KeyCode.UpArrow)))
         {
             velocity = transform.position + Vector3.up;

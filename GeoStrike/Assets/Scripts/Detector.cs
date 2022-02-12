@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class Detector : MonoBehaviour
+public class Detector : MonoBehaviourPun
 {
     [SerializeField] private CameraController cameraController;
     [SerializeField] private TetrominoCreater creater;
@@ -21,6 +23,12 @@ public class Detector : MonoBehaviour
     private RaycastHit2D unitTileHit2D;
     private static bool cancel = false;
     [SerializeField] private GameObject clickedObject;      // Å¬¸¯ÇÑ Object
+
+    private void Awake()
+    {
+        if (cameraController == null) { cameraController = GameObject.FindObjectOfType<CameraController>(); }
+        if (creater == null) { creater = GameObject.FindObjectOfType<TetrominoCreater>(); }
+    }
 
     private void Update()
     {
