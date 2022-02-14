@@ -53,7 +53,7 @@
     <UnityVersion>2020.3.23f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Photon\PhotonRealtime\Demos\DemoLoadBalancing\ConnectAndJoinRandomLb.cs" />
@@ -64,8 +64,10 @@
     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\WebSocket.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextButtonTransition.cs" />
     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\SocketWebTcp.cs" />
+    <Compile Include="Assets\Scripts\Tetromino\TetrominoMaker.cs" />
     <Compile Include="Assets\Scripts\ObjectPool\Pool.cs" />
     <Compile Include="Assets\Scripts\Unit\UnitState.cs" />
+    <Compile Include="Assets\Scripts\Tetromino\Shape\SMino.cs" />
     <Compile Include="Assets\Scripts\Tetromino\TetrominoPreview.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatAppIdCheckerUI.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\AppSettingsExtensions.cs" />
@@ -74,21 +76,26 @@
     <Compile Include="Assets\Scripts\ObjectPool\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\Tetromino\TetrominoCreater.cs" />
     <Compile Include="Assets\Scripts\Tetromino\UnitCreator.cs" />
+    <Compile Include="Assets\Scripts\Tetromino\Shape\TMino.cs" />
     <Compile Include="Assets\Scripts\Manager\PlayerMgr.cs" />
     <Compile Include="Assets\Scripts\Unit\Unit.cs" />
+    <Compile Include="Assets\Scripts\Tetromino\Shape\IMino.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChannelSelector.cs" />
+    <Compile Include="Assets\Scripts\Tetromino\Shape\ZMino.cs" />
     <Compile Include="Assets\Scripts\UI\CameraController.cs" />
     <Compile Include="Assets\Scripts\Tile\UnitTile.cs" />
     <Compile Include="Assets\Scripts\UI\Timer.cs" />
     <Compile Include="Assets\Scripts\UI\UIMainMenu.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
-    <Compile Include="Assets\Scripts\Tetromino\Tetromino.cs" />
     <Compile Include="Assets\Scripts\GameState.cs" />
+    <Compile Include="Assets\Scripts\Tetromino\Shape\OMino.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\EventSystemSpawner.cs" />
     <Compile Include="Assets\Scripts\Tile\TranslocateField.cs" />
     <Compile Include="Assets\Scripts\UI\TetrominoSlot.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\FriendItem.cs" />
+    <Compile Include="Assets\Scripts\Tetromino\Shape\JMino.cs" />
     <Compile Include="Assets\Scripts\UI\Geo.cs" />
+    <Compile Include="Assets\Scripts\Tetromino\Shape\Tetromino.cs" />
     <Compile Include="Assets\Scripts\UI\TetrominoSlotContainer.cs" />
     <Compile Include="Assets\Scripts\Detector.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatGui.cs" />
@@ -96,6 +103,7 @@
     <Compile Include="Assets\Scripts\Manager\GameMgr.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextToggleIsOnTransition.cs" />
     <Compile Include="Assets\Scripts\UI\MouseController.cs" />
+    <Compile Include="Assets\Scripts\Tetromino\Shape\LMino.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
     <Compile Include="Assets\Scripts\Tetromino\TetrominoState.cs" />
     <Compile Include="Assets\Scripts\Manager\ConnectMgr.cs" />

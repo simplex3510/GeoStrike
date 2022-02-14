@@ -15,14 +15,21 @@ public class Detector : MonoBehaviourPun
     [SerializeField] LayerMask mask;
 
     [HideInInspector] public TetrominoTile tile;
-    private int tileIdx;
     public static bool canBuild = true;
     public static bool canMove = true;
 
     private Vector2 battchModeMousePos;
     private RaycastHit2D unitTileHit2D;
     private static bool cancel = false;
-    [SerializeField] private GameObject clickedObject;      // 클릭한 Object
+
+    public GameObject tetrominoObj;
+    public Tetromino tetromino;
+    public Vector3 angle;
+
+    [SerializeField] private GameObject clickedObject;      // 클릭한 Object 저장
+
+
+    
 
     private void Awake()
     {
@@ -77,7 +84,6 @@ public class Detector : MonoBehaviourPun
                 {
                     // Get the index of the tile at the selected position
                     tile = hit.transform.GetComponent<TetrominoTile>();
-                    tileIdx = creater.tileContainer.TetrominotileList.IndexOf(tile);
 
                     // Check tile befor Build tetromino
                     StartCoroutine(CCheckTile());
@@ -99,12 +105,12 @@ public class Detector : MonoBehaviourPun
     IEnumerator CCheckTile()
     {
         // Check tile
-        creater.CanBuildPreview(TetrominoPreview.instance.clickSlot.currentBlockShape, TetrominoPreview.instance.clickSlot.currentBlockRotation, tileIdx);
+        //creater.CanBuildPreview(TetrominoPreview.instance.clickSlot.currentBlockShape, TetrominoPreview.instance.clickSlot.currentBlockRotation, tileIdx);
 
         // Build tetromino
         if (Input.GetMouseButton(0) && canBuild)
         {
-            creater.BuildTetromino(TetrominoPreview.instance.clickSlot.tetrominoPrefab, GetTileSize(), TetrominoPreview.instance.clickSlot.currentBlockRotation, tileIdx);
+            creater.BuildTetromino(tetrominoObj, tile.tileCoord, angle);
         }
 
         yield return null;

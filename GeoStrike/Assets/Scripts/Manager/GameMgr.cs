@@ -49,11 +49,6 @@ public class GameMgr : MonoBehaviour
 
     [SerializeField] private EGameState eGameState = EGameState.FSM_Standby;
 
-    public List<Player> playerList = new List<Player>();
-
-    // Slot °ü¸®
-    public List<Tetromino> tetrtominoList = new List<Tetromino>();
-
     public Grid grid;
     public Canvas canvas;
 
