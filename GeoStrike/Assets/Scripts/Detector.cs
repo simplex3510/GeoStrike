@@ -110,7 +110,7 @@ public class Detector : MonoBehaviourPun
         // Build tetromino
         if (Input.GetMouseButton(0) && canBuild)
         {
-            creater.BuildTetromino(tetrominoObj, tile.tileCoord, angle);
+            //creater.BuildTetromino(tetrominoObj, tile.tileCoord, angle);
         }
 
         yield return null;

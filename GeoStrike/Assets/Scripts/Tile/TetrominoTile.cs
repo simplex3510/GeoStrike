@@ -7,21 +7,21 @@ using UnityEngine.UI;
 public class TetrominoTile : MonoBehaviour
 {
     public bool isEmty = true;
-    public SpriteRenderer spriteRenderer;
+
+    public Vector2 tileCoordinate; // ÁÂÇ¥ °ª
+
+    private SpriteRenderer spriteRenderer;
+
+    public Vector2 tileCoord { get { return tileCoordinate; } set { tileCoordinate = value; } }
 
     private void Awake()
     {
-        if (spriteRenderer == null) { spriteRenderer = GetComponent<SpriteRenderer>(); }
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        SetColor();
-    }
-
-    public void SetColor()
-    {
-        if (!isEmty)
+        if (isEmty)
         {
             spriteRenderer.color = Color.black;
         }
