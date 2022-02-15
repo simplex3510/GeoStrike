@@ -10,7 +10,8 @@ public abstract class Unit : MonoBehaviour, IDamageable
     public float damage { get; protected set; }
     public float defense { get; protected set; }
     public float range { get; protected set; }
-    public float speed { get; protected set; }
+    public float attackSpeed { get; protected set; }
+    public float moveSpeed { get; protected set; }
 
 
     protected virtual void OnEnable()
@@ -19,9 +20,12 @@ public abstract class Unit : MonoBehaviour, IDamageable
         currentHealth = startHealth;
     }
 
+    []
+    protected abstract void Attack();
+
     public virtual void OnDamaged(float _damage)
     {
-        currentHealth -= _damage;
+        currentHealth -= _damage - defense;
 
         if(currentHealth <= 0 && isDead == false)
         {
