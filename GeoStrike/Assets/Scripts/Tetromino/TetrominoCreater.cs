@@ -12,15 +12,21 @@ public class TetrominoCreater : MonoBehaviourPun
 
     private Vector2[] resultTileCoord = new Vector2[4];
 
+    private void Awake()
+    {
+        if (tileContainer == null) { tileContainer = GameObject.FindObjectOfType<TetrominoTileContainer>(); }
+        if (slotContainer == null) { slotContainer = GameObject.FindObjectOfType<TetrominoSlotContainer>(); }
+    }
+
     // Build tetromino
     public void BuildTetromino(GameObject _tetromino, Vector3 _mousePos,  Vector3 _tileCoord, Vector2[] _tetrominoCoord, Vector3 _angle)
     {
         ArrSumOperator(_tileCoord, ArrMultipleOperator(_tetrominoCoord, _angle));
 
-        if (!CanBuildPreview(resultTileCoord)) { Debug.Log("There is already Building"); return; }
+        //if (!CanBuildPreview(resultTileCoord)) { Debug.Log("There is already Building"); return; }
 
         BuildOnEmptyTile();
-        Instantiate(_tetromino, _mousePos - Vector3.forward, Quaternion.Euler(_angle));
+        PhotonNetwork.Instantiate(_tetromino.name, _mousePos - Vector3.forward, Quaternion.Euler(_angle));
 
         TetrominoPreview.instance.ClearPreview();
         //Set_AllRandomSlot();
@@ -46,14 +52,14 @@ public class TetrominoCreater : MonoBehaviourPun
             int coordX = (int)_resultCoord[idx].x;
             int coordY = (int)_resultCoord[idx].y;
 
-            if (PhotonNetwork.IsMasterClient)
-            {
-                isEmptyArr[idx] = tileContainer.tileArr[ConnectMgr.MASTER_PLAYER, coordY, coordX].isEmty;
-            }
-            else
-            {
-                isEmptyArr[idx] = tileContainer.tileArr[ConnectMgr.GUEST_PLAYER, coordY, coordX].isEmty;
-            }
+            //if (PhotonNetwork.IsMasterClient)
+            //{
+            //    isEmptyArr[idx] = tileContainer.tileArr[ConnectMgr.MASTER_PLAYER, coordY, coordX].isEmty;
+            //}
+            //else
+            //{
+            //    isEmptyArr[idx] = tileContainer.tileArr[ConnectMgr.GUEST_PLAYER, coordY, coordX].isEmty;
+            //}
         }
         // 4개중 하나라도 false가 있으면 false 반환 
         for (int idx = 0; idx < isEmptyArr.Length; idx++)
@@ -89,11 +95,11 @@ public class TetrominoCreater : MonoBehaviourPun
     {
         Vector2[] multipleTileCoord = new Vector2[4];
 
-        float a;
-        float b;
-        float sin;
-        float cos;
-        float radian = _angle.z * Mathf.Deg2Rad;
+        float a;    // x좌표
+        float b;    // y좌표
+        float sin;  // 회전각
+        float cos;  // 회전각
+        float radian = _angle.z * Mathf.Deg2Rad;    // degree를 radian으로 변환
 
         float real; // 실수
         float imagin;  // 허수
