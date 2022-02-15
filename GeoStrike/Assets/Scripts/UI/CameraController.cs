@@ -82,7 +82,7 @@ public class CameraController : MonoBehaviourPunCallbacks
 
     private void CameraZoom()
     {
-        if (mouseController.GetMode() == MouseController.EMouseMode.normal)
+        if (mouseController.eMouseMode == MouseController.EMouseMode.normal)
         {
             float zoomDir = Input.GetAxis("Mouse ScrollWheel");
             float currentSize = mainCamera.orthographicSize - zoomDir * zoomSpeed;

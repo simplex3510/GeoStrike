@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 100
@@ -194,6 +198,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -355,6 +363,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 25
@@ -410,6 +422,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -503,6 +519,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 114
@@ -558,6 +578,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -639,6 +663,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -13640,6 +13668,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 67
@@ -13898,6 +13930,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -13953,6 +13989,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -14067,6 +14107,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -14184,6 +14228,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 27
@@ -14239,6 +14287,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -14741,6 +14793,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 125
@@ -14796,6 +14852,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -14987,6 +15047,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 121
@@ -15141,6 +15205,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -15208,6 +15276,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 66
@@ -15273,6 +15345,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -15394,6 +15470,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 68
@@ -15508,6 +15588,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 120
@@ -15563,6 +15647,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -15747,6 +15835,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 126
@@ -15802,6 +15894,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -15861,6 +15957,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 32
@@ -15916,6 +16016,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -15999,6 +16103,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 33
@@ -16078,6 +16186,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -16310,6 +16422,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -16424,6 +16540,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 74
@@ -16479,6 +16599,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -16629,6 +16753,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 76
@@ -16684,6 +16812,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -16743,6 +16875,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 38
@@ -16798,6 +16934,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -16879,6 +17019,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -17077,6 +17221,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -17132,6 +17280,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -17430,6 +17582,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 53
@@ -17549,6 +17705,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -17614,6 +17774,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -17762,6 +17926,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -17948,6 +18116,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -18158,6 +18330,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 109
@@ -18217,7 +18393,6 @@ GameObject:
   - component: {fileID: 366190034}
   - component: {fileID: 366190038}
   - component: {fileID: 366190037}
-  - component: {fileID: 366190040}
   - component: {fileID: 366190039}
   - component: {fileID: 366190041}
   m_Layer: 0
@@ -18286,7 +18461,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 366190033}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.22, y: -23.68, z: -10}
+  m_LocalPosition: {x: -27.4, y: -23.68, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -18345,19 +18520,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &366190040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 366190033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b1598fceda89e44d85825f71ac82224, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
 --- !u!61 &366190041
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18457,6 +18619,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -18512,6 +18678,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -18724,6 +18894,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 48
@@ -18808,6 +18982,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -18983,6 +19161,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -19121,6 +19303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -19243,6 +19429,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -19478,6 +19668,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 39
@@ -19592,6 +19786,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 101
@@ -19647,6 +19845,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -19924,6 +20126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -19979,6 +20185,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -20095,6 +20305,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 106
@@ -20150,6 +20364,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -20212,6 +20430,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -20412,6 +20634,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -20555,6 +20781,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 42
@@ -20610,6 +20840,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -20677,6 +20911,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -20822,6 +21060,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 67
@@ -20936,6 +21178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 110
@@ -20991,6 +21237,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -21155,6 +21405,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 53
@@ -21265,6 +21519,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 107
@@ -21323,7 +21581,7 @@ GameObject:
   - component: {fileID: 514118756}
   - component: {fileID: 514118755}
   m_Layer: 5
-  m_Name: showSlotImage
+  m_Name: image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21341,7 +21599,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 912067512}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21479,6 +21737,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 114
@@ -21563,6 +21825,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -21701,6 +21967,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 74
@@ -21820,6 +22090,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 123
@@ -21877,6 +22151,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 39
@@ -21932,6 +22210,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -22061,6 +22343,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -22292,6 +22578,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 30
@@ -22349,6 +22639,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 72
@@ -22404,6 +22698,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -22601,6 +22899,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 48
@@ -22777,6 +23079,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 54
@@ -22889,6 +23195,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -23057,6 +23367,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 95
@@ -23141,6 +23455,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -23395,6 +23713,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -23460,6 +23782,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -23543,6 +23869,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 92
@@ -23598,6 +23928,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -23714,6 +24048,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -23769,6 +24107,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -23837,81 +24179,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
   m_PrefabInstance: {fileID: 547110027}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &722702233
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 722702234}
-  - component: {fileID: 722702236}
-  - component: {fileID: 722702235}
-  m_Layer: 5
-  m_Name: forPreviewImage
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &722702234
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 722702233}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1389848052}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 150, y: 150}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &722702235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 722702233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &722702236
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 722702233}
-  m_CullTransparentMesh: 1
 --- !u!1001 &725114352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24007,6 +24274,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -24145,6 +24416,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 42
@@ -24200,6 +24475,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -24422,6 +24701,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 90
@@ -24561,7 +24844,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &772628194
 PrefabInstance:
@@ -24572,6 +24855,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -24629,6 +24916,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -24772,6 +25063,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -24935,6 +25230,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 97
@@ -24990,6 +25289,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -25227,6 +25530,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 109
@@ -25292,6 +25599,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -25513,6 +25824,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -25647,6 +25962,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 119
@@ -25769,6 +26088,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -25988,7 +26311,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1517899406}
   - {fileID: 514118754}
   m_Father: {fileID: 2043609108}
   m_RootOrder: 1
@@ -26011,9 +26333,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraController: {fileID: 366190038}
-  tileDetector: {fileID: 0}
+  tileDetector: {fileID: 8426533187915313210}
   tetrominoMaker: {fileID: 0}
-  showSlotImage: {fileID: 514118755}
+  rectSlot: {fileID: 0}
+  slotImage: {fileID: 514118755}
   tilePos: {x: 0, y: 0, z: 0}
   tileSize: {x: 0, y: 0, z: 0}
   tetrominoImgSize: {x: 0, y: 0}
@@ -26062,7 +26385,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 366190040}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AutoMoveCamera, Assembly-CSharp
         m_MethodName: MoveToBuildZone
         m_Mode: 1
@@ -26263,6 +26586,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 104
@@ -26320,6 +26647,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -26375,6 +26706,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -26629,6 +26964,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 72
@@ -26768,6 +27107,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 51
@@ -26830,6 +27173,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -26890,6 +27237,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -27293,6 +27644,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 93
@@ -27379,6 +27734,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 49
@@ -27441,6 +27800,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 73
@@ -27496,6 +27859,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -27555,6 +27922,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 52
@@ -27610,6 +27981,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -27669,6 +28044,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 99
@@ -27726,6 +28105,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 75
@@ -27781,6 +28164,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -27983,6 +28370,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 86
@@ -28038,6 +28429,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -28364,6 +28759,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 119
@@ -28583,6 +28982,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -28726,6 +29129,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 110
@@ -28817,6 +29224,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 65
@@ -28901,6 +29312,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -29002,6 +29417,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -29110,7 +29529,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1142369441
 PrefabInstance:
@@ -29121,6 +29540,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -29266,6 +29689,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 124
@@ -29323,6 +29750,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -29378,6 +29809,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -29509,6 +29944,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 115
@@ -29626,6 +30065,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -29776,6 +30219,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 31
@@ -29831,6 +30278,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -30072,6 +30523,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 94
@@ -30127,6 +30582,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -30268,6 +30727,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 71
@@ -30325,6 +30788,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 27
@@ -30380,6 +30847,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -30530,6 +31001,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -30585,6 +31060,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -30787,6 +31266,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 118
@@ -30847,6 +31330,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -30914,6 +31401,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -31050,6 +31541,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -31174,6 +31669,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 36
@@ -31241,6 +31740,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 40
@@ -31296,6 +31799,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -31358,6 +31865,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -31439,6 +31950,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -31624,6 +32139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 64
@@ -31681,6 +32200,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 66
@@ -31736,6 +32259,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -31875,6 +32402,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 84
@@ -31937,6 +32468,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 60
@@ -31992,6 +32527,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -32056,6 +32595,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 59
@@ -32111,6 +32654,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -32242,6 +32789,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 76
@@ -32354,6 +32905,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -32470,6 +33025,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 37
@@ -32551,9 +33110,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -50, y: -897}
+  m_AnchoredPosition: {x: 0, y: -847}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1372302397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32645,6 +33204,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 99
@@ -32700,6 +33263,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -32759,6 +33326,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 37
@@ -32814,6 +33385,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -32876,6 +33451,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -32956,7 +33535,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 722702234}
   - {fileID: 1840886453}
   m_Father: {fileID: 2043609108}
   m_RootOrder: 0
@@ -32979,9 +33557,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraController: {fileID: 366190038}
-  tileDetector: {fileID: 0}
+  tileDetector: {fileID: 8426533187915313210}
   tetrominoMaker: {fileID: 0}
-  showSlotImage: {fileID: 1840886454}
+  rectSlot: {fileID: 0}
+  slotImage: {fileID: 1840886454}
   tilePos: {x: 0, y: 0, z: 0}
   tileSize: {x: 0, y: 0, z: 0}
   tetrominoImgSize: {x: 0, y: 0}
@@ -33030,7 +33609,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 366190040}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AutoMoveCamera, Assembly-CSharp
         m_MethodName: MoveToBuildZone
         m_Mode: 1
@@ -33346,6 +33925,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 102
@@ -33401,6 +33984,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -33485,6 +34072,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 87
@@ -33540,6 +34131,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -33660,6 +34255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 79
@@ -33722,6 +34321,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 35
@@ -33779,6 +34382,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 105
@@ -33834,6 +34441,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -34084,6 +34695,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 70
@@ -34165,6 +34780,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 26
@@ -34220,6 +34839,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -34301,6 +34924,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -34560,6 +35187,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -34615,6 +35246,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -34860,6 +35495,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -34917,6 +35556,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 81
@@ -34963,81 +35606,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
---- !u!1 &1517899405
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1517899406}
-  - component: {fileID: 1517899408}
-  - component: {fileID: 1517899407}
-  m_Layer: 5
-  m_Name: forPreviewImage
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1517899406
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517899405}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 912067512}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 150, y: 150}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1517899407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517899405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1517899408
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517899405}
-  m_CullTransparentMesh: 1
 --- !u!4 &1518291134 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8501093279707025521, guid: e2f3328778f20f64cab265ada0b8fd16, type: 3}
@@ -35052,6 +35620,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -35145,6 +35717,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 33
@@ -35202,6 +35778,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -35257,6 +35837,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -35435,6 +36019,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 123
@@ -35497,6 +36085,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 38
@@ -35557,6 +36149,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -35673,6 +36269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 69
@@ -35719,49 +36319,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
---- !u!1 &1560120966
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1560120968}
-  - component: {fileID: 1560120967}
-  m_Layer: 0
-  m_Name: PlayerMgr
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1560120967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560120966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b605136e161a0f4e8426f6f59ac32df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1560120968
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560120966}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.4333944, y: -16.283976, z: -1.2190193}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1560258085 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -35911,6 +36468,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -35966,6 +36527,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -36049,6 +36614,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 71
@@ -36104,6 +36673,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -36166,6 +36739,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -36233,6 +36810,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -36350,6 +36931,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 54
@@ -36444,6 +37029,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -36556,6 +37145,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -36666,6 +37259,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 29
@@ -36745,6 +37342,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -36929,6 +37530,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 68
@@ -37030,6 +37635,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 41
@@ -37085,6 +37694,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -37144,6 +37757,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 90
@@ -37199,6 +37816,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -37258,6 +37879,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 49
@@ -37315,6 +37940,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -37370,6 +37999,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -37605,6 +38238,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 89
@@ -37660,6 +38297,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -37732,6 +38373,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -37828,7 +38473,7 @@ Transform:
   - {fileID: 28265480}
   - {fileID: 998792458}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1763524343 stripped
 Transform:
@@ -37844,6 +38489,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -37903,6 +38552,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 44
@@ -37960,6 +38613,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -38015,6 +38672,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -38279,6 +38940,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 104
@@ -38336,6 +39001,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 126
@@ -38391,6 +39060,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -38512,6 +39185,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 78
@@ -38624,6 +39301,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -38748,6 +39429,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -38964,7 +39649,7 @@ RectTransform:
   - {fileID: 79421562}
   - {fileID: 2002610626}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -39096,6 +39781,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 60
@@ -39208,6 +39897,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -39373,7 +40066,7 @@ Transform:
   - {fileID: 15294395}
   - {fileID: 1892045311}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1835377764 stripped
 Transform:
@@ -39448,6 +40141,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 55
@@ -39510,6 +40207,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 83
@@ -39568,7 +40269,7 @@ GameObject:
   - component: {fileID: 1840886455}
   - component: {fileID: 1840886454}
   m_Layer: 5
-  m_Name: showSlotImage
+  m_Name: image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39586,7 +40287,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1389848052}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -39664,6 +40365,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -39861,6 +40566,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -40035,6 +40744,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 45
@@ -40090,6 +40803,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -40152,6 +40869,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -40219,6 +40940,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -40424,6 +41149,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 65
@@ -40484,6 +41213,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -40561,7 +41294,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1919953268
 MonoBehaviour:
@@ -40592,6 +41325,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -40664,6 +41401,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -40783,6 +41524,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -40985,6 +41730,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 106
@@ -41064,6 +41813,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -41249,6 +42002,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 34
@@ -41304,6 +42061,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -41553,6 +42314,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 35
@@ -41639,6 +42404,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 100
@@ -41696,6 +42465,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 51
@@ -41751,6 +42524,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -41815,6 +42592,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 43
@@ -41877,6 +42658,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 26
@@ -41934,6 +42719,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -41989,6 +42778,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -42149,6 +42942,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -42411,6 +43208,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 127
@@ -42483,6 +43284,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 55
@@ -42543,6 +43348,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -42788,6 +43597,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TetrominoTile
       objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
+      value: TetrominoTile
+      objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_RootOrder
       value: 57
@@ -42896,6 +43709,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
       propertyPath: m_Name
+      value: TetrominoTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+      propertyPath: m_TagString
       value: TetrominoTile
       objectReference: {fileID: 0}
     - target: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -43050,7 +43867,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2184158711282252227
 GameObject:
@@ -43083,6 +43900,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileContainer: {fileID: 5291842687231821846}
   slotContainer: {fileID: 0}
+  detector: {fileID: 8426533187915313210}
 --- !u!222 &2707997100871550062
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -43927,7 +44745,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5291842685617996461
 GameObject:
@@ -43957,7 +44775,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5291842687124646603
 GameObject:
@@ -44786,7 +45604,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6666118778956196122
 GameObject:
@@ -44816,7 +45634,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8426533187915313210
 MonoBehaviour:
@@ -44831,7 +45649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraController: {fileID: 0}
-  creater: {fileID: 0}
+  creater: {fileID: 2184158711282252229}
   mask:
     serializedVersion: 2
     m_Bits: 14336
@@ -44852,7 +45670,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8426533187915313212
 GameObject:

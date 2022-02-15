@@ -21,7 +21,7 @@ public class TetrominoTile : MonoBehaviour
 
     private void Update()
     {
-        if (isEmty)
+        if (!isEmty)
         {
             spriteRenderer.color = Color.black;
         }

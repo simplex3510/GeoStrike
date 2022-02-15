@@ -95,4 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c310022041b4a994cbfcaa5fd25b52fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coordinate: []
+  coordinate:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}

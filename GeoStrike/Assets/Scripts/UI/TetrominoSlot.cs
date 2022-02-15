@@ -9,11 +9,13 @@ public class TetrominoSlot : MonoBehaviour, IPointerClickHandler
     [Header("< Components >")]
     [SerializeField] private CameraController cameraController;
     [SerializeField] private Detector tileDetector;
-    [SerializeField] private TetrominoMaker tetrominoMaker;
+    [SerializeField] public TetrominoMaker tetrominoMaker;
+    [HideInInspector] public RectTransform rectSlot;
 
-    [Header("< Random Block >")]
-    public Image showSlotImage;
+    // 프리뷰 이미지와 슬롯 이미지 동기화 변수
+    [HideInInspector]public Image slotImage;
 
+    // Tile의 위치, 사이즈 저장
     [HideInInspector] public Vector3 tilePos;
     [HideInInspector] public Vector3 tileSize;
 
@@ -21,12 +23,19 @@ public class TetrominoSlot : MonoBehaviour, IPointerClickHandler
     [HideInInspector] public Vector2 tetrominoImgSize;
     [HideInInspector] public Vector3 offset;
 
+    private void Awake()
+    {
+        if (tetrominoMaker == null) { tetrominoMaker = GetComponent<TetrominoMaker>(); }
+        if (rectSlot == null) { rectSlot = GetComponent<RectTransform>(); }
+    }
+
     // When choice slot.
-    public void ChoiceTetromino()
+    public void ChoiceTetrominoSlot()
     {
         TetrominoPreview.instance.clickSlot = this;
-        TetrominoPreview.instance.m_previewImage.sprite = showSlotImage.sprite;
-        cameraController.mouseController.SetMode(MouseController.EMouseMode.create);
+        TetrominoPreview.instance.m_previewImage.sprite = slotImage.sprite;
+        TetrominoPreview.instance.rectTransform.Rotate(tetrominoMaker.GetAngle());
+        cameraController.mouseController.eMouseMode = MouseController.EMouseMode.build;
 
         tileDetector.tetrominoObj = tetrominoMaker.GetTetrominoObj();
         tileDetector.tetromino = tetrominoMaker.GetTetromino();
@@ -39,7 +48,7 @@ public class TetrominoSlot : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            ChoiceTetromino();
+            ChoiceTetrominoSlot();
             PreviewImgSize();
 
             cameraController.mouseController.CursorVisible(false);
@@ -49,7 +58,7 @@ public class TetrominoSlot : MonoBehaviour, IPointerClickHandler
     // Set preview size
     private void PreviewImgSize()
     {
-        //tetrominoImgSize = forPreviewImage.sprite.rect.size;
+        tetrominoImgSize = slotImage.sprite.rect.size;
         TetrominoPreview.instance.rectTransform.sizeDelta = TetrominoPreview.instance.clickSlot.tetrominoImgSize * 2.15f;
     }
 
@@ -63,16 +72,9 @@ public class TetrominoSlot : MonoBehaviour, IPointerClickHandler
         return tilePos;
     }
 
-  
-    //private void ShowSlotImage(int _shape, int _rot) 
-    //{
-    //    showSlotImage.sprite = GameMgr.instance.tetrtominoList[currentBlockShape].GetComponent<Tetromino>().slotSprite;
-    //    showSlotImage.GetComponent<RectTransform>().rotation = Quaternion.Euler(ImageRotation(_rot));
-    //}
-
     IEnumerator CCancel()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || (Input.GetMouseButtonDown(1)))
+        if (Input.GetKeyDown(KeyCode.Escape) || (Input.GetMouseButtonDown(MouseController.CLICK_RIGHT)))
         {
             TetrominoPreview.instance.ClearPreview();
 
@@ -83,18 +85,12 @@ public class TetrominoSlot : MonoBehaviour, IPointerClickHandler
 
     IEnumerator CTetrominoPreviewPos()
     {
-        while (cameraController.mouseController.GetMode() == MouseController.EMouseMode.create)
+        while (cameraController.mouseController.eMouseMode == MouseController.EMouseMode.build)
         {
-            TetrominoPreview.instance.transform.position = Camera.main.WorldToScreenPoint(Get_TilePos(tileDetector.tile)) - PreviewPosOffset();
+            TetrominoPreview.instance.transform.position = Camera.main.WorldToScreenPoint(Get_TilePos(tileDetector.tile));
 
             StartCoroutine(CCancel());
             yield return null;
         }
-    }
-
-    public Vector3 PreviewPosOffset()
-    {
-        offset = new Vector3(53f, 51f);
-        return offset;
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class LMino : Tetromino
 {
     private Vector2[] L = { new Vector2(0, 1), new Vector2(0, 0), new Vector2(0, -1), new Vector2(1, -1) };
+
     public override Vector2[] GetCoordinate()
     {
         coordinate = L;

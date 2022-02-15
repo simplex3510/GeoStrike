@@ -4,31 +4,25 @@ using UnityEngine;
 
 public class MouseController : MonoBehaviour
 {
+    public const int CLICK_LEFT = 0;
+    public const int CLICK_RIGHT = 1;
+
     public enum EMouseMode
     {
         normal,
-        create,
+        build,
         batch
     }
 
     [HideInInspector] public Vector3 mousePos;
-    private EMouseMode eMouseMode;
+    private EMouseMode _eMouseMode;
+    public EMouseMode eMouseMode { get { return _eMouseMode; } set { _eMouseMode = value; } }
 
     private void Update()
     {
         mousePos = Input.mousePosition;
     }
 
-    public void SetMode(EMouseMode _mode)
-    {
-        eMouseMode = _mode;
-    }
-
-    public EMouseMode GetMode()
-    {
-        return eMouseMode;
-    }
-    
     public void CursorVisible(bool _bool)
     {
         Cursor.visible = _bool;

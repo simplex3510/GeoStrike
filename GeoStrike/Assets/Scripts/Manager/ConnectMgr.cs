@@ -14,6 +14,9 @@ enum EReadyState
 
 public class ConnectMgr : MonoBehaviourPunCallbacks
 {
+    public const int MASTER_PLAYER = 0;
+    public const int GUEST_PLAYER = 1;
+
     public Text stateText;
     public InputField nickname;
     public Button button;

@@ -6,30 +6,31 @@ using Photon.Realtime;
 
 public class Detector : MonoBehaviourPun
 {
+    [Header("< Get Auto Component >")]
     [SerializeField] private CameraController cameraController;
     [SerializeField] private TetrominoCreater creater;
 
+    // 마우스 위치, 클릭
     private Ray ray;
     private RaycastHit hit;
     private RaycastHit2D hit2D;
     [SerializeField] LayerMask mask;
 
-    [HideInInspector] public TetrominoTile tile;
+    [HideInInspector] public TetrominoTile tile;    // 마우스 위치의 타일 정보
     public static bool canBuild = true;
     public static bool canMove = true;
 
-    private Vector2 battchModeMousePos;
-    private RaycastHit2D unitTileHit2D;
-    private static bool cancel = false;
-
+    // 선택된 테트로미노 정보 변수
     public GameObject tetrominoObj;
     public Tetromino tetromino;
     public Vector3 angle;
 
+    // 유닛 배치모드 - 보류중
     [SerializeField] private GameObject clickedObject;      // 클릭한 Object 저장
+    private Vector2 battchModeMousePos;
+    private RaycastHit2D unitTileHit2D;
+    private static bool cancel = false;
 
-
-    
 
     private void Awake()
     {
@@ -40,13 +41,12 @@ public class Detector : MonoBehaviourPun
     private void Update()
     {
         CheckBuildPreview();
-        OnClickEvent();
+        //OnClickEvent();
     }
-
 
     private void OnClickEvent()
     {
-        if (cameraController.mouseController.GetMode() == MouseController.EMouseMode.normal && Input.GetMouseButtonDown(0))
+        if (cameraController.mouseController.eMouseMode == MouseController.EMouseMode.normal && Input.GetMouseButtonDown(MouseController.CLICK_LEFT))
         {
             Vector2 pos = cameraController.mainCamera.ScreenToWorldPoint(cameraController.mouseController.mousePos);
             hit2D = Physics2D.Raycast(pos, Vector2.zero, 0f, mask);
@@ -75,7 +75,7 @@ public class Detector : MonoBehaviourPun
 
     private void CheckBuildPreview()
     {
-        if (cameraController.mouseController.GetMode() == MouseController.EMouseMode.create)
+        if (cameraController.mouseController.eMouseMode == MouseController.EMouseMode.build)
         {
             ray = cameraController.mainCamera.ScreenPointToRay(cameraController.mouseController.mousePos);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
@@ -92,25 +92,12 @@ public class Detector : MonoBehaviourPun
         }
     }
 
-    private Vector3 GetTileSize()
-    {
-        float tileX = tile.GetComponent<SpriteRenderer>().bounds.size.x / 2;
-        float tileY = tile.GetComponent<SpriteRenderer>().bounds.size.y / 2;
-        Vector3 tilePointer = hit.transform.position - new Vector3(tileX, tileY);
-
-        return tilePointer;
-    }
-
-
     IEnumerator CCheckTile()
     {
-        // Check tile
-        //creater.CanBuildPreview(TetrominoPreview.instance.clickSlot.currentBlockShape, TetrominoPreview.instance.clickSlot.currentBlockRotation, tileIdx);
-
         // Build tetromino
-        if (Input.GetMouseButton(0) && canBuild)
+        if (Input.GetMouseButton(MouseController.CLICK_LEFT))
         {
-            //creater.BuildTetromino(tetrominoObj, tile.tileCoord, angle);
+            creater.BuildTetromino(tetrominoObj, hit.transform.position, tile.tileCoord, tetromino.coordinate, angle);
         }
 
         yield return null;

@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public abstract class Tetromino : MonoBehaviour
 {
-    public Tetromino() { }
-
     public Vector2[] coordinate;
 
     public abstract Vector2[] GetCoordinate();

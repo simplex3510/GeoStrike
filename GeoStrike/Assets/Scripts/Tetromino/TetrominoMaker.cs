@@ -37,6 +37,17 @@ public class TetrominoMaker : MonoBehaviour
         }
     }
 
+    public void RandomTetromino()
+    {
+        tetrominoSlot.rectSlot.rotation = Quaternion.identity; // 회전값 초기화
+
+        randomShape = Random.Range(0, 7);  //   7가지의 모양
+        randomRotation = Random.Range(0, 4);    // 4가지의 회전값
+
+        tetrominoObj = tetrominoList[randomShape].gameObject;   // 슬롯에 현재 테트로미노 정보 전달
+        tetrominoSlot.rectSlot.Rotate(GetAngle());   // 슬롯 이미지 회전
+        tetrominoSlot.slotImage.sprite = tetrominoObj.GetComponent<SpriteRenderer>().sprite;  // 슬롯 이미지 전달
+    }
     public GameObject GetTetrominoObj()
     {
         return tetrominoObj;
@@ -44,19 +55,8 @@ public class TetrominoMaker : MonoBehaviour
 
     public Tetromino GetTetromino()
     {
+        Debug.Log("Obj : " + tetrominoObj.GetComponent<Tetromino>());
         return tetrominoObj.GetComponent<Tetromino>();
-    }
-
-    public void RandomTetromino()
-    {
-        tetrominoSlot.showSlotImage.rectTransform.rotation = Quaternion.identity; // 초기화
-
-        randomShape = Random.Range(0, 7);  //   7개의 모양
-        randomRotation = Random.Range(0, 4);
-
-        tetrominoObj = tetrominoList[randomShape].gameObject;   // 슬롯에 현재 테트로미노 정보 전달
-        tetrominoSlot.showSlotImage.rectTransform.Rotate(GetAngle());   // 슬롯 이미지 회전
-        tetrominoSlot.showSlotImage.sprite = tetrominoObj.GetComponent<SpriteRenderer>().sprite;  // 슬롯 이미지 전달
     }
 
     // 회전각Theta 리턴

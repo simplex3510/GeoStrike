@@ -26,11 +26,12 @@ public class TetrominoPreview : MonoBehaviour
 
     public void ClearPreview()
     {
-        m_cameraController.mouseController.SetMode(MouseController.EMouseMode.normal);
-        transform.position = m_previewOriginPos;
-        m_previewImage.sprite = null;
-        rectTransform.sizeDelta = m_previewOriginSize;
-        instance.clickSlot = null;
-        m_cameraController.mouseController.CursorVisible(true);
+        m_cameraController.mouseController.eMouseMode = MouseController.EMouseMode.normal;  // 마우스 모드 : 노말
+        transform.position = m_previewOriginPos;                     // 프리뷰 위치 초기화
+        m_previewImage.sprite = null;                                // 이미지 초기화
+        rectTransform.rotation = Quaternion.identity;                // 회전값 초기화
+        rectTransform.sizeDelta = m_previewOriginSize;               // 사이즈 초기화
+        clickSlot = null;                                            // 클릭 슬롯 정보 초기화
+        m_cameraController.mouseController.CursorVisible(true);      // 마우스 커서 초기화
     }
 }
