@@ -21,11 +21,12 @@ public class TetrominoCreater : MonoBehaviourPun
     // Build tetromino
     public void BuildTetromino(GameObject _tetromino, Vector3 _mousePos,  Vector3 _tileCoord, Vector2[] _tetrominoCoord, Vector3 _angle)
     {
+        // 테트로미노 회전 연산 -> 좌표 합산
         ArrSumOperator(_tileCoord, ArrMultipleOperator(_tetrominoCoord, _angle));
 
-        //if (!CanBuildPreview(resultTileCoord)) { Debug.Log("There is already Building"); return; }
+        if (!CanBuildPreview(resultTileCoord)) { Debug.Log("There is already Building"); return; }
 
-        BuildOnEmptyTile();
+        BuildOnEmptyTile(resultTileCoord);
         PhotonNetwork.Instantiate(_tetromino.name, _mousePos - Vector3.forward, Quaternion.Euler(_angle));
 
         TetrominoPreview.instance.ClearPreview();
@@ -33,11 +34,20 @@ public class TetrominoCreater : MonoBehaviourPun
     }
 
 
-    // 빌드된 지역 tile 제한시키기 - 마우스 좌표, 테트로미노 좌표, 회전각
-    private void BuildOnEmptyTile()
+    // 빌드된 지역 tile 제한시키기
+    private void BuildOnEmptyTile(Vector2[] _resultTileCoord)
     {
-        // 테트로미노 회전 연산 -> 좌표 합산 -> 타일 빌드지역 상태 지정
-        SetTileState(resultTileCoord);
+        for (int idx = 0; idx < _resultTileCoord.Length; idx++)
+        {
+            if (TetrominoTileContainer.isMaster)
+            {
+                tileContainer.tileArr[ConnectMgr.MASTER_PLAYER, (int)_resultTileCoord[idx].y, (int)_resultTileCoord[idx].x].isEmty = false;
+            }
+            else
+            {
+                tileContainer.tileArr[ConnectMgr.GUEST_PLAYER, (int)_resultTileCoord[idx].y, (int)_resultTileCoord[idx].x].isEmty = false;
+            }
+        }
     }
 
 
@@ -52,28 +62,20 @@ public class TetrominoCreater : MonoBehaviourPun
             int coordX = (int)_resultCoord[idx].x;
             int coordY = (int)_resultCoord[idx].y;
 
-            //if (PhotonNetwork.IsMasterClient)
-            //{
-            //    isEmptyArr[idx] = tileContainer.tileArr[ConnectMgr.MASTER_PLAYER, coordY, coordX].isEmty;
-            //}
-            //else
-            //{
-            //    isEmptyArr[idx] = tileContainer.tileArr[ConnectMgr.GUEST_PLAYER, coordY, coordX].isEmty;
-            //}
-        }
-        // 4개중 하나라도 false가 있으면 false 반환 
-        for (int idx = 0; idx < isEmptyArr.Length; idx++)
-        {
-            if (isEmptyArr[idx] == false)
+            if (PhotonNetwork.IsMasterClient)
             {
-                Detector.canBuild = false;
+                isEmptyArr[idx] = tileContainer.tileArr[ConnectMgr.MASTER_PLAYER, coordY, coordX].isEmty;
             }
             else
             {
-                Detector.canBuild = true;
+                isEmptyArr[idx] = tileContainer.tileArr[ConnectMgr.GUEST_PLAYER, coordY, coordX].isEmty;
             }
         }
-        return Detector.canBuild;
+        // 4개중 하나라도 false가 있으면 false 반환 
+        if (isEmptyArr[0] && isEmptyArr[1] && isEmptyArr[2] && isEmptyArr[3]) { return Detector.canBuild = true; }
+        else { return false; }
+
+            return Detector.canBuild;
     }
 
 
@@ -125,21 +127,6 @@ public class TetrominoCreater : MonoBehaviourPun
                 multipleTileCoord[idx].y = imagin;
             }
             return multipleTileCoord;
-        }
-    }
-
-    private void SetTileState(Vector2[] _resultTileCoord)
-    {
-        for (int idx = 0; idx < _resultTileCoord.Length; idx++)
-        {
-            if (PhotonNetwork.IsMasterClient)
-            {
-                tileContainer.tileArr[ConnectMgr.MASTER_PLAYER, (int)_resultTileCoord[idx].y, (int)_resultTileCoord[idx].x].isEmty = false;
-            }
-            else
-            {
-                tileContainer.tileArr[ConnectMgr.GUEST_PLAYER, (int)_resultTileCoord[idx].y, (int)_resultTileCoord[idx].x].isEmty = false;
-            }
         }
     }
 }

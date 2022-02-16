@@ -12,16 +12,17 @@ public class TetrominoTileContainer : MonoBehaviour
 
     public TetrominoTile[,,] tileArr = new TetrominoTile[ARRAY_PLAYER, ARRAY_ROW, ARRAY_COLUMN];
 
-    public static bool isMater = false;
+    public static bool isMaster = false;
 
     [SerializeField] private Transform parentP1;
     [SerializeField] private Transform parentP2;
 
     private void Awake()
     {
-        isMater = PhotonNetwork.IsMasterClient;
+        isMaster = PhotonNetwork.IsMasterClient;
 
         InitTileCoordinate();
+        InitTileCollider();
     }
 
     // 배열에 타일 초기화, 타일에 좌표값 초기화
@@ -33,14 +34,12 @@ public class TetrominoTileContainer : MonoBehaviour
 
         for (int player = 0; player < ARRAY_PLAYER; player++)
         {
-            if (isMater == false && player == 0) { continue; }
-
             for (int row = 0; row < ARRAY_ROW; row++)
             {
                 for (int column = 0; column < ARRAY_COLUMN; column++)
                 {
                     // 0, 1 각각 다른 부모오브젝트 하위로 두기
-                    if (isMater)
+                    if (player == 0)
                     {
                         tileArr[player, row, column] = parentP1.transform.GetChild(p1).GetComponent<TetrominoTile>();
                         tileArr[player, row, column].tileCoord = new Vector2(column, row); // 좌하단 부터 우측으로 차례로 좌표값 초기화
@@ -53,6 +52,30 @@ public class TetrominoTileContainer : MonoBehaviour
                         p2++;
                     }
                 }
+            }
+        }
+    }
+
+    private void InitTileCollider()
+    {
+        if (isMaster)
+        {
+            BoxCollider[] boxCollArr = parentP2.GetComponentsInChildren<BoxCollider>();
+            Debug.Log("m " + boxCollArr);
+            for (int idx = 0; idx < boxCollArr.Length; idx++)
+            {
+                boxCollArr[idx].enabled = false;
+                Debug.Log(boxCollArr[idx].enabled);
+            }
+        }
+        else
+        {
+            BoxCollider[] boxCollArr = parentP1.GetComponentsInChildren<BoxCollider>();
+            Debug.Log("g " + boxCollArr);
+            for (int idx = 0; idx < boxCollArr.Length; idx++)
+            {
+                boxCollArr[idx].enabled = false;
+                Debug.Log(boxCollArr[idx].enabled);
             }
         }
     }

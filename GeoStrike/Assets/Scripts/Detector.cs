@@ -6,7 +6,7 @@ using Photon.Realtime;
 
 public class Detector : MonoBehaviourPun
 {
-    [Header("< Get Auto Component >")]
+    [Header("< Component >")]
     [SerializeField] private CameraController cameraController;
     [SerializeField] private TetrominoCreater creater;
 

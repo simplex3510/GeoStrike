@@ -18514,7 +18514,7 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   mouseController: {fileID: 0}
   rectTransform: {fileID: 1804797816}
-  cameraSpeed: 0
+  cameraSpeed: 0.03
   zoomSpeed: 1
   zoomIn: 5
   zoomOut: 15
@@ -22360,6 +22360,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
   m_PrefabInstance: {fileID: 375613969}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &567050608 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
+  m_PrefabInstance: {fileID: 1168751241}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &567050609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567050608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b09a6a2b16538784bbba3f97daa039e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEmty: 1
+  tileCoordinate: {x: 0, y: 0}
 --- !u!4 &573186399 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8501093279707025521, guid: e2f3328778f20f64cab265ada0b8fd16, type: 3}
