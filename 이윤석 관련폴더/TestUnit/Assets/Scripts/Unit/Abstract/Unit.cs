@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public abstract class Unit : MonoBehaviour, IDamageable
+public abstract class Unit : MonoBehaviourPun, IDamageable
 {
     public bool isDead { get; protected set; }
     public float startHealth { get; protected set; }
     public float currentHealth { get; protected set; }
     public float damage { get; protected set; }
     public float defense { get; protected set; }
-    public float range { get; protected set; }
+    public float attackRange { get; protected set; }
+    public float detectRange { get; protected set; }
     public float attackSpeed { get; protected set; }
     public float moveSpeed { get; protected set; }
 
@@ -20,8 +23,8 @@ public abstract class Unit : MonoBehaviour, IDamageable
         currentHealth = startHealth;
     }
 
-    []
-    protected abstract void Attack();
+    [PunRPC]
+    protected abstract void OnAttack(Collider2D enemy);
 
     public virtual void OnDamaged(float _damage)
     {
