@@ -12,11 +12,11 @@ public class CameraController : MonoBehaviourPunCallbacks
     public MouseController mouseController;
     [SerializeField] private RectTransform rectTransform;     // Resolution 1920 x 1080
 
-    // Camera Movement by mouse Position
+    // Camera movement
     [Header("< Camera controller >")]
     [SerializeField] private float cameraSpeed;
     private readonly int ZERO = 0;
-
+    
     // Camera Zoom
     [SerializeField] private float zoomSpeed = 0f;
     [SerializeField] private float zoomIn = 0f;
@@ -25,11 +25,18 @@ public class CameraController : MonoBehaviourPunCallbacks
     // Auto Move BuildZone
     public bool onZone { get; set; }
 
+    // Start player camera position;
+    private Transform startPosP1;
+    private Transform startPosP2;
+
     private void Awake()
     {
         if (mainCamera == null) { mainCamera = GetComponent<Camera>(); }
         if (mouseController == null) { mouseController = GetComponent<MouseController>(); }
 
+        if (startPosP1 == null) { startPosP1 = GameObject.FindGameObjectWithTag("StartPosP1").GetComponent<Transform>(); }
+        if (startPosP2 == null) { startPosP2 = GameObject.FindGameObjectWithTag("StartPosP2").GetComponent<Transform>(); }
+        
         InitStartPos();
     }
 
@@ -43,11 +50,11 @@ public class CameraController : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            mainCamera.transform.position = new Vector3(-27, -24,-10);
+            mainCamera.transform.position = startPosP1.position;
         }
         else
         {
-            mainCamera.transform.position = new Vector3(37, -24, -10);
+            mainCamera.transform.position = startPosP2.position;
         }
     } 
 

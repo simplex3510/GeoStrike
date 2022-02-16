@@ -24,13 +24,13 @@ public class TetrominoCreater : MonoBehaviourPun
         // 테트로미노 회전 연산 -> 좌표 합산
         ArrSumOperator(_tileCoord, ArrMultipleOperator(_tetrominoCoord, _angle));
 
-        if (!CanBuildPreview(resultTileCoord)) { Debug.Log("There is already Building"); return; }
+        if (!CanBuildPreview(resultTileCoord)) { Debug.Log("You can`t build there"); return; }
 
         BuildOnEmptyTile(resultTileCoord);
         PhotonNetwork.Instantiate(_tetromino.name, _mousePos - Vector3.forward, Quaternion.Euler(_angle));
 
         TetrominoPreview.instance.ClearPreview();
-        //Set_AllRandomSlot();
+        ResetTetrominoSlot();
     }
 
 
@@ -50,6 +50,15 @@ public class TetrominoCreater : MonoBehaviourPun
         }
     }
 
+    // 건물 생성 후 슬롯 리셋 시키기
+    private void ResetTetrominoSlot()
+    {
+        foreach(TetrominoSlot slot in slotContainer.slotList)
+        {
+            slot.tetrominoMaker.RandomTetromino();
+        }
+    }
+
 
     // 빌드 가능지역 미리보기 - 모양, 회전, Idx
     public bool CanBuildPreview(Vector2[] _resultCoord)
@@ -62,6 +71,8 @@ public class TetrominoCreater : MonoBehaviourPun
             int coordX = (int)_resultCoord[idx].x;
             int coordY = (int)_resultCoord[idx].y;
 
+            if (coordX < 0 || coordY < 0 || coordX > 15 || coordY > 7) { Detector.canBuild = false; break; }
+
             if (PhotonNetwork.IsMasterClient)
             {
                 isEmptyArr[idx] = tileContainer.tileArr[ConnectMgr.MASTER_PLAYER, coordY, coordX].isEmty;
@@ -73,9 +84,9 @@ public class TetrominoCreater : MonoBehaviourPun
         }
         // 4개중 하나라도 false가 있으면 false 반환 
         if (isEmptyArr[0] && isEmptyArr[1] && isEmptyArr[2] && isEmptyArr[3]) { return Detector.canBuild = true; }
-        else { return false; }
+        else { Detector.canBuild = false; }
 
-            return Detector.canBuild;
+        return Detector.canBuild;
     }
 
 

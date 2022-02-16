@@ -22,7 +22,7 @@ public class TetrominoTileContainer : MonoBehaviour
         isMaster = PhotonNetwork.IsMasterClient;
 
         InitTileCoordinate();
-        InitTileCollider();
+        InitTileEnable();
     }
 
     // 배열에 타일 초기화, 타일에 좌표값 초기화
@@ -56,26 +56,26 @@ public class TetrominoTileContainer : MonoBehaviour
         }
     }
 
-    private void InitTileCollider()
+    private void InitTileEnable()
     {
         if (isMaster)
         {
             BoxCollider[] boxCollArr = parentP2.GetComponentsInChildren<BoxCollider>();
-            Debug.Log("m " + boxCollArr);
+            TetrominoTile[] tileArr = parentP2.GetComponentsInChildren<TetrominoTile>();
             for (int idx = 0; idx < boxCollArr.Length; idx++)
             {
                 boxCollArr[idx].enabled = false;
-                Debug.Log(boxCollArr[idx].enabled);
+                tileArr[idx].enabled = false;
             }
         }
         else
         {
             BoxCollider[] boxCollArr = parentP1.GetComponentsInChildren<BoxCollider>();
-            Debug.Log("g " + boxCollArr);
+            TetrominoTile[] tileArr = parentP1.GetComponentsInChildren<TetrominoTile>();
             for (int idx = 0; idx < boxCollArr.Length; idx++)
             {
                 boxCollArr[idx].enabled = false;
-                Debug.Log(boxCollArr[idx].enabled);
+                tileArr[idx].enabled = false;
             }
         }
     }
