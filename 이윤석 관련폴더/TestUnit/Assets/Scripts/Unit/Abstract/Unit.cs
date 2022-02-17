@@ -4,9 +4,14 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
+public enum EPlayer
+{
+    Player1 = 6,
+    Player2 = 7
+}
+
 public abstract class Unit : MonoBehaviourPun, IDamageable
 {
-    public bool isDead { get; protected set; }
     public float startHealth { get; protected set; }
     public float currentHealth { get; protected set; }
     public float damage { get; protected set; }
@@ -15,6 +20,9 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
     public float detectRange { get; protected set; }
     public float attackSpeed { get; protected set; }
     public float moveSpeed { get; protected set; }
+
+    public bool isDead { get; protected set; }
+    protected EPlayer owner;
 
 
     protected virtual void OnEnable()
