@@ -5,7 +5,12 @@ using UnityEngine;
 public class UnitTile : MonoBehaviour
 {
     public bool isEmty = true;
-    public SpriteRenderer spriteRenderer;
+
+    public Vector2 tileCoordinate; // ÁÂÇ¥ °ª
+
+    private SpriteRenderer spriteRenderer;
+
+    public Vector2 tileCoord { get { return tileCoordinate; } set { tileCoordinate = value; } }
 
     private void Awake()
     {

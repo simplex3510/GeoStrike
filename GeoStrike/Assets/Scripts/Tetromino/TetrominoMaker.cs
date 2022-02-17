@@ -25,18 +25,6 @@ public class TetrominoMaker : MonoBehaviour
         RandomTetromino();
     }
 
-    // Coordinate DebugTest
-    private void Debg()
-    {
-        for (int i = 0; i < tetrominoList.Count; i++)
-        {
-            for(int idx = 0; idx < 4; idx++)
-            {
-                Debug.Log(tetrominoList[i] + " : " + tetrominoList[i].GetCoordinate()[idx]);
-            }
-        }
-    }
-
     public void RandomTetromino()
     {
         tetrominoSlot.rectSlot.rotation = Quaternion.identity; // 회전값 초기화

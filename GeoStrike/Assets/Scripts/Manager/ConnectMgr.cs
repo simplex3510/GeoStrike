@@ -14,6 +14,8 @@ enum EReadyState
 
 public class ConnectMgr : MonoBehaviourPunCallbacks
 {
+    public static bool isMaster = false;
+
     public const int MASTER_PLAYER = 0;
     public const int GUEST_PLAYER = 1;
 
@@ -24,6 +26,11 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
 
     readonly int MAX_PLAYER = 2;
     int readyPlayer = 0;
+
+    void Awake()
+    {
+        isMaster = PhotonNetwork.IsMasterClient;
+    }
 
     void Start()
     {

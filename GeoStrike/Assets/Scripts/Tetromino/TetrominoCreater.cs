@@ -39,7 +39,7 @@ public class TetrominoCreater : MonoBehaviourPun
     {
         for (int idx = 0; idx < _resultTileCoord.Length; idx++)
         {
-            if (TetrominoTileContainer.isMaster)
+            if (ConnectMgr.isMaster)
             {
                 tileContainer.tileArr[ConnectMgr.MASTER_PLAYER, (int)_resultTileCoord[idx].y, (int)_resultTileCoord[idx].x].isEmty = false;
             }

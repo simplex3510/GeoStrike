@@ -79,7 +79,7 @@ public class TetrominoState : MonoBehaviour
         {
             // ¿Ø¥÷ º“»Ø
             Debug.Log("Summone unit");
-            unitCreation.UnitSpawn();
+            //unitCreation.UnitSpawn();
             Set_State(ETetrominoState.FSM_Summoned);
         }
     }

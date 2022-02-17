@@ -1,26 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
-using Photon.Realtime;
 
 public class TetrominoTileContainer : MonoBehaviour
 {
-    public static readonly int ARRAY_COLUMN = 16;
-    public static readonly int ARRAY_ROW = 8;
-    public static readonly int ARRAY_PLAYER = 2;
-
-    public TetrominoTile[,,] tileArr = new TetrominoTile[ARRAY_PLAYER, ARRAY_ROW, ARRAY_COLUMN];
-
-    public static bool isMaster = false;
+    public TetrominoTile[,,] tileArr = new TetrominoTile[ArrayNumber.PLAYER, ArrayNumber.TETROMINO_TILE_ROW, ArrayNumber.TETROMINO_TILE_COLUMN];
 
     [SerializeField] private Transform parentP1;
     [SerializeField] private Transform parentP2;
 
     private void Awake()
     {
-        isMaster = PhotonNetwork.IsMasterClient;
-
         InitTileCoordinate();
         InitTileEnable();
     }
@@ -32,11 +22,11 @@ public class TetrominoTileContainer : MonoBehaviour
     {
         int p1 = 0, p2 = 0;
 
-        for (int player = 0; player < ARRAY_PLAYER; player++)
+        for (int player = 0; player < ArrayNumber.PLAYER; player++)
         {
-            for (int row = 0; row < ARRAY_ROW; row++)
+            for (int row = 0; row < ArrayNumber.TETROMINO_TILE_ROW; row++)
             {
-                for (int column = 0; column < ARRAY_COLUMN; column++)
+                for (int column = 0; column < ArrayNumber.TETROMINO_TILE_COLUMN; column++)
                 {
                     // 0, 1 각각 다른 부모오브젝트 하위로 두기
                     if (player == 0)
@@ -58,7 +48,7 @@ public class TetrominoTileContainer : MonoBehaviour
 
     private void InitTileEnable()
     {
-        if (isMaster)
+        if (ConnectMgr.isMaster)
         {
             BoxCollider[] boxCollArr = parentP2.GetComponentsInChildren<BoxCollider>();
             TetrominoTile[] tileArr = parentP2.GetComponentsInChildren<TetrominoTile>();
