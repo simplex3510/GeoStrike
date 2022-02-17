@@ -25,18 +25,11 @@ public class CameraController : MonoBehaviourPunCallbacks
     // Auto Move BuildZone
     public bool onZone { get; set; }
 
-    // Start player camera position;
-    private Transform startPosP1;
-    private Transform startPosP2;
-
     private void Awake()
     {
         if (mainCamera == null) { mainCamera = GetComponent<Camera>(); }
         if (mouseController == null) { mouseController = GetComponent<MouseController>(); }
-
-        if (startPosP1 == null) { startPosP1 = GameObject.FindGameObjectWithTag("StartPosP1").GetComponent<Transform>(); }
-        if (startPosP2 == null) { startPosP2 = GameObject.FindGameObjectWithTag("StartPosP2").GetComponent<Transform>(); }
-        
+ 
         InitStartPos();
     }
 
@@ -50,11 +43,11 @@ public class CameraController : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            mainCamera.transform.position = startPosP1.position;
+            mainCamera.transform.position = new Vector3 (-31.7f, -24f, -10f);
         }
         else
         {
-            mainCamera.transform.position = startPosP2.position;
+            mainCamera.transform.position = new Vector3(31.7f, -24f, -10f);
         }
     } 
 

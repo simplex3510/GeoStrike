@@ -8,8 +8,6 @@ TagManager:
   - BuildZone
   - Unit
   - UnitTile
-  - StartPosP1
-  - StartPosP2
   layers:
   - Default
   - TransparentFX
