@@ -20,27 +20,30 @@ public class Warrior : Unit
         detectRange = unitData.detectRange;
         attackSpeed = unitData.attackSpeed;
         moveSpeed = unitData.moveSpeed;
+        owner = PhotonNetwork.IsMasterClient ? EPlayer.Player1 : EPlayer.Player2;
+        //this.gameObject.layer = (int)owner;
         #endregion
     }
 
     private void Update()
     {
-        enemy = Physics2D.OverlapCircle(transform.position, attackRange);
+        enemy = Physics2D.OverlapCircle(transform.position, attackRange,6);
         if (enemy != null)
         {
             OnAttack(enemy);
         }
     }
 
-    [PunRPC]
+    
     protected override void OnAttack(Collider2D enemy)
     {
         enemy.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
     }
 
+    [PunRPC]
     public override void OnDamaged(float _damaged)
     {
-
+        base.OnDamaged(_damaged);
     }
     private void OnDrawGizmos()
     {
