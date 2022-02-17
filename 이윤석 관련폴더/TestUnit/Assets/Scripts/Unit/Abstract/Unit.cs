@@ -22,7 +22,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
     public float moveSpeed { get; protected set; }
 
     public bool isDead { get; protected set; }
-    protected EPlayer owner;
+    protected EPlayer enemy;
 
 
     protected virtual void OnEnable()
@@ -47,6 +47,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
     public virtual void Die()
     {
         isDead = true;
-        // ¾ËÆÄ°ª ÁÙÀÌ°í ÄÝ¶óÀÌ´õ ¾ø¾Ö°í
+        // ï¿½ï¿½ï¿½Ä°ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½Ý¶ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½Ö°ï¿½
     }
 }

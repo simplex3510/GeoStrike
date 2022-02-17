@@ -8,11 +8,11 @@ public class Warrior : Unit
 {
     public UnitData unitData;
 
-    Collider2D enemy;
+    Collider2D enemyColider2D;
 
     private void Awake()
     {
-        #region ½ºÅÈ ÃÊ±âÈ­
+        #region ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
         startHealth = unitData.health;
         damage = unitData.damage;
         defense = unitData.defense;
@@ -20,17 +20,16 @@ public class Warrior : Unit
         detectRange = unitData.detectRange;
         attackSpeed = unitData.attackSpeed;
         moveSpeed = unitData.moveSpeed;
-        owner = PhotonNetwork.IsMasterClient ? EPlayer.Player1 : EPlayer.Player2;
-        //this.gameObject.layer = (int)owner;
+        enemy = PhotonNetwork.IsMasterClient ? EPlayer.Player2 : EPlayer.Player1;
         #endregion
     }
 
     private void Update()
     {
-        enemy = Physics2D.OverlapCircle(transform.position, attackRange,6);
-        if (enemy != null)
+        enemyColider2D = Physics2D.OverlapCircle(transform.position, attackRange, (int)enemy);
+        if (enemyColider2D != null)
         {
-            OnAttack(enemy);
+            OnAttack(enemyColider2D);
         }
     }
 

@@ -6,8 +6,6 @@ using Photon.Realtime;
 
 public class NetworkMgr : MonoBehaviourPunCallbacks
 {
-    public Unit player;
-    public Unit enemy;
 
     private void Awake()
     {
@@ -16,15 +14,18 @@ public class NetworkMgr : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        print("마스터 서버 연결");
         PhotonNetwork.JoinOrCreateRoom("Temp", new RoomOptions { MaxPlayers = 2 }, null);
     }
 
     public override void OnJoinedRoom()
     {
-        print("룸 연결");
-
-        player.gameObject.SetActive(true);
-        enemy.gameObject.SetActive(true);
+        if(PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.Instantiate("Player1", new Vector3(-2,0,0), Quaternion.identity);
+        }
+        else
+        {
+            PhotonNetwork.Instantiate("Player2", new Vector3(2,0,0), Quaternion.identity);
+        }
     }
 }
