@@ -1,2 +1,0 @@
-C:\Users\UserK\Desktop\GeoStrike\GeoStrike\obj\Debug\Unity.2D.Tilemap.Extras.Editor.csproj.AssemblyReference.cache
-C:\Users\UserK\Desktop\GeoStrike\GeoStrike\obj\Debug\Unity.2D.Tilemap.Extras.Editor.csproj.CoreCompileInputs.cache
