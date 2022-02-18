@@ -8,10 +8,12 @@ public class Warrior : Unit
 {
     public UnitData unitData;
 
-    Collider2D enemyColider2D;
+    [SerializeField] Collider2D enemyColider2D;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         #region ���� �ʱ�ȭ
         startHealth = unitData.health;
         damage = unitData.damage;
@@ -20,13 +22,15 @@ public class Warrior : Unit
         detectRange = unitData.detectRange;
         attackSpeed = unitData.attackSpeed;
         moveSpeed = unitData.moveSpeed;
-        enemy = PhotonNetwork.IsMasterClient ? EPlayer.Player2 : EPlayer.Player1;
         #endregion
+
+        print($"{gameObject.name}: " + (int)enemy);
+        print($"{gameObject.name}: " + layerMask.value);
     }
 
     private void Update()
     {
-        enemyColider2D = Physics2D.OverlapCircle(transform.position, attackRange, (int)enemy);
+        enemyColider2D = Physics2D.OverlapCircle(transform.position, attackRange , layerMask);
         if (enemyColider2D != null)
         {
             OnAttack(enemyColider2D);

@@ -23,7 +23,15 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
 
     public bool isDead { get; protected set; }
     protected EPlayer enemy;
+    protected LayerMask layerMask;
 
+    protected virtual void Awake()
+    {
+        enemy = photonView.IsMine && PhotonNetwork.IsMasterClient ? EPlayer.Player2 : EPlayer.Player1;
+
+        layerMask = 1 << (int)enemy;
+        print(layerMask.value);
+    }
 
     protected virtual void OnEnable()
     {
