@@ -23,6 +23,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
     public bool isDead { get; protected set; }
     protected LayerMask opponentLayerMask;
 
+    float lastAttackTime;
+
     protected virtual void Awake()
     {
         if (photonView.IsMine)
@@ -35,6 +37,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
             gameObject.layer = (int)EPlayer.enemy;
             opponentLayerMask = 1 << (int)EPlayer.ally;
         }
+    }
+
+    protected virtual void Update()
+    {
+
     }
 
     protected virtual void OnEnable()

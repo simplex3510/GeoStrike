@@ -28,8 +28,10 @@ public class Warrior : Unit
         print($"{gameObject.name} - enemyLayerMask: " + opponentLayerMask.value);
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
+
         enemyColider2D = Physics2D.OverlapCircle(transform.position, attackRange , opponentLayerMask);
         if (enemyColider2D != null)
         {
