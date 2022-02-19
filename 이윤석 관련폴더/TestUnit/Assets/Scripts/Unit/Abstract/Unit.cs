@@ -23,6 +23,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
     public bool isDead { get; protected set; }
     protected LayerMask opponentLayerMask;
 
+    Collider2D enemyCollider2D;
     float lastAttackTime;
 
     protected virtual void Awake()
@@ -41,7 +42,15 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
 
     protected virtual void Update()
     {
-
+        enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
+        if(enemyCollider2D != null)
+        {
+            if(lastAttackTime + attackSpeed <= Time.time)
+            {
+                lastAttackTime = Time.time;
+                OnAttack(enemyCollider2D);
+            }
+        }
     }
 
     protected virtual void OnEnable()

@@ -14,7 +14,7 @@ public class Warrior : Unit
     {
         base.Awake();
 
-        #region ���� �ʱ�ȭ
+        #region Initialize
         startHealth = unitData.health;
         damage = unitData.damage;
         defense = unitData.defense;
@@ -32,11 +32,11 @@ public class Warrior : Unit
     {
         base.Update();
 
-        enemyColider2D = Physics2D.OverlapCircle(transform.position, attackRange , opponentLayerMask);
-        if (enemyColider2D != null)
-        {
-            OnAttack(enemyColider2D);
-        }
+        // enemyColider2D = Physics2D.OverlapCircle(transform.position, attackRange , opponentLayerMask);
+        // if (enemyColider2D != null)
+        // {
+        //     OnAttack(enemyColider2D);
+        // }
     }
 
     
