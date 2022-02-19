@@ -6,8 +6,8 @@ using Photon.Realtime;
 
 public enum EPlayer
 {
-    Player1 = 6,
-    Player2 = 7
+    ally = 6,
+    enemy = 7
 }
 
 public abstract class Unit : MonoBehaviourPun, IDamageable
@@ -20,17 +20,21 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
     public float detectRange { get; protected set; }
     public float attackSpeed { get; protected set; }
     public float moveSpeed { get; protected set; }
-
     public bool isDead { get; protected set; }
-    protected EPlayer enemy;
-    protected LayerMask layerMask;
+    protected LayerMask opponentLayerMask;
 
     protected virtual void Awake()
     {
-        enemy = photonView.IsMine && PhotonNetwork.IsMasterClient ? EPlayer.Player2 : EPlayer.Player1;
-
-        layerMask = 1 << (int)enemy;
-        print(layerMask.value);
+        if (photonView.IsMine)
+        {
+            gameObject.layer = (int)EPlayer.ally;
+            opponentLayerMask = 1 << (int)EPlayer.enemy;
+        }
+        else
+        {
+            gameObject.layer = (int)EPlayer.enemy;
+            opponentLayerMask = 1 << (int)EPlayer.ally;
+        }
     }
 
     protected virtual void OnEnable()
@@ -46,9 +50,9 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
     {
         currentHealth -= _damage - defense;
 
-        if(currentHealth <= 0 && isDead == false)
+        if (currentHealth <= 0 && isDead == false)
         {
-            Die();  
+            Die();
         }
     }
 

@@ -24,13 +24,13 @@ public class Warrior : Unit
         moveSpeed = unitData.moveSpeed;
         #endregion
 
-        print($"{gameObject.name}: " + (int)enemy);
-        print($"{gameObject.name}: " + layerMask.value);
+        print($"{gameObject.name} - layer: " + gameObject.layer);
+        print($"{gameObject.name} - enemyLayerMask: " + opponentLayerMask.value);
     }
 
     private void Update()
     {
-        enemyColider2D = Physics2D.OverlapCircle(transform.position, attackRange , layerMask);
+        enemyColider2D = Physics2D.OverlapCircle(transform.position, attackRange , opponentLayerMask);
         if (enemyColider2D != null)
         {
             OnAttack(enemyColider2D);
