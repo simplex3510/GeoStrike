@@ -8,16 +8,10 @@ public class Pool : MonoBehaviour
 {
     public Queue<Unit> poolingObjectQueue = new Queue<Unit>();
 
-    [SerializeField] private int unitCount;
     public Unit unit;
 
-    private void Awake()
-    {
-        InitObjectPool(unitCount);
-    }
-
     // 초기 Object 생성
-    private void InitObjectPool(int _num)
+    public void InitObjectPool(int _num)
     {
         for (int idx = 0; idx < _num; idx++)
         {

@@ -50,6 +50,7 @@ public class TetrominoTileContainer : MonoBehaviour
     {
         if (GameMgr.isMaster)
         {
+            Debug.Log("Tile Master");
             BoxCollider[] boxCollArr = parentP2.GetComponentsInChildren<BoxCollider>();
             TetrominoTile[] tileArr = parentP2.GetComponentsInChildren<TetrominoTile>();
             for (int idx = 0; idx < boxCollArr.Length; idx++)

@@ -52,6 +52,7 @@ public class UnitTileContainer : MonoBehaviour
     {
         if (GameMgr.isMaster)
         {
+            Debug.Log("UTile Master");
             BoxCollider2D[] boxCollArr = parentP2.GetComponentsInChildren<BoxCollider2D>();
             UnitTile[] tileArr = parentP2.GetComponentsInChildren<UnitTile>();
             for (int idx = 0; idx < boxCollArr.Length; idx++)

@@ -12,6 +12,7 @@ public enum EGameState
     FSM_GameEnd,        // 게임 종료
 }
 
+[DefaultExecutionOrder(201)]
 public class GameMgr : MonoBehaviourPun
 {
     // public static IconMgr instance { get; private set; }
@@ -56,6 +57,7 @@ public class GameMgr : MonoBehaviourPun
         {
             isMaster = false;
         }
+        Debug.Log(isMaster);
     }
 
     [SerializeField] private EGameState eGameState = EGameState.FSM_Standby;

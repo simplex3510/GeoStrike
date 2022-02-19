@@ -37,13 +37,13 @@ public class UnitCreator : MonoBehaviour
                         // Unit 持失
                         else
                         {
-                            Unit obj = ObjectPool.instance.poolArr[unit.unitIdx - 1].GetObject();
-                            obj.transform.position = unitTileContainer.unitTileArr[0, row, column].transform.position + Vector3.back;
-                            unitTileContainer.unitTileArr[0, row, column].isEmty = false;
+                            //Unit obj = ObjectPool.instance.allyAndEnemyArr[unit.unitIdx - 1].GetObject();
+                            //obj.transform.position = unitTileContainer.unitTileArr[0, row, column].transform.position + Vector3.back;
+                            //unitTileContainer.unitTileArr[0, row, column].isEmty = false;
 
-                            translocateField.unitListP1.Add(obj);
-                            obj.transform.SetParent(translocateField.spawnPosP1.transform);
-                            return;
+                            //translocateField.unitListP1.Add(obj);
+                            //obj.transform.SetParent(translocateField.spawnPosP1.transform);
+                            //return;
                         }
                     }
                 }
@@ -62,18 +62,18 @@ public class UnitCreator : MonoBehaviour
                         {
                             Debug.Log("Get GEO : " + Geo.GEO_SQUARE);
                             geo.DeltaGeo(Geo.GEO_SQUARE);
-                            break;
+                            return;
                         }
                         // Unit 持失
                         else
                         {
-                            Unit obj = ObjectPool.instance.poolArr[unit.unitIdx - 1].GetObject();
-                            obj.transform.position = unitTileContainer.unitTileArr[1, row, column].transform.position + Vector3.back;
-                            unitTileContainer.unitTileArr[1, row, column].isEmty = false;
+                            //Unit obj = ObjectPool.instance.poolArr[unit.unitIdx - 1].GetObject();
+                            //obj.transform.position = unitTileContainer.unitTileArr[1, row, column].transform.position + Vector3.back;
+                            //unitTileContainer.unitTileArr[1, row, column].isEmty = false;
 
-                            translocateField.unitListP2.Add(obj);
-                            obj.transform.SetParent(translocateField.spawnPosP2.transform);
-                            break;
+                            //translocateField.unitListP2.Add(obj);
+                            //obj.transform.SetParent(translocateField.spawnPosP2.transform);
+                            //return;
                         }
                     }
                 }

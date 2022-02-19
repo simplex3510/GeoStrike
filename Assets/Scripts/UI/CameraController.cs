@@ -41,8 +41,9 @@ public class CameraController : MonoBehaviour
 
     private void InitStartPos()
     {
-        if (PhotonNetwork.IsMasterClient)
+        if (GameMgr.isMaster)
         {
+            Debug.Log("Camera Master");
             mainCamera.transform.position = new Vector3 (-31.7f, -24f, -10f);
         }
         else
