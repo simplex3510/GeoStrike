@@ -5,6 +5,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
+[DefaultExecutionOrder(202)]
 public class CameraController : MonoBehaviour
 {
     [Header("< Componenet >")]
@@ -41,7 +42,7 @@ public class CameraController : MonoBehaviour
 
     private void InitStartPos()
     {
-        if (PhotonNetwork.IsMasterClient)
+        if (GameMgr.isMaster)
         {
             mainCamera.transform.position = new Vector3 (-31.7f, -24f, -10f);
         }

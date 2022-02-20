@@ -12,6 +12,7 @@ public enum EGameState
     FSM_GameEnd,        // 게임 종료
 }
 
+[DefaultExecutionOrder(201)]
 public class GameMgr : MonoBehaviourPun
 {
     // public static IconMgr instance { get; private set; }

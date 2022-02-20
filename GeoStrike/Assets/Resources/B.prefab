@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -2207680358458264625}
   - component: {fileID: 2224935555522544323}
   - component: {fileID: 3066842583431868054}
-  - component: {fileID: 5628213594730806649}
+  - component: {fileID: 8246512452637960547}
   m_Layer: 11
   m_Name: B
   m_TagString: Unit
@@ -190,7 +190,7 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &5628213594730806649
+--- !u!114 &8246512452637960547
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

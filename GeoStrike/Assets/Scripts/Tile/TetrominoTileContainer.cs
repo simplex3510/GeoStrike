@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder(201)]
 public class TetrominoTileContainer : MonoBehaviour
 {
     public TetrominoTile[,,] tileArr = new TetrominoTile[ArrayNumber.PLAYER, ArrayNumber.TETROMINO_TILE_ROW, ArrayNumber.TETROMINO_TILE_COLUMN];

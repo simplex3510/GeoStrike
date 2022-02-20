@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class Timer : MonoBehaviour
+
+public class Timer : MonoBehaviour, IPunObservable
 {
     [Header("< World Time >")]
     [SerializeField] private Text worldTimeTXT;
@@ -15,6 +18,8 @@ public class Timer : MonoBehaviour
     [SerializeField] private Text battleTimeTXT;
     [SerializeField] private float battleTime;
     public float battleTimer = 0f;
+
+    double sendtime;
 
     private TranslocateField translocateField;
     private GameState gameState;
@@ -37,7 +42,7 @@ public class Timer : MonoBehaviour
     private void BattleTime()
     {
         battleTimer += Time.deltaTime;
-        battleTimeTXT.text = string.Format("{0:D}s", (int)battleTimer);
+        battleTimeTXT.text = $"{(int)battleTimer:D}s";
 
         if (battleTimer >= battleTime) 
         {
@@ -52,12 +57,38 @@ public class Timer : MonoBehaviour
     private void WorldTime()
     {
         sec += Time.deltaTime;
-        worldTimeTXT.text = string.Format("{0:D2} : {1:D2}", min, (int)sec);
+        worldTimeTXT.text = $"{min:D2} : {(int)sec:D2}";
 
-        if((int)sec > MAX_SEC)
+        if(sec >= MAX_SEC)
         {
             sec = 0;
             min++;
+        }
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting && PhotonNetwork.IsMasterClient)
+        {
+            sendtime = (float)PhotonNetwork.Time;
+            stream.SendNext(sendtime);
+
+            stream.SendNext(battleTimer);
+            stream.SendNext(sec);
+            stream.SendNext(min);
+        }
+        else
+        {
+            sendtime = (double)stream.ReceiveNext();
+            float lag = Mathf.Abs((float)(PhotonNetwork.Time - sendtime));
+
+            battleTimer = (float)stream.ReceiveNext();
+
+            sec = (float)stream.ReceiveNext();
+            sec += lag;
+
+            min = (int)stream.ReceiveNext();
+
         }
     }
 }
