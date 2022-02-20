@@ -4,10 +4,17 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public enum EPlayer
+enum EPlayer
 {
-    ally = 6,
-    enemy = 7
+    Ally = 6,
+    Enemy = 7
+}
+
+enum EUnitState
+{
+    Move,
+    Approach,
+    Attack
 }
 
 public abstract class Unit : MonoBehaviourPun, IDamageable
@@ -24,32 +31,23 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
     protected LayerMask opponentLayerMask;
 
     Collider2D enemyCollider2D;
+    EUnitState unitState;
     float lastAttackTime;
+    bool isPlayer1;
 
     protected virtual void Awake()
     {
+        isPlayer1 = PhotonNetwork.IsMasterClient;
+
         if (photonView.IsMine)
         {
-            gameObject.layer = (int)EPlayer.ally;
-            opponentLayerMask = 1 << (int)EPlayer.enemy;
+            gameObject.layer = (int)EPlayer.Ally;
+            opponentLayerMask = 1 << (int)EPlayer.Enemy;
         }
         else
         {
-            gameObject.layer = (int)EPlayer.enemy;
-            opponentLayerMask = 1 << (int)EPlayer.ally;
-        }
-    }
-
-    protected virtual void Update()
-    {
-        enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
-        if(enemyCollider2D != null)
-        {
-            if(lastAttackTime + attackSpeed <= Time.time)
-            {
-                lastAttackTime = Time.time;
-                OnAttack(enemyCollider2D);
-            }
+            gameObject.layer = (int)EPlayer.Enemy;
+            opponentLayerMask = 1 << (int)EPlayer.Ally;
         }
     }
 
@@ -57,11 +55,91 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
     {
         isDead = false;
         currentHealth = startHealth;
+        unitState = EUnitState.Move;
+        StartCoroutine(FSM());
+    }
+
+    // protected virtual void Update()
+    // {
+    //     enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
+    //     if(enemyCollider2D != null)
+    //     {
+    //         if(lastAttackTime + attackSpeed <= PhotonNetwork.Time)
+    //         {
+    //             lastAttackTime = (float)PhotonNetwork.Time;
+    //             Attack();
+    //         }
+    //     }
+    // }
+
+    protected virtual IEnumerator FSM()
+    {
+        while (true)
+        {
+            switch (unitState)
+            {
+                case EUnitState.Move:
+                    Move();
+                    break;
+                case EUnitState.Approach:
+                    Approach();
+                    break;
+                case EUnitState.Attack:
+                    Attack();
+                    break;
+            }
+            yield return null;
+        }
+    }
+
+    void Move() // 앞으로 전진
+    {
+        if (isPlayer1)
+        {
+            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+        }
+        else
+        {
+            transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+        }
+
+        enemyCollider2D = Physics2D.OverlapCircle(transform.position, detectRange, opponentLayerMask);
+        if (enemyCollider2D != null)
+        {
+            unitState = EUnitState.Approach;
+            return;
+        }
+    }
+
+    void Approach() // 적에게 접근
+    {
+        enemyCollider2D = Physics2D.OverlapCircle(transform.position, detectRange, opponentLayerMask);
+        transform.position = Vector3.MoveTowards(transform.position, enemyCollider2D.transform.position, moveSpeed * Time.deltaTime);
+
+        if (enemyCollider2D != null && (transform.position - enemyCollider2D.transform.position).magnitude <= attackRange)
+        {
+            unitState = EUnitState.Attack;
+            return;
+        }
+    }
+
+    void Attack()   // 적에게 공격
+    {
+        enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
+        if (enemyCollider2D != null && lastAttackTime + attackSpeed <= PhotonNetwork.Time)
+        {
+            lastAttackTime = (float)PhotonNetwork.Time;
+            enemyCollider2D.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
+        }
+        else if (enemyCollider2D == null)
+        {
+            unitState = EUnitState.Move;
+            return;
+        }
+
     }
 
     [PunRPC]
-    protected abstract void OnAttack(Collider2D enemy);
-
     public virtual void OnDamaged(float _damage)
     {
         currentHealth -= _damage - defense;
@@ -76,5 +154,12 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
     {
         isDead = true;
         // ���İ� ���̰� �ݶ��̴� ���ְ�
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere(transform.position, detectRange);
     }
 }

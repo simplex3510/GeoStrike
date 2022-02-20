@@ -8,8 +8,6 @@ public class Warrior : Unit
 {
     public UnitData unitData;
 
-    [SerializeField] Collider2D enemyColider2D;
-
     protected override void Awake()
     {
         base.Awake();
@@ -24,36 +22,29 @@ public class Warrior : Unit
         moveSpeed = unitData.moveSpeed;
         #endregion
 
-        print($"{gameObject.name} - layer: " + gameObject.layer);
-        print($"{gameObject.name} - enemyLayerMask: " + opponentLayerMask.value);
+        // print($"{gameObject.name} - layer: " + gameObject.layer);
+        // print($"{gameObject.name} - enemyLayerMask: " + opponentLayerMask.value);
     }
 
-    protected override void Update()
+    protected override void OnEnable()
     {
-        base.Update();
-
-        // enemyColider2D = Physics2D.OverlapCircle(transform.position, attackRange , opponentLayerMask);
-        // if (enemyColider2D != null)
-        // {
-        //     OnAttack(enemyColider2D);
-        // }
+        base.OnEnable();
     }
+
+    // protected override void Update()
+    // {
+    //     base.Update();
+    // }
 
     
-    protected override void OnAttack(Collider2D enemy)
-    {
-        enemy.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
-    }
+    // protected override void Attack(Collider2D enemy)
+    // {
+    //     enemy.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
+    // }
 
-    [PunRPC]
-    public override void OnDamaged(float _damaged)
-    {
-        base.OnDamaged(_damaged);
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-        Gizmos.DrawWireSphere(transform.position, detectRange);
-    }
+    // [PunRPC]
+    // public override void OnDamaged(float _damaged)
+    // {
+    //     base.OnDamaged(_damaged);
+    // }
 }

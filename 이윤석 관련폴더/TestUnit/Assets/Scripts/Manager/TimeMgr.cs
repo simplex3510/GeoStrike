@@ -11,14 +11,13 @@ public class TimeMgr : MonoBehaviour, IPunObservable
     public Text timerText;
 
     double sendtime;
-    float sec = 55f;
+    float sec;
     int min;
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (PhotonNetwork.IsMasterClient && stream.IsWriting)
         {
-            print("this");
             sendtime = (float)PhotonNetwork.Time;
             stream.SendNext(sendtime);
             stream.SendNext(sec);
@@ -26,7 +25,6 @@ public class TimeMgr : MonoBehaviour, IPunObservable
         }
         else
         {
-            print("this");
             sendtime = (double)stream.ReceiveNext();
             float lag = Mathf.Abs((float)(PhotonNetwork.Time - sendtime));
 
