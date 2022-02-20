@@ -1,25 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
 [DefaultExecutionOrder(201)]
-public class TranslocateField : MonoBehaviour
+public class TranslocateField : MonoBehaviourPun
 {
     // Unit state
-    public List<Unit> unitListP1 = new List<Unit>();
-    public List<Unit> unitListP2 = new List<Unit>();
+    public List<Unit> unitList = new List<Unit>();
 
     // Waiting unit translocate
-    [SerializeField] private GameObject moveToBattleField;
+    [SerializeField] private Transform moveToBattleFieldP1;
+    [SerializeField] private Transform moveToBattleFieldP2;
 
     // Waiting unit parent
-    public GameObject spawnPosP1;
-    public GameObject spawnPosP2;
-    public Vector3 originPosP1;
-    public Vector3 originPosP2;
+    public Transform spawnPosP1;
+    public Transform spawnPosP2;
+    private Vector3 originPosP1;
+    private Vector3 originPosP2;
 
     private void Awake()
-    {
+    {   
         if (GameMgr.isMaster)
         {
             originPosP1 = spawnPosP1.transform.position;
@@ -34,11 +36,11 @@ public class TranslocateField : MonoBehaviour
     {
         if (GameMgr.isMaster)
         {
-            spawnPosP1.transform.position = moveToBattleField.transform.position;
+            spawnPosP1.position = moveToBattleFieldP1.position;
         }
         else
         {
-            spawnPosP2.transform.position = moveToBattleField.transform.position;
+            spawnPosP2.position = moveToBattleFieldP2.position;
         }
         
         ClearList();
@@ -46,22 +48,21 @@ public class TranslocateField : MonoBehaviour
 
     private void ClearList()
     {
+        if (photonView.IsMine)
+        {
+            for (int idx = 0; idx < unitList.Count; idx++)
+            {
+                unitList[idx].transform.parent = null;
+            }
+            unitList.Clear();
+        }
+        
         if (GameMgr.isMaster)
         {
-            for (int idx = 0; idx < unitListP1.Count; idx++)
-            {
-                unitListP1[idx].transform.parent = null;
-            }
-            unitListP1.Clear();
             spawnPosP1.transform.position = originPosP1;
         }
         else
         {
-            for (int idx = 0; idx < unitListP2.Count; idx++)
-            {
-                unitListP2[idx].transform.parent = null;
-            }
-            unitListP2.Clear();
             spawnPosP2.transform.position = originPosP2;
         }
     }

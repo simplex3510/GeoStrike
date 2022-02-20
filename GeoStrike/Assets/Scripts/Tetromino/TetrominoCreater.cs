@@ -125,7 +125,7 @@ public class TetrominoCreater : MonoBehaviourPun
             {
                 // °è»ê½Ä
                 // (a + bi)(c + di) = (ac - bd) + (ad + bc)i
-                // (0 + 1i)(cos90 + iSin90) = (0 + -1) + (0 + 0)i = (-1, 0)
+                // a = 0, b = 1, radian = 90 ->(0 + 1i)(cos90 + iSin90) = (0 - 1) + (0 + 0)i = (-1, 0)
 
                 a = _tetrominoCoord[idx].x;
                 b = _tetrominoCoord[idx].y;

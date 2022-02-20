@@ -7,30 +7,22 @@ using Photon.Realtime;
 public class ObjectPool : MonoBehaviourPun
 {
     public static ObjectPool instance;
-    public readonly int MINE = 0;
-    public readonly int YOURS = 1;
-    public readonly int UNIY_KIND = 6;
-
-    public AllyAndEnemy[] allyAndEnemyArr = new AllyAndEnemy[2];
 
     public int unitCount;
+
+    public Pool[] poolArr = new Pool[6];
 
     private void Awake()
     {
         instance = this;
 
-        allyAndEnemyArr = GetComponentsInChildren<AllyAndEnemy>();
+        poolArr = GetComponentsInChildren<Pool>();
 
         if (photonView.IsMine)
         {
-            for (int idx = 0; idx < UNIY_KIND; idx++) 
+            for (int idx = 0; idx < poolArr.Length; idx++) 
             {
-                allyAndEnemyArr[MINE].poolArr[idx].InitObjectPool(unitCount);
-            }
-
-            for (int idx = 0; idx < UNIY_KIND; idx++)
-            {
-                allyAndEnemyArr[YOURS].poolArr[idx].InitObjectPool(unitCount);
+                poolArr[idx].InitObjectPool(unitCount);
             }
         }
     }
