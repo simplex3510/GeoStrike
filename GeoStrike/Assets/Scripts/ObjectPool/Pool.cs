@@ -22,10 +22,7 @@ public class Pool : MonoBehaviour
     // Pool에 NewObject 생성
     private Unit CreateNewObject()
     {
-        Unit obj = PhotonNetwork.Instantiate(unit.name, transform.position, Quaternion.identity).GetComponent<Unit>();
-        obj.transform.SetParent(transform);
-        obj.gameObject.SetActive(false);
-        return obj;
+        return PhotonNetwork.Instantiate(unit.name, transform.position, Quaternion.identity).GetComponent<Unit>();
     }
 
     // Pool에서 유닛 가져오기
@@ -34,6 +31,7 @@ public class Pool : MonoBehaviour
         // Pool에 Object가 있을 경우
         if (poolingObjectQueue.Count > 0)
         {
+            Debug.Log("get Object");
             Unit obj = poolingObjectQueue.Dequeue();
             obj.transform.SetParent(null);
             obj.gameObject.SetActive(true);
@@ -42,6 +40,7 @@ public class Pool : MonoBehaviour
         // Pool에 Object가 부족 할 경우
         else
         {
+            Debug.Log("creat object");
             Unit newObj = CreateNewObject();
             newObj.transform.SetParent(null);
             newObj.gameObject.SetActive(true);
@@ -56,4 +55,5 @@ public class Pool : MonoBehaviour
         _obj.transform.SetParent(transform);
         poolingObjectQueue.Enqueue(_obj);
     }
+
 }
