@@ -14,7 +14,8 @@ enum EUnitState
 {
     Move,
     Approach,
-    Attack
+    Attack,
+    Die
 }
 
 public abstract class Unit : MonoBehaviourPun, IDamageable
@@ -59,19 +60,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
         StartCoroutine(FSM());
     }
 
-    // protected virtual void Update()
-    // {
-    //     enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
-    //     if(enemyCollider2D != null)
-    //     {
-    //         if(lastAttackTime + attackSpeed <= PhotonNetwork.Time)
-    //         {
-    //             lastAttackTime = (float)PhotonNetwork.Time;
-    //             Attack();
-    //         }
-    //     }
-    // }
-
     protected virtual IEnumerator FSM()
     {
         while (true)
@@ -86,6 +74,9 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
                     break;
                 case EUnitState.Attack:
                     Attack();
+                    break;
+                case EUnitState.Die:
+                    Die();
                     break;
             }
             yield return null;
@@ -139,6 +130,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
 
     }
 
+    protected virtual void Die()
+    {
+        StartCoroutine(DieAnimation());
+    }
+
     [PunRPC]
     public virtual void OnDamaged(float _damage)
     {
@@ -146,14 +142,27 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
 
         if (currentHealth <= 0 && isDead == false)
         {
-            Die();
+            unitState = EUnitState.Die;
         }
     }
 
-    public virtual void Die()
+    IEnumerator DieAnimation()
     {
         isDead = true;
-        // ���İ� ���̰� �ݶ��̴� ���ְ�
+        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+
+        var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        var color = spriteRenderer.color;
+        while (0 <= color.a)
+        {
+            color.a -= 1f * Time.deltaTime;
+            spriteRenderer.color = color;
+
+            yield return null;
+        }
+
+        gameObject.SetActive(false);
+        spriteRenderer.color = Color.white;
     }
 
     private void OnDrawGizmos()
