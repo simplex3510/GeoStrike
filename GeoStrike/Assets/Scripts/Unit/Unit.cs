@@ -11,27 +11,24 @@ public class Unit : MonoBehaviourPun
 
     public UnitMovement unitMovement;
 
-    public Transform allyAndEnemyParent;
-    public Transform poolParent;
 
-    private void Start()
+    private void Awake()
     {
         if (photonView.IsMine)
         {
-            allyAndEnemyParent = ObjectPool.instance.allyAndEnemyArr[AllyAndEnemy.ALLY].transform; //GameObject.Find("Pool_Unit" + gameObject.name[0]).transform;
-
-            transform.SetParent(allyAndEnemyParent);
-            gameObject.SetActive(false);
+            for (int idx = 0; idx < 6; idx++)
+            {
+                if (unitIdx - 1 == idx)
+                {
+                    this.transform.SetParent(ObjectPool.instance.poolArr[idx].transform);
+                    break;
+                }
+            }
         }
         else
         {
-            allyAndEnemyParent = GameObject.Find("Pool_Unit" + gameObject.name[0]).transform;
-
-            transform.SetParent(allyAndEnemyParent);
-            gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
         }
-
-        
     }
 
 }
