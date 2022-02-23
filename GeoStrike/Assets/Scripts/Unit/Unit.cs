@@ -14,20 +14,32 @@ public class Unit : MonoBehaviourPun
 
     private void Awake()
     {
+        this.gameObject.SetActive(false);
+
         if (photonView.IsMine)
         {
-            for (int idx = 0; idx < 6; idx++)
-            {
-                if (unitIdx - 1 == idx)
-                {
-                    this.transform.SetParent(ObjectPool.instance.poolArr[idx].transform);
-                    break;
-                }
-            }
+            this.transform.SetParent(GameObject.Find("Pool_Unit" + this.gameObject.name[0]).transform);
+
+            //for (int idx = 0; idx < 6; idx++)
+            //{
+            //    if (unitIdx - 1 == idx)
+            //    {
+            //        this.transform.SetParent(ObjectPoolMgr.instance.playerPoolArr[PlayerPool.P1].poolArr[idx].transform);
+            //        break;
+            //    }
+            //}
         }
         else
         {
-            this.gameObject.SetActive(false);
+            this.transform.SetParent(GameObject.Find("Pool_Unit" + this.gameObject.name[0]).transform);
+            //for (int idx = 0; idx < 6; idx++)
+            //{
+            //    if (unitIdx - 1 == idx)
+            //    {
+            //        this.transform.SetParent(ObjectPoolMgr.instance.playerPoolArr[PlayerPool.P2].poolArr[idx].transform);
+            //        break;
+            //    }
+            //}
         }
     }
 
