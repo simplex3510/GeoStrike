@@ -36,7 +36,7 @@ public class Warrior : Unit
     //     base.Update();
     // }
 
-    
+
     // protected override void Attack(Collider2D enemy)
     // {
     //     enemy.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
@@ -47,4 +47,10 @@ public class Warrior : Unit
     // {
     //     base.OnDamaged(_damaged);
     // }
+
+    [PunRPC]
+    public override void TestRPC()
+    {
+        base.TestRPC();
+    }
 }

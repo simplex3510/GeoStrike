@@ -12,6 +12,7 @@ enum EPlayer
 
 enum EUnitState
 {
+    Idle,
     Move,
     Approach,
     Attack,
@@ -56,30 +57,27 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
     {
         isDead = false;
         currentHealth = startHealth;
-        unitState = EUnitState.Move;
-        StartCoroutine(FSM());
+        unitState = EUnitState.Idle;
     }
 
-    protected virtual IEnumerator FSM()
+    protected virtual void Update()
     {
-        while (true)
+        switch (unitState)
         {
-            switch (unitState)
-            {
-                case EUnitState.Move:
-                    Move();
-                    break;
-                case EUnitState.Approach:
-                    Approach();
-                    break;
-                case EUnitState.Attack:
-                    Attack();
-                    break;
-                case EUnitState.Die:
-                    Die();
-                    break;
-            }
-            yield return null;
+            case EUnitState.Idle:
+                break;
+            case EUnitState.Move:
+                Move();
+                break;
+            case EUnitState.Approach:
+                Approach();
+                break;
+            case EUnitState.Attack:
+                Attack();
+                break;
+            case EUnitState.Die:
+                Die();
+                break;
         }
     }
 
@@ -105,12 +103,15 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
     void Approach() // 적에게 접근
     {
         enemyCollider2D = Physics2D.OverlapCircle(transform.position, detectRange, opponentLayerMask);
-        transform.position = Vector3.MoveTowards(transform.position, enemyCollider2D.transform.position, moveSpeed * Time.deltaTime);
-
-        if (enemyCollider2D != null && (transform.position - enemyCollider2D.transform.position).magnitude <= attackRange)
+        if (enemyCollider2D != null)
         {
-            unitState = EUnitState.Attack;
-            return;
+            transform.position += (enemyCollider2D.transform.position - transform.position).normalized * moveSpeed * Time.deltaTime;
+
+            if ((enemyCollider2D.transform.position - transform.position).magnitude <= attackRange)
+            {
+                unitState = EUnitState.Attack;
+                return;
+            }
         }
     }
 
@@ -130,8 +131,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
 
     }
 
-    protected virtual void Die()
+    protected virtual void Die()    // 유닛 사망
     {
+        isDead = true;
+        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+
         StartCoroutine(DieAnimation());
     }
 
@@ -148,8 +152,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
 
     IEnumerator DieAnimation()
     {
-        isDead = true;
-        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        unitState = EUnitState.Idle;
 
         var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         var color = spriteRenderer.color;
@@ -164,10 +167,32 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
         gameObject.SetActive(false);
         spriteRenderer.color = Color.white;
     }
+    
+    IEnumerator RotateAnimation(Collider2D enemy)
+    {
+        while(true)
+        {
+            transform.rotation = Quaternion.Euler(enemy.transform.position);
+
+            if(true)
+            {
+
+            }
+
+            yield return null;
+        }
+    }
+
+
+    [PunRPC]
+    public virtual void TestRPC()
+    {
+        gameObject.SetActive(true);
+    }
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.red;      
         Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.DrawWireSphere(transform.position, detectRange);
     }
