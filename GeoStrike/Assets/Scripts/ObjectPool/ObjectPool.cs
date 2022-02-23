@@ -10,13 +10,20 @@ public class ObjectPool : MonoBehaviourPun
 
     public int unitCount;
 
-    public AllyAndEnemy[] allyAndEnemyArr = new AllyAndEnemy[2];
+    public Pool[] poolArr = new Pool[6];
+    
+    //public AllyAndEnemy[] allyAndEnemyArr = new AllyAndEnemy[2];
    
 
     private void Awake()
     {
         instance = this;
 
-        allyAndEnemyArr = GetComponentsInChildren<AllyAndEnemy>();
+        poolArr = GetComponentsInChildren<Pool>();
+
+        for (int idx = 0; idx < 6; idx++)
+        {
+            poolArr[idx].InitObjectPool(ObjectPool.instance.unitCount);
+        }
     }
 }

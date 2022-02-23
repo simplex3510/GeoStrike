@@ -16,17 +16,8 @@ public class TetrominoState : MonoBehaviour
 
     [SerializeField] private float buildTime;
     [SerializeField] private float currentTime = 0f;
-    
-    [SerializeField] private SpriteRenderer spriteRenderer;
-    [SerializeField] private Color color;
 
     [HideInInspector] private UnitCreator unitCreation;
-
-    private void Awake()
-    {
-        if (spriteRenderer == null) { spriteRenderer = GetComponent<SpriteRenderer>(); }
-        if (unitCreation == null) { unitCreation = GetComponent<UnitCreator>(); }
-    }
 
     private void Start()
     {
@@ -41,6 +32,8 @@ public class TetrominoState : MonoBehaviour
     // 건물 생성 FadeIn 효과
     IEnumerator CInCompleteColor()
     {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        Color color;
         while (eTetrominoState == ETetrominoState.FSM_InComplete)
         {
             currentTime += Time.deltaTime;
