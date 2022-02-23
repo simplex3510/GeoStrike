@@ -103,7 +103,7 @@ public class TetrominoCreater : MonoBehaviourPun
         return resultTileCoord;
     }
 
-    // 테트로미노 4칸의 좌표 복소수 회전 연산
+    // 테트로미노 4칸의 좌표와 복소수 회전 연산
     private Vector2[] ArrMultipleOperator(Vector2[] _tetrominoCoord, Vector3 _angle)
     {
         Vector2[] multipleTileCoord = new Vector2[4];
@@ -119,6 +119,8 @@ public class TetrominoCreater : MonoBehaviourPun
 
         // 회전각이 0이면 덧셈 연산된 좌표를 전달
         if (_angle == Vector3.zero) { return _tetrominoCoord; }
+
+        // 회전각이 0이 아닐경우 복소수 곱연산 적용
         else
         {
             for (int idx = 0; idx < _tetrominoCoord.Length; idx++)

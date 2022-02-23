@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 175aa28c844661541915042167729065, type: 3}
   m_Name: UnitB
   m_EditorClassIdentifier: 
-  unitName: Shielder
+  unitName: B
   hp: 1
   damage: 1
   defense: 1

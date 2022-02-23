@@ -8,22 +8,19 @@ public class ObjectPoolMgr : MonoBehaviourPun
 {
     public static ObjectPoolMgr instance;
 
-    public int unitCountx2;
+    public int unitCount;
 
-    public PlayerPool[] playerPoolArr = new PlayerPool[2];
-
+    public Pool[] poolArr = new Pool[6];
 
     private void Awake()
     {
         instance = this;
 
-        if (photonView.IsMine)
+        poolArr = GetComponentsInChildren<Pool>();
+
+        foreach (Pool pool in poolArr)
         {
-            PhotonNetwork.Instantiate("P1Pool", transform.position, Quaternion.identity);
-        }
-        else
-        {
-            PhotonNetwork.Instantiate("P2Pool", transform.position, Quaternion.identity);
+            pool.InitObjectPool(unitCount);
         }
     }
 }

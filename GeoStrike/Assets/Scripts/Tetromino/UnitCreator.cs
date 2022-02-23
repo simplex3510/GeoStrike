@@ -22,66 +22,42 @@ public class UnitCreator : MonoBehaviourPun
 
     public void UnitSpawn()
     {
-        if (photonView.IsMine && GameMgr.isMaster)
-        {    
-            // ÀÚ¿ø È¹µæ
-            if (unit.unitIdx == 0)
-            {
-                Debug.Log("Get GEO : " + Geo.GEO_SQUARE);
-                geo.DeltaGeo(Geo.GEO_SQUARE);
-                return;
-            }
+        // ÀÚ¿ø È¹µæ
+        if (unit.unitIdx == 0)
+        {
+            Debug.Log("Get GEO : " + Geo.GEO_SQUARE);
+            geo.DeltaGeo(Geo.GEO_SQUARE);
+            return;
+        }
 
-            for (int row = 0; row < ArrayNumber.UNIT_TILE_ROW; row++)
+        for (int row = 0; row < ArrayNumber.UNIT_TILE_ROW; row++)
+        {
+            for(int column = 0; column < ArrayNumber.UNIT_TILE_COLUMN; column++)
             {
-                for(int column = 0; column < ArrayNumber.UNIT_TILE_COLUMN; column++)
+                if (unitTileContainer.unitTileArr[0, row, column].isEmty)
                 {
-                    if (unitTileContainer.unitTileArr[0, row, column].isEmty)
+                    // Unit »ý¼º
+                    if (unit.unitIdx != 0)
                     {
-                        // Unit »ý¼º
-                        //if (unit.unitIdx != 0)
-                        //{
-                        //    Debug.Log("master spawn");
-                        //    Unit obj = ObjectPool.instance.poolArr[unit.unitIdx - 1].GetObject();
-                        //    obj.transform.position = unitTileContainer.unitTileArr[0, row, column].transform.position + Vector3.back;
-                        //    unitTileContainer.unitTileArr[0, row, column].isEmty = false;
+                        Debug.Log("Unit Spawn");
+                        Unit obj = ObjectPoolMgr.instance.poolArr[unit.unitIdx - 1].GetObject();
+                        
+                        if (photonView.IsMine && GameMgr.isMaster || !photonView.IsMine && !GameMgr.isMaster)
+                        {
+                            obj.transform.position = unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].transform.position + Vector3.back;
+                            unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].isEmty = false;
+                            return;
+                        }
+                        else
+                        {
+                            obj.transform.position = unitTileContainer.unitTileArr[ConnectMgr.GUEST_PLAYER, row, column].transform.position + Vector3.back;
+                            unitTileContainer.unitTileArr[ConnectMgr.GUEST_PLAYER, row, column].isEmty = false;
+                            return;
+                        }
 
                         //    translocateField.unitList.Add(obj);
                         //    obj.transform.SetParent(translocateField.spawnPosP1.transform);
                         //    return;
-                        //}
-                    }
-                }
-            }
-        }
-        else if (photonView.IsMine && !GameMgr.isMaster)
-        {
-            // ÀÚ¿ø È¹µæ
-            if (unit.unitIdx == 0)
-            {
-                Debug.Log("Get GEO : " + Geo.GEO_SQUARE);
-                geo.DeltaGeo(Geo.GEO_SQUARE);
-                return;
-            }
-            for (int row = 0; row < ArrayNumber.UNIT_TILE_ROW; row++)
-            {
-                for (int column = 0; column < ArrayNumber.UNIT_TILE_COLUMN; column++)
-                {
-                    if (unitTileContainer.unitTileArr[1, row, column].isEmty)
-                    {
-                        // Unit »ý¼º
-                        //if (unit.unitIdx != 0)
-                        //{
-
-                        //    Debug.Log("guest spawn");
-                        //    Unit obj = ObjectPool.instance.poolArr[unit.unitIdx - 1].GetObject();
-                        //    obj.transform.position = unitTileContainer.unitTileArr[1, row, column].transform.position + Vector3.back;
-                        //    unitTileContainer.unitTileArr[1, row, column].isEmty = false;
-
-                        //    translocateField.unitList.Add(obj);
-                        //    obj.transform.SetParent(translocateField.spawnPosP2.transform);
-                        //    return;
-                        //}
                     }
                 }
             }

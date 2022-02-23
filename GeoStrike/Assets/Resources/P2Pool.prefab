@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1314798723407743036}
   - component: {fileID: 1314798723407743038}
   m_Layer: 0
-  m_Name: Pool_UnitE
+  m_Name: P2Pool_UnitE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 1314798723495141338}
   - component: {fileID: 1314798723495141337}
   m_Layer: 0
-  m_Name: Pool_UnitB
+  m_Name: P2Pool_UnitB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 1314798724890902344}
   - component: {fileID: 1314798724890902345}
   m_Layer: 0
-  m_Name: Pool_UnitA
+  m_Name: P2Pool_UnitA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 1314798725119520415}
   - component: {fileID: 1314798725119520401}
   m_Layer: 0
-  m_Name: Pool_UnitD
+  m_Name: P2Pool_UnitD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 1314798725288429176}
   - component: {fileID: 1314798725288429178}
   m_Layer: 0
-  m_Name: Pool_UnitF
+  m_Name: P2Pool_UnitF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 1314798725306549492}
   - component: {fileID: 1314798725306549494}
   m_Layer: 0
-  m_Name: Pool_UnitC
+  m_Name: P2Pool_UnitC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -21,6 +21,7 @@ public class TetrominoState : MonoBehaviour
 
     private void Start()
     {
+        if (unitCreation == null) { unitCreation = GetComponent<UnitCreator>(); }
         StartCoroutine(FSM());
     }
 
