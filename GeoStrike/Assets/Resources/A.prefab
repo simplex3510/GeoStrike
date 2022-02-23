@@ -104,6 +104,7 @@ MonoBehaviour:
   unitInfo: {fileID: 11400000, guid: 78157ab401c8b544e8da9143393ee00b, type: 2}
   unitIdx: 1
   unitMovement: {fileID: -6878827119006717112}
+  partentPool: {fileID: 0}
 --- !u!70 &168720660598073712
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

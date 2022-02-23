@@ -22,9 +22,7 @@ public class Pool : MonoBehaviour
     // Pool에 NewObject 생성
     private Unit CreateNewObject()
     {
-        Unit _unit = PhotonNetwork.Instantiate(unit.name, transform.position, Quaternion.identity).GetComponent<Unit>();
-        _unit.gameObject.SetActive(false);
-        return _unit;
+        return PhotonNetwork.Instantiate(unit.name, transform.position, Quaternion.identity).GetComponent<Unit>();
     }
 
     // Pool에서 유닛 가져오기
