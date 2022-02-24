@@ -14,7 +14,7 @@ public class Pool : MonoBehaviourPun
     // 초기 Object 생성
     public void InitObjectPool(int _num)
     {
-        if (photonView.IsMine)
+        if (photonView.IsMine && GameMgr.isMaster || !photonView.IsMine && !GameMgr.isMaster)
         {
             for (int idx = 0; idx < _num; idx++)
             {

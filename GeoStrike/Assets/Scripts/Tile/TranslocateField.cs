@@ -8,7 +8,8 @@ using Photon.Realtime;
 public class TranslocateField : MonoBehaviourPun
 {
     // Unit state
-    public List<Unit> unitList = new List<Unit>();
+    public List<Unit> p1UnitList = new List<Unit>();
+    public List<Unit> p2UnitList = new List<Unit>();
 
     // Waiting unit translocate
     [SerializeField] private Transform moveToBattleFieldP1;
@@ -21,49 +22,38 @@ public class TranslocateField : MonoBehaviourPun
     private Vector3 originPosP2;
 
     private void Awake()
-    {   
-        if (GameMgr.isMaster)
-        {
-            originPosP1 = spawnPosP1.transform.position;
-        }
-        else
-        {
-            originPosP2 = spawnPosP2.transform.position;
-        }
+    {
+        InitPos();
+    }
+
+    private void InitPos()
+    {
+        originPosP1 = spawnPosP1.transform.position;
+        originPosP2 = spawnPosP2.transform.position;
     }
 
     public void TranslocateUnits() 
     {
-        if (GameMgr.isMaster)
-        {
-            spawnPosP1.position = moveToBattleFieldP1.position;
-        }
-        else
-        {
-            spawnPosP2.position = moveToBattleFieldP2.position;
-        }
-        
+        spawnPosP1.position = moveToBattleFieldP1.position;
+        spawnPosP2.position = moveToBattleFieldP2.position;
+
         ClearList();
     }
 
     private void ClearList()
     {
-        if (photonView.IsMine)
+        for (int idx = 0; idx < p1UnitList.Count; idx++)
         {
-            for (int idx = 0; idx < unitList.Count; idx++)
-            {
-                unitList[idx].transform.parent = null;
-            }
-            unitList.Clear();
+            p1UnitList[idx].transform.parent = null;
         }
-        
-        if (GameMgr.isMaster)
+        p1UnitList.Clear();
+        spawnPosP1.transform.position = originPosP1;
+
+        for (int idx = 0; idx < p2UnitList.Count; idx++)
         {
-            spawnPosP1.transform.position = originPosP1;
+            p2UnitList[idx].transform.parent = null;
         }
-        else
-        {
-            spawnPosP2.transform.position = originPosP2;
-        }
+        p2UnitList.Clear();
+        spawnPosP2.transform.position = originPosP2;
     }
 }

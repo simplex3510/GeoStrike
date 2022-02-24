@@ -58,7 +58,6 @@ public class UnitTileContainer : MonoBehaviour
             for (int idx = 0; idx < boxCollArr.Length; idx++)
             {
                 boxCollArr[idx].enabled = false;
-                tileArr[idx].enabled = false;
             }
         }
         else
@@ -68,33 +67,19 @@ public class UnitTileContainer : MonoBehaviour
             for (int idx = 0; idx < boxCollArr.Length; idx++)
             {
                 boxCollArr[idx].enabled = false;
-                tileArr[idx].enabled = false;
             }
         }
     }
 
     public void TileAllClear()
     {
-        if (GameMgr.isMaster)
+        for (int row = 0; row < ArrayNumber.UNIT_TILE_ROW; row++)
         {
-            for (int row = 0; row < ArrayNumber.UNIT_TILE_ROW; row++)
+            for (int column = 0; column < ArrayNumber.UNIT_TILE_COLUMN; column++)
             {
-                for (int column = 0; column < ArrayNumber.UNIT_TILE_COLUMN; column++)
-                {
-                    unitTileArr[0, row, column].isEmty = true;
-                }
+                unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].isEmty = true;
+                unitTileArr[ConnectMgr.GUEST_PLAYER, row, column].isEmty = true;
             }
         }
-        else
-        {
-            for (int row = 0; row < ArrayNumber.UNIT_TILE_ROW; row++)
-            {
-                for (int column = 0; column < ArrayNumber.UNIT_TILE_COLUMN; column++)
-                {
-                    unitTileArr[1, row, column].isEmty = true;
-                }
-            }
-        }
-        
     }
 }

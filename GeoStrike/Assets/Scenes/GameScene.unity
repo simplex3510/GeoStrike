@@ -46083,7 +46083,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5291842687253051131}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5291842687124646603
 GameObject:
@@ -46201,7 +46201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b7032439a6d7de4aab3ecdcb915505a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitList: []
+  p1UnitList: []
+  p2UnitList: []
   moveToBattleFieldP1: {fileID: 5291842687124646602}
   moveToBattleFieldP2: {fileID: 6666118778956196123}
   spawnPosP1: {fileID: 5291842685617996460}
@@ -46221,8 +46222,8 @@ Transform:
   - {fileID: 728843061}
   - {fileID: 5291842685617996460}
   - {fileID: 6666118778930918998}
-  - {fileID: 6666118778956196123}
   - {fileID: 5291842687124646602}
+  - {fileID: 6666118778956196123}
   m_Father: {fileID: 998792458}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47052,7 +47053,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5291842687253051131}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6718272966543609844
 GameObject:

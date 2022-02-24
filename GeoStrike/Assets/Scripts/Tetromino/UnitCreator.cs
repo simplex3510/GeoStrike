@@ -29,38 +29,57 @@ public class UnitCreator : MonoBehaviourPun
             geo.DeltaGeo(Geo.GEO_SQUARE);
             return;
         }
-
-        for (int row = 0; row < ArrayNumber.UNIT_TILE_ROW; row++)
+        
+        if (photonView.IsMine && GameMgr.isMaster || !photonView.IsMine && !GameMgr.isMaster)
         {
-            for(int column = 0; column < ArrayNumber.UNIT_TILE_COLUMN; column++)
+            for (int row = 0; row < ArrayNumber.UNIT_TILE_ROW; row++)
             {
-                if (unitTileContainer.unitTileArr[0, row, column].isEmty)
+                for (int column = 0; column < ArrayNumber.UNIT_TILE_COLUMN; column++)
                 {
-                    // Unit 持失
-                    if (unit.unitIdx != 0)
+                    if (unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].isEmty)
                     {
-                        Debug.Log("Unit Spawn");
-                        Unit obj = ObjectPoolMgr.instance.poolArr[unit.unitIdx - 1].GetObject();
-                        
-                        if (photonView.IsMine && GameMgr.isMaster || !photonView.IsMine && !GameMgr.isMaster)
+                        // Unit 持失
+                        if (unit.unitIdx != 0)
                         {
+                            Unit obj = ObjectPoolMgr.instance.poolArr[unit.unitIdx - 1].GetObject();
+
+
                             obj.transform.position = unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].transform.position + Vector3.back;
                             unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].isEmty = false;
-                            return;
-                        }
-                        else
-                        {
-                            obj.transform.position = unitTileContainer.unitTileArr[ConnectMgr.GUEST_PLAYER, row, column].transform.position + Vector3.back;
-                            unitTileContainer.unitTileArr[ConnectMgr.GUEST_PLAYER, row, column].isEmty = false;
-                            return;
-                        }
 
-                        //    translocateField.unitList.Add(obj);
-                        //    obj.transform.SetParent(translocateField.spawnPosP1.transform);
-                        //    return;
+                            translocateField.p1UnitList.Add(obj);
+                            obj.transform.SetParent(translocateField.spawnPosP1.transform);
+                            return;
+                        }
                     }
                 }
             }
         }
+        else
+        {
+            for (int row = 0; row < ArrayNumber.UNIT_TILE_ROW; row++)
+            {
+                for (int column = 0; column < ArrayNumber.UNIT_TILE_COLUMN; column++)
+                {
+                    if (unitTileContainer.unitTileArr[ConnectMgr.GUEST_PLAYER, row, column].isEmty)
+                    {
+                        // Unit 持失
+                        if (unit.unitIdx != 0)
+                        {
+                            Unit obj = ObjectPoolMgr.instance.poolArr[unit.unitIdx - 1].GetObject();
+
+                            obj.transform.position = unitTileContainer.unitTileArr[ConnectMgr.GUEST_PLAYER, row, column].transform.position + Vector3.back;
+                            unitTileContainer.unitTileArr[ConnectMgr.GUEST_PLAYER, row, column].isEmty = false;
+
+                            translocateField.p2UnitList.Add(obj);
+                            obj.transform.SetParent(translocateField.spawnPosP2.transform);
+                            return;
+                            
+                        }
+                    }
+                }
+            }
+        }
+        
     }
 }
