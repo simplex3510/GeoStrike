@@ -1,0 +1,660 @@
+fileFormatVersion: 2
+guid: 93de3ac7415b82a459bdfe1e4e986159
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -907750174775087428
+    second: Unit_BuleTeam_DeBuffer_Animation_0
+  - first:
+      213: -1263451861325249472
+    second: Unit_BuleTeam_DeBuffer_Animation_1
+  - first:
+      213: 5627112113894238361
+    second: Unit_BuleTeam_DeBuffer_Animation_2
+  - first:
+      213: -9116440643282039485
+    second: Unit_BuleTeam_DeBuffer_Animation_3
+  - first:
+      213: 5344502597791490103
+    second: Unit_BuleTeam_DeBuffer_Animation_4
+  - first:
+      213: -2348993556187669033
+    second: Unit_BuleTeam_DeBuffer_Animation_5
+  - first:
+      213: 1382132842647359274
+    second: Unit_BuleTeam_DeBuffer_Animation_6
+  - first:
+      213: 6776265415921420373
+    second: Unit_BuleTeam_DeBuffer_Animation_7
+  - first:
+      213: -7821018460817680601
+    second: Unit_BuleTeam_DeBuffer_Animation_8
+  - first:
+      213: 4827550562532042979
+    second: Unit_BuleTeam_DeBuffer_Animation_9
+  - first:
+      213: 987953475455402012
+    second: Unit_BuleTeam_DeBuffer_Animation_10
+  - first:
+      213: -1371837567098250335
+    second: Unit_BuleTeam_DeBuffer_Animation_11
+  - first:
+      213: 7442576436594139477
+    second: Unit_BuleTeam_DeBuffer_Animation_12
+  - first:
+      213: -3240332995750235500
+    second: Unit_BuleTeam_DeBuffer_Animation_13
+  - first:
+      213: -24102985530098830
+    second: Unit_BuleTeam_DeBuffer_Animation_14
+  - first:
+      213: -4458733228300446165
+    second: Unit_BuleTeam_DeBuffer_Animation_15
+  - first:
+      213: 6295003745693158107
+    second: Unit_BuleTeam_DeBuffer_Animation_16
+  - first:
+      213: -1529799803547937293
+    second: Unit_BuleTeam_DeBuffer_Animation_17
+  - first:
+      213: -6198696904394886637
+    second: Unit_BuleTeam_DeBuffer_Animation_18
+  - first:
+      213: 5970229640265762303
+    second: Unit_BuleTeam_DeBuffer_Animation_19
+  - first:
+      213: -1666503353276662763
+    second: Unit_BuleTeam_DeBuffer_Animation_20
+  - first:
+      213: -8682975193282325049
+    second: Unit_BuleTeam_DeBuffer_Animation_21
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbe6bb786060763f0800000000000000
+      internalID: -907750174775087428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_1
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04407e6e931577ee0800000000000000
+      internalID: -1263451861325249472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_2
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 998a6f367a4871e40800000000000000
+      internalID: 5627112113894238361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_3
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34d8d313985eb7180800000000000000
+      internalID: -9116440643282039485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_4
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 730a38adbcc7b2a40800000000000000
+      internalID: 5344502597791490103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dd90cf5ec2b66fd0800000000000000
+      internalID: -2348993556187669033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_6
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2f856e5f725e2310800000000000000
+      internalID: 1382132842647359274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_7
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 558c2cb5e712a0e50800000000000000
+      internalID: 6776265415921420373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_8
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 727903db529267390800000000000000
+      internalID: -7821018460817680601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_9
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e8a5feb8a7eef240800000000000000
+      internalID: 4827550562532042979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_10
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c10c127937ae5bd00800000000000000
+      internalID: 987953475455402012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_11
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ab9293400146fce0800000000000000
+      internalID: -1371837567098250335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_12
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 551e2ec26d7594760800000000000000
+      internalID: 7442576436594139477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_13
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4927452fe460803d0800000000000000
+      internalID: -3240332995750235500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_14
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27bb37d567e5aaff0800000000000000
+      internalID: -24102985530098830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_15
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b26dbe290c56f12c0800000000000000
+      internalID: -4458733228300446165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_16
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bda4bc9ed885c5750800000000000000
+      internalID: 6295003745693158107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_17
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f510141f2f05cae0800000000000000
+      internalID: -1529799803547937293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_18
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 312ba3fe10ec9f9a0800000000000000
+      internalID: -6198696904394886637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_19
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff58c87e9348ad250800000000000000
+      internalID: 5970229640265762303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_20
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51c72fa97046fd8e0800000000000000
+      internalID: -1666503353276662763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_DeBuffer_Animation_21
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c5d0eae010ef7780800000000000000
+      internalID: -8682975193282325049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
