@@ -57,7 +57,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
     {
         isDead = false;
         currentHealth = startHealth;
-        unitState = EUnitState.Idle;
+        unitState = EUnitState.Move;
     }
 
     protected virtual void Update()
@@ -106,6 +106,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
         if (enemyCollider2D != null)
         {
             transform.position += (enemyCollider2D.transform.position - transform.position).normalized * moveSpeed * Time.deltaTime;
+            StartCoroutine(RotateAnimation(enemyCollider2D));
 
             if ((enemyCollider2D.transform.position - transform.position).magnitude <= attackRange)
             {
@@ -167,21 +168,43 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
         gameObject.SetActive(false);
         spriteRenderer.color = Color.white;
     }
-    
-    IEnumerator RotateAnimation(Collider2D enemy)
+
+    IEnumerator RotateAnimation()
     {
-        while(true)
+        while (true)
         {
-            transform.rotation = Quaternion.Euler(enemy.transform.position);
-
-            if(true)
-            {
-
-            }
 
             yield return null;
         }
     }
+
+    IEnumerator RotateAnimation(Collider2D enemy)
+    {
+        /* float t = 0f;
+        float rotSpeed = 0.5f;
+
+        Vector3 startRot = transform.eulerAngles;
+
+
+        while (true)
+        {
+            t += Time.deltaTime *rotSpeed;
+            transform.eulerAngles = Vector3.Lerp(startRot, enemy.transform.eulerAngles, t );
+            yield return null;
+        }*/
+
+        Vector3 direct = enemy.transform.position - transform.position;
+        float angle = Mathf.Atan2(direct.y, direct.x) * Mathf.Rad2Deg;
+        Quaternion target = Quaternion.AngleAxis(angle, Vector3.forward);
+
+        while (transform.rotation != target)
+        {
+            transform.eulerAngles += target.eulerAngles * 0.1f * Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    
 
 
     [PunRPC]
