@@ -36,6 +36,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
     EUnitState unitState;
     float lastAttackTime;
     bool isPlayer1;
+    bool isRotate;
 
     protected virtual void Awake()
     {
@@ -106,7 +107,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
         if (enemyCollider2D != null)
         {
             transform.position += (enemyCollider2D.transform.position - transform.position).normalized * moveSpeed * Time.deltaTime;
-            StartCoroutine(RotateAnimation(enemyCollider2D));
+            
+            if (!isRotate)
+            {
+                StartCoroutine(RotateAnimation(enemyCollider2D));
+            }
 
             if ((enemyCollider2D.transform.position - transform.position).magnitude <= attackRange)
             {
@@ -180,6 +185,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
 
     IEnumerator RotateAnimation(Collider2D enemy)
     {
+        isRotate = true;
+
         /* float t = 0f;
         float rotSpeed = 0.5f;
 
@@ -199,18 +206,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
 
         while (transform.rotation != target)
         {
-            transform.eulerAngles += target.eulerAngles * 0.1f * Time.deltaTime;
+            transform.eulerAngles += target.eulerAngles * 1.5f * Time.deltaTime;
             yield return null;
         }
-    }
 
-    
-
-
-    [PunRPC]
-    public virtual void TestRPC()
-    {
-        gameObject.SetActive(true);
+        isRotate = false;
     }
 
     private void OnDrawGizmos()

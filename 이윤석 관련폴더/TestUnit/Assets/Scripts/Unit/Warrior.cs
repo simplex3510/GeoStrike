@@ -47,10 +47,4 @@ public class Warrior : Unit
     // {
     //     base.OnDamaged(_damaged);
     // }
-
-    [PunRPC]
-    public override void TestRPC()
-    {
-        base.TestRPC();
-    }
 }
