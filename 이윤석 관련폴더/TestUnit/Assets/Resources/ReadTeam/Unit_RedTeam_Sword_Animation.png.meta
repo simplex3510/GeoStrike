@@ -1,0 +1,660 @@
+fileFormatVersion: 2
+guid: 4c545fef951ef1d4fa59b54173a02b51
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -876600579549806499
+    second: Unit_RedTeam_Sword_Animation_0
+  - first:
+      213: 535038217245038953
+    second: Unit_RedTeam_Sword_Animation_1
+  - first:
+      213: 1680652574450775696
+    second: Unit_RedTeam_Sword_Animation_2
+  - first:
+      213: -2621836378977520304
+    second: Unit_RedTeam_Sword_Animation_3
+  - first:
+      213: -425632643519218290
+    second: Unit_RedTeam_Sword_Animation_4
+  - first:
+      213: 10609160726889544
+    second: Unit_RedTeam_Sword_Animation_5
+  - first:
+      213: 655584335268769598
+    second: Unit_RedTeam_Sword_Animation_6
+  - first:
+      213: 32225705471051048
+    second: Unit_RedTeam_Sword_Animation_7
+  - first:
+      213: -1682471987097634014
+    second: Unit_RedTeam_Sword_Animation_8
+  - first:
+      213: -841230693412853928
+    second: Unit_RedTeam_Sword_Animation_9
+  - first:
+      213: -2603179296871590212
+    second: Unit_RedTeam_Sword_Animation_10
+  - first:
+      213: 3335369089409081086
+    second: Unit_RedTeam_Sword_Animation_11
+  - first:
+      213: 1499560738851849018
+    second: Unit_RedTeam_Sword_Animation_12
+  - first:
+      213: 7558423368391230389
+    second: Unit_RedTeam_Sword_Animation_13
+  - first:
+      213: 8098160552490444781
+    second: Unit_RedTeam_Sword_Animation_14
+  - first:
+      213: 5064534336898826516
+    second: Unit_RedTeam_Sword_Animation_15
+  - first:
+      213: -8809105197793671242
+    second: Unit_RedTeam_Sword_Animation_16
+  - first:
+      213: -3841811773436146952
+    second: Unit_RedTeam_Sword_Animation_17
+  - first:
+      213: 2855046912157397244
+    second: Unit_RedTeam_Sword_Animation_18
+  - first:
+      213: -6501854325163720745
+    second: Unit_RedTeam_Sword_Animation_19
+  - first:
+      213: 1875179638014777048
+    second: Unit_RedTeam_Sword_Animation_20
+  - first:
+      213: -3844704284028658858
+    second: Unit_RedTeam_Sword_Animation_21
+  - first:
+      213: 67367717916853871
+    second: Unit_RedTeam_Sword_Animation_22
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d504806da60b5d3f0800000000000000
+      internalID: -876600579549806499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_1
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96916208c66dc6700800000000000000
+      internalID: 535038217245038953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_2
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 096fbfaac90e25710800000000000000
+      internalID: 1680652574450775696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_3
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05539d354bd5d9bd0800000000000000
+      internalID: -2621836378977520304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_4
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8df936ad59d71af0800000000000000
+      internalID: -425632643519218290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 844cd78b9f0b52000800000000000000
+      internalID: 10609160726889544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_6
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3f6100ca7a191900800000000000000
+      internalID: 655584335268769598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_7
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8250d3fbb1d727000800000000000000
+      internalID: 32225705471051048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_8
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22bff7054a8a6a8e0800000000000000
+      internalID: -1682471987097634014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_9
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 857a8f034295354f0800000000000000
+      internalID: -841230693412853928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_10
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb65153c836afdbd0800000000000000
+      internalID: -2603179296871590212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_11
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efedb09e38c994e20800000000000000
+      internalID: 3335369089409081086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_12
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3303660c828fc410800000000000000
+      internalID: 1499560738851849018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_13
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b388fed10ae4e860800000000000000
+      internalID: 7558423368391230389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_14
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de72649dd12726070800000000000000
+      internalID: 8098160552490444781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_15
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4118f977527d84640800000000000000
+      internalID: 5064534336898826516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_16
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b70678ce75cfb580800000000000000
+      internalID: -8809105197793671242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_17
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8facc6efb842faac0800000000000000
+      internalID: -3841811773436146952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_18
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf0b7383a0a2f9720800000000000000
+      internalID: 2855046912157397244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_19
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7df774780f5c4c5a0800000000000000
+      internalID: -6501854325163720745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_20
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d69ae512f9f50a10800000000000000
+      internalID: 1875179638014777048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_21
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65b9c04e2ddd4aac0800000000000000
+      internalID: -3844704284028658858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Sword_Animation_22
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6643cf15965fe000800000000000000
+      internalID: 67367717916853871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

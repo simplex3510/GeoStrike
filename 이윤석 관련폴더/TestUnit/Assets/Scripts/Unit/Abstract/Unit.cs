@@ -215,7 +215,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;      
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.DrawWireSphere(transform.position, detectRange);
     }
