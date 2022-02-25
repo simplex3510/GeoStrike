@@ -19,7 +19,17 @@ public class Unit : MonoBehaviourPun
         this.pv = GetComponent<PhotonView>();
         this.gameObject.SetActive(false);
         this.transform.SetParent(GameObject.Find("Pool_Unit" + unitInfo.unitName).transform);
+
+        if (photonView.IsMine && PhotonNetwork.IsMasterClient || !photonView.IsMine && !PhotonNetwork.IsMasterClient)
+        {
+            ObjectPoolMgr.instance.poolArr[unitIdx - 1].p1ObjPoolQueue.Enqueue(this);
+        }
+        else if (photonView.IsMine && !PhotonNetwork.IsMasterClient || !photonView.IsMine && PhotonNetwork.IsMasterClient)
+        {
+            ObjectPoolMgr.instance.poolArr[unitIdx - 1].p2ObjPoolQueue.Enqueue(this);
+        }
     }
+
     private void Update()
     {
         if (this.transform.childCount > 0)

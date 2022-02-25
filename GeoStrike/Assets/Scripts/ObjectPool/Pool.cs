@@ -14,32 +14,28 @@ public class Pool : MonoBehaviourPun
     // 초기 Object 생성
     public void InitObjectPool(int _num)
     {
-        if (PhotonNetwork.IsMasterClient)
+        for (int idx = 0; idx < _num; idx++)
         {
-            for (int idx = 0; idx < _num; idx++)
-            {
-                p1ObjPoolQueue.Enqueue(CreateNewObject());
-            }
-        }
-        else
-        {
-            for (int idx = 0; idx < _num; idx++)
-            {
-                p2ObjPoolQueue.Enqueue(CreateNewObject());
-            }
+            CreateNewObject();
         }
     }
 
     // Pool에 NewObject 생성
-    private Unit CreateNewObject()
+    public Unit CreateNewObject()
     {
         Unit newObj = PhotonNetwork.Instantiate(unit.name, transform.position, Quaternion.identity).GetComponent<Unit>();
         return newObj;
     }
 
+    [PunRPC]
     // Pool에서 유닛 가져오기
     public Unit GetObject()
     {
+        if (photonView.IsMine)
+        {
+            photonView.RPC("GetObject", RpcTarget.Others);
+        }
+
         if (PhotonNetwork.IsMasterClient)
         {
             // Pool에 Object가 있을 경우

@@ -60,7 +60,6 @@ public class TetrominoCreater : MonoBehaviourPun
         }
     }
 
-
     // 빌드 가능지역 미리보기 - 모양, 회전, Idx
     public bool CanBuildPreview(Vector2[] _resultCoord)
     {
