@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
+[DefaultExecutionOrder(201)]
 public class TetrominoCreater : MonoBehaviourPun
 {
     public TetrominoTileContainer tileContainer;

@@ -14,7 +14,7 @@ public class Pool : MonoBehaviourPun
     // 초기 Object 생성
     public void InitObjectPool(int _num)
     {
-        if (photonView.IsMine && GameMgr.isMaster || !photonView.IsMine && !GameMgr.isMaster)
+        if (PhotonNetwork.IsMasterClient)
         {
             for (int idx = 0; idx < _num; idx++)
             {
@@ -40,12 +40,11 @@ public class Pool : MonoBehaviourPun
     // Pool에서 유닛 가져오기
     public Unit GetObject()
     {
-        if (photonView.IsMine)
+        if (PhotonNetwork.IsMasterClient)
         {
             // Pool에 Object가 있을 경우
             if (p1ObjPoolQueue.Count > 0)
             {
-                Debug.Log("get Object");
                 Unit obj = p1ObjPoolQueue.Dequeue();
                 obj.transform.SetParent(null);
                 obj.gameObject.SetActive(true);
@@ -54,7 +53,6 @@ public class Pool : MonoBehaviourPun
             // Pool에 Object가 부족 할 경우
             else
             {
-                Debug.Log("creat object");
                 Unit newObj = CreateNewObject();
                 newObj.transform.SetParent(null);
                 newObj.gameObject.SetActive(true);
@@ -66,7 +64,6 @@ public class Pool : MonoBehaviourPun
             // Pool에 Object가 있을 경우
             if (p2ObjPoolQueue.Count > 0)
             {
-                Debug.Log("get Object");
                 Unit obj = p2ObjPoolQueue.Dequeue();
                 obj.transform.SetParent(null);
                 obj.gameObject.SetActive(true);
@@ -75,7 +72,6 @@ public class Pool : MonoBehaviourPun
             // Pool에 Object가 부족 할 경우
             else
             {
-                Debug.Log("creat object");
                 Unit newObj = CreateNewObject();
                 newObj.transform.SetParent(null);
                 newObj.gameObject.SetActive(true);

@@ -18,11 +18,11 @@ public class Unit : MonoBehaviourPun
     {
         this.pv = GetComponent<PhotonView>();
         this.gameObject.SetActive(false);
-        this.transform.SetParent(GameObject.Find("P1Pool_Unit" + unitInfo.unitName).transform);
+        this.transform.SetParent(GameObject.Find("Pool_Unit" + unitInfo.unitName).transform);
     }
     private void Update()
     {
-        if (this.transform.childCount >0)
+        if (this.transform.childCount > 0)
         {
             this.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = this.pv.ViewID.ToString();
         }

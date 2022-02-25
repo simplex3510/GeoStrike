@@ -30,7 +30,7 @@ public class UnitCreator : MonoBehaviourPun
             return;
         }
         
-        if (photonView.IsMine && GameMgr.isMaster || !photonView.IsMine && !GameMgr.isMaster)
+        if (photonView.IsMine && GameMgr.isMaster)
         {
             for (int row = 0; row < ArrayNumber.UNIT_TILE_ROW; row++)
             {
@@ -43,7 +43,6 @@ public class UnitCreator : MonoBehaviourPun
                         {
                             Unit obj = ObjectPoolMgr.instance.poolArr[unit.unitIdx - 1].GetObject();
 
-
                             obj.transform.position = unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].transform.position + Vector3.back;
                             unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].isEmty = false;
 
@@ -55,7 +54,7 @@ public class UnitCreator : MonoBehaviourPun
                 }
             }
         }
-        else
+        else if (photonView.IsMine && !GameMgr.isMaster)
         {
             for (int row = 0; row < ArrayNumber.UNIT_TILE_ROW; row++)
             {
@@ -74,7 +73,6 @@ public class UnitCreator : MonoBehaviourPun
                             translocateField.p2UnitList.Add(obj);
                             obj.transform.SetParent(translocateField.spawnPosP2.transform);
                             return;
-                            
                         }
                     }
                 }
