@@ -93,6 +93,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
             transform.position += Vector3.left * moveSpeed * Time.deltaTime;
         }
 
+        if(!isRotate)
+        {
+            StartCoroutine(RotateAnimation());
+        }
+
         enemyCollider2D = Physics2D.OverlapCircle(transform.position, detectRange, opponentLayerMask);
         if (enemyCollider2D != null)
         {
@@ -107,7 +112,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
         if (enemyCollider2D != null)
         {
             transform.position += (enemyCollider2D.transform.position - transform.position).normalized * moveSpeed * Time.deltaTime;
-            
+
             if (!isRotate)
             {
                 StartCoroutine(RotateAnimation(enemyCollider2D));
@@ -132,6 +137,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
         else if (enemyCollider2D == null)
         {
             unitState = EUnitState.Move;
+            StartCoroutine(RotateAnimation());
             return;
         }
 
@@ -174,39 +180,30 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
         spriteRenderer.color = Color.white;
     }
 
+    // 앞을 바라보는 애니메이션
     IEnumerator RotateAnimation()
     {
-        while (true)
-        {
+        isRotate = true;
 
-            yield return null;
-        }
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.identity, 1f);
+
+        isRotate = false;
+        yield return null;
     }
 
+    // enemy를 바라보는 애니메이션
     IEnumerator RotateAnimation(Collider2D enemy)
     {
         isRotate = true;
 
-        /* float t = 0f;
-        float rotSpeed = 0.5f;
+        Vector3 direct = enemy.transform.position - transform.position;     // 방향을 구함
+        float angle = Mathf.Atan2(direct.y, direct.x) * Mathf.Rad2Deg;      // 두 객체 간의 각을 구함
+        Quaternion target = Quaternion.AngleAxis(angle, Vector3.forward);   // 최종적으로 회전해야 하는 회전값
 
-        Vector3 startRot = transform.eulerAngles;
-
-
-        while (true)
+        if (!(Mathf.Approximately(transform.eulerAngles.z, angle)))
         {
-            t += Time.deltaTime *rotSpeed;
-            transform.eulerAngles = Vector3.Lerp(startRot, enemy.transform.eulerAngles, t );
-            yield return null;
-        }*/
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, target, 1f);
 
-        Vector3 direct = enemy.transform.position - transform.position;
-        float angle = Mathf.Atan2(direct.y, direct.x) * Mathf.Rad2Deg;
-        Quaternion target = Quaternion.AngleAxis(angle, Vector3.forward);
-
-        while (transform.rotation != target)
-        {
-            transform.eulerAngles += target.eulerAngles * 1.5f * Time.deltaTime;
             yield return null;
         }
 

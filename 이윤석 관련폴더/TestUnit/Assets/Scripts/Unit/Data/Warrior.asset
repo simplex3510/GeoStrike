@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5bd9e0a4759d7c438664996219f19ba, type: 3}
   m_Name: Warrior
   m_EditorClassIdentifier: 
-  Sprite: {fileID: 2736418664257831631, guid: 69c6b9e35f8c79942ab9fb00900c74e1, type: 3}
   health: 10
   damage: 5
   defense: 4
-  attackRange: 1.75
+  attackRange: 1.25
   detectRange: 5
   attackSpeed: 1.5
   moveSpeed: 1
