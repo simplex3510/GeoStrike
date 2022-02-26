@@ -4,13 +4,13 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-enum EPlayer
+public enum EPlayer
 {
     Ally = 6,
     Enemy = 7
 }
 
-enum EUnitState
+public enum EUnitState
 {
     Idle,
     Move,
@@ -31,9 +31,9 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
     public float moveSpeed { get; protected set; }
     public bool isDead { get; protected set; }
     protected LayerMask opponentLayerMask;
+    protected EUnitState unitState;
 
     Collider2D enemyCollider2D;
-    EUnitState unitState;
     float lastAttackTime;
     bool isPlayer1;
     bool isRotate;
@@ -74,7 +74,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
                 Approach();
                 break;
             case EUnitState.Attack:
-                Attack();
+                //Attack();
                 break;
             case EUnitState.Die:
                 Die();
@@ -129,9 +129,9 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
     void Attack()   // 적에게 공격
     {
         enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
-        if (enemyCollider2D != null && lastAttackTime + attackSpeed <= PhotonNetwork.Time)
+        if (enemyCollider2D != null/* && lastAttackTime + attackSpeed <= PhotonNetwork.Time*/)
         {
-            lastAttackTime = (float)PhotonNetwork.Time;
+            //lastAttackTime = (float)PhotonNetwork.Time;
             enemyCollider2D.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
         }
         else if (enemyCollider2D == null)

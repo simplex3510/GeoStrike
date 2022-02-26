@@ -7,6 +7,7 @@ using Photon.Realtime;
 public class Warrior : Unit
 {
     public UnitData unitData;
+    public Animator animator;
 
     protected override void Awake()
     {
@@ -31,10 +32,29 @@ public class Warrior : Unit
         base.OnEnable();
     }
 
-    // protected override void Update()
-    // {
-    //     base.Update();
-    // }
+    protected override void Update()
+    {
+        base.Update();
+
+        switch (unitState)
+        {
+            case EUnitState.Idle:
+                break;
+            case EUnitState.Move:
+                //Move();
+                break;
+            case EUnitState.Approach:
+                //Approach();
+                break;
+            case EUnitState.Attack:
+                animator.SetTrigger("Attack");
+                break;
+            case EUnitState.Die:
+                print("Die");
+                StartCoroutine(DieAnimation());
+                break;
+        }
+    }
 
 
     // protected override void Attack(Collider2D enemy)
@@ -47,4 +67,22 @@ public class Warrior : Unit
     // {
     //     base.OnDamaged(_damaged);
     // }
+
+    IEnumerator DieAnimation()
+    {
+        unitState = EUnitState.Idle;
+
+        var spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+        var color = spriteRenderer.color;
+        while (0 <= color.a)
+        {
+            color.a -= 1f * Time.deltaTime;
+            spriteRenderer.color = color;
+
+            yield return null;
+        }
+
+        gameObject.SetActive(false);
+        spriteRenderer.color = Color.white;
+    }
 }
