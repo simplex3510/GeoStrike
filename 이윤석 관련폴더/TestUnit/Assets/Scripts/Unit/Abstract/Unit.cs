@@ -34,7 +34,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
     protected EUnitState unitState;
 
     Collider2D enemyCollider2D;
-    float lastAttackTime;
+    // float lastAttackTime;
     bool isPlayer1;
     bool isRotate;
 
@@ -74,7 +74,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
                 Approach();
                 break;
             case EUnitState.Attack:
-                //Attack();
+                //Animation에서 Attck() 호출
                 break;
             case EUnitState.Die:
                 Die();
@@ -113,7 +113,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
         {
             transform.position += (enemyCollider2D.transform.position - transform.position).normalized * moveSpeed * Time.deltaTime;
 
-            if (!isRotate)
+            if(!isRotate)
             {
                 StartCoroutine(RotateAnimation(enemyCollider2D));
             }
@@ -121,6 +121,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
             if ((enemyCollider2D.transform.position - transform.position).magnitude <= attackRange)
             {
                 unitState = EUnitState.Attack;
+                return;
+            }
+            else if(enemyCollider2D == null)
+            {
+                unitState = EUnitState.Move;
                 return;
             }
         }
@@ -185,7 +190,14 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
     {
         isRotate = true;
 
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.identity, 1f);
+        if(isPlayer1)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.identity, 1f);
+        }
+        else
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0f, 0f, 180f), 1f);
+        }
 
         isRotate = false;
         yield return null;
@@ -200,9 +212,9 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
         float angle = Mathf.Atan2(direct.y, direct.x) * Mathf.Rad2Deg;      // 두 객체 간의 각을 구함
         Quaternion target = Quaternion.AngleAxis(angle, Vector3.forward);   // 최종적으로 회전해야 하는 회전값
 
-        if (!(Mathf.Approximately(transform.eulerAngles.z, angle)))
+        while (!Mathf.Approximately(transform.rotation.z, target.z))
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, target, 1f);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, target, 0.5f);
 
             yield return null;
         }

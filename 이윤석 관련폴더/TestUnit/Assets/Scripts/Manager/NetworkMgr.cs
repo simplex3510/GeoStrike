@@ -14,7 +14,7 @@ public class NetworkMgr : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        PhotonNetwork.JoinOrCreateRoom("TestUnit", new RoomOptions { MaxPlayers = 2 }, null);
+        PhotonNetwork.JoinOrCreateRoom("TestUnit2", new RoomOptions { MaxPlayers = 2 }, null);
     }
 
     public override void OnJoinedRoom()
@@ -25,7 +25,7 @@ public class NetworkMgr : MonoBehaviourPunCallbacks
         }
         else
         {
-            PhotonNetwork.Instantiate("Player2", new Vector3(8, 1, 0), Quaternion.identity);
+            PhotonNetwork.Instantiate("Player2", new Vector3(8, 1, 0), Quaternion.Euler(0f, 0f, 180f));
         }
     }
 }
