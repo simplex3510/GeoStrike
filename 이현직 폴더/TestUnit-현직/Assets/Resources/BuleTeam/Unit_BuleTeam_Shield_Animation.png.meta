@@ -1,0 +1,660 @@
+fileFormatVersion: 2
+guid: 540a6c20a4b736e4f8211437e22568e6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 684074536617135044
+    second: Unit_BuleTeam_Shield_Animation_0
+  - first:
+      213: -8017891913191574343
+    second: Unit_BuleTeam_Shield_Animation_1
+  - first:
+      213: -8382352224099798633
+    second: Unit_BuleTeam_Shield_Animation_2
+  - first:
+      213: -3299257096119538342
+    second: Unit_BuleTeam_Shield_Animation_3
+  - first:
+      213: 3368770047476082175
+    second: Unit_BuleTeam_Shield_Animation_4
+  - first:
+      213: -8994996187242990587
+    second: Unit_BuleTeam_Shield_Animation_5
+  - first:
+      213: -2941828895112579459
+    second: Unit_BuleTeam_Shield_Animation_6
+  - first:
+      213: -5736662640687982157
+    second: Unit_BuleTeam_Shield_Animation_7
+  - first:
+      213: -7619697012699330168
+    second: Unit_BuleTeam_Shield_Animation_8
+  - first:
+      213: -3520550111888422551
+    second: Unit_BuleTeam_Shield_Animation_9
+  - first:
+      213: -9129147281856985279
+    second: Unit_BuleTeam_Shield_Animation_10
+  - first:
+      213: 2636111312257636602
+    second: Unit_BuleTeam_Shield_Animation_11
+  - first:
+      213: 9023860875266242809
+    second: Unit_BuleTeam_Shield_Animation_12
+  - first:
+      213: 8839589004128337188
+    second: Unit_BuleTeam_Shield_Animation_13
+  - first:
+      213: 8992595919430964144
+    second: Unit_BuleTeam_Shield_Animation_14
+  - first:
+      213: -3946554888619361808
+    second: Unit_BuleTeam_Shield_Animation_15
+  - first:
+      213: -5902281712184657459
+    second: Unit_BuleTeam_Shield_Animation_16
+  - first:
+      213: 8169671436008050855
+    second: Unit_BuleTeam_Shield_Animation_17
+  - first:
+      213: 3750846953211104877
+    second: Unit_BuleTeam_Shield_Animation_18
+  - first:
+      213: -4273394483920909756
+    second: Unit_BuleTeam_Shield_Animation_19
+  - first:
+      213: -6180676131067403250
+    second: Unit_BuleTeam_Shield_Animation_20
+  - first:
+      213: -3477855411096656958
+    second: Unit_BuleTeam_Shield_Animation_21
+  - first:
+      213: 5501788209768119987
+    second: Unit_BuleTeam_Shield_Animation_22
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cb44faaa225e7900800000000000000
+      internalID: 684074536617135044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_1
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b43dba19c9bab090800000000000000
+      internalID: -8017891913191574343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_2
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79173545017ebab80800000000000000
+      internalID: -8382352224099798633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_3
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5dab1bb62fa632d0800000000000000
+      internalID: -3299257096119538342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_4
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff5a9c9728640ce20800000000000000
+      internalID: 3368770047476082175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 504736f00aa5b2380800000000000000
+      internalID: -8994996187242990587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_6
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d76b5d4d4368c27d0800000000000000
+      internalID: -2941828895112579459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_7
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b9d981f8b74360b0800000000000000
+      internalID: -5736662640687982157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_8
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88983f510f5614690800000000000000
+      internalID: -7619697012699330168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_9
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 969cdee635e742fc0800000000000000
+      internalID: -3520550111888422551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_10
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14701ba5ae0ce4180800000000000000
+      internalID: -9129147281856985279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_11
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af851839549559420800000000000000
+      internalID: 2636111312257636602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_12
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f83ac4d7a13b3d70800000000000000
+      internalID: 9023860875266242809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_13
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42db4877d578caa70800000000000000
+      internalID: 8839589004128337188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_14
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b35f4a085e1ccc70800000000000000
+      internalID: 8992595919430964144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_15
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f9f2411d350b39c0800000000000000
+      internalID: -3946554888619361808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_16
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc9f2fced02e61ea0800000000000000
+      internalID: -5902281712184657459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_17
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a05ae2e2e0806170800000000000000
+      internalID: 8169671436008050855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_18
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6e010d5e6fad0430800000000000000
+      internalID: 3750846953211104877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_19
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44ac7c8bb5ad1b4c0800000000000000
+      internalID: -4273394483920909756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_20
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e04edff2ec3d93aa0800000000000000
+      internalID: -6180676131067403250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_21
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c3e9691eec2cbfc0800000000000000
+      internalID: -3477855411096656958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shield_Animation_22
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3be39a02a374a5c40800000000000000
+      internalID: 5501788209768119987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
