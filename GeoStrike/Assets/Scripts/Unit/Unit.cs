@@ -14,7 +14,7 @@ public class Unit : MonoBehaviourPun
     public PhotonView pv;
 
 
-    private void Awake()
+    private void Start()
     {
         this.pv = GetComponent<PhotonView>();
         this.gameObject.SetActive(false);

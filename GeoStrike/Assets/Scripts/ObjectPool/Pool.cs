@@ -20,7 +20,7 @@ public class Pool : MonoBehaviourPun
         }
     }
 
-    // Pool에 NewObject 생성
+    // Pool에 NewObject 생성   
     public Unit CreateNewObject()
     {
         Unit newObj = PhotonNetwork.Instantiate(unit.name, transform.position, Quaternion.identity).GetComponent<Unit>();
@@ -28,53 +28,47 @@ public class Pool : MonoBehaviourPun
     }
 
     [PunRPC]
-    // Pool에서 유닛 가져오기
     public Unit GetObject()
     {
-        if (photonView.IsMine)
+        // if(p1)
+        // Pool에 Object가 있을 경우 - P1
+        if (p1ObjPoolQueue.Count > 0)
         {
-            photonView.RPC("GetObject", RpcTarget.Others);
-        }
+            Unit obj = p1ObjPoolQueue.Dequeue();
+            obj.transform.SetParent(null);
+            obj.gameObject.SetActive(true);
 
-        if (PhotonNetwork.IsMasterClient)
-        {
-            // Pool에 Object가 있을 경우
-            if (p1ObjPoolQueue.Count > 0)
-            {
-                Unit obj = p1ObjPoolQueue.Dequeue();
-                obj.transform.SetParent(null);
-                obj.gameObject.SetActive(true);
-                return obj;
-            }
-            // Pool에 Object가 부족 할 경우
-            else
-            {
-                Unit newObj = CreateNewObject();
-                newObj.transform.SetParent(null);
-                newObj.gameObject.SetActive(true);
-                return newObj;
-            }
+            return obj;
         }
+        // Pool에 Object가 부족 할 경우 - P1
         else
         {
-            // Pool에 Object가 있을 경우
-            if (p2ObjPoolQueue.Count > 0)
-            {
-                Unit obj = p2ObjPoolQueue.Dequeue();
-                obj.transform.SetParent(null);
-                obj.gameObject.SetActive(true);
-                return obj;
-            }
-            // Pool에 Object가 부족 할 경우
-            else
-            {
-                Unit newObj = CreateNewObject();
-                newObj.transform.SetParent(null);
-                newObj.gameObject.SetActive(true);
-                return newObj;
-            }
+            Unit newObj = CreateNewObject();
+            p1ObjPoolQueue.Dequeue();
+            newObj.transform.SetParent(null);
+            newObj.gameObject.SetActive(true);
+            
+            return newObj;
         }
-        
+        // else (p2)
+        if (p2ObjPoolQueue.Count > 0)
+        {
+            Unit obj = p2ObjPoolQueue.Dequeue();
+            obj.transform.SetParent(null);
+            obj.gameObject.SetActive(true);
+
+            return obj;
+        }
+        // Pool에 Object가 부족 할 경우 - P1
+        else
+        {
+            Unit newObj = CreateNewObject();
+            p2ObjPoolQueue.Dequeue();
+            newObj.transform.SetParent(null);
+            newObj.gameObject.SetActive(true);
+
+            return newObj;
+        }
     }
 
     // 사용된 Object를 Pool로 반환
