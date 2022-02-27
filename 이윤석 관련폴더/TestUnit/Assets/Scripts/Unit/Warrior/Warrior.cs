@@ -56,18 +56,6 @@ public class Warrior : Unit
         }
     }
 
-
-    // protected override void Attack(Collider2D enemy)
-    // {
-    //     enemy.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
-    // }
-
-    // [PunRPC]
-    // public override void OnDamaged(float _damaged)
-    // {
-    //     base.OnDamaged(_damaged);
-    // }
-
     IEnumerator DieAnimation()
     {
         unitState = EUnitState.Idle;
