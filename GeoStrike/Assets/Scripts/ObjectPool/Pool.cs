@@ -6,8 +6,7 @@ using Photon.Realtime;
 
 public class Pool : MonoBehaviourPun
 {
-    public Queue<Unit> p1ObjPoolQueue = new Queue<Unit>();
-    public Queue<Unit> p2ObjPoolQueue = new Queue<Unit>();
+    public Queue<Unit> ObjPoolQueue = new Queue<Unit>();
 
     public Unit unit;
 
@@ -20,75 +19,57 @@ public class Pool : MonoBehaviourPun
         }
     }
 
+    [PunRPC]
     // Pool에 NewObject 생성   
     public Unit CreateNewObject()
     {
         Unit newObj = PhotonNetwork.Instantiate(unit.name, transform.position, Quaternion.identity).GetComponent<Unit>();
+        
+        //if (photonView.IsMine)
+        //{
+        //    photonView.RPC("CreateNewObject", RpcTarget.Others);
+        //    Debug.Log("CreateNewObject RPC");
+        //}
+
+        newObj.transform.SetParent(GameObject.Find("Pool_Unit" + unit.unitInfo.unitName).transform);
+        //SetUnitActive(newObj, false);
+        ObjPoolQueue.Enqueue(newObj);
+        Debug.Log("IsMine : " + this.photonView.IsMine + " : " + newObj + " : " + ObjPoolQueue.Count);
         return newObj;
     }
 
-    [PunRPC]
     public Unit GetObject()
     {
-        if (photonView.IsMine)
-        {
-            photonView.RPC("GetObject", RpcTarget.Others);
-        }
+        // Pool에 Object가 있을 경우 - 꺼내기
+        //if (p1ObjPoolQueue.Count > 0)
+        //{
+        //    Unit obj = p1ObjPoolQueue.Dequeue();
+        //    obj.transform.SetParent(null);
+        //    obj.gameObject.SetActive(true);
 
-        if(photonView.IsMine && PhotonNetwork.IsMasterClient || !photonView.IsMine && !PhotonNetwork.IsMasterClient)
-        {
-            if (p1ObjPoolQueue.Count > 0)
-            {
-                Unit obj = p1ObjPoolQueue.Dequeue();
-                obj.transform.SetParent(null);
-                obj.gameObject.SetActive(true);
+        //    return obj;
+        //}
+        //// Pool에 Object가 부족 할 경우 - 새로 만들고 꺼내기
+        //else
+        //{
+        //    Debug.Log("p1-New");
+        //    Unit newObj = CreateNewObject();
+        //    SetUnitEnqueue(newObj);
+        //    Debug.Log(p1ObjPoolQueue.Count);
+        //    p1ObjPoolQueue.Dequeue();
+        //    newObj.transform.SetParent(null);
+        //    newObj.gameObject.SetActive(true);
 
-                return obj;
-            }
-            // Pool에 Object가 부족 할 경우 - P1
-            else
-            {
-                Debug.Log("p1-New");
-                Unit newObj = CreateNewObject();
-                Debug.Log(p1ObjPoolQueue.Count);
-                p1ObjPoolQueue.Dequeue();
-                newObj.transform.SetParent(null);
-                newObj.gameObject.SetActive(true);
-
-                return newObj;
-            }
-        }
-        else
-        {
-            if (p2ObjPoolQueue.Count > 0)
-            {
-                Unit obj = p2ObjPoolQueue.Dequeue();
-                obj.transform.SetParent(null);
-                obj.gameObject.SetActive(true);
-
-                return obj;
-            }
-            // Pool에 Object가 부족 할 경우 - P1
-            else
-            {
-                Debug.Log("p2-New");
-                Unit newObj = CreateNewObject();
-                Debug.Log(p2ObjPoolQueue.Count);
-                p2ObjPoolQueue.Dequeue();
-                newObj.transform.SetParent(null);
-                newObj.gameObject.SetActive(true);
-
-                return newObj;
-            }
-        }
+        //    return newObj;
+        //}
+        return null;
     }
 
     // 사용된 Object를 Pool로 반환
-    private void ReturnObject(Unit _obj)
-    {
-        _obj.gameObject.SetActive(false);
-        _obj.transform.SetParent(transform);
-        p1ObjPoolQueue.Enqueue(_obj);
-    }
-
+    //private void ReturnObject(Unit _obj)
+    //{
+    //    _obj.gameObject.SetActive(false);
+    //    _obj.transform.SetParent(transform);
+    //    p1ObjPoolQueue.Enqueue(_obj);
+    //}
 }
