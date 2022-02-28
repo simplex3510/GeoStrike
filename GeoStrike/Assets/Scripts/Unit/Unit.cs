@@ -14,7 +14,7 @@ public class Unit : MonoBehaviourPun
     public PhotonView pv;
 
 
-    private void Start()
+    private void Awake()
     {
         this.pv = GetComponent<PhotonView>();
         this.gameObject.SetActive(false);
@@ -23,8 +23,9 @@ public class Unit : MonoBehaviourPun
         if (photonView.IsMine && PhotonNetwork.IsMasterClient || !photonView.IsMine && !PhotonNetwork.IsMasterClient)
         {
             ObjectPoolMgr.instance.poolArr[unitIdx - 1].p1ObjPoolQueue.Enqueue(this);
+            Debug.Log("EnQ : " + ObjectPoolMgr.instance.poolArr[unitIdx - 1].p1ObjPoolQueue.Count);
         }
-        else if (photonView.IsMine && !PhotonNetwork.IsMasterClient || !photonView.IsMine && PhotonNetwork.IsMasterClient)
+        else
         {
             ObjectPoolMgr.instance.poolArr[unitIdx - 1].p2ObjPoolQueue.Enqueue(this);
         }
