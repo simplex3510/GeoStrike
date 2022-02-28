@@ -33676,7 +33676,7 @@ MonoBehaviour:
   worldTimeTXT: {fileID: 353670781}
   sec: 0
   battleTimeTXT: {fileID: 471647460}
-  battleTime: 10
+  battleTime: 5
   battleTimer: 0
 --- !u!114 &1306418365
 MonoBehaviour:
