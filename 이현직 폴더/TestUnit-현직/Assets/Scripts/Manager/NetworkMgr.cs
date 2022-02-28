@@ -22,10 +22,12 @@ public class NetworkMgr : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.Instantiate("Player1", new Vector3(-8, -1, 0), Quaternion.identity);
+            PhotonNetwork.Instantiate("Player1_Shooter", new Vector3(-8, -1.5f, 0), Quaternion.identity);
         }
         else
         {
-            PhotonNetwork.Instantiate("Player2", new Vector3(8, 1, 0), Quaternion.identity);
+            PhotonNetwork.Instantiate("Player2", new Vector3(8, 1, 0), Quaternion.Euler(0f, 0f, 180f));
+            PhotonNetwork.Instantiate("Player2_Shooter", new Vector3(8, 1.5f, 0), Quaternion.identity);
         }
     }
 }
