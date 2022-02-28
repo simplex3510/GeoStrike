@@ -169,8 +169,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
 
     IEnumerator DieAnimation()
     {
-        unitState = EUnitState.Idle;
-
         var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         var color = spriteRenderer.color;
         while (0 <= color.a)
@@ -183,6 +181,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
 
         gameObject.SetActive(false);
         spriteRenderer.color = Color.white;
+
+        unitState = EUnitState.Idle;
     }
 
     // 앞을 바라보는 애니메이션

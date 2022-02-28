@@ -9,6 +9,8 @@ public class Warrior : Unit
     public UnitData unitData;
     public Animator animator;
 
+    public GameObject weapon;
+
     protected override void Awake()
     {
         base.Awake();
@@ -41,16 +43,19 @@ public class Warrior : Unit
             case EUnitState.Idle:
                 break;
             case EUnitState.Move:
-                //Move();
+                animator.SetBool("isMove", true);
+                animator.SetBool("isAttack", false);
                 break;
             case EUnitState.Approach:
                 //Approach();
                 break;
             case EUnitState.Attack:
-                animator.SetTrigger("Attack");
+                animator.SetBool("isMove", false);
+                animator.SetBool("isAttack", true);
+                //animator.SetTrigger("Attack");
                 break;
             case EUnitState.Die:
-                print("Die");
+                //print("Die");
                 StartCoroutine(DieAnimation());
                 break;
         }
@@ -60,7 +65,7 @@ public class Warrior : Unit
     {
         unitState = EUnitState.Idle;
 
-        var spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+        var spriteRenderer = weapon.GetComponentInChildren<SpriteRenderer>();
         var color = spriteRenderer.color;
         while (0 <= color.a)
         {
@@ -70,7 +75,7 @@ public class Warrior : Unit
             yield return null;
         }
 
-        gameObject.SetActive(false);
         spriteRenderer.color = Color.white;
+        gameObject.SetActive(false);
     }
 }

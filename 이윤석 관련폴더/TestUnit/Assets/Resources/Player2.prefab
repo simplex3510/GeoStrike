@@ -139,8 +139,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitData: {fileID: 11400000, guid: ed8cf322a46988644979adbbf4f9f8c1, type: 2}
-  animator: {fileID: 0}
-  weapon: {fileID: 0}
+  animator: {fileID: 3868155411218932853}
+  weapon: {fileID: 7786633145386498038}
 --- !u!114 &1233569061901722368
 MonoBehaviour:
   m_ObjectHideFlags: 0

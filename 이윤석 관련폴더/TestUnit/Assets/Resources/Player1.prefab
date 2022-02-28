@@ -210,7 +210,6 @@ GameObject:
   - component: {fileID: 6245575640410003211}
   - component: {fileID: 6245575640410003210}
   - component: {fileID: 1124552586466173757}
-  - component: {fileID: 1787393013252200243}
   m_Layer: 0
   m_Name: BuleTeam_Weapon_Sword
   m_TagString: Untagged
@@ -299,16 +298,3 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.13, y: 0.43}
   m_Direction: 1
---- !u!114 &1787393013252200243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6245575640410003208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c0d5babd8e61c8489b9ae5ab54dee84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unit: {fileID: 1110568053594303447}
