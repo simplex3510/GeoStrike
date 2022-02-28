@@ -21,6 +21,9 @@ public enum EUnitState
 
 public abstract class Unit : MonoBehaviourPun, IDamageable
 {
+    public Transform myParent;
+    public Queue<Unit> myPool;
+
     public float startHealth { get; protected set; }
     public float currentHealth { get; protected set; }
     public float damage { get; protected set; }
@@ -30,6 +33,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
     public float attackSpeed { get; protected set; }
     public float moveSpeed { get; protected set; }
     public bool isDead { get; protected set; }
+
     protected LayerMask opponentLayerMask;
     protected EUnitState unitState;
 
@@ -59,6 +63,13 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
         isDead = false;
         currentHealth = startHealth;
         unitState = EUnitState.Move;
+    }
+
+    // Return to your pool
+    protected virtual void OnDisable()
+    {
+        transform.SetParent(myParent);
+        myPool.Enqueue(this);
     }
 
     protected virtual void Update()

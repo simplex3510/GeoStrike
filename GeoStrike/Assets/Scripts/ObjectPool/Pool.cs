@@ -6,9 +6,14 @@ using Photon.Realtime;
 
 public class Pool : MonoBehaviourPun
 {
-    public Queue<Unit> ObjPoolQueue = new Queue<Unit>();
+    public Queue<Unit> ObjPoolQueue;
 
     public Unit unit;
+
+    private void Awake()
+    {
+        ObjPoolQueue = new Queue<Unit>();
+    }
 
     // 檬扁 Object 积己
     public void InitObjectPool(int _num)
@@ -19,20 +24,29 @@ public class Pool : MonoBehaviourPun
         }
     }
 
-    [PunRPC]
     // Pool俊 NewObject 积己   
     public Unit CreateNewObject()
     {
-        Unit newObj = PhotonNetwork.Instantiate(unit.name, transform.position, Quaternion.identity).GetComponent<Unit>();
-        
-        //if (photonView.IsMine)
-        //{
-        //    photonView.RPC("CreateNewObject", RpcTarget.Others);
-        //    Debug.Log("CreateNewObject RPC");
-        //}
+        Unit newObj;
 
-        newObj.transform.SetParent(GameObject.Find("Pool_Unit" + unit.unitInfo.unitName).transform);
-        //SetUnitActive(newObj, false);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            newObj = PhotonNetwork.Instantiate(unit.name, new Vector3(-8f, -1f, 0f), Quaternion.identity).GetComponent<Unit>();
+        }
+        else
+        {
+            newObj = PhotonNetwork.Instantiate(unit.name, new Vector3(8f, 1f, 0f), Quaternion.Euler(0f, 0f, 180f)).GetComponent<Unit>();
+        }
+
+        // newObj.transform.SetParent(GameObject.Find("Pool_Unit" + unit.unitInfo.unitName).transform);
+
+        newObj.myPool = ObjPoolQueue;
+        newObj.myParent = transform;
+        print(transform.name);
+
+        newObj.transform.SetParent(newObj.myParent);
+        newObj.photonView.RPC("SetUnitActive", RpcTarget.All, false);
+
         ObjPoolQueue.Enqueue(newObj);
         Debug.Log("IsMine : " + this.photonView.IsMine + " : " + newObj + " : " + ObjPoolQueue.Count);
         return newObj;

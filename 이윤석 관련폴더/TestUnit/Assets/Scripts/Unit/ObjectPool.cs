@@ -12,11 +12,6 @@ public class ObjectPool : MonoBehaviourPun
 
     private void Awake()
     {
-        
-    }
-
-    private void OnEnable()
-    {
         unitPool = new Queue<Unit>();
     }
 
@@ -40,21 +35,10 @@ public class ObjectPool : MonoBehaviourPun
             newUnit = PhotonNetwork.Instantiate(redUnit.name, new Vector3(8f, 1f, 0f), Quaternion.Euler(0f, 0f, 180f)).GetComponent<Unit>();
         }
 
-        InitalizeUnit(newUnit);
-
-        return newUnit;
-    }
-
-    [PunRPC]
-    void InitalizeUnit(Unit newUnit)
-    {
         newUnit.myPool = unitPool;
         newUnit.myParent = transform;
+        newUnit.transform.SetParent(newUnit.myParent);
 
-        if (newUnit.photonView.IsMine)
-        {
-            newUnit.transform.SetParent(newUnit.myParent);
-            newUnit.photonView.RPC("InitalizeUnit", RpcTarget.Others, newUnit);
-        }
+        return newUnit;
     }
 }

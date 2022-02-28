@@ -7,6 +7,9 @@ using Photon.Realtime;
 
 public class Unit : MonoBehaviourPun
 {
+    public Transform myParent;
+    public Queue<Unit> myPool;
+
     public UnitInfo unitInfo;
     public int unitIdx;
 
@@ -25,9 +28,21 @@ public class Unit : MonoBehaviourPun
         }
     }
 
-    public void SetUnitActive(bool _bool)
+    // Return to your pool
+    protected virtual void OnDisable()
     {
-        gameObject.SetActive(_bool);
+        if(photonView.IsMine)
+        {
+            transform.SetParent(myParent);
+            print(myPool == null ? true : false);
+            myPool.Enqueue(this);
+        }
+    }
+
+    [PunRPC]
+    public void SetUnitActive(bool isTrue)
+    {
+        gameObject.SetActive(isTrue);
     }
 }
 
