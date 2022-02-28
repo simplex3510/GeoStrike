@@ -47,31 +47,16 @@ public class Warrior : Unit
                 animator.SetBool("isAttack", false);
                 break;
             case EUnitState.Approach:
-                //Approach();
                 break;
             case EUnitState.Attack:
                 animator.SetBool("isMove", false);
                 animator.SetBool("isAttack", true);
-                //animator.SetTrigger("Attack");
                 break;
             case EUnitState.Die:
-                print("Die");
                 StartCoroutine(DieAnimation());
                 break;
         }
     }
-
-
-    // protected override void Attack(Collider2D enemy)
-    // {
-    //     enemy.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
-    // }
-
-    // [PunRPC]
-    // public override void OnDamaged(float _damaged)
-    // {
-    //     base.OnDamaged(_damaged);
-    // }
 
     IEnumerator DieAnimation()
     {
@@ -87,7 +72,7 @@ public class Warrior : Unit
             yield return null;
         }
 
-        gameObject.SetActive(false);
         spriteRenderer.color = Color.white;
+        gameObject.SetActive(false);
     }
 }

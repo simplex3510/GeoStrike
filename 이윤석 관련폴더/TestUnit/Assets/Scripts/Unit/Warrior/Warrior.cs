@@ -47,15 +47,12 @@ public class Warrior : Unit
                 animator.SetBool("isAttack", false);
                 break;
             case EUnitState.Approach:
-                //Approach();
                 break;
             case EUnitState.Attack:
                 animator.SetBool("isMove", false);
                 animator.SetBool("isAttack", true);
-                //animator.SetTrigger("Attack");
                 break;
             case EUnitState.Die:
-                //print("Die");
                 StartCoroutine(DieAnimation());
                 break;
         }
