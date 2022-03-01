@@ -15,11 +15,6 @@ public class Unit : MonoBehaviourPun
 
     public UnitMovement unitMovement;
 
-    private void Awake()
-    {
-        SetUnitActive(false);
-    }
-
     private void Update()
     {
         if (this.transform.childCount > 0)
@@ -28,13 +23,12 @@ public class Unit : MonoBehaviourPun
         }
     }
 
-    // Return to your pool
+    // Return to your pool and set your parent
     protected virtual void OnDisable()
     {
         if(photonView.IsMine)
         {
             transform.SetParent(myParent);
-            print(myPool == null ? true : false);
             myPool.Enqueue(this);
         }
     }

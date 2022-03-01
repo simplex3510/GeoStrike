@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6239d2f07ccdfe44a81c9cd16c8db9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myParent: {fileID: 0}
   unitInfo: {fileID: 11400000, guid: 4078c476bec734740bda2a69753613c9, type: 2}
   unitIdx: 6
   unitMovement: {fileID: 3532702475509949436}

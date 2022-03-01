@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IActivatable
 {
-    public void OnSetActive(bool _bool);
+    public void SetActive(bool _bool);
 }

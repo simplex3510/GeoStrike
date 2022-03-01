@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6239d2f07ccdfe44a81c9cd16c8db9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myParent: {fileID: 0}
   unitInfo: {fileID: 11400000, guid: 78157ab401c8b544e8da9143393ee00b, type: 2}
   unitIdx: 1
   unitMovement: {fileID: -6878827119006717112}

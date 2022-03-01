@@ -10,7 +10,7 @@ public class ObjectPoolMgr : MonoBehaviourPun
 
     public int unitCount;
 
-    public Pool[] poolArr = new Pool[6];
+    public Pool[] poolArr;
 
     private void Awake()
     {

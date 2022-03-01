@@ -12,14 +12,17 @@ public class Pool : MonoBehaviourPun
 
     private void Awake()
     {
-        ObjPoolQueue = new Queue<Unit>();
+        
     }
 
     // 초기 Object 생성
     public void InitObjectPool(int _num)
     {
+        ObjPoolQueue = new Queue<Unit>();
+
         for (int idx = 0; idx < _num; idx++)
         {
+            // Unit Create, Enqueue and SetActive false
             CreateNewObject();
         }
     }
@@ -42,12 +45,11 @@ public class Pool : MonoBehaviourPun
 
         newObj.myPool = ObjPoolQueue;
         newObj.myParent = transform;
-        print(transform.name);
 
         newObj.transform.SetParent(newObj.myParent);
         newObj.photonView.RPC("SetUnitActive", RpcTarget.All, false);
 
-        ObjPoolQueue.Enqueue(newObj);
+        // ObjPoolQueue.Enqueue(newObj); -> Unit의 OnDisable에서 자동으로 Enqueue
         Debug.Log("IsMine : " + this.photonView.IsMine + " : " + newObj + " : " + ObjPoolQueue.Count);
         return newObj;
     }

@@ -17,7 +17,7 @@ public class ObjectPool : MonoBehaviourPun
 
     private void Start()
     {
-        unitPool.Enqueue(CreateUnit());
+        // unitPool.Enqueue(CreateUnit()); -> Unit의 OnDisable에서 Enqueue
         print($"{unitPool.Peek()}: {unitPool.Count}");
     }
 
@@ -38,6 +38,7 @@ public class ObjectPool : MonoBehaviourPun
         newUnit.myPool = unitPool;
         newUnit.myParent = transform;
         newUnit.transform.SetParent(newUnit.myParent);
+        newUnit.SetActive(false);   // OnDisable에서 Enqueue됨
 
         return newUnit;
     }

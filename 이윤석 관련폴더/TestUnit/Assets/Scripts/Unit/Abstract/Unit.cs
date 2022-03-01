@@ -19,7 +19,7 @@ public enum EUnitState
     Die
 }
 
-public abstract class Unit : MonoBehaviourPun, IDamageable
+public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 {
     public Transform myParent;
     public Queue<Unit> myPool;
@@ -168,13 +168,23 @@ public abstract class Unit : MonoBehaviourPun, IDamageable
     }
 
     [PunRPC]
-    public virtual void OnDamaged(float _damage)
+    public void OnDamaged(float _damage)
     {
         currentHealth -= _damage - defense;
 
         if (currentHealth <= 0 && isDead == false)
         {
             unitState = EUnitState.Die;
+        }
+    }
+
+    [PunRPC]
+    public void SetActive(bool isTrue)
+    {
+        gameObject.SetActive(isTrue);
+        if(photonView.IsMine)
+        {
+            photonView.RPC("SetActive", RpcTarget.Others, isTrue);
         }
     }
 
