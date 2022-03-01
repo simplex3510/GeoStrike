@@ -156,7 +156,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
             StartCoroutine(RotateAnimation());
             return;
         }
-
     }
 
     protected virtual void Die()    // 유닛 사망
@@ -164,13 +163,14 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         isDead = true;
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
 
-        StartCoroutine(DieAnimation());
+        StartCoroutine(DieAnimation(gameObject));
     }
 
     [PunRPC]
     public void OnDamaged(float _damage)
     {
-        currentHealth -= _damage - defense;
+        float damage = _damage - defense;
+        currentHealth = 0 < damage ? damage : 0;
 
         if (currentHealth <= 0 && isDead == false)
         {
@@ -188,9 +188,9 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         }
     }
 
-    IEnumerator DieAnimation()
+    protected IEnumerator DieAnimation(GameObject _gameObject)
     {
-        var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        var spriteRenderer = _gameObject.GetComponent<SpriteRenderer>();
         var color = spriteRenderer.color;
         while (0 <= color.a)
         {
@@ -200,7 +200,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
             yield return null;
         }
 
-        gameObject.SetActive(false);
+        _gameObject.SetActive(false);
         spriteRenderer.color = Color.white;
 
         unitState = EUnitState.Idle;

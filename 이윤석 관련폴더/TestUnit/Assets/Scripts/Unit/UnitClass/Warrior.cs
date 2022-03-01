@@ -53,26 +53,8 @@ public class Warrior : Unit
                 animator.SetBool("isAttack", true);
                 break;
             case EUnitState.Die:
-                StartCoroutine(DieAnimation());
+                StartCoroutine(DieAnimation(weapon));
                 break;
         }
-    }
-
-    IEnumerator DieAnimation()
-    {
-        unitState = EUnitState.Idle;
-
-        var spriteRenderer = weapon.GetComponentInChildren<SpriteRenderer>();
-        var color = spriteRenderer.color;
-        while (0 <= color.a)
-        {
-            color.a -= 1f * Time.deltaTime;
-            spriteRenderer.color = color;
-
-            yield return null;
-        }
-
-        spriteRenderer.color = Color.white;
-        gameObject.SetActive(false);
     }
 }
