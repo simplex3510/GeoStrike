@@ -8,8 +8,8 @@ using Photon.Realtime;
 public class TranslocateField : MonoBehaviourPun
 {
     // Unit state
-    public List<Unit> p1UnitList = new List<Unit>();
-    public List<Unit> p2UnitList = new List<Unit>();
+    public List<Unit> unitList = new List<Unit>();
+    //public List<Unit> p2UnitList = new List<Unit>();
 
     // Waiting unit translocate
     [SerializeField] private Transform moveToBattleFieldP1;
@@ -42,18 +42,18 @@ public class TranslocateField : MonoBehaviourPun
 
     private void ClearList()
     {
-        for (int idx = 0; idx < p1UnitList.Count; idx++)
+        for (int idx = 0; idx < unitList.Count; idx++)
         {
-            p1UnitList[idx].transform.parent = null;
+            unitList[idx].transform.parent = null;
         }
-        p1UnitList.Clear();
+        unitList.Clear();
         spawnPosP1.transform.position = originPosP1;
 
-        for (int idx = 0; idx < p2UnitList.Count; idx++)
-        {
-            p2UnitList[idx].transform.parent = null;
-        }
-        p2UnitList.Clear();
-        spawnPosP2.transform.position = originPosP2;
+        //for (int idx = 0; idx < p2UnitList.Count; idx++)
+        //{
+        //    p2UnitList[idx].transform.parent = null;
+        //}
+        //p2UnitList.Clear();
+        //spawnPosP2.transform.position = originPosP2;
     }
 }

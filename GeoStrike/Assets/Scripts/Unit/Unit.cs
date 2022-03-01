@@ -38,6 +38,12 @@ public class Unit : MonoBehaviourPun
     {
         gameObject.SetActive(isTrue);
     }
+
+    [PunRPC]
+    public void SetUnitNullParent()
+    {
+        transform.SetParent(null);
+    }
 }
 
 

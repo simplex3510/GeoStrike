@@ -57,28 +57,27 @@ public class Pool : MonoBehaviourPun
     public Unit GetObject()
     {
         // Pool에 Object가 있을 경우 - 꺼내기
-        //if (p1ObjPoolQueue.Count > 0)
-        //{
-        //    Unit obj = p1ObjPoolQueue.Dequeue();
-        //    obj.transform.SetParent(null);
-        //    obj.gameObject.SetActive(true);
+        if (ObjPoolQueue.Count > 0)
+        {
+            Unit obj = ObjPoolQueue.Dequeue();
+            Debug.Log("Get Obj ID : " + obj.photonView.ViewID);
+            obj.transform.SetParent(null);
+            obj.photonView.RPC("SetUnitActive", RpcTarget.All, true);
 
-        //    return obj;
-        //}
-        //// Pool에 Object가 부족 할 경우 - 새로 만들고 꺼내기
-        //else
-        //{
-        //    Debug.Log("p1-New");
-        //    Unit newObj = CreateNewObject();
-        //    SetUnitEnqueue(newObj);
-        //    Debug.Log(p1ObjPoolQueue.Count);
-        //    p1ObjPoolQueue.Dequeue();
-        //    newObj.transform.SetParent(null);
-        //    newObj.gameObject.SetActive(true);
+            return obj;
+        }
+        // Pool에 Object가 부족 할 경우 - 새로 만들고 꺼내기
+        else
+        {
+            Unit newObj = CreateNewObject();
+            Debug.Log("Create New Obj ID : " + newObj.photonView.ViewID);
 
-        //    return newObj;
-        //}
-        return null;
+            ObjPoolQueue.Dequeue();
+            newObj.transform.SetParent(null);
+            newObj.photonView.RPC("SetUnitActive", RpcTarget.All, true);
+
+            return newObj;
+        }
     }
 
     // 사용된 Object를 Pool로 반환
