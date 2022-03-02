@@ -47641,8 +47641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b7032439a6d7de4aab3ecdcb915505a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p1UnitList: []
-  p2UnitList: []
+  unitList: []
   moveToBattleFieldP1: {fileID: 5291842687124646602}
   moveToBattleFieldP2: {fileID: 6666118778956196123}
   spawnPosP1: {fileID: 5291842685617996460}

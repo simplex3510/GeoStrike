@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Tilemaps;
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -40,9 +41,10 @@ public class Unit : MonoBehaviourPun
     }
 
     [PunRPC]
-    public void SetUnitNullParent()
+    public void SetUnitPos(int _player, int _row, int _column)
     {
-        transform.SetParent(null);
+        this.transform.position = transform.TransformDirection(GameMgr.instance.grid.GetComponentInChildren<UnitTileContainer>().unitTileArr[_player, _row, _column].transform.position) + Vector3.back;
+        Debug.Log("Succes Pos RPC");
     }
 }
 

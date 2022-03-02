@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-[DefaultExecutionOrder(201)]
+[DefaultExecutionOrder(202)]
 public class UnitCreator : MonoBehaviourPun
 {
     [SerializeField] private UnitTileContainer unitTileContainer;
@@ -41,15 +41,16 @@ public class UnitCreator : MonoBehaviourPun
                         // Unit 생성
                         if (unit.unitIdx != 0)
                         {
-                            Unit obj = ObjectPoolMgr.instance.poolArr[unit.unitIdx - 1].GetObject();
-                            
+                            Unit obj = ObjectPoolMgr.instance.poolArr[unit.unitIdx - 1].GetObject();    // 내 Pool에서 내 유닛 꺼내기
 
-                            obj.transform.position = unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].transform.position + Vector3.back; // 내 유닛 타일에 배치
+                            obj.transform.position = unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].worldPos + Vector3.back; // 내 유닛 타일에 배치
+                            Debug.Log("after  : " + obj.transform.position);
+                            //obj.photonView.RPC("SetUnitPos", RpcTarget.All, ConnectMgr.MASTER_PLAYER, row, column);
                             unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].isEmty = false;   // 소환된 유닛 타일의 상태 변환
                             
                             // 배틀필드로 유닛 이동시켜주기 위한 작업
                             translocateField.unitList.Add(obj);
-                            obj.transform.SetParent(translocateField.spawnPosP1.transform);
+                            obj.transform.SetParent(translocateField.spawnPosP1.transform); // <- x
                             return;
                         }
                     }

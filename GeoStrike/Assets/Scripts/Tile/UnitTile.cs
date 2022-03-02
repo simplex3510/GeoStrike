@@ -7,6 +7,7 @@ public class UnitTile : MonoBehaviour
     public bool isEmty = true;
 
     public Vector2 tileCoordinate; // 좌표 값
+    public Vector3 worldPos; // 월드 위치 값
 
     private SpriteRenderer spriteRenderer;
 
@@ -15,6 +16,8 @@ public class UnitTile : MonoBehaviour
     private void Awake()
     {
         if (spriteRenderer == null) { spriteRenderer = GetComponent<SpriteRenderer>(); }
+
+        worldPos = transform.TransformPoint(Vector3.zero);
     }
 
     public void SetColor()
