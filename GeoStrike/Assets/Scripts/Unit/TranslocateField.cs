@@ -47,13 +47,8 @@ public class TranslocateField : MonoBehaviourPun
             unitList[idx].transform.parent = null;
         }
         unitList.Clear();
-        spawnPosP1.transform.position = originPosP1;
 
-        //for (int idx = 0; idx < p2UnitList.Count; idx++)
-        //{
-        //    p2UnitList[idx].transform.parent = null;
-        //}
-        //p2UnitList.Clear();
-        //spawnPosP2.transform.position = originPosP2;
+        spawnPosP1.transform.position = originPosP1;
+        spawnPosP2.transform.position = originPosP2;
     }
 }

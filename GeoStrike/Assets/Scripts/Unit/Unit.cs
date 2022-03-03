@@ -39,13 +39,6 @@ public class Unit : MonoBehaviourPun
     {
         gameObject.SetActive(isTrue);
     }
-
-    [PunRPC]
-    public void SetUnitPos(int _player, int _row, int _column)
-    {
-        this.transform.position = transform.TransformDirection(GameMgr.instance.grid.GetComponentInChildren<UnitTileContainer>().unitTileArr[_player, _row, _column].transform.position) + Vector3.back;
-        Debug.Log("Succes Pos RPC");
-    }
 }
 
 
