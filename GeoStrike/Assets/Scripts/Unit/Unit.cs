@@ -58,7 +58,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
     protected virtual void Awake()
     {
-        isPlayer1 = GameMgr.isMaster;
+        isPlayer1 = (photonView.ViewID / 1000) == 1 ? true : false;
 
         if (photonView.IsMine)
         {
