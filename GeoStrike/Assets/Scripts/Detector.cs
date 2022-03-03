@@ -46,31 +46,31 @@ public class Detector : MonoBehaviourPun
 
     private void OnClickEvent()
     {
-        if (cameraController.mouseController.eMouseMode == MouseController.EMouseMode.normal && Input.GetMouseButtonDown(MouseController.CLICK_LEFT))
-        {
-            Vector2 pos = cameraController.mainCamera.ScreenToWorldPoint(cameraController.mouseController.mousePos);
-            hit2D = Physics2D.Raycast(pos, Vector2.zero, 0f, mask);
-            if (hit2D.collider != null)
-            {
-                // 유닛 정보 불러오기
-                clickedObject = hit2D.collider.gameObject;
-                if (clickedObject.CompareTag("unit"))
-                {
-                    // 정보창에 유닛 띄우기
-                    Debug.Log("unit status : " + hit2D);
-                    if (hit2D.collider.GetComponent<UnitState>().GetState() == UnitState.EUnitState.FSM_Standby)
-                    {
-                        // 배치모드
-                        StartCoroutine(CBatchMode());
-                    }
-                }
+        //if (cameraController.mouseController.eMouseMode == MouseController.EMouseMode.normal && Input.GetMouseButtonDown(MouseController.CLICK_LEFT))
+        //{
+        //    Vector2 pos = cameraController.mainCamera.ScreenToWorldPoint(cameraController.mouseController.mousePos);
+        //    hit2D = Physics2D.Raycast(pos, Vector2.zero, 0f, mask);
+        //    if (hit2D.collider != null)
+        //    {
+        //        // 유닛 정보 불러오기
+        //        clickedObject = hit2D.collider.gameObject;
+        //        if (clickedObject.CompareTag("unit"))
+        //        {
+        //            // 정보창에 유닛 띄우기
+        //            Debug.Log("unit status : " + hit2D);
+        //            if (hit2D.collider.GetComponent<UnitState>().GetState() == UnitState.EUnitState.FSM_Standby)
+        //            {
+        //                // 배치모드
+        //                StartCoroutine(CBatchMode());
+        //            }
+        //        }
 
-                //if (hit2D.collider.CompareTag("Tetromino"))
-                //{
-                //    Debug.Log("UnitTile : " + hit2D);
-                //}
-            }
-        }
+        //        //if (hit2D.collider.CompareTag("Tetromino"))
+        //        //{
+        //        //    Debug.Log("UnitTile : " + hit2D);
+        //        //}
+        //    }
+        //}
     }
 
     private void CheckBuildPreview()

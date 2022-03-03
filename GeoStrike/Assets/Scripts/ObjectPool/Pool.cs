@@ -8,12 +8,8 @@ public class Pool : MonoBehaviourPun
 {
     public Queue<Unit> ObjPoolQueue;
 
-    public Unit unit;
-
-    private void Awake()
-    {
-        
-    }
+    public Unit unitP1;
+    public Unit unitP2;
 
     // 초기 Object 생성
     public void InitObjectPool(int _num)
@@ -34,11 +30,11 @@ public class Pool : MonoBehaviourPun
 
         if (PhotonNetwork.IsMasterClient)
         {
-            newObj = PhotonNetwork.Instantiate(unit.name, new Vector3(-8f, -1f, 0f), Quaternion.identity).GetComponent<Unit>();
+            newObj = PhotonNetwork.Instantiate(unitP1.name, Vector3.zero, Quaternion.identity).GetComponent<Unit>();
         }
         else
         {
-            newObj = PhotonNetwork.Instantiate(unit.name, new Vector3(8f, 1f, 0f), Quaternion.Euler(0f, 0f, 180f)).GetComponent<Unit>();
+            newObj = PhotonNetwork.Instantiate(unitP2.name, Vector3.zero, Quaternion.Euler(0f, 0f, 180f)).GetComponent<Unit>();
         }
 
         // newObj.transform.SetParent(GameObject.Find("Pool_Unit" + unit.unitInfo.unitName).transform);
@@ -47,7 +43,8 @@ public class Pool : MonoBehaviourPun
         newObj.myParent = transform;
 
         newObj.transform.SetParent(newObj.myParent);
-        newObj.photonView.RPC("SetUnitActive", RpcTarget.All, false);
+        newObj.gameObject.SetActive(false);
+        newObj.photonView.RPC("SetUnitActive", RpcTarget.Others, false);
 
         // ObjPoolQueue.Enqueue(newObj); -> Unit의 OnDisable에서 자동으로 Enqueue
         Debug.Log("IsMine : " + this.photonView.IsMine + " : " + newObj + " : " + ObjPoolQueue.Count);
