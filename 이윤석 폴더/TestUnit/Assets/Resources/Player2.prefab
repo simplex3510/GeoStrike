@@ -138,8 +138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ed1d5b0257b114f9512ed4a96a24e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initStatus: {fileID: 11400000, guid: ed8cf322a46988644979adbbf4f9f8c1, type: 2}
+  deltaStatus: {fileID: 11400000, guid: f9e07263c14025948ad9b6d3fb0d879d, type: 2}
   myParent: {fileID: 0}
-  unitData: {fileID: 11400000, guid: ed8cf322a46988644979adbbf4f9f8c1, type: 2}
   animator: {fileID: 3868155411218932853}
   weapon: {fileID: 7786633145386498038}
 --- !u!114 &1233569061901722368

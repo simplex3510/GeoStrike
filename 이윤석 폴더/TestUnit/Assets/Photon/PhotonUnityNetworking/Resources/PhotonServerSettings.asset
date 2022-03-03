@@ -46,6 +46,10 @@ MonoBehaviour:
   - InitalizeUnit
   - SetActive
   - SetUnitActive
+  - EnforceStatus
+  - OnEnforceStatus
+  - OnEnforceHealth
+  - OnEnforceStartHealth
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
