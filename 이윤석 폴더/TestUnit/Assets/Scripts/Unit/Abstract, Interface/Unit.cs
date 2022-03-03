@@ -31,6 +31,8 @@ interface IActivatable
 
 public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 {
+    public UnitData initStatus;
+    public UnitData deltaStatus;
     public Transform myParent;
     public Queue<Unit> myPool;
 
@@ -56,7 +58,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
     protected virtual void Awake()
     {
-        isPlayer1 = PhotonNetwork.IsMasterClient;
+        isPlayer1 = (photonView.ViewID / 1000) == 1 ? true : false; ;
 
         if (photonView.IsMine)
         {
@@ -68,13 +70,35 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
             gameObject.layer = (int)EPlayer.Enemy;
             opponentLayerMask = 1 << (int)EPlayer.Ally;
         }
+
+        #region Status Init
+        startHealth = initStatus.health;
+        currentHealth = startHealth;
+        damage = initStatus.damage;
+        defense = initStatus.defense;
+        attackRange = initStatus.attackRange;
+        detectRange = initStatus.detectRange;
+        attackSpeed = initStatus.attackSpeed;
+        moveSpeed = initStatus.moveSpeed;
+        #endregion
     }
 
     protected virtual void OnEnable()
     {
         isDead = false;
+
+        #region deltaStatus Init
+        startHealth = deltaStatus.health;
         currentHealth = startHealth;
-        unitState = EUnitState.Move;
+        damage = deltaStatus.damage;
+        defense = deltaStatus.defense;
+        attackRange = deltaStatus.attackRange;
+        detectRange = deltaStatus.detectRange;
+        attackSpeed = deltaStatus.attackSpeed;
+        moveSpeed = deltaStatus.moveSpeed;
+        #endregion
+
+        unitState = EUnitState.Idle;
     }
 
     // Return to your pool
@@ -253,6 +277,17 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         }
 
         isRotate = false;
+    }
+
+    private void OnApplicationQuit()
+    {
+        deltaStatus.health = initStatus.health;
+        deltaStatus.damage = initStatus.damage;
+        deltaStatus.defense = initStatus.defense;
+        deltaStatus.attackRange = initStatus.attackRange;
+        deltaStatus.detectRange = initStatus.detectRange;
+        deltaStatus.attackSpeed = initStatus.attackSpeed;
+        deltaStatus.moveSpeed = initStatus.moveSpeed;
     }
 
     private void OnDrawGizmos()

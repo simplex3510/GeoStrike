@@ -1,44 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 
 public class Warrior : Unit
 {
-    public UnitData unitData;
     public Animator animator;
-
     public GameObject weapon;
 
-    protected override void Awake()
+    [PunRPC]
+    public void OnEnforceStartHealth()
     {
-        base.Awake();
-
-        #region Initialize
-        startHealth = unitData.health;
-        damage = unitData.damage;
-        defense = unitData.defense;
-        attackRange = unitData.attackRange;
-        detectRange = unitData.detectRange;
-        attackSpeed = unitData.attackSpeed;
-        moveSpeed = unitData.moveSpeed;
-        #endregion
-    }
-
-    protected override void OnEnable()
-    {
-        base.OnEnable();
-    }
-
-    protected override void OnDisable()
-    {
-        base.OnDisable();
+        deltaStatus.health += 5;
+        if (photonView.IsMine)
+        {
+            photonView.RPC("OnEnforceStartHealth", RpcTarget.Others);
+        }
     }
 
     protected override void Update()
     {
-        base.Update();
-
         switch (unitState)
         {
             case EUnitState.Idle:
