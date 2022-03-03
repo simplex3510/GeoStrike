@@ -153,4 +153,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitTileContainer: {fileID: 0}
   translocateField: {fileID: 0}
-  unit: {fileID: -2529365124054563753, guid: 75b5dadf822663a4db45e3020e413f85, type: 3}
+  unitP1: {fileID: 5965815629407971491, guid: 75b5dadf822663a4db45e3020e413f85, type: 3}
+  unitP2: {fileID: 5965815629407971491, guid: 06d18afe419d30a4fb81843b1ed1bf92, type: 3}
