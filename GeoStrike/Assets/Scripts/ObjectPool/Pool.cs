@@ -43,8 +43,7 @@ public class Pool : MonoBehaviourPun
         newObj.myParent = transform;
 
         newObj.transform.SetParent(newObj.myParent);
-        newObj.gameObject.SetActive(false);
-        newObj.photonView.RPC("SetUnitActive", RpcTarget.Others, false);
+        newObj.SetUnitActive(false);
 
         // ObjPoolQueue.Enqueue(newObj); -> Unit의 OnDisable에서 자동으로 Enqueue
         Debug.Log("IsMine : " + this.photonView.IsMine + " : " + newObj + " : " + ObjPoolQueue.Count);
@@ -59,7 +58,7 @@ public class Pool : MonoBehaviourPun
             Unit obj = ObjPoolQueue.Dequeue();
             Debug.Log("Get Obj ID : " + obj.photonView.ViewID);
             obj.transform.SetParent(null);
-            obj.photonView.RPC("SetUnitActive", RpcTarget.All, true);
+            obj.SetUnitActive(true);
 
             return obj;
         }
@@ -71,7 +70,7 @@ public class Pool : MonoBehaviourPun
 
             ObjPoolQueue.Dequeue();
             newObj.transform.SetParent(null);
-            newObj.photonView.RPC("SetUnitActive", RpcTarget.All, true);
+            newObj.SetUnitActive(true);
 
             return newObj;
         }

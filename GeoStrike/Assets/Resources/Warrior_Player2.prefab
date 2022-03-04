@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8551513137540009714}
   - component: {fileID: 6251008419355825253}
+  - component: {fileID: -4328757994072904152}
   - component: {fileID: -5902000301810328908}
   - component: {fileID: -9103522845657585369}
-  - component: {fileID: 5965815629407971491}
   - component: {fileID: 8402230004344784614}
   - component: {fileID: 8383513161493797912}
   - component: {fileID: 7465222407031686999}
@@ -89,6 +89,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-4328757994072904152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3773080401695551178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a0590597921cca46a745644f037fdb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initStatus: {fileID: 11400000, guid: db64e86f038ebee4aadbfe50bd7eb844, type: 2}
+  deltaStatus: {fileID: 11400000, guid: ed8cf322a46988644979adbbf4f9f8c1, type: 2}
+  myParent: {fileID: 0}
+  unitIdx: 1
+  animator: {fileID: 8402230004344784614}
+  weapon: {fileID: 8450885497808008734}
 --- !u!114 &-5902000301810328908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,23 +146,6 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 0
---- !u!114 &5965815629407971491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3773080401695551178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a0590597921cca46a745644f037fdb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myParent: {fileID: 0}
-  unitIdx: 1
-  unitData: {fileID: 11400000, guid: ed8cf322a46988644979adbbf4f9f8c1, type: 2}
-  animator: {fileID: 8402230004344784614}
-  weapon: {fileID: 8450885497808008734}
 --- !u!95 &8402230004344784614
 Animator:
   serializedVersion: 3

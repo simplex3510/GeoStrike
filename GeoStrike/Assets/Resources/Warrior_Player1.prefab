@@ -140,9 +140,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a0590597921cca46a745644f037fdb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initStatus: {fileID: 11400000, guid: db64e86f038ebee4aadbfe50bd7eb844, type: 2}
+  deltaStatus: {fileID: 11400000, guid: ed8cf322a46988644979adbbf4f9f8c1, type: 2}
   myParent: {fileID: 0}
   unitIdx: 1
-  unitData: {fileID: 11400000, guid: ed8cf322a46988644979adbbf4f9f8c1, type: 2}
   animator: {fileID: 5693223113987586889}
   weapon: {fileID: 8450885497808008734}
 --- !u!95 &5693223113987586889
