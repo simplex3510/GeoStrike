@@ -37,11 +37,8 @@ public class Pool : MonoBehaviourPun
             newObj = PhotonNetwork.Instantiate("Unit/RedTeam/" + unitP2.name, Vector3.zero, Quaternion.Euler(0f, 0f, 180f)).GetComponent<Unit>();
         }
 
-        // newObj.transform.SetParent(GameObject.Find("Pool_Unit" + unit.unitInfo.unitName).transform);
-
         newObj.myPool = ObjPoolQueue;
         newObj.myParent = transform;
-
         newObj.transform.SetParent(newObj.myParent);
         newObj.SetUnitActive(false);
 

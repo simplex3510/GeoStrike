@@ -9,7 +9,7 @@ using Photon.Realtime;
 [DefaultExecutionOrder(202)]
 public class TetrominoMaker : MonoBehaviourPun
 {
-    public List<Tetromino> tetrominoList = new List<Tetromino>(); // 7가지 모양
+    public Tetromino[] tetrominoArr = new Tetromino[7]; // 7가지 모양을 담는 배열
 
     public TetrominoSlot tetrominoSlot;
     private GameObject tetrominoObj;
@@ -26,7 +26,8 @@ public class TetrominoMaker : MonoBehaviourPun
     {
         if (tetrominoSlot == null) { tetrominoSlot = GetComponentInParent<TetrominoSlot>(); }
 
-        InitSpriteTeamColor();
+        InitTetrominoSprite();
+        InitTetrominoArr();
     }
 
     private void Start()
@@ -41,7 +42,8 @@ public class TetrominoMaker : MonoBehaviourPun
         randomShape = Random.Range(0, 7);  //   7가지의 모양
         randomRotation = Random.Range(0, 4);    // 4가지의 회전값
 
-        tetrominoObj = tetrominoList[randomShape].gameObject;   // 슬롯에 현재 테트로미노 정보 전달
+        tetrominoObj = tetrominoArr[randomShape].gameObject;   // 슬롯에 랜덤으로 받은 테트로미노 Obj 전달
+
         tetrominoSlot.rectSlot.Rotate(GetAngle());   // 슬롯 이미지 회전
         tetrominoSlot.slotImage.sprite = tetrominoObj.GetComponent<SpriteRenderer>().sprite;  // 슬롯 이미지 전달
     }
@@ -167,18 +169,27 @@ public class TetrominoMaker : MonoBehaviourPun
         return angle;
     }
 
-    [PunRPC]
-    private void InitSpriteTeamColor()
+    private void InitTetrominoArr()
     {
-        for (int idx = 0; idx < tetrominoList.Count; idx++)
+        for (int shapeIdx = 0; shapeIdx < ArrayNumber.TETROMINO_SHAPE; shapeIdx++)
         {
             if (GameMgr.isMaster)
             {
-                tetrominoList[idx].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Tetromino/Sprite/Blue_" + alphbet[idx]);            }
+                tetrominoArr[shapeIdx] = Resources.Load<Tetromino>("Tetromino/Prefabs/BlueTeam/Blue_" + alphbet[shapeIdx]);
+            }
             else
             {
-                tetrominoList[idx].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Tetromino/Sprite/Red_" + alphbet[idx]);
+                tetrominoArr[shapeIdx] = Resources.Load<Tetromino>("Tetromino/Prefabs/RedTeam/Red_" + alphbet[shapeIdx]);
             }
+        }
+    }
+
+    private void InitTetrominoSprite()
+    {
+        for (int shapeIdx = 0; shapeIdx < ArrayNumber.TETROMINO_SHAPE; shapeIdx++)
+        {
+            Resources.Load<GameObject>("Tetromino/Prefabs/BlueTeam/Blue_" + alphbet[shapeIdx]).GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Tetromino/Sprites/BlueTeam/Blue_" + alphbet[shapeIdx]);
+            Resources.Load<GameObject>("Tetromino/Prefabs/RedTeam/Red_" + alphbet[shapeIdx]).GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Tetromino/Sprites/RedTeam/Red_" + alphbet[shapeIdx]);
         }
     }
 }
