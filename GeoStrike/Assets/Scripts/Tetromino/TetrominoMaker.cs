@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class TetrominoMaker : MonoBehaviour
+
+[DefaultExecutionOrder(202)]
+public class TetrominoMaker : MonoBehaviourPun
 {
     public List<Tetromino> tetrominoList = new List<Tetromino>(); // 7가지 모양
 
@@ -16,9 +20,13 @@ public class TetrominoMaker : MonoBehaviour
 
     private int[] angleArr = { 0, 90, 180, 270 };
 
+    private char[] alphbet = { 'O', 'I', 'T', 'J', 'L', 'S', 'Z' };
+
     private void Awake()
     {
         if (tetrominoSlot == null) { tetrominoSlot = GetComponentInParent<TetrominoSlot>(); }
+
+        InitSpriteTeamColor();
     }
 
     private void Start()
@@ -37,6 +45,7 @@ public class TetrominoMaker : MonoBehaviour
         tetrominoSlot.rectSlot.Rotate(GetAngle());   // 슬롯 이미지 회전
         tetrominoSlot.slotImage.sprite = tetrominoObj.GetComponent<SpriteRenderer>().sprite;  // 슬롯 이미지 전달
     }
+
     public GameObject GetTetrominoObj()
     {
         return tetrominoObj;
@@ -156,5 +165,20 @@ public class TetrominoMaker : MonoBehaviour
                 break;
         }
         return angle;
+    }
+
+    [PunRPC]
+    private void InitSpriteTeamColor()
+    {
+        for (int idx = 0; idx < tetrominoList.Count; idx++)
+        {
+            if (GameMgr.isMaster)
+            {
+                tetrominoList[idx].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Tetromino/Sprite/Blue_" + alphbet[idx]);            }
+            else
+            {
+                tetrominoList[idx].GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Tetromino/Sprite/Red_" + alphbet[idx]);
+            }
+        }
     }
 }

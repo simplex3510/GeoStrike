@@ -28,7 +28,7 @@ public class TetrominoCreater : MonoBehaviourPun
         if (!CanBuildPreview(resultTileCoord)) { Debug.Log("You can`t build there"); return; }
 
         BuildOnEmptyTile(resultTileCoord);
-        PhotonNetwork.Instantiate(_tetromino.name, _mousePos - Vector3.forward, Quaternion.Euler(_angle));
+        PhotonNetwork.Instantiate("Tetromino/Prefabs/" + _tetromino.name, _mousePos - Vector3.forward, Quaternion.Euler(_angle));
 
         TetrominoPreview.instance.ClearPreview();
         ResetTetrominoSlot();

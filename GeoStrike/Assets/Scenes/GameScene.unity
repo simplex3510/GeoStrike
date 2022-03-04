@@ -27604,6 +27604,7 @@ GameObject:
   - component: {fileID: 912067514}
   - component: {fileID: 912067513}
   - component: {fileID: 912067517}
+  - component: {fileID: 912067518}
   m_Layer: 5
   m_Name: tetrominoSlot2
   m_TagString: Untagged
@@ -27767,6 +27768,28 @@ MonoBehaviour:
   - {fileID: 287237837107563153, guid: da6f7f0a81c5a53408fd5dfb14291fdb, type: 3}
   - {fileID: 2100842291802964294, guid: 30a189b4532fe23438789453f1cfa26e, type: 3}
   tetrominoSlot: {fileID: 0}
+--- !u!114 &912067518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912067511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 10
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1001 &912539028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35301,6 +35324,7 @@ GameObject:
   - component: {fileID: 1389848054}
   - component: {fileID: 1389848053}
   - component: {fileID: 1389848057}
+  - component: {fileID: 1389848058}
   m_Layer: 5
   m_Name: tetrominoSlot1
   m_TagString: Untagged
@@ -35464,6 +35488,28 @@ MonoBehaviour:
   - {fileID: 287237837107563153, guid: da6f7f0a81c5a53408fd5dfb14291fdb, type: 3}
   - {fileID: 2100842291802964294, guid: 30a189b4532fe23438789453f1cfa26e, type: 3}
   tetrominoSlot: {fileID: 0}
+--- !u!114 &1389848058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389848051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 9
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!4 &1390570118 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8002610452188457418, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -35865,7 +35911,7 @@ GameObject:
   - component: {fileID: 1427968011}
   - component: {fileID: 1427968010}
   m_Layer: 5
-  m_Name: Main
+  m_Name: Interface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45486,7 +45532,7 @@ GameObject:
   - component: {fileID: 2043609109}
   - component: {fileID: 2043609111}
   m_Layer: 5
-  m_Name: TetrominoSlot
+  m_Name: TetrominoSlotContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48943,8 +48989,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4af38117996f844a46da7dc66271a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitP1: {fileID: 5965815629407971491, guid: 75b5dadf822663a4db45e3020e413f85, type: 3}
-  unitP2: {fileID: -4328757994072904152, guid: 06d18afe419d30a4fb81843b1ed1bf92, type: 3}
+  unitP1: {fileID: -3071955827369384402, guid: 910d87c2ef1aec34ca7d63391e187e9c, type: 3}
+  unitP2: {fileID: 1234357198173039138, guid: c4dee110a30cd0647b89371b35e54475, type: 3}
 --- !u!1 &8412507069969993100
 GameObject:
   m_ObjectHideFlags: 0
