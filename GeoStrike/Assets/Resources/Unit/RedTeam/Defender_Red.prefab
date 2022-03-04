@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8173733402153910182}
   - component: {fileID: 8173733402153910183}
+  - component: {fileID: 2195632718392634881}
   m_Layer: 0
   m_Name: RedTeam_Weapon_Shield
   m_TagString: Untagged
@@ -82,6 +83,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &2195632718392634881
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8173733402153910181}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.04, y: 0.28}
+    newSize: {x: 3, y: 0.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.04, y: 0.28}
+  m_EdgeRadius: 0
 --- !u!1 &8173733403797653949
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,6 +124,7 @@ GameObject:
   - component: {fileID: 3633500072746690503}
   - component: {fileID: 210230309928423962}
   - component: {fileID: -1460699470688573805}
+  - component: {fileID: 4429122311321390504}
   m_Layer: 0
   m_Name: Defender_Red
   m_TagString: Untagged
@@ -275,3 +303,21 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 0
+--- !u!114 &4429122311321390504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8173733403797653949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a0590597921cca46a745644f037fdb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initStatus: {fileID: 11400000, guid: 31810c8f887e0834b84c29ffe41a89c4, type: 2}
+  deltaStatus: {fileID: 11400000, guid: 0eba4100142bc20449900006291b1071, type: 2}
+  myParent: {fileID: 0}
+  unitIdx: 2
+  animator: {fileID: 8173733403797653950}
+  weapon: {fileID: 8173733402153910181}
