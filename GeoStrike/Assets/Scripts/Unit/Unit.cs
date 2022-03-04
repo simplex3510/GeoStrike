@@ -193,7 +193,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         else if (enemyCollider2D == null)
         {
             unitState = EUnitState.Move;
-            StartCoroutine(RotateAnimation());
             return;
         }
     }
@@ -210,7 +209,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     public void OnDamaged(float _damage)
     {
         float damage = _damage - defense;
-        currentHealth = 0 < damage ? damage : 0;
+        currentHealth -= 0 < damage ? damage : 0;
 
         if (currentHealth <= 0 && isDead == false)
         {

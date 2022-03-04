@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1233569061901722399}
   - component: {fileID: 1233569061901722398}
+  - component: {fileID: 1234357198173039138}
   - component: {fileID: 1233569061901722397}
   - component: {fileID: 1233569061901722396}
   - component: {fileID: 1233569061901722368}
   - component: {fileID: -352233727883452531}
   - component: {fileID: 3868155411218932853}
-  - component: {fileID: 1234357198173039138}
   m_Layer: 7
   m_Name: Warrior_Red
   m_TagString: Unit
@@ -89,6 +89,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1234357198173039138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233569061901722371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a0590597921cca46a745644f037fdb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initStatus: {fileID: 11400000, guid: db64e86f038ebee4aadbfe50bd7eb844, type: 2}
+  deltaStatus: {fileID: 11400000, guid: ed8cf322a46988644979adbbf4f9f8c1, type: 2}
+  myParent: {fileID: 0}
+  unitIdx: 1
+  animator: {fileID: 3868155411218932853}
+  weapon: {fileID: 7786633145386498038}
 --- !u!50 &1233569061901722397
 Rigidbody2D:
   serializedVersion: 4
@@ -184,24 +202,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1234357198173039138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233569061901722371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a0590597921cca46a745644f037fdb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initStatus: {fileID: 11400000, guid: db64e86f038ebee4aadbfe50bd7eb844, type: 2}
-  deltaStatus: {fileID: 11400000, guid: ed8cf322a46988644979adbbf4f9f8c1, type: 2}
-  myParent: {fileID: 0}
-  unitIdx: 1
-  animator: {fileID: 3868155411218932853}
-  weapon: {fileID: 7786633145386498038}
 --- !u!1 &7786633145386498038
 GameObject:
   m_ObjectHideFlags: 0
