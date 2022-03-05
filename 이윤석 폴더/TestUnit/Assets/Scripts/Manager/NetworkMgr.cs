@@ -19,14 +19,14 @@ public class NetworkMgr : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel("SampleScene");
-        if (PhotonNetwork.IsMasterClient)
-        {
-            PhotonNetwork.Instantiate("Player1", new Vector3(-8, -1, 0), Quaternion.identity);
-        }
-        else
-        {
-            PhotonNetwork.Instantiate("Player2", new Vector3(8, 1, 0), Quaternion.Euler(0f, 0f, 180f));
-        }
+        PhotonNetwork.LoadLevel("ShooterScene");
+        //if (PhotonNetwork.IsMasterClient)
+        //{
+        //    PhotonNetwork.Instantiate("Player1", new Vector3(-8, -1, 0), Quaternion.identity);
+        //}
+        //else
+        //{
+        //    PhotonNetwork.Instantiate("Player2", new Vector3(8, 1, 0), Quaternion.Euler(0f, 0f, 180f));
+        //}
     }
 }

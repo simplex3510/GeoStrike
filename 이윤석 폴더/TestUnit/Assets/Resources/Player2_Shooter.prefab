@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1110568053594303445}
   - component: {fileID: 1110568053594303444}
   - component: {fileID: 1110568053594303440}
-  - component: {fileID: 1110568053594303443}
+  - component: {fileID: 8852630925916408796}
   - component: {fileID: 2315748227288742909}
   - component: {fileID: 1110568053594303442}
   - component: {fileID: 2353060910538526301}
@@ -110,8 +110,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &1110568053594303443
-CircleCollider2D:
+--- !u!61 &8852630925916408796
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -124,8 +124,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!114 &2315748227288742909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,10 +148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97e0287db5105f4b96ea22c1f62750c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitData: {fileID: 11400000, guid: 75216e9577992fe478fd3d8260c8d932, type: 2}
-  animator: {fileID: 1260308143512598917}
-  bullet: {fileID: 3604698000704328053, guid: 594ee59f67c7f374f88951397aff2059, type: 3}
-  bullet_pos: {fileID: 2942227000734488926}
+  initStatus: {fileID: 11400000, guid: 75216e9577992fe478fd3d8260c8d932, type: 2}
+  deltaStatus: {fileID: 11400000, guid: 75216e9577992fe478fd3d8260c8d932, type: 2}
+  myParent: {fileID: 0}
+  bulletSpawnPos: {fileID: 2942227000734488926}
+  bullet: {fileID: 9137003746720153719, guid: f35554cbbd81f2b468b9df01648674fd, type: 3}
 --- !u!114 &1110568053594303442
 MonoBehaviour:
   m_ObjectHideFlags: 0

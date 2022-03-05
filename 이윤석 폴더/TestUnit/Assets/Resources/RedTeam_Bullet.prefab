@@ -242,4 +242,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8cd8f5bfc9ddc419cb88e8c40d902c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  targetCollider2D: {fileID: 0}
+  speed: 10

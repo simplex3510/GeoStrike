@@ -2,42 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-using Photon.Realtime;
 
 public class Shooter : Unit
 {
-    public UnitData unitData;
-    public Animator animator;
+    //public Animator animator;
+    public Transform[] bulletSpawnPos = new Transform[2];
+    int bulletPosIdx = 0;
 
-    public GameObject bullet;
-    public Transform bullet_pos;
+    public Bullet bullet;
 
-    public bool isFireRead;
 
-    Collider2D enemyCollider2D;
-    bool isRotate;
+    [PunRPC]
+    public void OnEnforceStartHealth()
+    {
+        deltaStatus.health += 5;
+        if (photonView.IsMine)
+        {
+            photonView.RPC("OnEnforceStartHealth", RpcTarget.Others);
+        }
+    }
 
     protected override void Awake()
     {
         base.Awake();
-
-        #region Initialize
-        startHealth = unitData.health;
-        damage = unitData.damage;
-        defense = unitData.defense;
-        attackRange = unitData.attackRange;
-        detectRange = unitData.detectRange;
-        attackSpeed = unitData.attackSpeed;
-        moveSpeed = unitData.moveSpeed;
-        #endregion
-
-        // print($"{gameObject.name} - layer: " + gameObject.layer);
-        // print($"{gameObject.name} - enemyLayerMask: " + opponentLayerMask.value);
     }
 
     protected override void OnEnable()
     {
         base.OnEnable();
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
     }
 
     protected override void Update()
@@ -49,53 +46,28 @@ public class Shooter : Unit
             case EUnitState.Idle:
                 break;
             case EUnitState.Move:
+                //animator.SetBool("isMove", true);
+                //animator.SetBool("isAttack", false);
                 break;
             case EUnitState.Approach:
                 break;
             case EUnitState.Attack:
-                StartCoroutine(Shoot());
-                StartCoroutine(RotateAnimation(enemyCollider2D));
+                //animator.SetBool("isMove", false);
+                //animator.SetBool("isAttack", true);
+                Attack();
                 break;
             case EUnitState.Die:
-                StartCoroutine(DieAnimation());
                 break;
         }
     }
 
-    IEnumerator Shoot()
+    public override void Attack()
     {
-        if (isFireRead)
+        enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
+        if (Input.GetKeyDown(KeyCode.F1))
         {
-            GameObject intantBullet = Instantiate(bullet, bullet_pos.position, bullet_pos.rotation);
-            Rigidbody2D bulletRigid = intantBullet.GetComponent<Rigidbody2D>();
-            bulletRigid.velocity = bullet_pos.forward * 10;
+            PhotonNetwork.Instantiate("BuleTeam_Bullet", bulletSpawnPos[bulletPosIdx].position, Quaternion.identity).GetComponent<Bullet>().targetCollider2D = enemyCollider2D;
+            bulletPosIdx = bulletPosIdx > 0 ? 0 : 1;
         }
-        isFireRead = false;
-
-        yield return new WaitForSeconds(attackSpeed);
-        isFireRead = true;
-    }
-
-    IEnumerator DieAnimation()
-    {
-        unitState = EUnitState.Idle;
-        yield return null;
-    }
-    IEnumerator RotateAnimation(Collider2D enemy)
-    {
-        isRotate = true;
-
-        Vector3 direct = enemy.transform.position - transform.position;     // 방향을 구함
-        float angle = Mathf.Atan2(direct.y, direct.x) * Mathf.Rad2Deg;      // 두 객체 간의 각을 구함
-        Quaternion target = Quaternion.AngleAxis(angle, Vector3.forward);   // 최종적으로 회전해야 하는 회전값
-
-        while (!Mathf.Approximately(transform.rotation.z, target.z))
-        {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, target, 0.5f);
-
-            yield return null;
-        }
-
-        isRotate = false;
     }
 }

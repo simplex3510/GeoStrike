@@ -50,8 +50,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
     protected LayerMask opponentLayerMask;  // 공격할 대상
     protected EUnitState unitState;         // 유닛의 FSM의 상태
+    protected Collider2D enemyCollider2D;
 
-    Collider2D enemyCollider2D;
     // float lastAttackTime;
     bool isPlayer1;
     bool isRotate;
@@ -98,7 +98,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         moveSpeed = deltaStatus.moveSpeed;
         #endregion
 
-        unitState = EUnitState.Idle;
+        unitState = EUnitState.Move;
     }
 
     // Return to your pool
@@ -178,7 +178,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         }
     }
 
-    void Attack()   // 적에게 공격
+    public virtual void Attack()   // 적에게 공격
     {
         enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
         if (enemyCollider2D != null/* && lastAttackTime + attackSpeed <= PhotonNetwork.Time*/)

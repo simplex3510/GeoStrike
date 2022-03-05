@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1110568053594303442}
   - component: {fileID: 2353060910538526301}
   - component: {fileID: 1260308143512598917}
-  - component: {fileID: 2987873757324890670}
+  - component: {fileID: 8677361059674119659}
   m_Layer: 0
   m_Name: Shooter_Bule
   m_TagString: Unit
@@ -194,7 +194,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2987873757324890670
+--- !u!114 &8677361059674119659
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,15 +203,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1110568053594303446}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a0590597921cca46a745644f037fdb5, type: 3}
+  m_Script: {fileID: 11500000, guid: 4db318191ec382546959377861cb8142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initStatus: {fileID: 0}
-  deltaStatus: {fileID: 0}
+  initStatus: {fileID: 11400000, guid: 4810230056000be4ba14cfe6810ec22f, type: 2}
+  deltaStatus: {fileID: 11400000, guid: 7608f87578bb72f4983c0891e86c9626, type: 2}
   myParent: {fileID: 0}
   unitIdx: 3
-  animator: {fileID: 0}
-  weapon: {fileID: 0}
+  bulletSpawnPos: {fileID: 2942227000734488926}
+  bullet: {fileID: 3604698000704328053, guid: 594ee59f67c7f374f88951397aff2059, type: 3}
 --- !u!1 &1192799042389165976
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2942227000734488926}
   m_Layer: 0
-  m_Name: BulletPos
+  m_Name: BulletSpawnPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

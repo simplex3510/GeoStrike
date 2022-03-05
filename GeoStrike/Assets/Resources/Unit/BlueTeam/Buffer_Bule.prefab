@@ -198,6 +198,6 @@ MonoBehaviour:
   initStatus: {fileID: 0}
   deltaStatus: {fileID: 0}
   myParent: {fileID: 0}
-  unitIdx: 4
+  unitIdx: 0
   animator: {fileID: 0}
   weapon: {fileID: 0}

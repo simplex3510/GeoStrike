@@ -15,13 +15,13 @@ public class Bullet : MonoBehaviour
     {
         if (GameMgr.isMaster)
         {
-            transform.position += -transform.right * speed * Time.deltaTime;
+            transform.position += Vector3.right * speed * Time.deltaTime;
         }
         else
         {
-            transform.position += transform.right * speed * Time.deltaTime;
+            transform.position += Vector3.left * speed * Time.deltaTime;
         }
-        if(!isRotate)
+        if(isRotate)
         {
             StartCoroutine(RotateAnimation(targetCollider2D));
         }

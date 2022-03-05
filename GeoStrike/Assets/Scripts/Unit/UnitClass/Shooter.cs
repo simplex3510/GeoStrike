@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-using Photon.Realtime;
 
-public class Shielder : Unit
+public class Shooter : Unit
 {
-    public Animator animator;
-    public GameObject weapon;
+    //public Animator animator;
+    public Transform bulletSpawnPos;
+    public Bullet bullet;
 
     [PunRPC]
     public void OnEnforceStartHealth()
@@ -43,28 +43,24 @@ public class Shielder : Unit
             case EUnitState.Idle:
                 break;
             case EUnitState.Move:
-                animator.SetBool("isMove", true);
-                animator.SetBool("isAttack", false);
+                //animator.SetBool("isMove", true);
+                //animator.SetBool("isAttack", false);
                 break;
             case EUnitState.Approach:
                 break;
             case EUnitState.Attack:
-                animator.SetBool("isMove", false);
-                if (!weapon.activeSelf)
-                {
-                    animator.SetBool("isAttack", true);
-                }
+                //animator.SetBool("isMove", false);
+                //animator.SetBool("isAttack", true);
                 break;
             case EUnitState.Die:
-                StartCoroutine(DieAnimation(weapon));
                 break;
         }
     }
 
-    // 방패가 부숴졌을때
-    // 상태 변수들 초기화 시키기 (공격 애니메이션 등등..)
-    private void DistroyShield()
+    public override void Attack()
     {
-
+        enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
+        bullet.targetCollider2D = enemyCollider2D;
+        PhotonNetwork.Instantiate("Unit/BlueTeam/Bullet_BuleTeam", bulletSpawnPos.position, Quaternion.identity);
     }
 }

@@ -19,8 +19,25 @@ public class Warrior : Unit
         }
     }
 
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+    }
+
     protected override void Update()
     {
+        base.Update();
+
         switch (unitState)
         {
             case EUnitState.Idle:
