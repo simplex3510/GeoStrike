@@ -14,7 +14,7 @@ public class NetworkMgr : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        PhotonNetwork.JoinOrCreateRoom("TestUnit2", new RoomOptions { MaxPlayers = 2 }, null);
+        PhotonNetwork.JoinOrCreateRoom("ShooterTest", new RoomOptions { MaxPlayers = 2 }, null);
     }
 
     public override void OnJoinedRoom()

@@ -7,20 +7,27 @@ using Photon.Pun;
 public class Bullet : MonoBehaviour
 {
     public Collider2D targetCollider2D;
+    bool isPlayer1;
     bool isRotate;
 
     [SerializeField] private float speed;
 
+    private void Awake()
+    {
+        isPlayer1 = PhotonNetwork.IsMasterClient;
+    }
+
     private void Update()
     {
-        if (GameMgr.isMaster)
-        {
-            transform.position += -transform.right * speed * Time.deltaTime;
-        }
-        else
+        if (isPlayer1)
         {
             transform.position += transform.right * speed * Time.deltaTime;
         }
+        else
+        {
+            transform.position += -transform.right * speed * Time.deltaTime;
+        }
+
         if(!isRotate)
         {
             StartCoroutine(RotateAnimation(targetCollider2D));
@@ -43,5 +50,14 @@ public class Bullet : MonoBehaviour
         }
 
         isRotate = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D enemy)
+    {
+        if(enemy.gameObject.layer == (int)EPlayer.Enemy)
+        {
+            enemy.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, 5f);
+            gameObject.SetActive(false);
+        }
     }
 }

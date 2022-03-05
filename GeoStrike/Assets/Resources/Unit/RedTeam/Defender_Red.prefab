@@ -318,6 +318,6 @@ MonoBehaviour:
   initStatus: {fileID: 11400000, guid: 31810c8f887e0834b84c29ffe41a89c4, type: 2}
   deltaStatus: {fileID: 11400000, guid: 0eba4100142bc20449900006291b1071, type: 2}
   myParent: {fileID: 0}
-  unitIdx: 0
+  unitIdx: 2
   animator: {fileID: 8173733403797653950}
   weapon: {fileID: 8173733402153910181}

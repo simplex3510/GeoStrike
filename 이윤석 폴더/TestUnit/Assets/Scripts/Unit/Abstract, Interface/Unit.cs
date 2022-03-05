@@ -58,7 +58,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
     protected virtual void Awake()
     {
-        isPlayer1 = (photonView.ViewID / 1000) == 1 ? true : false;
+        isPlayer1 = PhotonNetwork.IsMasterClient;
 
         if (photonView.IsMine)
         {
@@ -206,7 +206,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     public void OnDamaged(float _damage)
     {
         float damage = _damage - defense;
-        currentHealth = 0 < damage ? damage : 0;
+        currentHealth -= 0 < damage ? damage : 0;
 
         if (currentHealth <= 0 && isDead == false)
         {
