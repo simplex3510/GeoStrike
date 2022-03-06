@@ -46,7 +46,6 @@ public class UnitCreator : MonoBehaviourPun
                             Unit obj = ObjectPoolMgr.instance.poolArr[unitP1.unitIdx - 1].GetObject();    // 내 Pool에서 내 유닛 꺼내기
 
                             obj.transform.position = unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].worldPos + Vector3.back; // 내 유닛 타일에 배치
-                            Debug.Log("after  : " + obj.transform.position);
                             unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].isEmty = false;   // 소환된 유닛 타일의 상태 변환
                             
                             // 배틀필드로 유닛 이동시켜주기 위한 작업

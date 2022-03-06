@@ -37,6 +37,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     public Queue<Unit> myPool;
     public int unitIdx;
 
+    public string unitName;
     #region Stat
     public float startHealth { get; protected set; }
     public float currentHealth { get; protected set; }
@@ -72,6 +73,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
             opponentLayerMask = 1 << (int)EPlayer.Ally;
         }
 
+        unitName = initStatus.unitName;
         #region Status Init
         startHealth = initStatus.health;
         currentHealth = startHealth;

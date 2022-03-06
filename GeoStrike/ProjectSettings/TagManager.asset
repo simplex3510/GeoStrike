@@ -8,6 +8,7 @@ TagManager:
   - BuildZone
   - Unit
   - UnitTile
+  - Tetromino
   layers:
   - Default
   - TransparentFX

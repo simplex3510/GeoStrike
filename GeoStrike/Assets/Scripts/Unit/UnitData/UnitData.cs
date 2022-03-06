@@ -6,6 +6,7 @@ using UnityEngine;
 public class UnitData : ScriptableObject
 {
     [Header("<Stat>")]
+    public string unitName = "";
     public float health = 0;
     public float damage = 0;
     public float defense = 0;

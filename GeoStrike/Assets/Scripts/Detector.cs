@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
-using Photon.Realtime;
 
-public class Detector : MonoBehaviourPun
+
+public class Detector : MonoBehaviour
 {
     [Header("< Component >")]
     [SerializeField] private CameraController cameraController;
@@ -25,8 +24,10 @@ public class Detector : MonoBehaviourPun
     public Tetromino tetromino;
     public Vector3 angle;
 
-    // 유닛 배치모드 - 보류중
+    // 정보창 & 유닛 배치모드 - 보류중
     [SerializeField] private GameObject clickedObject;      // 클릭한 Object 저장
+    [SerializeField] private Unit clickedUnit;              // 클릭한 Unit 저장
+
     private Vector2 battchModeMousePos;
     private RaycastHit2D unitTileHit2D;
     private static bool cancel = false;
@@ -41,36 +42,40 @@ public class Detector : MonoBehaviourPun
     private void Update()
     {
         CheckBuildPreview();
-        //OnClickEvent();
+        OnClickEvent();
     }
 
+    private void LateUpdate()
+    {
+        // Status(정보창) 업데이트
+        if (clickedObject != null)
+        {
+            if (clickedObject.CompareTag("Unit"))
+            {
+                clickedUnit = clickedObject.GetComponent<Unit>();
+                GameMgr.instance.canvas.GetComponentInChildren<StatusPanel>()
+                    .UnitStatusInfo(clickedUnit.GetComponent<SpriteRenderer>(), clickedUnit.unitName, clickedUnit.currentHealth, clickedUnit.damage, clickedUnit.defense);
+            }
+            else if (clickedObject.CompareTag("Tetromino"))
+            {
+                // 구현중
+            }
+        }
+    }
+
+    // 상태창 띄우기
     private void OnClickEvent()
     {
-        //if (cameraController.mouseController.eMouseMode == MouseController.EMouseMode.normal && Input.GetMouseButtonDown(MouseController.CLICK_LEFT))
-        //{
-        //    Vector2 pos = cameraController.mainCamera.ScreenToWorldPoint(cameraController.mouseController.mousePos);
-        //    hit2D = Physics2D.Raycast(pos, Vector2.zero, 0f, mask);
-        //    if (hit2D.collider != null)
-        //    {
-        //        // 유닛 정보 불러오기
-        //        clickedObject = hit2D.collider.gameObject;
-        //        if (clickedObject.CompareTag("unit"))
-        //        {
-        //            // 정보창에 유닛 띄우기
-        //            Debug.Log("unit status : " + hit2D);
-        //            if (hit2D.collider.GetComponent<UnitState>().GetState() == UnitState.EUnitState.FSM_Standby)
-        //            {
-        //                // 배치모드
-        //                StartCoroutine(CBatchMode());
-        //            }
-        //        }
-
-        //        //if (hit2D.collider.CompareTag("Tetromino"))
-        //        //{
-        //        //    Debug.Log("UnitTile : " + hit2D);
-        //        //}
-        //    }
-        //}
+        if (cameraController.mouseController.eMouseMode == MouseController.EMouseMode.normal && Input.GetMouseButtonDown(MouseController.CLICK_LEFT))
+        {
+            Vector2 pos = cameraController.mainCamera.ScreenToWorldPoint(cameraController.mouseController.mousePos);
+            hit2D = Physics2D.Raycast(pos, Vector2.zero, 0f, mask);
+            if (hit2D.collider != null)
+            {
+                // 클릭한 Obj 정보 불러오기
+                clickedObject = hit2D.collider.gameObject;
+            }
+        }
     }
 
     private void CheckBuildPreview()

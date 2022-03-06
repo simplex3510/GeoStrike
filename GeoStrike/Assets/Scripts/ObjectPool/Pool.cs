@@ -43,7 +43,6 @@ public class Pool : MonoBehaviourPun
         newObj.SetUnitActive(false);
 
         // ObjPoolQueue.Enqueue(newObj); -> Unit의 OnDisable에서 자동으로 Enqueue
-        Debug.Log("IsMine : " + this.photonView.IsMine + " : " + newObj + " : " + ObjPoolQueue.Count);
         return newObj;
     }
 
@@ -53,7 +52,6 @@ public class Pool : MonoBehaviourPun
         if (ObjPoolQueue.Count > 0)
         {
             Unit obj = ObjPoolQueue.Dequeue();
-            Debug.Log("Get Obj ID : " + obj.photonView.ViewID);
             obj.transform.SetParent(null);
             obj.SetUnitActive(true);
 
@@ -63,8 +61,6 @@ public class Pool : MonoBehaviourPun
         else
         {
             Unit newObj = CreateNewObject();
-            Debug.Log("Create New Obj ID : " + newObj.photonView.ViewID);
-
             ObjPoolQueue.Dequeue();
             newObj.transform.SetParent(null);
             newObj.SetUnitActive(true);
