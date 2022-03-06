@@ -64,10 +64,16 @@ public class Shooter : Unit
     public override void Attack()
     {
         enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
+
+        if(isPlayer1)
+        {
+
+        }
+
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            PhotonNetwork.Instantiate("Prefabs/BlueTeam/BuleTeam_Bullet", bulletSpawnPos[bulletPosIdx].position, Quaternion.identity).GetComponent<Bullet>().targetCollider2D = enemyCollider2D;
             bulletPosIdx = bulletPosIdx > 0 ? 0 : 1;
+            PhotonNetwork.Instantiate("Prefabs/BlueTeam/BuleTeam_Bullet", bulletSpawnPos[bulletPosIdx].position, Quaternion.identity).GetComponent<Bullet>().targetCollider2D = enemyCollider2D;
         }
     }
 }

@@ -6,8 +6,10 @@ using Photon.Pun;
 public class Shooter : Unit
 {
     //public Animator animator;
-    public Transform bulletSpawnPos;
+    public Transform[] bulletSpawnPos = new Transform[2];
     public Bullet bullet;
+
+    int bulletPosIdx = 0;
 
     [PunRPC]
     public void OnEnforceStartHealth()
@@ -43,14 +45,11 @@ public class Shooter : Unit
             case EUnitState.Idle:
                 break;
             case EUnitState.Move:
-                //animator.SetBool("isMove", true);
-                //animator.SetBool("isAttack", false);
                 break;
             case EUnitState.Approach:
                 break;
             case EUnitState.Attack:
-                //animator.SetBool("isMove", false);
-                //animator.SetBool("isAttack", true);
+                Attack();
                 break;
             case EUnitState.Die:
                 break;
@@ -60,7 +59,20 @@ public class Shooter : Unit
     public override void Attack()
     {
         enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
-        bullet.targetCollider2D = enemyCollider2D;
-        PhotonNetwork.Instantiate("Unit/BlueTeam/Bullet_BuleTeam", bulletSpawnPos.position, Quaternion.identity);
+        if (enemyCollider2D != null && lastAttackTime + attackSpeed <= PhotonNetwork.Time)
+        {
+            lastAttackTime = PhotonNetwork.Time;
+
+            bulletPosIdx = bulletPosIdx > 0 ? 0 : 1;
+            bullet = PhotonNetwork.Instantiate("Units/Projectiles/" + bullet.name, bulletSpawnPos[bulletPosIdx].position, Quaternion.identity).GetComponent<Bullet>();
+            bullet.damage = this.damage;
+            bullet.targetCollider2D = enemyCollider2D;
+            bullet.startPosition = bulletSpawnPos[bulletPosIdx].position;
+        }
+        else if (enemyCollider2D == null)
+        {
+            unitState = EUnitState.Move;
+            return;
+        }
     }
 }

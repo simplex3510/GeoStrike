@@ -16,6 +16,6 @@ MonoBehaviour:
   damage: 5
   defense: 4
   attackRange: 1.25
-  detectRange: 5
+  detectRange: 10
   attackSpeed: 1.5
   moveSpeed: 1
