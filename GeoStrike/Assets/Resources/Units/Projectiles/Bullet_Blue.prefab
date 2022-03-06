@@ -104,8 +104,8 @@ MonoBehaviour:
   endPosition: {x: 0, y: 0, z: 0}
   targetCollider2D: {fileID: 0}
   damage: 0
-  parent: {fileID: 0}
-  bulletName: 
+  myParent: {fileID: 0}
+  bulletName: Bullet_Blue
   speed: 5
 --- !u!50 &687299709
 Rigidbody2D:

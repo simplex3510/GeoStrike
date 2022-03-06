@@ -18,10 +18,9 @@ public class BulletPool : MonoBehaviourPun
 
     private Bullet CreateBullet()
     {
-        // bullet 이름 받는 방법 먼저 생각해보시길 ... shooter.bullet.bulletName 수정필요 <<<
-        Bullet newBullet = PhotonNetwork.Instantiate(shooter.bullet.bulletName, Vector3.zero, Quaternion.identity).GetComponent<Bullet>();
+        Bullet newBullet = PhotonNetwork.Instantiate("Units/Projectiles/" + shooter.bullet.bulletName, Vector3.zero, Quaternion.identity).GetComponent<Bullet>();
 
-        newBullet.queue = bulletQueue;
+        newBullet.myPool = bulletQueue;
         newBullet.transform.SetParent(newBullet.transform);
         newBullet.gameObject.SetActive(false);
 

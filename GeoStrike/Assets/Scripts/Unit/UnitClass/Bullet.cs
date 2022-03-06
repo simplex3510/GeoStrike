@@ -13,8 +13,8 @@ public class Bullet : MonoBehaviourPun
     public float damage;
 
     // Bullet Pool
-    public Queue<Bullet> queue;
-    public Transform parent;
+    public Queue<Bullet> myPool;
+    public Transform myParent;
 
     // 이름 초기화
     public string bulletName;
@@ -25,8 +25,6 @@ public class Bullet : MonoBehaviourPun
 
     private void Awake()
     {
-        // bulletName = this.name;
-
         isPlayer1 = PhotonNetwork.IsMasterClient;
         endPosition = startPosition;
     }
@@ -54,12 +52,21 @@ public class Bullet : MonoBehaviourPun
         }
     }
 
+    private void OnDisable()
+    {
+        if (photonView.IsMine)
+        {
+            transform.SetParent(myParent);
+            myPool.Enqueue(this);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D enemy)
     {
         if (enemy.gameObject.layer == (int)EPlayer.Enemy)
         {
             enemy.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
-            gameObject.SetActive(false);
+            SetBulletActive(false);
         }
     }
 

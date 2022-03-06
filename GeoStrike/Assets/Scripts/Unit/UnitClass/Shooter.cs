@@ -27,6 +27,7 @@ public class Shooter : Unit
     {
         base.Awake();
         bulletPool = GetComponent<BulletPool>();
+        bullet.bulletName = bullet.name;
     }
 
     protected override void OnEnable()
@@ -70,6 +71,7 @@ public class Shooter : Unit
             bullet = bulletPool.GetBullet();
             bullet.damage = this.damage;
             bullet.targetCollider2D = enemyCollider2D;
+            bullet.transform.position = bulletSpawnPos[bulletPosIdx].position;
             bullet.startPosition = bulletSpawnPos[bulletPosIdx].position;
         }
         else if (enemyCollider2D == null)
