@@ -50,7 +50,7 @@ public class Shielder : Unit
                 break;
             case EUnitState.Attack:
                 animator.SetBool("isMove", false);
-                if (!weapon.activeSelf)
+                if (weapon.activeSelf)
                 {
                     animator.SetBool("isAttack", true);
                 }

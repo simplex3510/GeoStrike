@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8173733402153910182}
   - component: {fileID: 8173733402153910183}
-  - component: {fileID: 4908331735374937998}
+  - component: {fileID: 7502076356213210086}
   m_Layer: 0
   m_Name: BlueTeam_Weapon_Shield
   m_TagString: Untagged
@@ -83,8 +83,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4908331735374937998
-BoxCollider2D:
+--- !u!60 &7502076356213210086
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -106,9 +106,18 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.04, y: 0.28}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -1.52, y: 0.14}
+      - {x: -1.52, y: 0}
+      - {x: -1.3403759, y: -0.063711524}
+      - {x: -0.6511341, y: -0.126736}
+      - {x: -0.044624623, y: -0.14000046}
+      - {x: 0.04462462, y: -0.14000024}
+      - {x: 0.6511341, y: -0.126736}
+      - {x: 1.340376, y: -0.06371152}
+      - {x: 1.52, y: 0}
+      - {x: 1.52, y: 0.14}
 --- !u!1 &8173733403797653949
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +217,7 @@ Animator:
   m_GameObject: {fileID: 8173733403797653949}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a24c8444ef35fe046aa68caa2a1119d4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 61dd7cf0b75cc4a45be3607e3a8bc170, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
