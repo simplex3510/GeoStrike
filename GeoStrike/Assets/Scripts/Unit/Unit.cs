@@ -52,9 +52,9 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     protected LayerMask opponentLayerMask;  // 공격할 대상
     protected EUnitState unitState;         // 유닛의 FSM의 상태
     protected Collider2D enemyCollider2D;
+    protected double lastAttackTime;
+    protected bool isPlayer1;
 
-    // float lastAttackTime;
-    bool isPlayer1;
     bool isRotate;
 
     protected virtual void Awake()
@@ -182,20 +182,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         }
     }
 
-    public virtual void Attack()   // 적에게 공격
-    {
-        enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
-        if (enemyCollider2D != null/* && lastAttackTime + attackSpeed <= PhotonNetwork.Time*/)
-        {
-            //lastAttackTime = (float)PhotonNetwork.Time;
-            enemyCollider2D.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
-        }
-        else if (enemyCollider2D == null)
-        {
-            unitState = EUnitState.Move;
-            return;
-        }
-    }
+    public abstract void Attack();   // 적에게 공격
 
     void Die()    // 유닛 사망
     {
@@ -208,8 +195,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     [PunRPC]
     public void OnDamaged(float _damage)
     {
-        float damage = _damage - defense;
-        currentHealth -= 0 < damage ? damage : 0;
+        _damage -= defense;
+        currentHealth -= 0 < _damage ? _damage : 0;
 
         if (currentHealth <= 0 && isDead == false)
         {
@@ -229,6 +216,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
     protected IEnumerator DieAnimation(GameObject _gameObject)
     {
+        unitState = EUnitState.Idle;
+
         var spriteRenderer = _gameObject.GetComponent<SpriteRenderer>();
         var color = spriteRenderer.color;
         while (0 <= color.a)
@@ -241,8 +230,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
         _gameObject.SetActive(false);
         spriteRenderer.color = Color.white;
-
-        unitState = EUnitState.Idle;
     }
 
     // 앞을 바라보는 애니메이션

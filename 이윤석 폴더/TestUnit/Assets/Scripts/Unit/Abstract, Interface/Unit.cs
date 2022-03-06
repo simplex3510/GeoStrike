@@ -58,6 +58,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
     protected virtual void Awake()
     {
+        print("Unit Awake");
         isPlayer1 = PhotonNetwork.IsMasterClient;
 
         if (photonView.IsMine)
@@ -205,8 +206,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     [PunRPC]
     public void OnDamaged(float _damage)
     {
-        float damage = _damage - defense;
-        currentHealth -= 0 < damage ? damage : 0;
+        _damage -= defense;                         // 방어력 만큼 대미지 감소
+        currentHealth -= 0 < _damage ? _damage : 0; // 대미지가 음수라면 0을 반환
 
         if (currentHealth <= 0 && isDead == false)
         {
