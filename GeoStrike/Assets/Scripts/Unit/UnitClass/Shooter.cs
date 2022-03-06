@@ -9,6 +9,8 @@ public class Shooter : Unit
     public Transform[] bulletSpawnPos = new Transform[2];
     public Bullet bullet;
 
+    public BulletPool bulletPool;
+
     int bulletPosIdx = 0;
 
     [PunRPC]
@@ -24,6 +26,7 @@ public class Shooter : Unit
     protected override void Awake()
     {
         base.Awake();
+        bulletPool = GetComponent<BulletPool>();
     }
 
     protected override void OnEnable()
@@ -64,7 +67,7 @@ public class Shooter : Unit
             lastAttackTime = PhotonNetwork.Time;
 
             bulletPosIdx = bulletPosIdx > 0 ? 0 : 1;
-            bullet = PhotonNetwork.Instantiate("Units/Projectiles/" + bullet.name, bulletSpawnPos[bulletPosIdx].position, Quaternion.identity).GetComponent<Bullet>();
+            bullet = bulletPool.GetBullet();
             bullet.damage = this.damage;
             bullet.targetCollider2D = enemyCollider2D;
             bullet.startPosition = bulletSpawnPos[bulletPosIdx].position;

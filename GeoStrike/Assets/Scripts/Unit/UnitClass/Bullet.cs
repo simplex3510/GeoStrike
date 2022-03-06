@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviourPun
 {
     public Vector3 startPosition;
     public Vector3 endPosition;
@@ -11,13 +12,21 @@ public class Bullet : MonoBehaviour
     public Collider2D targetCollider2D;
     public float damage;
 
+    // Bullet Pool
+    public Queue<Bullet> queue;
+    public Transform parent;
+
+    // 이름 초기화
+    public string bulletName;
+
     [SerializeField] float speed;
     bool isPlayer1;
     bool isRotate;
 
-
     private void Awake()
     {
+        // bulletName = this.name;
+
         isPlayer1 = PhotonNetwork.IsMasterClient;
         endPosition = startPosition;
     }
@@ -54,6 +63,17 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    [PunRPC]
+    public void SetBulletActive(bool _bool)
+    {
+        this.gameObject.SetActive(_bool);
+
+        if (photonView.IsMine)
+        {
+            photonView.RPC("SetBulletActive", RpcTarget.Others, _bool);
+        }
+    }
+
     IEnumerator RotateAnimation(Collider2D enemy)
     {
         isRotate = true;
@@ -71,5 +91,4 @@ public class Bullet : MonoBehaviour
 
         isRotate = false;
     }
-
 }
