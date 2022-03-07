@@ -47313,7 +47313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1095304695901183247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48336,7 +48336,7 @@ GameObject:
   - component: {fileID: 7216470624820785976}
   - component: {fileID: 4268013360962641884}
   m_Layer: 0
-  m_Name: Pool_UnitA
+  m_Name: Pool_Warrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48636,7 +48636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &6561532305334471312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49405,7 +49405,7 @@ GameObject:
   - component: {fileID: 5233121680799066069}
   - component: {fileID: 6718272966543609845}
   m_Layer: 0
-  m_Name: Pool_UnitB
+  m_Name: Pool_Defender
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49459,7 +49459,7 @@ GameObject:
   - component: {fileID: 5369992815578944862}
   - component: {fileID: 8412507069969993101}
   m_Layer: 0
-  m_Name: Pool_UnitC
+  m_Name: Pool_Shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
