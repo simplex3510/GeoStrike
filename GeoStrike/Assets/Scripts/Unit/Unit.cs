@@ -21,7 +21,7 @@ public enum EUnitState
 
 public enum EUnitIndex
 {
-    Warrior = 1,
+    Warrior = 0,
     Defender,
     Shooter,
     Splasher,
@@ -102,6 +102,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         isDead = false;
 
         #region deltaStatus Init
+        unitIndex = deltaStatus.unitIndex;
         startHealth = deltaStatus.health;
         currentHealth = startHealth;
         damage = deltaStatus.damage;
