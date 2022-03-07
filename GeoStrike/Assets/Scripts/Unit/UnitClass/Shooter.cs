@@ -68,11 +68,11 @@ public class Shooter : Unit
             lastAttackTime = PhotonNetwork.Time;
 
             bulletPosIdx = bulletPosIdx > 0 ? 0 : 1;
-            bullet = bulletPool.GetBullet();
+            bullet = bulletPool.GetBullet();    // °ø°Ý(Áø)
             bullet.damage = this.damage;
             bullet.targetCollider2D = enemyCollider2D;
             bullet.transform.position = bulletSpawnPos[bulletPosIdx].position;
-            bullet.startPosition = bulletSpawnPos[bulletPosIdx].position;
+            //bullet.startPosition = bulletSpawnPos[bulletPosIdx].position;
         }
         else if (enemyCollider2D == null)
         {

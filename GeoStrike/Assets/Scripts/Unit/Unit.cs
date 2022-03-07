@@ -19,6 +19,16 @@ public enum EUnitState
     Die
 }
 
+public enum EUnitIndex
+{
+    Warrior = 1,
+    Defender,
+    Shooter,
+    Splasher,
+    Buffer,
+    Debuffer
+}
+
 interface IDamageable
 {
     public void OnDamaged(float _damage);
@@ -35,10 +45,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     public UnitData deltaStatus;
     public Transform myParent;
     public Queue<Unit> myPool;
-    public int unitIdx;
 
-    public string unitName;
-    #region Stat
+    #region Status
+    [HideInInspector]
+    public EUnitIndex unitIndex;
+    public string unitName { get; protected set; }
     public float startHealth { get; protected set; }
     public float currentHealth { get; protected set; }
     public float damage { get; protected set; }
@@ -73,16 +84,16 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
             opponentLayerMask = 1 << (int)EPlayer.Ally;
         }
 
-        unitName = initStatus.unitName;
         #region Status Init
-        startHealth = initStatus.health;
-        currentHealth = startHealth;
-        damage = initStatus.damage;
-        defense = initStatus.defense;
-        attackRange = initStatus.attackRange;
-        detectRange = initStatus.detectRange;
-        attackSpeed = initStatus.attackSpeed;
-        moveSpeed = initStatus.moveSpeed;
+        deltaStatus.unitIndex = initStatus.unitIndex;       
+        deltaStatus.unitName = initStatus.unitIndex.ToString();
+        deltaStatus.health = initStatus.health;
+        deltaStatus.damage = initStatus.damage;
+        deltaStatus.defense = initStatus.defense;
+        deltaStatus.attackRange = initStatus.attackRange;
+        deltaStatus.detectRange = initStatus.detectRange;
+        deltaStatus.attackSpeed = initStatus.attackSpeed;
+        deltaStatus.moveSpeed = initStatus.moveSpeed;
         #endregion
     }
 
@@ -189,7 +200,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     void Die()    // À¯´Ö »ç¸Á
     {
         isDead = true;
-        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        gameObject.GetComponent<Collider2D>().enabled = false;
 
         StartCoroutine(DieAnimation(gameObject));
     }

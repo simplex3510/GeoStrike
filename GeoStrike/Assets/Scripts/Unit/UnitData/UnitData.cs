@@ -5,8 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "UnitData", menuName = "Unit Data")]
 public class UnitData : ScriptableObject
 {
-    [Header("<Stat>")]
-    public string unitName = "";
+    [Header("<Status>")]
+    public EUnitIndex unitIndex;
+    public string unitName;
     public float health = 0;
     public float damage = 0;
     public float defense = 0;

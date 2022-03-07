@@ -18,13 +18,20 @@ public class BulletPool : MonoBehaviourPun
 
     private Bullet CreateBullet()
     {
-        Bullet newBullet = PhotonNetwork.Instantiate("Units/Projectiles/" + shooter.bullet.bulletName, Vector3.zero, Quaternion.identity).GetComponent<Bullet>();
+        if(photonView.IsMine)
+        {
+            Bullet newBullet = PhotonNetwork.Instantiate("Units/Projectiles/" + shooter.bullet.bulletName, Vector3.zero, Quaternion.identity).GetComponent<Bullet>();
 
-        newBullet.myPool = bulletQueue;
-        newBullet.transform.SetParent(newBullet.transform);
-        newBullet.gameObject.SetActive(false);
+            newBullet.myPool = bulletQueue;
+            newBullet.transform.SetParent(newBullet.transform);
+            newBullet.gameObject.SetActive(false);
 
-        return newBullet;
+            return newBullet;
+        }
+        else
+        {
+            return null;
+        }
     }
 
     public Bullet GetBullet()

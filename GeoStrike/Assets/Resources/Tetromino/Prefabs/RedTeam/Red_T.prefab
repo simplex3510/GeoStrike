@@ -104,6 +104,7 @@ MonoBehaviour:
   - {x: -1, y: 0}
   - {x: 1, y: 0}
   - {x: 0, y: -1}
+  ShapeIndex: 2
 --- !u!114 &745218809076509029
 MonoBehaviour:
   m_ObjectHideFlags: 0

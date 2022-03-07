@@ -104,6 +104,7 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: 0, y: -1}
   - {x: -1, y: -1}
+  ShapeIndex: 3
 --- !u!114 &6944822734956268109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,8 +155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitTileContainer: {fileID: 0}
   translocateField: {fileID: 0}
-  unitP1: {fileID: 0}
-  unitP2: {fileID: 0}
+  unitP1: {fileID: 8677361059674119659, guid: 770e5d19451e9e24c98ce03d7513cea7, type: 3}
+  unitP2: {fileID: 5751252549581005398, guid: 74e5a33fee91fa846b3e51c91aef4572, type: 3}
 --- !u!61 &455113695063872664
 BoxCollider2D:
   m_ObjectHideFlags: 0

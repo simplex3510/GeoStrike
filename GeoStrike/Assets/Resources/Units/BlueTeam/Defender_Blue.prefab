@@ -301,7 +301,7 @@ MonoBehaviour:
   initStatus: {fileID: 0}
   deltaStatus: {fileID: 0}
   myParent: {fileID: 0}
-  unitIdx: 0
+  unitIndex: 0
   animator: {fileID: 0}
   weapon: {fileID: 0}
 --- !u!61 &-7345891549214390338

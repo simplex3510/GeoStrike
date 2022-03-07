@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5bd9e0a4759d7c438664996219f19ba, type: 3}
   m_Name: Defender_Red
   m_EditorClassIdentifier: 
-  health: 15
-  damage: 5
-  defense: 4
-  attackRange: 1.25
-  detectRange: 5
-  attackSpeed: 1.5
-  moveSpeed: 1
+  unitIndex: 0
+  unitName: 
+  health: 0
+  damage: 0
+  defense: 0
+  attackRange: 0
+  detectRange: 0
+  attackSpeed: 0
+  moveSpeed: 0

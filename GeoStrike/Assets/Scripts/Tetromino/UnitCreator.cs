@@ -27,7 +27,7 @@ public class UnitCreator : MonoBehaviourPun
         if (photonView.IsMine && GameMgr.isMaster)
         {
             // 자원 획득
-            if (unitP1.unitIdx == 0)
+            if ((int)unitP1.unitIndex == 0)
             {
                 Debug.Log("Get GEO : " + Geo.GEO_SQUARE);
                 geo.DeltaGeo(Geo.GEO_SQUARE);
@@ -41,13 +41,13 @@ public class UnitCreator : MonoBehaviourPun
                     if (unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].isEmty)
                     {
                         // Unit 생성
-                        if (unitP1.unitIdx != 0)
+                        if ((int)unitP1.unitIndex != 0)
                         {
-                            Unit obj = ObjectPoolMgr.instance.poolArr[unitP1.unitIdx - 1].GetObject();    // 내 Pool에서 내 유닛 꺼내기
+                            Unit obj = ObjectPoolMgr.instance.poolArr[(int)unitP1.unitIndex - 1].GetObject();    // 내 Pool에서 내 유닛 꺼내기
 
                             obj.transform.position = unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].worldPos + Vector3.back; // 내 유닛 타일에 배치
                             unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].isEmty = false;   // 소환된 유닛 타일의 상태 변환
-                            
+
                             // 배틀필드로 유닛 이동시켜주기 위한 작업
                             translocateField.unitList.Add(obj);
                             obj.transform.SetParent(translocateField.spawnPosP1.transform); // <- x
@@ -60,7 +60,7 @@ public class UnitCreator : MonoBehaviourPun
         else if (photonView.IsMine && !GameMgr.isMaster)
         {
             // 자원 획득
-            if (unitP2.unitIdx == 0)
+            if ((int)unitP2.unitIndex == 0)
             {
                 Debug.Log("Get GEO : " + Geo.GEO_SQUARE);
                 geo.DeltaGeo(Geo.GEO_SQUARE);
@@ -74,9 +74,9 @@ public class UnitCreator : MonoBehaviourPun
                     if (unitTileContainer.unitTileArr[ConnectMgr.GUEST_PLAYER, row, column].isEmty)
                     {
                         // Unit 생성
-                        if (unitP2.unitIdx != 0)
+                        if ((int)unitP2.unitIndex != 0)
                         {
-                            Unit obj = ObjectPoolMgr.instance.poolArr[unitP2.unitIdx - 1].GetObject();    // 내 Pool에서 내 유닛 꺼내기
+                            Unit obj = ObjectPoolMgr.instance.poolArr[(int)unitP2.unitIndex - 1].GetObject();    // 내 Pool에서 내 유닛 꺼내기
 
                             obj.transform.position = unitTileContainer.unitTileArr[ConnectMgr.GUEST_PLAYER, row, column].worldPos + Vector3.back; // 내 유닛 타일에 배치
                             unitTileContainer.unitTileArr[ConnectMgr.GUEST_PLAYER, row, column].isEmty = false;   // 소환된 유닛 타일의 상태 변환

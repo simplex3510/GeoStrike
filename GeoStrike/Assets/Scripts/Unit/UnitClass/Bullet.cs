@@ -19,32 +19,38 @@ public class Bullet : MonoBehaviourPun
     // 이름 초기화
     public string bulletName;
 
+
     [SerializeField] float speed;
+    LayerMask opponentLayerMask;  // 공격할 대상
     bool isPlayer1;
     bool isRotate;
 
     private void Awake()
     {
         isPlayer1 = PhotonNetwork.IsMasterClient;
-        endPosition = startPosition;
+        //endPosition = startPosition;
+
+        if (photonView.IsMine)
+        {
+            gameObject.layer = (int)EPlayer.Ally;
+            opponentLayerMask = 1 << (int)EPlayer.Enemy;
+        }
+        else
+        {
+            gameObject.layer = (int)EPlayer.Enemy;
+            opponentLayerMask = 1 << (int)EPlayer.Ally;
+        }
     }
 
     private void Update()
     {
-        if (isPlayer1)
-        {
-            transform.position += transform.right * speed * Time.deltaTime;
-        }
-        else
-        {
-            transform.position += -transform.right * speed * Time.deltaTime;
-        }
+        transform.position += transform.right * speed * Time.deltaTime;
 
         // 타겟 좌표까지 이동한 후 투사체 비활성화 - 투사체가 발사된 후 타겟이 비활성화 되었을 때
-        if(targetCollider2D.transform.position == endPosition)
-        {
-            gameObject.SetActive(false);
-        }
+        //if(targetCollider2D.transform.position == endPosition)
+        //{
+        //    gameObject.SetActive(false);
+        //}
 
         if (!isRotate)
         {
@@ -58,15 +64,6 @@ public class Bullet : MonoBehaviourPun
         {
             transform.SetParent(myParent);
             myPool.Enqueue(this);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D enemy)
-    {
-        if (enemy.gameObject.layer == (int)EPlayer.Enemy)
-        {
-            enemy.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
-            SetBulletActive(false);
         }
     }
 
@@ -97,5 +94,14 @@ public class Bullet : MonoBehaviourPun
         }
 
         isRotate = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D enemy)
+    {
+        if (enemy.gameObject.layer == (int)EPlayer.Enemy)
+        {
+            enemy.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
+            SetBulletActive(false);
+        }
     }
 }
