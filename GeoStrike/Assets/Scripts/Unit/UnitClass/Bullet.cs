@@ -32,19 +32,18 @@ public class Bullet : MonoBehaviourPun
 
         if (photonView.IsMine)
         {
-            gameObject.layer = (int)EPlayer.Ally;
             opponentLayerMask = 1 << (int)EPlayer.Enemy;
         }
         else
         {
-            gameObject.layer = (int)EPlayer.Enemy;
             opponentLayerMask = 1 << (int)EPlayer.Ally;
         }
     }
 
     private void Update()
     {
-        transform.position += transform.right * speed * Time.deltaTime;
+        // 내가 바라보는 방향으로 총알을 발사
+        transform.position += transform.right * speed * Time.fixedDeltaTime;
 
         // 타겟 좌표까지 이동한 후 투사체 비활성화 - 투사체가 발사된 후 타겟이 비활성화 되었을 때
         //if(targetCollider2D.transform.position == endPosition)
@@ -88,6 +87,12 @@ public class Bullet : MonoBehaviourPun
 
         while (!Mathf.Approximately(transform.rotation.z, target.z))
         {
+            if (this.gameObject.name == "Bullet_Blue(Clone)0")
+            {
+                Debug.Log("gdgd");
+            }
+            
+            // delta값 올려주기, 총알 리턴 매소드 추가
             transform.rotation = Quaternion.RotateTowards(transform.rotation, target, 0.5f);
 
             yield return null;

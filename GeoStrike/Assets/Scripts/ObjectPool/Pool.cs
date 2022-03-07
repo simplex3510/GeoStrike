@@ -30,11 +30,11 @@ public class Pool : MonoBehaviourPun
 
         if (PhotonNetwork.IsMasterClient)
         {
-            newObj = PhotonNetwork.Instantiate("Units/BlueTeam/" + unitP1.name, Vector3.zero, Quaternion.identity).GetComponent<Unit>();
+            newObj = PhotonNetwork.Instantiate("Units/BlueTeam/" + unitP1.name, Vector3.one * 1000, Quaternion.identity).GetComponent<Unit>();
         }
         else
         {
-            newObj = PhotonNetwork.Instantiate("Units/RedTeam/" + unitP2.name, Vector3.zero, Quaternion.Euler(0f, 0f, 180f)).GetComponent<Unit>();
+            newObj = PhotonNetwork.Instantiate("Units/RedTeam/" + unitP2.name, Vector3.one * 1000, Quaternion.Euler(0f, 0f, 180f)).GetComponent<Unit>();
         }
 
         newObj.myPool = ObjPoolQueue;
@@ -68,12 +68,4 @@ public class Pool : MonoBehaviourPun
             return newObj;
         }
     }
-
-    // 사용된 Object를 Pool로 반환
-    //private void ReturnObject(Unit _obj)
-    //{
-    //    _obj.gameObject.SetActive(false);
-    //    _obj.transform.SetParent(transform);
-    //    p1ObjPoolQueue.Enqueue(_obj);
-    //}
 }

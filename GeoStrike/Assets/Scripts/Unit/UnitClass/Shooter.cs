@@ -69,6 +69,8 @@ public class Shooter : Unit
 
             bulletPosIdx = bulletPosIdx > 0 ? 0 : 1;
             bullet = bulletPool.GetBullet();    // °ø°Ý(Áø)
+            bullet.gameObject.name += bulletPosIdx;
+            bullet.transform.rotation = this.transform.rotation;
             bullet.damage = this.damage;
             bullet.targetCollider2D = enemyCollider2D;
             bullet.transform.position = bulletSpawnPos[bulletPosIdx].position;
