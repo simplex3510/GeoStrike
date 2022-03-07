@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TMino : Tetromino
 {
+    [SerializeField] private int ShapeIndex = 2;
     private Vector2[] T = { new Vector2(0, 0), new Vector2(-1, 0), new Vector2(1, 0), new Vector2(0, -1) };
 
     public override Vector2[] GetCoordinate()

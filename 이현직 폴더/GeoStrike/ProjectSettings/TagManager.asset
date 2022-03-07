@@ -8,6 +8,7 @@ TagManager:
   - BuildZone
   - Unit
   - UnitTile
+  - Tetromino
   layers:
   - Default
   - TransparentFX
@@ -15,15 +16,15 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Ally
+  - Enemy
   - 
   - 
   - MainCamera
   - Unit
   - UnitTile
   - Tetromino
-  - 
+  - UI_Minimap
   - 
   - 
   - 

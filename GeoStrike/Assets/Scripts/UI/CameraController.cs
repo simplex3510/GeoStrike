@@ -24,8 +24,6 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float zoomOut = 0f;
 
 
-
-
     // Auto Move BuildZone
     public bool onZone { get; set; }
 
@@ -92,7 +90,6 @@ public class CameraController : MonoBehaviour
             float currentSize = mainCamera.orthographicSize - zoomDir * zoomSpeed;
 
             mainCamera.orthographicSize = Mathf.Clamp(currentSize, zoomIn, zoomOut);
-
         }
         else
         {
