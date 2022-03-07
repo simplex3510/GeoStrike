@@ -68,4 +68,12 @@ public class Pool : MonoBehaviourPun
             return newObj;
         }
     }
+
+    // 사용된 Object를 Pool로 반환
+    //private void ReturnObject(Unit _obj)
+    //{
+    //    _obj.gameObject.SetActive(false);
+    //    _obj.transform.SetParent(transform);
+    //    p1ObjPoolQueue.Enqueue(_obj);
+    //}
 }

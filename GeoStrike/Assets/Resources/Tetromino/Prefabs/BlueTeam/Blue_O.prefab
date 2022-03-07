@@ -99,13 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01c15a14c1003b41ad9cbdd58b7d2f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shapeIdx: 6
   coordinate:
   - {x: 0, y: 0}
   - {x: 0, y: 1}
   - {x: 1, y: 0}
   - {x: 1, y: 1}
-  ShapeIndex: 0
 --- !u!114 &-1437987558259770869
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5bd9e0a4759d7c438664996219f19ba, type: 3}
   m_Name: Defender_Init
   m_EditorClassIdentifier: 
-  unitIndex: 1
+  unitIndex: 2
   unitName: Defender
   health: 15
   damage: 4

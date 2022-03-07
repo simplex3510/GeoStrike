@@ -41,9 +41,9 @@ public class UnitCreator : MonoBehaviourPun
                     if (unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].isEmty)
                     {
                         // Unit 생성
-                        if ((int)unitP1.initStatus.unitIndex != 0)
+                        if ((int)unitP1.unitIndex != 0)
                         {
-                            Unit obj = ObjectPoolMgr.instance.poolArr[(int)unitP1.initStatus.unitIndex].GetObject();    // 내 Pool에서 내 유닛 꺼내기
+                            Unit obj = ObjectPoolMgr.instance.poolArr[(int)unitP1.unitIndex - 1].GetObject();    // 내 Pool에서 내 유닛 꺼내기
 
                             obj.transform.position = unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].worldPos + Vector3.back; // 내 유닛 타일에 배치
                             unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].isEmty = false;   // 소환된 유닛 타일의 상태 변환
@@ -76,7 +76,7 @@ public class UnitCreator : MonoBehaviourPun
                         // Unit 생성
                         if ((int)unitP2.unitIndex != 0)
                         {
-                            Unit obj = ObjectPoolMgr.instance.poolArr[(int)unitP2.initStatus.unitIndex].GetObject();    // 내 Pool에서 내 유닛 꺼내기
+                            Unit obj = ObjectPoolMgr.instance.poolArr[(int)unitP2.unitIndex - 1].GetObject();    // 내 Pool에서 내 유닛 꺼내기
 
                             obj.transform.position = unitTileContainer.unitTileArr[ConnectMgr.GUEST_PLAYER, row, column].worldPos + Vector3.back; // 내 유닛 타일에 배치
                             unitTileContainer.unitTileArr[ConnectMgr.GUEST_PLAYER, row, column].isEmty = false;   // 소환된 유닛 타일의 상태 변환
