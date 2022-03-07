@@ -129,6 +129,12 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
     protected virtual void Update()
     {
+        // 자신의 오브젝트가 아니라면 실행하지 않음
+        if(!photonView.IsMine)
+        {
+            return;
+        }
+
         switch (unitState)
         {
             case EUnitState.Idle:

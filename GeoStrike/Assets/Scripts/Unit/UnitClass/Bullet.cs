@@ -9,41 +9,24 @@ public class Bullet : MonoBehaviourPun
     public Vector3 startPosition;
     public Vector3 endPosition;
 
-    public Collider2D targetCollider2D;
-    public float damage;
-
     // Bullet Pool
     public Queue<Bullet> myPool;
     public Transform myParent;
 
-    // 이름 초기화
-    public string bulletName;
+    public Collider2D targetCollider2D;
+    public float damage;
 
-
-    [SerializeField] float speed;
-    LayerMask opponentLayerMask;  // 공격할 대상
-    bool isPlayer1;
+    [SerializeField] float speed;   // 투사체 속도
     bool isRotate;
 
     private void Awake()
     {
-        isPlayer1 = PhotonNetwork.IsMasterClient;
         //endPosition = startPosition;
-
-        if (photonView.IsMine)
-        {
-            opponentLayerMask = 1 << (int)EPlayer.Enemy;
-        }
-        else
-        {
-            opponentLayerMask = 1 << (int)EPlayer.Ally;
-        }
     }
 
     private void Update()
     {
-        // 내가 바라보는 방향으로 총알을 발사
-        transform.position += transform.right * speed * Time.fixedDeltaTime;
+        transform.position += transform.right * speed * Time.fixedDeltaTime;    // X축 방향으로 총알을 발사
 
         // 타겟 좌표까지 이동한 후 투사체 비활성화 - 투사체가 발사된 후 타겟이 비활성화 되었을 때
         //if(targetCollider2D.transform.position == endPosition)
@@ -61,19 +44,18 @@ public class Bullet : MonoBehaviourPun
     {
         if (photonView.IsMine)
         {
-            transform.SetParent(myParent);
+            //transform.SetParent(myParent);
             myPool.Enqueue(this);
         }
     }
 
     [PunRPC]
-    public void SetBulletActive(bool _bool)
+    public void SetBulletActive(bool isTrue)
     {
-        this.gameObject.SetActive(_bool);
-
+        this.gameObject.SetActive(isTrue);
         if (photonView.IsMine)
         {
-            photonView.RPC("SetBulletActive", RpcTarget.Others, _bool);
+            photonView.RPC("SetBulletActive", RpcTarget.Others, isTrue);
         }
     }
 
@@ -87,11 +69,6 @@ public class Bullet : MonoBehaviourPun
 
         while (!Mathf.Approximately(transform.rotation.z, target.z))
         {
-            if (this.gameObject.name == "Bullet_Blue(Clone)0")
-            {
-                Debug.Log("gdgd");
-            }
-            
             // delta값 올려주기, 총알 리턴 매소드 추가
             transform.rotation = Quaternion.RotateTowards(transform.rotation, target, 0.5f);
 

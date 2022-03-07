@@ -7,27 +7,15 @@ public class Shooter : Unit
 {
     //public Animator animator;
     public Transform[] bulletSpawnPos = new Transform[2];
+    public BulletPool bulletPool;
     public Bullet bullet;
 
-    public BulletPool bulletPool;
-
     int bulletPosIdx = 0;
-
-    [PunRPC]
-    public void OnEnforceStartHealth()
-    {
-        deltaStatus.health += 5;
-        if (photonView.IsMine)
-        {
-            photonView.RPC("OnEnforceStartHealth", RpcTarget.Others);
-        }
-    }
 
     protected override void Awake()
     {
         base.Awake();
         bulletPool = GetComponent<BulletPool>();
-        bullet.bulletName = bullet.name;
     }
 
     protected override void OnEnable()
@@ -67,13 +55,14 @@ public class Shooter : Unit
         {
             lastAttackTime = PhotonNetwork.Time;
 
+            bullet = bulletPool.GetBullet();                                    // 투사체 생성
+            bullet.transform.position = bulletSpawnPos[bulletPosIdx].position;  // 투사체의 위치값 설정
+            bullet.transform.rotation = this.transform.rotation;                // 투사체의 회전값 설정
+            bullet.damage = this.damage;                                        // 투사체 대미지 설정
+            bullet.targetCollider2D = enemyCollider2D;                          // 투사체의 목표를 설정
+
             bulletPosIdx = bulletPosIdx > 0 ? 0 : 1;
-            bullet = bulletPool.GetBullet();    // 공격(진)
-            bullet.gameObject.name += bulletPosIdx;
-            bullet.transform.rotation = this.transform.rotation;
-            bullet.damage = this.damage;
-            bullet.targetCollider2D = enemyCollider2D;
-            bullet.transform.position = bulletSpawnPos[bulletPosIdx].position;
+
             //bullet.startPosition = bulletSpawnPos[bulletPosIdx].position;
         }
         else if (enemyCollider2D == null)
