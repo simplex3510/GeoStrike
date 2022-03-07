@@ -13,6 +13,7 @@ public class MinimapScreen : MonoBehaviour
 
         size = mainCamera.orthographicSize;
 
+        print(mainCamera.orthographicSize);
         this.transform.localScale = new Vector3(size, size, size);
     }
 
