@@ -72,8 +72,11 @@ public class Detector : MonoBehaviour
                 // 클릭한 Obj 정보 불러오기
                 clickedObject = hit2D.collider.gameObject;
 
-                // 클릭한 obj가 유닛이고 Idle (유닛타일에서 대기중) 일때 배치모드 실행
-                StartCoroutine(CBatchMode());
+                // 클릭한 유닛이 Idle (유닛타일에서 대기중) 일때 배치모드 실행
+                if (clickedUnit.GetUnitState() == EUnitState.Idle)
+                {
+                    StartCoroutine(CBatchMode());
+                }
             }
         }
     }
@@ -110,38 +113,35 @@ public class Detector : MonoBehaviour
 
     IEnumerator CBatchMode()
     {
-        if (clickedObject.CompareTag("Unit") || clickedUnit.GetUnitState() == EUnitState.Idle)
+        Debug.Log("batchMode");
+        while (!Input.GetKeyDown(KeyCode.Escape) && !Input.GetMouseButtonDown(1) && clickedUnit.GetUnitState() == EUnitState.Idle)
         {
-            Debug.Log("batchMode");
-            while (!Input.GetKeyDown(KeyCode.Escape) || !Input.GetMouseButtonDown(1))
-            {
-                // 유닛의 타일 색 바꾸기 파랑, 빨강
-                //hit2D.transform.GetComponent<UnitTile>().SetColor();
+            // 유닛의 타일 색 바꾸기 파랑, 빨강
+            //hit2D.transform.GetComponent<UnitTile>().SetColor();
 
-                // 유닛 이동
-                if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-                {
-                    Debug.Log("move w");
-                    clickedUnit.transform.position += Vector3.up; 
-                }
-                else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-                {
-                    Debug.Log("move s");
-                    clickedUnit.transform.position += Vector3.down;
-                }
-                else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-                {
-                    Debug.Log("move a");
-                    clickedUnit.transform.position += Vector3.left;
-                }
-                else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-                {
-                    Debug.Log("move d");
-                    clickedUnit.transform.position += Vector3.right;
-                }
-                yield return null;
+            // 유닛 이동
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                Debug.Log("move w");
+                clickedUnit.transform.position += Vector3.up; 
             }
-            Debug.Log("Cancel");
+            else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                Debug.Log("move s");
+                clickedUnit.transform.position += Vector3.down;
+            }
+            else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                Debug.Log("move a");
+                clickedUnit.transform.position += Vector3.left;
+            }
+            else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                Debug.Log("move d");
+                clickedUnit.transform.position += Vector3.right;
+            }
+            yield return null;
         }
+        Debug.Log("Cancel");
     }
 }

@@ -51,7 +51,7 @@ public class UnitCreator : MonoBehaviourPun
 
                             // 배틀필드로 유닛 이동시켜주기 위한 작업
                             translocateField.unitList.Add(unit);
-                            unit.transform.SetParent(translocateField.spawnPosP1.transform); // <- x
+                            unit.transform.SetParent(translocateField.spawnPosP1.transform);
                             return;
                         }
                     }

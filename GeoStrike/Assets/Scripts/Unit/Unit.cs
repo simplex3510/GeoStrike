@@ -45,8 +45,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     public UnitData deltaStatus;
     public Queue<Unit> myPool;
 
-    // UnitTile 위치 저장
-    public Vector2 startLocation;
+    // 배치상태의 위치 저장
+    public Vector2 spawnLocation;
 
     #region Status
     [HideInInspector]
