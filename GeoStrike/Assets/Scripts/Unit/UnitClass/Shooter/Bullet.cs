@@ -15,10 +15,16 @@ public class Bullet : MonoBehaviourPun
     [SerializeField] float speed;   // 투사체 속도
     float endDistance;
     bool isRotate;
+    [SerializeField] private int returnTime = 2; 
 
     private void Awake()
     {
         endDistance = targetCollider2D.transform.position.magnitude;
+    }
+
+    private void OnEnable()
+    {   
+        StartCoroutine(EBulletReturn());
     }
 
     private void OnDisable()
@@ -80,5 +86,11 @@ public class Bullet : MonoBehaviourPun
             enemy.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
             SetBulletActive(false);
         }
+    }
+
+    IEnumerator EBulletReturn()
+    {
+        yield return new WaitForSeconds(returnTime);
+        SetBulletActive(false);
     }
 }

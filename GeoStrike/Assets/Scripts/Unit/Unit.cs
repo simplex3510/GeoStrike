@@ -45,6 +45,9 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     public UnitData deltaStatus;
     public Queue<Unit> myPool;
 
+    // UnitTile 위치 저장
+    public Vector2 startLocation;
+
     #region Status
     [HideInInspector]
     public EUnitIndex unitIndex;
@@ -63,6 +66,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     protected LayerMask opponentLayerMask;  // 공격할 대상
     protected EUnitState unitState;         // 유닛의 FSM의 상태
     protected Collider2D enemyCollider2D;
+    protected Rigidbody2D myRigid2D;
     protected double lastAttackTime;
     protected bool isPlayer1;
 
@@ -70,7 +74,10 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
     protected virtual void Awake()
     {
+        myRigid2D = GetComponent<Rigidbody2D>();
+
         isPlayer1 = (photonView.ViewID / 1000) == 1 ? true : false; ;
+        
 
         if (photonView.IsMine)
         {
@@ -304,5 +311,20 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         //Gizmos.color = Color.red;
         //Gizmos.DrawWireSphere(transform.position, attackRange);
         //Gizmos.DrawWireSphere(transform.position, detectRange);
+    }
+
+    public EUnitState GetUnitState()
+    {
+        return unitState;
+    }
+
+    public void SetFreezeNone()
+    {
+        myRigid2D.constraints = RigidbodyConstraints2D.None;
+    }
+
+    public void SetFreezeAll()
+    {
+        myRigid2D.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 }

@@ -49299,8 +49299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c3d1f4355e417346ab93ceeeb496ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraController: {fileID: 0}
-  creater: {fileID: 2184158711282252229}
   mask:
     serializedVersion: 2
     m_Bits: 8384
