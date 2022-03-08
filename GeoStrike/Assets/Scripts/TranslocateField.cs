@@ -9,7 +9,6 @@ public class TranslocateField : MonoBehaviourPun
 {
     // Unit state
     public List<Unit> unitList = new List<Unit>();
-    //public List<Unit> p2UnitList = new List<Unit>();
 
     // Waiting unit translocate
     [SerializeField] private Transform moveToBattleFieldP1;

@@ -6,46 +6,42 @@ using Photon.Realtime;
 
 public class Bullet : MonoBehaviourPun
 {
-    public Vector3 startPosition;
-    public Vector3 endPosition;
-
     // Bullet Pool
     public Queue<Bullet> myPool;
-    public Transform myParent;
 
     public Collider2D targetCollider2D;
     public float damage;
 
     [SerializeField] float speed;   // 투사체 속도
+    float endDistance;
     bool isRotate;
 
     private void Awake()
     {
-        //endPosition = startPosition;
-    }
-
-    private void Update()
-    {
-        transform.position += transform.right * speed * Time.fixedDeltaTime;    // X축 방향으로 총알을 발사
-
-        // 타겟 좌표까지 이동한 후 투사체 비활성화 - 투사체가 발사된 후 타겟이 비활성화 되었을 때
-        //if(targetCollider2D.transform.position == endPosition)
-        //{
-        //    gameObject.SetActive(false);
-        //}
-
-        if (!isRotate)
-        {
-            StartCoroutine(RotateAnimation(targetCollider2D));
-        }
+        endDistance = targetCollider2D.transform.position.magnitude;
     }
 
     private void OnDisable()
     {
         if (photonView.IsMine)
         {
-            //transform.SetParent(myParent);
             myPool.Enqueue(this);
+        }
+    }
+
+    private void Update()
+    {
+        transform.position += transform.right * speed * Time.fixedDeltaTime;    // X축 방향으로 투사체를 발사
+
+        // 타겟 좌표까지 이동한 후 투사체 비활성화 - 투사체가 발사된 후 타겟이 비활성화 되었을 때
+        if (Mathf.Approximately(endDistance, transform.position.magnitude))
+        {
+            SetBulletActive(false);
+        }
+
+        if (!isRotate)
+        {
+            StartCoroutine(RotateAnimation(targetCollider2D));
         }
     }
 
@@ -69,7 +65,6 @@ public class Bullet : MonoBehaviourPun
 
         while (!Mathf.Approximately(transform.rotation.z, target.z))
         {
-            // delta값 올려주기, 총알 리턴 매소드 추가
             transform.rotation = Quaternion.RotateTowards(transform.rotation, target, 0.5f);
 
             yield return null;

@@ -38,11 +38,9 @@ public class Pool : MonoBehaviourPun
         }
 
         newObj.myPool = ObjPoolQueue;
-        newObj.myParent = transform;
-        newObj.transform.SetParent(newObj.myParent);
+        newObj.transform.SetParent(this.transform);
         newObj.SetUnitActive(false);
 
-        // ObjPoolQueue.Enqueue(newObj); -> Unit의 OnDisable에서 자동으로 Enqueue
         return newObj;
     }
 
@@ -52,7 +50,6 @@ public class Pool : MonoBehaviourPun
         if (ObjPoolQueue.Count > 0)
         {
             Unit obj = ObjPoolQueue.Dequeue();
-            obj.transform.SetParent(null);
             obj.SetUnitActive(true);
 
             return obj;
@@ -62,7 +59,6 @@ public class Pool : MonoBehaviourPun
         {
             Unit newObj = CreateNewObject();
             ObjPoolQueue.Dequeue();
-            newObj.transform.SetParent(null);
             newObj.SetUnitActive(true);
 
             return newObj;

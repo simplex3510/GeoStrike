@@ -105,7 +105,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initStatus: {fileID: 11400000, guid: 4810230056000be4ba14cfe6810ec22f, type: 2}
   deltaStatus: {fileID: 11400000, guid: 7608f87578bb72f4983c0891e86c9626, type: 2}
-  myParent: {fileID: 0}
   unitIndex: 1
   bulletSpawnPos:
   - {fileID: 2942227000734488926}

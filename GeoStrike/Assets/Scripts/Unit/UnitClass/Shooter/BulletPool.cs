@@ -16,11 +16,9 @@ public class BulletPool : MonoBehaviourPun
         {
             Bullet newBullet = PhotonNetwork.Instantiate("Units/Projectiles/" + bullet.name, Vector3.zero, Quaternion.identity).GetComponent<Bullet>();
 
-            newBullet.myPool = bulletQueue;                     // 투사체 Enqueue
-            //newBullet.myParent = this.transform;                // 투사체 부모 객체 설정
+            newBullet.myPool = bulletQueue;                     // 투사체 풀(Queue) 설정
             newBullet.transform.SetParent(this.transform);      // 투사체 부모 객체 설정
-            newBullet.SetBulletActive(false);                   // 투사체 활성화
-
+            newBullet.SetBulletActive(false);                   // 투사체 비활성화 - Enqueue(안 되고 있음 -> Instantiate 후 바로 Disable됨 -> Enqueue가 안 됨)
             return newBullet;
         }
         else
@@ -35,7 +33,6 @@ public class BulletPool : MonoBehaviourPun
         if (0 < bulletQueue.Count)
         {
             Bullet newBullet = bulletQueue.Dequeue();
-            //newBullet.transform.SetParent(null);
             newBullet.SetBulletActive(true);
 
             return newBullet;
@@ -45,7 +42,6 @@ public class BulletPool : MonoBehaviourPun
         {
             Bullet newBullet = CreateBullet();
             bulletQueue.Dequeue();
-            //newBullet.transform.SetParent(null);
             newBullet.SetBulletActive(true);
 
             return newBullet;

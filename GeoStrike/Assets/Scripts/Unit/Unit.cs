@@ -43,7 +43,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 {
     public UnitData initStatus;
     public UnitData deltaStatus;
-    public Transform myParent;
     public Queue<Unit> myPool;
 
     #region Status
@@ -122,7 +121,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     {
         if(photonView.IsMine)
         {
-            transform.SetParent(myParent);
             myPool.Enqueue(this);
         }
     }
@@ -228,7 +226,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     [PunRPC]
     public void SetUnitActive(bool isTrue)
     {
-        gameObject.SetActive(isTrue);
+        this.gameObject.SetActive(isTrue);
         if (photonView.IsMine)
         {
             photonView.RPC("SetUnitActive", RpcTarget.Others, isTrue);

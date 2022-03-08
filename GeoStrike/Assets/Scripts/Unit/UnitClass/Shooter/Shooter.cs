@@ -62,8 +62,6 @@ public class Shooter : Unit
             bullet.targetCollider2D = enemyCollider2D;                          // 투사체의 목표를 설정
 
             bulletPosIdx = bulletPosIdx > 0 ? 0 : 1;
-
-            //bullet.startPosition = bulletSpawnPos[bulletPosIdx].position;
         }
         else if (enemyCollider2D == null)
         {
