@@ -287,7 +287,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
         while (!Mathf.Approximately(transform.rotation.z, target.z))
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, target, 0.5f);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, target, 1.5f);
 
             yield return null;
         }

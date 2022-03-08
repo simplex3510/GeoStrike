@@ -17,7 +17,7 @@ MonoBehaviour:
   health: 10
   damage: 5
   defense: 4
-  attackRange: 5
+  attackRange: 7
   detectRange: 10
   attackSpeed: 1
   moveSpeed: 3
