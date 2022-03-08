@@ -60,6 +60,7 @@ public class Shooter : Unit
             bullet.transform.rotation = this.transform.rotation;                // 투사체의 회전값 설정
             bullet.damage = this.damage;                                        // 투사체 대미지 설정
             bullet.targetCollider2D = enemyCollider2D;                          // 투사체의 목표를 설정
+            bullet.SetBulletActive(true);                                       // 투사체 활성화
 
             bulletPosIdx = bulletPosIdx > 0 ? 0 : 1;
         }
