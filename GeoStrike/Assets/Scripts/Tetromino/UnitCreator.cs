@@ -10,6 +10,8 @@ public class UnitCreator : MonoBehaviourPun
     [SerializeField] private UnitTileContainer unitTileContainer;
     [SerializeField] private TranslocateField translocateField;
 
+    public Vector3 spawnPos = Vector3.zero;
+
     public Unit unitP1;
     public Unit unitP2;
 
@@ -44,10 +46,25 @@ public class UnitCreator : MonoBehaviourPun
                         if ((int)unitP1.unitIndex != 6)
                         {
                             Unit unit = ObjectPoolMgr.instance.poolArr[(int)unitP1.initStatus.unitIndex].GetObject();    // 내 Pool에서 내 유닛 꺼내기
+                            unit.unitCreator = this;
                             unit.SetFreezeAll();
 
-                            unit.transform.position = unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].worldPos + Vector3.back; // 내 유닛 타일에 배치
-                            unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].isEmty = false;   // 소환된 유닛 타일의 상태 변환
+                            if (spawnPos == Vector3.zero)
+                            {
+                                unit.transform.position = unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].worldPos + Vector3.back; // 내 유닛 타일에 배치
+                                unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].isEmty = false;   // 소환된 유닛 위치의 타일 상태 변환
+                                spawnPos = unit.transform.position;
+                            }
+                            else
+                            {
+                                unit.transform.position = spawnPos;
+                                //unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, ,].isEmty = false;
+                            }
+                            
+
+                            // test
+                            //unit.unitTile = unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column];
+                            //unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].unit = unit;   // 타일에 현재 유닛 저장
 
                             // 배틀필드로 유닛 이동시켜주기 위한 작업
                             translocateField.unitList.Add(unit);
@@ -81,7 +98,7 @@ public class UnitCreator : MonoBehaviourPun
                             unit.SetFreezeAll();
 
                             unit.transform.position = unitTileContainer.unitTileArr[ConnectMgr.GUEST_PLAYER, row, column].worldPos + Vector3.back; // 내 유닛 타일에 배치
-                            unitTileContainer.unitTileArr[ConnectMgr.GUEST_PLAYER, row, column].isEmty = false;   // 소환된 유닛 타일의 상태 변환
+                            unitTileContainer.unitTileArr[ConnectMgr.GUEST_PLAYER, row, column].isEmty = false;   // 소환된 유닛 위치의 타일 상태 변환
 
                             // 배틀필드로 유닛 이동시켜주기 위한 작업
                             translocateField.unitList.Add(unit);

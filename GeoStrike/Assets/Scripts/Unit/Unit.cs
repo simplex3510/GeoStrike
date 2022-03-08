@@ -46,7 +46,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     public Queue<Unit> myPool;
 
     // 배치상태의 위치 저장
-    public Vector2 spawnLocation;
+    public UnitTile unitTile;
+    public UnitCreator unitCreator;
 
     #region Status
     [HideInInspector]
@@ -120,7 +121,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         moveSpeed = deltaStatus.moveSpeed;
         #endregion
 
-        unitState = EUnitState.Move;
+        unitState = EUnitState.Idle;
     }
 
     // Return to your pool

@@ -300,7 +300,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initStatus: {fileID: 0}
   deltaStatus: {fileID: 0}
-  spawnLocation: {x: 0, y: 0}
+  unitTile: {fileID: 0}
+  unitCreator: {fileID: 0}
   unitIndex: 0
   animator: {fileID: 0}
   weapon: {fileID: 0}

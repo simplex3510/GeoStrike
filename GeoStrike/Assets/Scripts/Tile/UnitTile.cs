@@ -8,7 +8,7 @@ public class UnitTile : MonoBehaviour
 
     public Vector2 tileCoordinate; // 좌표 값
     public Vector3 worldPos; // 월드 위치 값
-    public Unit unit; // 이 타일에 배치된 유닛
+    public Unit unit = null; // 이 타일에 배치된 유닛
 
     private SpriteRenderer spriteRenderer;
 

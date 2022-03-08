@@ -260,7 +260,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initStatus: {fileID: 11400000, guid: 31810c8f887e0834b84c29ffe41a89c4, type: 2}
   deltaStatus: {fileID: 11400000, guid: 0eba4100142bc20449900006291b1071, type: 2}
-  spawnLocation: {x: 0, y: 0}
+  unitTile: {fileID: 0}
+  unitCreator: {fileID: 0}
   unitIndex: 0
   animator: {fileID: 8173733403797653950}
   weapon: {fileID: 8173733402153910181}

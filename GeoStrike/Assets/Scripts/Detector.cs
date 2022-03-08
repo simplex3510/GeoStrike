@@ -123,23 +123,24 @@ public class Detector : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 Debug.Log("move w");
-                clickedUnit.transform.position += Vector3.up; 
+                clickedUnit.unitCreator.spawnPos += Vector3.up; // 유닛이 소환된 수만큼 증가됨...
             }
             else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             {
                 Debug.Log("move s");
-                clickedUnit.transform.position += Vector3.down;
+                clickedUnit.unitCreator.spawnPos += Vector3.down;
             }
             else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 Debug.Log("move a");
-                clickedUnit.transform.position += Vector3.left;
+                clickedUnit.unitCreator.spawnPos += Vector3.left;
             }
             else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
                 Debug.Log("move d");
-                clickedUnit.transform.position += Vector3.right;
+                clickedUnit.unitCreator.spawnPos += Vector3.right;
             }
+            //clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos;
             yield return null;
         }
         Debug.Log("Cancel");
