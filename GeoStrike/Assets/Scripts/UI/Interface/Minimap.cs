@@ -10,6 +10,7 @@ public class Minimap : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Camera minimapCamera;
 
     RectTransform rectTransform;
+    Vector2 mousePos;
 
     public GameObject test;
 
@@ -17,39 +18,21 @@ public class Minimap : MonoBehaviour, IPointerClickHandler
     {
         rectTransform = GetComponent<RectTransform>();
 
-        Ray ray = minimapCamera.ScreenPointToRay(Input.mousePosition);
-        print(ray.origin);
-        test.transform.position = ray.origin;
+        //Ray ray = minimapCamera.ScreenPointToRay(Input.mousePosition);
+        //RaycastHit hit;
+
+        //if (Physics.Raycast(ray, out hit))
+        //{
+        //    Debug.Log(hit.point);
+        //    mainCamera.transform.position = new Vector3(hit.point.x, hit.point.y, -10);
+
+        //    Debug.DrawRay(ray.origin, ray.direction * 50, Color.red, 0.3f);
+        //}
+
+        mousePos = Input.mousePosition;
+        mousePos = minimapCamera.ScreenToWorldPoint(mousePos);
+
+        print(mousePos);
+        mainCamera.transform.position = new Vector3(mousePos.x, mousePos.y, -10);
     }
-
-    //public void OnClick()
-    //{
-    //    rectTransform = GetComponent<RectTransform>();
-    //    //Debug.Log("맵 이미지 사이즈 : " + rectTransform.rect.size);
-    //    // (237.3, 237.3)
-
-    //    //이미지의 RectTransform 컴포넌트를 가져온다
-    //    //Debug.Log("맵 이미지 사이즈 : " + rectTransform.offsetMin);
-
-    //    Vector2 mousePos = Input.mousePosition;
-    //    //Debug.Log("마우스를 클릭한 스크린 좌표 : " + mousePos);
-
-    //    Vector2 clickedPos = mousePos - rectTransform.offsetMin;
-
-    //    Vector2 ratioVec = mousePos / rectTransform.rect.size;
-
-    //    Vector2 worldMapPosition;
-    //    worldMapPosition.x = ratioVec.x * rectTransform.rect.size.x;
-    //    worldMapPosition.y = ratioVec.y * rectTransform.rect.size.y;
-
-    //    worldMapPosition = worldMapPosition / 2;
-
-    //    Debug.Log("월드 좌표 : " + worldMapPosition);
-
-    //    mainCamera.transform.position = worldMapPosition;
-    //}
-    //public void OnPointerClick(PointerEventData eventData)
-    //{
-    //    OnClick();
-    //}
 }
