@@ -250,13 +250,14 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         }
     }
 
-    // SpawnCreater에서 Spawn됬을때 호출 : Idle -> Move
-    public IEnumerator EIdleToMove()
+    // Idle에서 Move가 되는 조건
+    public IEnumerator EIdleToMoveCondition()
     {
         while (GameMgr.instance.GetState() == EGameState.FSM_SpawnCount)
         {
             yield return null;
         }
+    
         unitState = EUnitState.Move;
     }
 

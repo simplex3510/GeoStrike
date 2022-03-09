@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -14,7 +13,7 @@ public class Detector : MonoBehaviour
     private Ray ray;
     private RaycastHit hit;
     private RaycastHit2D hit2D;
-    [SerializeField] LayerMask mask;
+    [SerializeField] private LayerMask mask;
 
     [HideInInspector] public TetrominoTile tile;    // 마우스 위치의 타일 정보
     public static bool canBuild = true;
@@ -24,10 +23,10 @@ public class Detector : MonoBehaviour
     [HideInInspector] public Tetromino tetromino;
     [HideInInspector] public Vector3 angle;
 
-    // 정보창 & 유닛 배치모드 - 보류중
-    [SerializeField] private GameObject clickedObject;      // 클릭한 Object 저장
-    [SerializeField] private Unit clickedUnit;              // 클릭한 Unit 저장
-
+    // 정보창 & 유닛 배치모드
+    private GameObject clickedObject;      // 클릭한 Object 저장
+    private Unit statusPanelUnit;           // 정보창에서 사용할 클릭한 Unit
+    private Unit clickedUnit;              // 배치모드에서 사용할 클릭한 Unit 저장
 
     private void Awake()
     {
@@ -42,24 +41,31 @@ public class Detector : MonoBehaviour
         CheckBuildPreview();
     }
 
+    private void LateUpdate()
+    {
+        StatusSlotUpdate();
+    }
+
     // Status(정보창) 업데이트
-    IEnumerator EStatusSlotUpdate()
+    private void StatusSlotUpdate()
     {
         if (clickedObject != null)
         {
             if (clickedObject.CompareTag("Unit"))
             {
-                clickedUnit = clickedObject.GetComponent<Unit>();
-                GameMgr.instance.canvas.GetComponentInChildren<StatusPanel>()
-                    .UnitStatusInfo(clickedUnit.GetComponent<SpriteRenderer>(), clickedUnit.unitName, clickedUnit.currentHealth, clickedUnit.damage, clickedUnit.defense);
+                statusPanelUnit = clickedObject.GetComponent<Unit>();
+                GameMgr.instance.canvas.GetComponentInChildren<StatusPanel>().UnitStatusInfo(
+                    statusPanelUnit.GetComponent<SpriteRenderer>(), statusPanelUnit.unitName, statusPanelUnit.currentHealth, statusPanelUnit.damage, statusPanelUnit.defense);
             }
             else if (clickedObject.CompareTag("Tetromino"))
             {
                 // 구현중
+                // 테트리스건물일 경우 띄워야 할 정보들
+                // 이미지, 이름, 건물 완성도
             }
         }
-        yield return null;
     }
+
 
     // 클릭한 오브젝트 Data 가져오기
     private void ClickedObjectData()
@@ -72,9 +78,7 @@ public class Detector : MonoBehaviour
             {
                 // 클릭한 Obj 정보 불러오기
                 clickedObject = hit2D.collider.gameObject;
-
-                // Status(정보창) 업데이트
-                StartCoroutine(EStatusSlotUpdate());
+                clickedUnit = clickedObject.GetComponent<Unit>();
 
                 // 클릭한 유닛이 Idle (유닛타일에서 대기중) 일때 배치모드 실행
                 if (clickedUnit.GetUnitState() == EUnitState.Idle && cameraController.mouseController.eMouseMode == MouseController.EMouseMode.normal)
@@ -85,7 +89,7 @@ public class Detector : MonoBehaviour
         }
     }
 
-    // 테트로미노 미리보기 위치설정 (테트로미노 타일에서만 이동가능)
+    // 테트로미노 빌드 이미지 위치설정 (테트로미노 타일에서만 이동가능)
     private void CheckBuildPreview()
     {
         if (cameraController.mouseController.eMouseMode == MouseController.EMouseMode.build)
@@ -115,32 +119,36 @@ public class Detector : MonoBehaviour
         yield return null;
     }
 
-
+    // 질문 1 : 오브젝트의 위치로 마우스포인터를 이동 가능한지?
     IEnumerator CBatchMode()
     {
+        // 클릭된 유닛의 타일크기에 맞게 테투리 표시
+        // 이현직님에게 이미지 작업 부탁..
+
         int h = 0;
         int v = 0;
         Debug.Log("batchMode");
-        cameraController.mouseController.eMouseMode = MouseController.EMouseMode.build;
-        while (!Input.GetKeyDown(KeyCode.Escape) && !Input.GetMouseButtonDown(MouseController.CLICK_RIGHT) && clickedUnit.GetUnitState() == EUnitState.Idle)
+        cameraController.mouseController.eMouseMode = MouseController.EMouseMode.batch;
+        Cursor.lockState = CursorLockMode.Locked;
+        while (!Input.GetKeyDown(KeyCode.Escape) && !Input.GetMouseButtonDown(MouseController.CLICK_RIGHT) &&
+               clickedUnit.GetUnitState() == EUnitState.Idle && GameMgr.instance.GetState() == EGameState.FSM_SpawnCount)
         {
             h = 0;
             v = 0;
-
             // 유닛 이동
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.W))
             {
                 v = 1;
             }
-            else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+            else if (Input.GetKeyDown(KeyCode.S))
             {
                 v = -1;
             }
-            else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+            else if (Input.GetKeyDown(KeyCode.A))
             {
                 h = -1;
             }
-            else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+            else if (Input.GetKeyDown(KeyCode.D))
             {
                 h = +1;
             }
@@ -150,69 +158,23 @@ public class Detector : MonoBehaviour
             // 이동 가능한지 체크하기
             if (!unitTileContainer.checkUnitArr[finalV, finalH])
             {
-                unitTileContainer.checkUnitArr[clickedUnit.row, clickedUnit.column] = false; // 현재 위치
+                unitTileContainer.checkUnitArr[clickedUnit.row, clickedUnit.column] = false; // 현재 위치의 유닛 유무
 
                 clickedUnit.row = finalV;
                 clickedUnit.column = finalH;
 
-                unitTileContainer.checkUnitArr[clickedUnit.row, clickedUnit.column] = true; // 최종 위치
+                unitTileContainer.checkUnitArr[clickedUnit.row, clickedUnit.column] = true; // 최종 위치의 유닛 유무
                 clickedUnit.unitCreator.spawnPos += new Vector3(h, v, 0);   // Spawn 위치 지정
                 clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos; // 유닛의 실제 위치 이동
             }
-
+            
             yield return null;
         }
+
+        // 배치모드 끝날시
         clickedUnit = null;
+        Cursor.lockState = CursorLockMode.None;
         cameraController.mouseController.eMouseMode = MouseController.EMouseMode.normal;
         Debug.Log("Cancel");
     }
-
-
-    // 질문 2 : 유닛이 위치한 좌표 아래의 타일에 접근방법 (유닛 중복배치 제한)
-    // 작업 3 : 타일 배열크기에 맞게 유닛 이동 제한 시키기
-    //IEnumerator CBatchMode()
-    //{
-    //    Debug.Log("batchMode");
-    //    cameraController.mouseController.eMouseMode = MouseController.EMouseMode.build;
-    //    while (!Input.GetKeyDown(KeyCode.Escape) && !Input.GetMouseButtonDown(MouseController.CLICK_RIGHT) && clickedUnit.GetUnitState() == EUnitState.Idle)
-    //    {
-    //        // 유닛 이동
-    //        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) // GetAxisRow 대체 가능
-    //        {
-    //            Debug.Log("move w");
-    //            unitTileContainer.checkUnitArr[clickedUnit.row, clickedUnit.column] = false;
-    //            clickedUnit.unitCreator.spawnPos += Vector3.up;
-    //            unitTileContainer.checkUnitArr[clickedUnit.row + 1, clickedUnit.column] = true;
-    //            clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos;
-    //        }
-    //        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-    //        {
-    //            Debug.Log("move s");
-    //            unitTileContainer.checkUnitArr[clickedUnit.row, clickedUnit.column] = false;
-    //            clickedUnit.unitCreator.spawnPos += Vector3.down;
-    //            unitTileContainer.checkUnitArr[clickedUnit.row - 1, clickedUnit.column] = true;
-    //            clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos;
-    //        }
-    //        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
-    //        {
-    //            Debug.Log("move a");
-    //            unitTileContainer.checkUnitArr[clickedUnit.row, clickedUnit.column] = false;
-    //            clickedUnit.unitCreator.spawnPos += Vector3.left;
-    //            unitTileContainer.checkUnitArr[clickedUnit.row, clickedUnit.column - 1] = true;
-    //            clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos;
-    //        }
-    //        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
-    //        {
-    //            Debug.Log("move d");
-    //            unitTileContainer.checkUnitArr[clickedUnit.row, clickedUnit.column] = false;
-    //            clickedUnit.unitCreator.spawnPos += Vector3.right;
-    //            unitTileContainer.checkUnitArr[clickedUnit.row + 1, clickedUnit.column + 1] = true;
-    //            clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos;
-    //        }
-    //        yield return null;
-    //    }
-    //    clickedUnit = null;
-    //    cameraController.mouseController.eMouseMode = MouseController.EMouseMode.normal;
-    //    Debug.Log("Cancel");
-    //}
 }

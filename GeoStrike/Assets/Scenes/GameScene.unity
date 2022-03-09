@@ -49427,8 +49427,6 @@ MonoBehaviour:
   tetrominoObj: {fileID: 0}
   tetromino: {fileID: 0}
   angle: {x: 0, y: 0, z: 0}
-  clickedObject: {fileID: 0}
-  clickedUnit: {fileID: 0}
 --- !u!4 &8426533187915313211
 Transform:
   m_ObjectHideFlags: 0
