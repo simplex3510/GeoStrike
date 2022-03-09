@@ -29,6 +29,12 @@ public enum EUnitIndex
     Debuffer
 }
 
+public struct RowAndColumn
+{
+    public int row;
+    public int column;
+}
+
 interface IDamageable
 {
     public void OnDamaged(float _damage);
@@ -48,6 +54,21 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     // 배치상태의 위치 저장
     public UnitTile unitTile;
     public UnitCreator unitCreator;
+
+    private RowAndColumn RowAndColumn;
+
+    public RowAndColumn rowAndColumn
+    {
+        get
+        {
+            RowAndColumn.column = column;
+            RowAndColumn.row = row;
+            return RowAndColumn;
+        }
+    }
+    public int row;
+    public int column;
+    
 
     #region Status
     [HideInInspector]
@@ -147,7 +168,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         moveSpeed = deltaStatus.moveSpeed;
         #endregion
 
-        unitState = EUnitState.Move;
+        unitState = EUnitState.Idle;
     }
 
     // Return to your pool

@@ -10,7 +10,8 @@ public class UnitTileContainer : MonoBehaviour
     public static readonly int ARRAY_PLAYER = 2;
 
     public UnitTile[,,] unitTileArr = new UnitTile[ArrayNumber.PLAYER, ArrayNumber.UNIT_TILE_ROW, ArrayNumber.UNIT_TILE_COLUMN];
- 
+    public bool[,] checkUnitArr = new bool[8, 8];
+
     [SerializeField] private Transform parentP1;
     [SerializeField] private Transform parentP2;
 

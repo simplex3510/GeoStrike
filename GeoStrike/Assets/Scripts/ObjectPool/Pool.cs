@@ -11,6 +11,8 @@ public class Pool : MonoBehaviourPun
     public Unit unitP1;
     public Unit unitP2;
 
+
+
     // 초기 Object 생성
     public void InitObjectPool(int _num)
     {

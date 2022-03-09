@@ -115,43 +115,104 @@ public class Detector : MonoBehaviour
         yield return null;
     }
 
-    // 질문 1 : 중복클릭으로 인한 이동 값 증가 오류 (클릭횟수만큼 코루틴 중복실행 파악됨)
-    // 질문 2 : 유닛이 위치한 좌표 아래의 타일에 접근방법
+
     IEnumerator CBatchMode()
     {
+        int h = 0;
+        int v = 0;
         Debug.Log("batchMode");
         cameraController.mouseController.eMouseMode = MouseController.EMouseMode.build;
         while (!Input.GetKeyDown(KeyCode.Escape) && !Input.GetMouseButtonDown(MouseController.CLICK_RIGHT) && clickedUnit.GetUnitState() == EUnitState.Idle)
         {
+            h = 0;
+            v = 0;
+
             // 유닛 이동
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
-                Debug.Log("move w");
-                clickedUnit.unitCreator.spawnPos += Vector3.up;
-                clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos;
+                v = 1;
             }
             else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             {
-                Debug.Log("move s");
-                clickedUnit.unitCreator.spawnPos += Vector3.down;
-                clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos;
+                v = -1;
             }
             else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                Debug.Log("move a");
-                clickedUnit.unitCreator.spawnPos += Vector3.left;
-                clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos;
+                h = -1;
             }
             else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
-                Debug.Log("move d");
-                clickedUnit.unitCreator.spawnPos += Vector3.right;
-                clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos;
+                h = +1;
             }
+            int finalH = Mathf.Clamp(clickedUnit.column + h, 0, 7);
+            int finalV = Mathf.Clamp(clickedUnit.row + v, 0, 7);
+
+            // 이동 가능한지 체크하기
+            if (!unitTileContainer.checkUnitArr[finalV, finalH])
+            {
+                unitTileContainer.checkUnitArr[clickedUnit.row, clickedUnit.column] = false; // 현재 위치
+
+                clickedUnit.row = finalV;
+                clickedUnit.column = finalH;
+
+                unitTileContainer.checkUnitArr[clickedUnit.row, clickedUnit.column] = true; // 최종 위치
+                clickedUnit.unitCreator.spawnPos += new Vector3(h, v, 0);   // Spawn 위치 지정
+                clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos; // 유닛의 실제 위치 이동
+            }
+
             yield return null;
         }
         clickedUnit = null;
         cameraController.mouseController.eMouseMode = MouseController.EMouseMode.normal;
         Debug.Log("Cancel");
     }
+
+
+    // 질문 2 : 유닛이 위치한 좌표 아래의 타일에 접근방법 (유닛 중복배치 제한)
+    // 작업 3 : 타일 배열크기에 맞게 유닛 이동 제한 시키기
+    //IEnumerator CBatchMode()
+    //{
+    //    Debug.Log("batchMode");
+    //    cameraController.mouseController.eMouseMode = MouseController.EMouseMode.build;
+    //    while (!Input.GetKeyDown(KeyCode.Escape) && !Input.GetMouseButtonDown(MouseController.CLICK_RIGHT) && clickedUnit.GetUnitState() == EUnitState.Idle)
+    //    {
+    //        // 유닛 이동
+    //        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) // GetAxisRow 대체 가능
+    //        {
+    //            Debug.Log("move w");
+    //            unitTileContainer.checkUnitArr[clickedUnit.row, clickedUnit.column] = false;
+    //            clickedUnit.unitCreator.spawnPos += Vector3.up;
+    //            unitTileContainer.checkUnitArr[clickedUnit.row + 1, clickedUnit.column] = true;
+    //            clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos;
+    //        }
+    //        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+    //        {
+    //            Debug.Log("move s");
+    //            unitTileContainer.checkUnitArr[clickedUnit.row, clickedUnit.column] = false;
+    //            clickedUnit.unitCreator.spawnPos += Vector3.down;
+    //            unitTileContainer.checkUnitArr[clickedUnit.row - 1, clickedUnit.column] = true;
+    //            clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos;
+    //        }
+    //        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+    //        {
+    //            Debug.Log("move a");
+    //            unitTileContainer.checkUnitArr[clickedUnit.row, clickedUnit.column] = false;
+    //            clickedUnit.unitCreator.spawnPos += Vector3.left;
+    //            unitTileContainer.checkUnitArr[clickedUnit.row, clickedUnit.column - 1] = true;
+    //            clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos;
+    //        }
+    //        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+    //        {
+    //            Debug.Log("move d");
+    //            unitTileContainer.checkUnitArr[clickedUnit.row, clickedUnit.column] = false;
+    //            clickedUnit.unitCreator.spawnPos += Vector3.right;
+    //            unitTileContainer.checkUnitArr[clickedUnit.row + 1, clickedUnit.column + 1] = true;
+    //            clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos;
+    //        }
+    //        yield return null;
+    //    }
+    //    clickedUnit = null;
+    //    cameraController.mouseController.eMouseMode = MouseController.EMouseMode.normal;
+    //    Debug.Log("Cancel");
+    //}
 }
