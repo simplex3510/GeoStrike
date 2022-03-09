@@ -147,7 +147,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         moveSpeed = deltaStatus.moveSpeed;
         #endregion
 
-        unitState = EUnitState.Idle;
+        unitState = EUnitState.Move;
     }
 
     // Return to your pool

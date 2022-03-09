@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitTileContainer: {fileID: 0}
   translocateField: {fileID: 0}
+  spawnPos: {x: 0, y: 0, z: 0}
   unitP1: {fileID: 8677361059674119659, guid: 770e5d19451e9e24c98ce03d7513cea7, type: 3}
   unitP2: {fileID: 5751252549581005398, guid: 74e5a33fee91fa846b3e51c91aef4572, type: 3}
 --- !u!61 &5999509230861070673
