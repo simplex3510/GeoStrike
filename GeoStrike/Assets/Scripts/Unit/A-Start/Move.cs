@@ -51,30 +51,32 @@ public class Move : MonoBehaviour
         finalNodeList = new List<Node>();           // 최종 리스트:
 
 
-        while (openList.Count > 0)
+        while (0 < openList.Count)
         {
-            // 열린리스트 중 가장 F가 작고 F가 같다면 H가 작은 걸 현재노드로 하고 열린리스트에서 닫힌리스트로 옮기기
+            // 처음엔 오픈 리스트의 0번째 노드가 현재 노드로 설정됨
             currentNode = openList[0];
 
             for (int i = 1; i < openList.Count; i++)
             {
+                // 열린 리스트는 시계방향으로 노드를 읽어옴
+                // 열린 리스트의 노드 중 F가 가장 작은 노드를 현재 노드로 - 같다면 H가 더 작은 값을 가진 노드를 현재 노드로 설정
                 if (openList[i].F <= currentNode.F && openList[i].H < currentNode.H)
                 {
                     currentNode = openList[i];
                 }
             }
 
-            openList.Remove(currentNode);
-            closedList.Add(currentNode);
+            openList.Remove(currentNode);   // 열린 리스트에서 현재 노드 삭재
+            closedList.Add(currentNode);    // 닫힌 리스트에서 현재 노드 추가
 
-            // 마지막
+            // 현재 노드가 목표 노드일 경우
             if (currentNode == targetNode)
             {
-                Node TargetcurrentNode = targetNode;
-                while (TargetcurrentNode != startNode)
+                Node targetcurrentNode = targetNode;
+                while (targetcurrentNode != startNode)
                 {
-                    finalNodeList.Add(TargetcurrentNode);
-                    TargetcurrentNode = TargetcurrentNode.parentNode;
+                    finalNodeList.Add(targetcurrentNode);
+                    targetcurrentNode = targetcurrentNode.parentNode;
                 }
                 finalNodeList.Add(startNode);
                 finalNodeList.Reverse();
@@ -87,7 +89,7 @@ public class Move : MonoBehaviour
             }
 
 
-            // ↗↖↙↘
+            // ↗↖↙↘ - 대각선 이동
             if (allowDiagonal)
             {
                 OpenListAdd(currentNode.x + 1, currentNode.y + 1);
@@ -96,7 +98,7 @@ public class Move : MonoBehaviour
                 OpenListAdd(currentNode.x + 1, currentNode.y - 1);
             }
 
-            // ↑ → ↓ ←
+            // ↑ → ↓ ← - 수평 이동
             OpenListAdd(currentNode.x, currentNode.y + 1);
             OpenListAdd(currentNode.x + 1, currentNode.y);
             OpenListAdd(currentNode.x, currentNode.y - 1);
@@ -114,37 +116,35 @@ public class Move : MonoBehaviour
             // 대각선 이동 허용시
             if (allowDiagonal) 
             {
-                if (nodeArray[currentNode.x - bottomLeft.x, checkY - bottomLeft.y].isWall &&    // 
-                    nodeArray[checkX - bottomLeft.x, currentNode.y - bottomLeft.y].isWall)      //
+                if (nodeArray[currentNode.x - bottomLeft.x, checkY - bottomLeft.y].isWall &&    // 현재 X좌표에서 상하 노드가 장애물이라면, 그리고
+                    nodeArray[checkX - bottomLeft.x, currentNode.y - bottomLeft.y].isWall)      // 현재 Y좌표에서 좌우 노드가 장애물이라면
                 {
                     return;                                                                     // 벽 사이로 통과 안 됨
                 }
             }
 
-            // 코너를 가로질러 가지 않을시
-            if (dontCrossCorner)    // 모서리를 가로질러 가지 않을 시
+            // 모서리를 가로질러 가지 않을 시
+            if (dontCrossCorner)    
             {
-                if (nodeArray[currentNode.x - bottomLeft.x, checkY - bottomLeft.y].isWall ||    // 이동 중에 수직수평 장애물이 있으면 안됨
-                    nodeArray[checkX - bottomLeft.x, currentNode.y - bottomLeft.y].isWall)      //
+                if (nodeArray[currentNode.x - bottomLeft.x, checkY - bottomLeft.y].isWall ||    // 현재 X좌표에서 상하 노드가 장애물이라면, 또는
+                    nodeArray[checkX - bottomLeft.x, currentNode.y - bottomLeft.y].isWall)      // 현재 Y좌표에서 좌우 노드가 장애물이라면
                 {
-                    return;                                                                     // 이동 중에 수직수평 장애물이 있으면 안됨
+                    return;                                                                     // 이동 중에 수직수평 장애물이 있으면 안 됨
                 }
             }
 
-
-            // 이웃노드에 넣고, 직선은 10, 대각선은 14비용
-            neighborNode = nodeArray[checkX - bottomLeft.x, checkY - bottomLeft.y];
-            int moveCost = currentNode.G + (currentNode.x - checkX == 0 || currentNode.y - checkY == 0 ? 10 : 14);
+            neighborNode = nodeArray[checkX - bottomLeft.x, checkY - bottomLeft.y];                                     // 이동할 노드를 이웃 노드에 할당
+            int moveCost = currentNode.G + (currentNode.x - checkX == 0 || currentNode.y - checkY == 0 ? 10 : 14);      // 현재 노드의 이동 거리(G)와 이동비용을 합하여 -> moveCost를 설정
 
 
-            // 이동비용이 이웃노드G보다 작거나 또는 열린리스트에 이웃노드가 없다면 G, H, parentNode를 설정 후 열린리스트에 추가
+            // 이동비용이 이웃노드G보다 작거나, 또는 열린 리스트에 현재 이웃 노드가 없다면 G, H, parentNode를 설정 후 열린리스트에 추가
             if (moveCost < neighborNode.G || !openList.Contains(neighborNode))
             {
-                neighborNode.G = moveCost;
-                neighborNode.H = (Mathf.Abs(neighborNode.x - targetNode.x) + Mathf.Abs(neighborNode.y - targetNode.y)) * 10;
-                neighborNode.parentNode = currentNode;
+                neighborNode.G = moveCost;  // 이웃 노드의 G(이동 거리)를 설정
+                neighborNode.H = (Mathf.Abs(neighborNode.x - targetNode.x) + Mathf.Abs(neighborNode.y - targetNode.y)) * 10;    // (수평 수직으로 이동하였음을 전제로 연산하므로 곱하기 10)
+                neighborNode.parentNode = currentNode;  // 이웃 노드의 부모 노드를 현재 노드로 설정
 
-                openList.Add(neighborNode);
+                openList.Add(neighborNode);     // 열린 리스트에 해당 이웃 노드 추가
             }
         }
     }

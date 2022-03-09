@@ -46,14 +46,10 @@ public class Shooter : Unit
             case EUnitState.Idle:
                 break;
             case EUnitState.Move:
-                //animator.SetBool("isMove", true);
-                //animator.SetBool("isAttack", false);
                 break;
             case EUnitState.Approach:
                 break;
             case EUnitState.Attack:
-                //animator.SetBool("isMove", false);
-                //animator.SetBool("isAttack", true);
                 Attack();
                 break;
             case EUnitState.Die:
@@ -64,11 +60,6 @@ public class Shooter : Unit
     public override void Attack()
     {
         enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
-
-        if(isPlayer1)
-        {
-
-        }
 
         if (Input.GetKeyDown(KeyCode.F1))
         {
