@@ -302,6 +302,8 @@ MonoBehaviour:
   deltaStatus: {fileID: 0}
   unitTile: {fileID: 0}
   unitCreator: {fileID: 0}
+  row: 0
+  column: 0
   unitIndex: 0
   animator: {fileID: 0}
   weapon: {fileID: 0}

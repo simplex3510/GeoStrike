@@ -107,6 +107,8 @@ MonoBehaviour:
   deltaStatus: {fileID: 11400000, guid: 7608f87578bb72f4983c0891e86c9626, type: 2}
   unitTile: {fileID: 0}
   unitCreator: {fileID: 0}
+  row: 0
+  column: 0
   unitIndex: 1
   bulletSpawnPos:
   - {fileID: 2942227000734488926}

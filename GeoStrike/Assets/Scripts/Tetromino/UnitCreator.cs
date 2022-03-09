@@ -10,6 +10,7 @@ public class UnitCreator : MonoBehaviourPun
     [SerializeField] private UnitTileContainer unitTileContainer;
     [SerializeField] private TranslocateField translocateField;
 
+    public Queue<RowAndColumn> rowAndColumnQueue = new Queue<RowAndColumn>();
     public Vector3 spawnPos = Vector3.zero;
 
     public Unit unitP1;
@@ -53,25 +54,32 @@ public class UnitCreator : MonoBehaviourPun
                             if (spawnPos == Vector3.zero)
                             {
                                 unit.transform.position = unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].worldPos + Vector3.back; // 내 유닛 타일에 배치
-                                unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].isEmty = false;   // 소환된 유닛 위치의 타일 상태 변환
+                                
+
+                                unit.row = row;
+                                unit.column = column;
+
+                                unitTileContainer.checkUnitArr[row, column] = true;
                                 spawnPos = unit.transform.position;
                             }
                             else
                             {
                                 unit.transform.position = spawnPos;
-                                //unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, ,].isEmty = false;
-                            }
-                            
 
-                            // test
-                            //unit.unitTile = unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column];
-                            //unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].unit = unit;   // 타일에 현재 유닛 저장
+                                // 전장으로 이동된 유닛의 
+                                RowAndColumn rowAndColumn = rowAndColumnQueue.Dequeue();
+                                unit.row = rowAndColumn.row;
+                                unit.column = rowAndColumn.column;
+                            }
 
                             // 배틀필드로 유닛 이동시켜주기 위한 작업
                             translocateField.unitList.Add(unit);
                             unit.transform.SetParent(translocateField.spawnPosP1.transform);
                             return;
                         }
+
+                        // 처음 생성할때 두 유닛 중첩 오류 해결하기 ++++
+                        unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].isEmty = false;
                     }
                 }
             }

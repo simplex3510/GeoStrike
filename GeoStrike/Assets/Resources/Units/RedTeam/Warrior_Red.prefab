@@ -105,6 +105,8 @@ MonoBehaviour:
   deltaStatus: {fileID: 11400000, guid: ed8cf322a46988644979adbbf4f9f8c1, type: 2}
   unitTile: {fileID: 0}
   unitCreator: {fileID: 0}
+  row: 0
+  column: 0
   unitIndex: 0
   animator: {fileID: 3868155411218932853}
   weapon: {fileID: 7786633145386498038}
