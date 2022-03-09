@@ -20474,7 +20474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 435819941}
   - component: {fileID: 435819942}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RedTeam_turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24001,7 +24001,7 @@ GameObject:
   m_Component:
   - component: {fileID: 629261340}
   - component: {fileID: 629261341}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuleTeam_turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27454,7 +27454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 911243597}
   - component: {fileID: 911243598}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RedTeam_nexust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40160,7 +40160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1698106450}
   - component: {fileID: 1698106451}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuleTeam_nexust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
