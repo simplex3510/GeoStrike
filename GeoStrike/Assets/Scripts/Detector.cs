@@ -42,9 +42,9 @@ public class Detector : MonoBehaviour
         CheckBuildPreview();
     }
 
-    private void LateUpdate()
+    // Status(정보창) 업데이트
+    IEnumerator EStatusSlotUpdate()
     {
-        // Status(정보창) 업데이트
         if (clickedObject != null)
         {
             if (clickedObject.CompareTag("Unit"))
@@ -58,6 +58,7 @@ public class Detector : MonoBehaviour
                 // 구현중
             }
         }
+        yield return null;
     }
 
     // 클릭한 오브젝트 Data 가져오기
@@ -72,8 +73,11 @@ public class Detector : MonoBehaviour
                 // 클릭한 Obj 정보 불러오기
                 clickedObject = hit2D.collider.gameObject;
 
+                // Status(정보창) 업데이트
+                StartCoroutine(EStatusSlotUpdate());
+
                 // 클릭한 유닛이 Idle (유닛타일에서 대기중) 일때 배치모드 실행
-                if (clickedUnit.GetUnitState() == EUnitState.Idle)
+                if (clickedUnit.GetUnitState() == EUnitState.Idle && cameraController.mouseController.eMouseMode == MouseController.EMouseMode.normal)
                 {
                     StartCoroutine(CBatchMode());
                 }
@@ -111,38 +115,43 @@ public class Detector : MonoBehaviour
         yield return null;
     }
 
+    // 질문 1 : 중복클릭으로 인한 이동 값 증가 오류 (클릭횟수만큼 코루틴 중복실행 파악됨)
+    // 질문 2 : 유닛이 위치한 좌표 아래의 타일에 접근방법
     IEnumerator CBatchMode()
     {
         Debug.Log("batchMode");
-        while (!Input.GetKeyDown(KeyCode.Escape) && !Input.GetMouseButtonDown(1) && clickedUnit.GetUnitState() == EUnitState.Idle)
+        cameraController.mouseController.eMouseMode = MouseController.EMouseMode.build;
+        while (!Input.GetKeyDown(KeyCode.Escape) && !Input.GetMouseButtonDown(MouseController.CLICK_RIGHT) && clickedUnit.GetUnitState() == EUnitState.Idle)
         {
-            // 유닛의 타일 색 바꾸기 파랑, 빨강
-            //hit2D.transform.GetComponent<UnitTile>().SetColor();
-
             // 유닛 이동
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 Debug.Log("move w");
-                clickedUnit.unitCreator.spawnPos += Vector3.up; // 유닛이 소환된 수만큼 증가됨...
+                clickedUnit.unitCreator.spawnPos += Vector3.up;
+                clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos;
             }
             else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             {
                 Debug.Log("move s");
                 clickedUnit.unitCreator.spawnPos += Vector3.down;
+                clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos;
             }
             else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 Debug.Log("move a");
                 clickedUnit.unitCreator.spawnPos += Vector3.left;
+                clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos;
             }
             else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
                 Debug.Log("move d");
                 clickedUnit.unitCreator.spawnPos += Vector3.right;
+                clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos;
             }
-            //clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos;
             yield return null;
         }
+        clickedUnit = null;
+        cameraController.mouseController.eMouseMode = MouseController.EMouseMode.normal;
         Debug.Log("Cancel");
     }
 }

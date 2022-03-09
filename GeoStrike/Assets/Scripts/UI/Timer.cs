@@ -16,7 +16,7 @@ public class Timer : MonoBehaviour, IPunObservable
 
     [Header("< Battle Timer >")]
     [SerializeField] private Text battleTimeTXT;
-    [SerializeField] private float battleTime;
+    [SerializeField] public float battleTime;
     public float battleTimer = 0f;
 
     double sendtime;

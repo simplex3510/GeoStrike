@@ -103,6 +103,32 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         deltaStatus.moveSpeed = initStatus.moveSpeed;
         #endregion
     }
+    protected virtual void Update()
+    {
+        // 자신의 오브젝트가 아니라면 실행하지 않음
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
+        switch (unitState)
+        {
+            case EUnitState.Idle:
+                break;
+            case EUnitState.Move:
+                Move();
+                break;
+            case EUnitState.Approach:
+                Approach();
+                break;
+            case EUnitState.Attack:
+                //Animation에서 Attck() 호출
+                break;
+            case EUnitState.Die:
+                Die();
+                break;
+        }
+    }
 
     protected virtual void OnEnable()
     {
@@ -133,32 +159,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         }
     }
 
-    protected virtual void Update()
-    {
-        // 자신의 오브젝트가 아니라면 실행하지 않음
-        if(!photonView.IsMine)
-        {
-            return;
-        }
-
-        switch (unitState)
-        {
-            case EUnitState.Idle:
-                break;
-            case EUnitState.Move:
-                Move();
-                break;
-            case EUnitState.Approach:
-                Approach();
-                break;
-            case EUnitState.Attack:
-                //Animation에서 Attck() 호출
-                break;
-            case EUnitState.Die:
-                Die();
-                break;
-        }
-    }
 
     void Move() // 앞으로 전진
     {
@@ -215,8 +215,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     {
         isDead = true;
         gameObject.GetComponent<Collider2D>().enabled = false;
-
-        StartCoroutine(DieAnimation(gameObject));
     }
 
     [PunRPC]
@@ -230,6 +228,17 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
             unitState = EUnitState.Die;
         }
     }
+
+    // SpawnCreater에서 Spawn됬을때 호출 : Idle -> Move
+    public IEnumerator EIdleToMove()
+    {
+        while (GameMgr.instance.GetState() == EGameState.FSM_SpawnCount)
+        {
+            yield return null;
+        }
+        unitState = EUnitState.Move;
+    }
+
 
     [PunRPC]
     public void SetUnitActive(bool isTrue)

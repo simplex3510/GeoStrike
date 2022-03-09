@@ -7,8 +7,8 @@ using Photon.Realtime;
 public enum EGameState
 {
     FSM_Standby,        // 게임 시작 전 준비 단계
-    FSM_SpawnCount,     // 실시간 유닛 스폰 시간 0s ~ 스폰시간s
-    FSM_Battle,         // 유닛 스폰시간
+    FSM_SpawnCount,     // 유닛 필드의 유닛 배치 가능한 시간 0s ~ Xs;
+    FSM_Battle,         // 유닛 배틀필드로 이동
     FSM_GameEnd,        // 게임 종료
 }
 

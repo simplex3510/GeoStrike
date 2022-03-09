@@ -25,7 +25,12 @@ public class TetrominoState : MonoBehaviour
         StartCoroutine(FSM());
     }
 
-    private void Set_State(ETetrominoState _state)
+    public ETetrominoState GetState()
+    {
+        return eTetrominoState;
+    }
+
+    private void SetState(ETetrominoState _state)
     {
         eTetrominoState = _state;
     }
@@ -60,7 +65,7 @@ public class TetrominoState : MonoBehaviour
         yield return new WaitForSeconds(buildTime);
         Debug.Log("Build Complete");
 
-        Set_State(ETetrominoState.FSM_Normal);
+        SetState(ETetrominoState.FSM_Normal);
     }
 
     IEnumerator FSM_Normal()
@@ -74,7 +79,7 @@ public class TetrominoState : MonoBehaviour
             // ¿Ø¥÷ º“»Ø
             Debug.Log("Summone unit");
             unitCreation.UnitSpawn();
-            Set_State(ETetrominoState.FSM_Summoned);
+            SetState(ETetrominoState.FSM_Summoned);
         }
     }
 
@@ -86,6 +91,6 @@ public class TetrominoState : MonoBehaviour
         {   
             yield return null;
         }
-        Set_State(ETetrominoState.FSM_Normal);
+        SetState(ETetrominoState.FSM_Normal);
     }
 }
