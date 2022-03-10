@@ -67,6 +67,7 @@ public class Warrior : Unit
         }
         else
         {
+            SetStartAStar(null);
             unitState = EUnitState.Move;
             return;
         }

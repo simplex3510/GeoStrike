@@ -44,8 +44,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     public UnitData initStatus;
     public UnitData deltaStatus;
 
-    
-
     // 유닛의 오브젝트 풀링
     public Queue<Unit> myPool;
 
@@ -172,16 +170,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
     void Move() // 앞으로 전진
     {
-    
-
-        //--------------------------------------
+        #region A* Algorithm Move
         Vector2 nextPos = new Vector2(aStar.finalNodeList[moveIndex].x, aStar.finalNodeList[moveIndex].y);
-        //--------------------------------------
 
-        // lastPathFindTime += Time.deltaTime;
         if (transform.position.x <= nextPos.x && transform.position.y <= nextPos.y)
         {
-            // lastPathFindTime = 0f;
             aStar.startPos.x = (int)transform.position.x;
             aStar.startPos.y = (int)transform.position.y;
 
@@ -199,11 +192,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         }
         
         transform.position = Vector2.MoveTowards(transform.position, nextPos, moveSpeed * Time.deltaTime);
-
-        //if(nextPos.x <= transform.position.x && nextPos.y <= transform.position.y)
-        //{
-        //    moveIndex++;
-        //}
+        #endregion
 
         if (!isRotate)
         {

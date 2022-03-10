@@ -55,8 +55,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     public UnitTile unitTile;
     public UnitCreator unitCreator;
 
-    private RowAndColumn RowAndColumn;
-
+    // 주석 추가 필요
     public RowAndColumn rowAndColumn
     {
         get
@@ -66,9 +65,12 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
             return RowAndColumn;
         }
     }
+    private RowAndColumn RowAndColumn;
     public int row;
     public int column;
-    
+
+    // 유닛의 FSM의 상태
+    public EUnitState unitState { get; protected set; }         
 
     #region Status
     [HideInInspector]
@@ -86,21 +88,22 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     #endregion
 
     protected LayerMask opponentLayerMask;  // 공격할 대상
-    protected EUnitState unitState;         // 유닛의 FSM의 상태
     protected Collider2D enemyCollider2D;
     protected Rigidbody2D myRigid2D;
+    protected AStar aStar;
     protected double lastAttackTime;
     protected bool isPlayer1;
 
+    int moveIndex = 1;
     bool isRotate;
 
     protected virtual void Awake()
     {
         myRigid2D = GetComponent<Rigidbody2D>();
+        aStar = GetComponent<AStar>();
 
         isPlayer1 = (photonView.ViewID / 1000) == 1 ? true : false; ;
         
-
         if (photonView.IsMine)
         {
             gameObject.layer = (int)EPlayer.Ally;
@@ -180,17 +183,27 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         }
     }
 
-
     void Move() // 앞으로 전진
     {
-        if (isPlayer1)
+        #region A* Move
+        Vector2Int nextPos = new Vector2Int(aStar.finalNodeList[moveIndex].x, aStar.finalNodeList[moveIndex].y);
+
+        if(isPlayer1)
         {
-            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+            if(aStar.finalNodeList[moveIndex].x <= transform.position.x && aStar.finalNodeList[moveIndex].y <= transform.position.y)
+            {
+                moveIndex++;
+            }
         }
         else
         {
-            transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+            if (transform.position.x <= aStar.finalNodeList[moveIndex].x && transform.position.y <= aStar.finalNodeList[moveIndex].y)
+            {
+                moveIndex++;
+            }
         }
+        transform.position = Vector2.MoveTowards(transform.position, nextPos, moveSpeed * Time.deltaTime);
+        #endregion
 
         if (!isRotate)
         {
@@ -200,6 +213,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         enemyCollider2D = Physics2D.OverlapCircle(transform.position, detectRange, opponentLayerMask);
         if (enemyCollider2D != null)
         {
+            SetStartAStar(enemyCollider2D);
             unitState = EUnitState.Approach;
             return;
         }
@@ -210,7 +224,25 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         enemyCollider2D = Physics2D.OverlapCircle(transform.position, detectRange, opponentLayerMask);
         if (enemyCollider2D != null)
         {
-            transform.position += (enemyCollider2D.transform.position - transform.position).normalized * moveSpeed * Time.deltaTime;
+            #region A* Move
+            Vector2Int nextPos = new Vector2Int(aStar.finalNodeList[moveIndex].x, aStar.finalNodeList[moveIndex].y);
+
+            if (isPlayer1)
+            {
+                if (aStar.finalNodeList[moveIndex].x <= transform.position.x && aStar.finalNodeList[moveIndex].y <= transform.position.y)
+                {
+                    moveIndex++;
+                }
+            }
+            else
+            {
+                if (transform.position.x <= aStar.finalNodeList[moveIndex].x && transform.position.y <= aStar.finalNodeList[moveIndex].y)
+                {
+                    moveIndex++;
+                }
+            }
+            transform.position = Vector2.MoveTowards(transform.position, nextPos, moveSpeed * Time.deltaTime);
+            #endregion
 
             if (!isRotate)
             {
@@ -224,10 +256,12 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
             }
             else if (enemyCollider2D == null)
             {
+                SetStartAStar(null);
                 unitState = EUnitState.Move;
                 return;
             }
         }
+
     }
 
     public abstract void Attack();   // 적에게 공격
@@ -249,18 +283,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
             unitState = EUnitState.Die;
         }
     }
-
-    // Idle에서 Move가 되는 조건
-    public IEnumerator EIdleToMoveCondition()
-    {
-        while (GameMgr.instance.GetState() == EGameState.FSM_SpawnCount)
-        {
-            yield return null;
-        }
-    
-        unitState = EUnitState.Move;
-    }
-
 
     [PunRPC]
     public void SetUnitActive(bool isTrue)
@@ -329,6 +351,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
     private void OnApplicationQuit()
     {
+        #region Return Status Init
         deltaStatus.health = initStatus.health;
         deltaStatus.damage = initStatus.damage;
         deltaStatus.defense = initStatus.defense;
@@ -336,18 +359,38 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         deltaStatus.detectRange = initStatus.detectRange;
         deltaStatus.attackSpeed = initStatus.attackSpeed;
         deltaStatus.moveSpeed = initStatus.moveSpeed;
+        #endregion
     }
 
-    private void OnDrawGizmos()
+    // 1. 소환되어 배틀필드로 이동했을 때 - null
+    // 2. 다른 상태에서 Move 상태로 전이되었을 때 - null
+    // 3. 다른 상태에서 Approach 상태로 전이되었을 때 - not null
+    public void SetStartAStar(Collider2D enemy)
     {
-        //Gizmos.color = Color.red;
-        //Gizmos.DrawWireSphere(transform.position, attackRange);
-        //Gizmos.DrawWireSphere(transform.position, detectRange);
-    }
+        aStar.startPos.x = (int)transform.position.x;
+        aStar.startPos.y = (int)transform.position.y;
 
-    public EUnitState GetUnitState()
-    {
-        return unitState;
+        if (enemy == null)
+        {
+            aStar.targetPos = aStar.endPos;
+        }
+        else
+        {
+            if(isPlayer1)
+            {
+                aStar.targetPos.x = Mathf.CeilToInt(enemy.transform.position.x);
+                aStar.targetPos.y = Mathf.CeilToInt(enemy.transform.position.y);
+            }
+            else
+            {
+                aStar.targetPos.x = Mathf.FloorToInt(enemy.transform.position.x);
+                aStar.targetPos.y = Mathf.FloorToInt(enemy.transform.position.y);
+            }
+            
+        }
+
+        moveIndex = 1;
+        aStar.PathFinding();
     }
 
     public void SetFreezeNone()
@@ -358,5 +401,16 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     public void SetFreezeAll()
     {
         myRigid2D.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+
+    // Idle에서 Move가 되는 조건
+    public IEnumerator IdleToMoveCondition()
+    {
+        while (GameMgr.instance.GetState() == EGameState.FSM_SpawnCount)
+        {
+            yield return null;
+        }
+
+        unitState = EUnitState.Move;
     }
 }

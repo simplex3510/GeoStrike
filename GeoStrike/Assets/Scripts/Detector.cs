@@ -83,7 +83,7 @@ public class Detector : MonoBehaviour
                 clickedUnit = clickedObject.GetComponent<Unit>();
 
                 // 클릭한 유닛이 Idle (유닛타일에서 대기중) 일때 배치모드 실행
-                if (clickedUnit.GetUnitState() == EUnitState.Idle && cameraController.mouseController.eMouseMode == MouseController.EMouseMode.normal)
+                if (clickedUnit.unitState == EUnitState.Idle && cameraController.mouseController.eMouseMode == MouseController.EMouseMode.normal)
                 {
                     StartCoroutine(CBatchMode());
                 }
@@ -131,7 +131,7 @@ public class Detector : MonoBehaviour
         cameraController.mouseController.eMouseMode = MouseController.EMouseMode.batch;
         Cursor.lockState = CursorLockMode.Locked;
         while (!Input.GetKeyDown(KeyCode.Escape) && !Input.GetMouseButtonDown(MouseController.CLICK_RIGHT) &&
-               clickedUnit.GetUnitState() == EUnitState.Idle && GameMgr.instance.GetState() == EGameState.FSM_SpawnCount)
+               clickedUnit.unitState == EUnitState.Idle && GameMgr.instance.GetState() == EGameState.FSM_SpawnCount)
         {
             h = 0;
             v = 0;
