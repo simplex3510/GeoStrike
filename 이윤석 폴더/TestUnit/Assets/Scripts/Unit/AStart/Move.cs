@@ -6,6 +6,7 @@ public class Move : MonoBehaviour
 {
     public Vector2Int bottomLeft, topRight; // 좌하단, 우상단 설정 - 전체 맵의 크기
     public Vector2Int startPos, targetPos;  // 시작 위치, 목표 위치 설정
+    public Vector2Int endPos;
     public List<Node> finalNodeList;        // 최종 노드 리스트 (최단거리)
     public bool allowDiagonal;              // 대각선 이동 허용
     public bool dontCrossCorner;            // 모서리 이동 불허

@@ -36,8 +36,7 @@ public class ObjectPool : MonoBehaviourPun
         }
 
         newUnit.myPool = unitPool;
-        newUnit.myParent = transform;
-        newUnit.transform.SetParent(newUnit.myParent);
+        newUnit.transform.SetParent(this.transform);
         newUnit.SetUnitActive(false);   // OnDisable¿¡¼­ EnqueueµÊ
 
         return newUnit;

@@ -14,7 +14,7 @@ public class NetworkMgr : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        PhotonNetwork.JoinOrCreateRoom("ShooterTest", new RoomOptions { MaxPlayers = 2 }, null);
+        PhotonNetwork.JoinOrCreateRoom("AstarTest", new RoomOptions { MaxPlayers = 2 }, null);
     }
 
     public override void OnJoinedRoom()
@@ -22,8 +22,8 @@ public class NetworkMgr : MonoBehaviourPunCallbacks
         //PhotonNetwork.LoadLevel("ShooterScene");
         if (PhotonNetwork.IsMasterClient)
         {
-            PhotonNetwork.Instantiate("Prefabs/BlueTeam/Player1_Warrior", new Vector3(-8, 0, 0), Quaternion.identity);
-            PhotonNetwork.Instantiate("Prefabs/BlueTeam/Player1_Shooter", new Vector3(-8, 0, 0), Quaternion.identity);
+            //PhotonNetwork.Instantiate("Prefabs/BlueTeam/Player1_Warrior", new Vector3(-8, 0, 0), Quaternion.identity);
+            PhotonNetwork.Instantiate("Prefabs/Bot", new Vector3(-8, 0, 0), Quaternion.identity);
         }
         //else
         //{

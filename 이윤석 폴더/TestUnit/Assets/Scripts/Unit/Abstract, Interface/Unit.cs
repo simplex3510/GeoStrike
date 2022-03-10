@@ -19,6 +19,16 @@ public enum EUnitState
     Die
 }
 
+public enum EUnitIndex
+{
+    Warrior = 0,
+    Defender,
+    Shooter,
+    Splasher,
+    Buffer,
+    Debuffer
+}
+
 interface IDamageable
 {
     public void OnDamaged(float _damage);
@@ -33,10 +43,16 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 {
     public UnitData initStatus;
     public UnitData deltaStatus;
-    public Transform myParent;
+
+
+
+    // 유닛의 오브젝트 풀링
     public Queue<Unit> myPool;
 
-    #region Stat
+    #region Status
+    [HideInInspector]
+    public EUnitIndex unitIndex;
+    public string unitName { get; protected set; }
     public float startHealth { get; protected set; }
     public float currentHealth { get; protected set; }
     public float damage { get; protected set; }
@@ -48,18 +64,25 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     public bool isDead { get; protected set; }
     #endregion
 
+    protected Collider2D enemyCollider2D;
+    protected Rigidbody2D myRigid2D;
+    protected Move aStar;                   // 유닛의 A* 알고리즘 기반 움직임
     protected LayerMask opponentLayerMask;  // 공격할 대상
     protected EUnitState unitState;         // 유닛의 FSM의 상태
-    protected Collider2D enemyCollider2D;
+    protected double lastAttackTime;
+    protected bool isPlayer1;
 
-    // float lastAttackTime;
-    bool isPlayer1;
+    float lastPathFindTime = 1f;
+    int moveIndex;
     bool isRotate;
 
     protected virtual void Awake()
     {
-        print("Unit Awake");
-        isPlayer1 = PhotonNetwork.IsMasterClient;
+        myRigid2D = GetComponent<Rigidbody2D>();
+        aStar = GetComponent<Move>();
+
+        isPlayer1 = (photonView.ViewID / 1000) == 1 ? true : false; ;
+
 
         if (photonView.IsMine)
         {
@@ -73,15 +96,19 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         }
 
         #region Status Init
-        startHealth = initStatus.health;
-        currentHealth = startHealth;
-        damage = initStatus.damage;
-        defense = initStatus.defense;
-        attackRange = initStatus.attackRange;
-        detectRange = initStatus.detectRange;
-        attackSpeed = initStatus.attackSpeed;
-        moveSpeed = initStatus.moveSpeed;
+        deltaStatus.health = initStatus.health;
+        deltaStatus.damage = initStatus.damage;
+        deltaStatus.defense = initStatus.defense;
+        deltaStatus.attackRange = initStatus.attackRange;
+        deltaStatus.detectRange = initStatus.detectRange;
+        deltaStatus.attackSpeed = initStatus.attackSpeed;
+        deltaStatus.moveSpeed = initStatus.moveSpeed;
         #endregion
+
+        //aStar.startPos.x = (int)transform.position.x;
+        //aStar.startPos.y = (int)transform.position.y;
+        //aStar.targetPos = aStar.endPos;
+        //aStar.PathFinding();
     }
 
     protected virtual void OnEnable()
@@ -105,8 +132,10 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     // Return to your pool
     protected virtual void OnDisable()
     {
-        transform.SetParent(myParent);
-        myPool.Enqueue(this);
+        if (photonView.IsMine)
+        {
+            myPool.Enqueue(this);
+        }
     }
 
     protected virtual void Update()
@@ -132,16 +161,38 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
     void Move() // 앞으로 전진
     {
-        if (isPlayer1)
-        {
-            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-        }
-        else
-        {
-            transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-        }
+        //Vector2 nextPos = new Vector2(aStar.finalNodeList[moveIndex].x, aStar.finalNodeList[moveIndex].y);
 
-        if(!isRotate)
+        //// lastPathFindTime += Time.deltaTime;
+        //if (transform.position.x == nextPos.x && transform.position.y == nextPos.y)
+        //{
+        //    // lastPathFindTime = 0f;
+        //    aStar.startPos.x = (int)transform.position.x;
+        //    aStar.startPos.y = (int)transform.position.y;
+
+        //    if (enemyCollider2D != null)
+        //    {
+        //        aStar.targetPos.x = (int)enemyCollider2D.transform.position.x;
+        //        aStar.targetPos.y = (int)enemyCollider2D.transform.position.y;
+        //    }
+        //    else
+        //    {
+        //        aStar.targetPos = aStar.endPos;
+        //    }
+        //    aStar.PathFinding();
+        //    moveIndex = 1;
+        //}
+
+        //Vector2.MoveTowards(transform.position, nextPos, moveSpeed);
+
+        //if (nextPos.x <= transform.position.x && nextPos.y <= transform.position.y)
+        //{
+        //    moveIndex++;
+        //}
+
+        Vector2.MoveTowards(transform.position, new Vector2Int(4, 0), moveSpeed * Time.deltaTime);
+
+        if (!isRotate)
         {
             StartCoroutine(RotateAnimation());
         }
@@ -161,7 +212,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         {
             transform.position += (enemyCollider2D.transform.position - transform.position).normalized * moveSpeed * Time.deltaTime;
 
-            if(!isRotate)
+            if (!isRotate)
             {
                 StartCoroutine(RotateAnimation(enemyCollider2D));
             }
@@ -171,7 +222,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
                 unitState = EUnitState.Attack;
                 return;
             }
-            else if(enemyCollider2D == null)
+            else if (enemyCollider2D == null)
             {
                 unitState = EUnitState.Move;
                 return;
@@ -179,26 +230,12 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         }
     }
 
-    public virtual void Attack()   // 적에게 공격
-    {
-        enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
-        if (enemyCollider2D != null/* && lastAttackTime + attackSpeed <= PhotonNetwork.Time*/)
-        {
-            //lastAttackTime = (float)PhotonNetwork.Time;
-            enemyCollider2D.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
-        }
-        else if (enemyCollider2D == null)
-        {
-            unitState = EUnitState.Move;
-            StartCoroutine(RotateAnimation());
-            return;
-        }
-    }
+    public abstract void Attack();   // 적에게 공격
 
-    protected virtual void Die()    // 유닛 사망
+    void Die()    // 유닛 사망
     {
         isDead = true;
-        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        gameObject.GetComponent<Collider2D>().enabled = false;
 
         StartCoroutine(DieAnimation(gameObject));
     }
@@ -206,8 +243,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     [PunRPC]
     public void OnDamaged(float _damage)
     {
-        _damage -= defense;                         // 방어력 만큼 대미지 감소
-        currentHealth -= 0 < _damage ? _damage : 0; // 대미지가 음수라면 0을 반환
+        _damage -= defense;
+        currentHealth -= 0 < _damage ? _damage : 0;
 
         if (currentHealth <= 0 && isDead == false)
         {
@@ -218,15 +255,17 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     [PunRPC]
     public void SetUnitActive(bool isTrue)
     {
-        gameObject.SetActive(isTrue);
-        if(photonView.IsMine)
+        this.gameObject.SetActive(isTrue);
+        if (photonView.IsMine)
         {
-            photonView.RPC("SetActive", RpcTarget.Others, isTrue);
+            photonView.RPC("SetUnitActive", RpcTarget.Others, isTrue);
         }
     }
 
     protected IEnumerator DieAnimation(GameObject _gameObject)
     {
+        unitState = EUnitState.Idle;
+
         var spriteRenderer = _gameObject.GetComponent<SpriteRenderer>();
         var color = spriteRenderer.color;
         while (0 <= color.a)
@@ -239,8 +278,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
         _gameObject.SetActive(false);
         spriteRenderer.color = Color.white;
-
-        unitState = EUnitState.Idle;
     }
 
     // 앞을 바라보는 애니메이션
@@ -248,7 +285,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     {
         isRotate = true;
 
-        if(isPlayer1)
+        if (isPlayer1)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.identity, 1f);
         }
@@ -272,7 +309,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
         while (!Mathf.Approximately(transform.rotation.z, target.z))
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, target, 0.5f);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, target, 1.5f);
 
             yield return null;
         }
@@ -293,8 +330,23 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-        Gizmos.DrawWireSphere(transform.position, detectRange);
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawWireSphere(transform.position, attackRange);
+        //Gizmos.DrawWireSphere(transform.position, detectRange);
+    }
+
+    public EUnitState GetUnitState()
+    {
+        return unitState;
+    }
+
+    public void SetFreezeNone()
+    {
+        myRigid2D.constraints = RigidbodyConstraints2D.None;
+    }
+
+    public void SetFreezeAll()
+    {
+        myRigid2D.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 }

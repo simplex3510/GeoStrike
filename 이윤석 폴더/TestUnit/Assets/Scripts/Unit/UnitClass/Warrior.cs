@@ -57,4 +57,18 @@ public class Warrior : Unit
                 break;
         }
     }
+
+    public override void Attack()   // 적에게 공격
+    {
+        enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
+        if (enemyCollider2D != null)
+        {
+            enemyCollider2D.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
+        }
+        else
+        {
+            unitState = EUnitState.Move;
+            return;
+        }
+    }
 }

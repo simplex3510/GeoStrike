@@ -67,4 +67,9 @@ public class Shielder : Unit
     {
 
     }
+
+    public override void Attack()
+    {
+        
+    }
 }

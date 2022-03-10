@@ -110,6 +110,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         deltaStatus.attackSpeed = initStatus.attackSpeed;
         deltaStatus.moveSpeed = initStatus.moveSpeed;
         #endregion
+
+        aStar.startPos.x = (int)transform.position.x;
+        aStar.startPos.y = (int)transform.position.y;
+        aStar.targetPos = aStar.endPos;
+        aStar.PathFinding();
     }
 
     protected virtual void OnEnable()
@@ -143,24 +148,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
     protected virtual void Update()
     {
-        lastPathFindTime += Time.deltaTime;
-        if (1f <= lastPathFindTime)
-        {
-            aStar.startPos.x = Mathf.CeilToInt(transform.position.x);
-            aStar.startPos.y = Mathf.CeilToInt(transform.position.y);
-            if(enemyCollider2D != null)
-            {
-                aStar.targetPos.x = Mathf.CeilToInt(enemyCollider2D.transform.position.x);
-                aStar.targetPos.y = Mathf.CeilToInt(enemyCollider2D.transform.position.y);
-            }
-            else
-            {
-                aStar.targetPos = aStar.endPos;
-            }
-            aStar.PathFinding();
-            moveIndex = 1;
-        }
-
         switch (unitState)
         {
             case EUnitState.Idle:
@@ -182,10 +169,31 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
     void Move() // 앞으로 전진
     {
-        Vector2 targetPos = new Vector2(aStar.finalNodeList[moveIndex].x, aStar.finalNodeList[moveIndex].y);
-        Vector2.MoveTowards(transform.position, targetPos, moveSpeed);
+        Vector2 nextPos = new Vector2(aStar.finalNodeList[moveIndex].x, aStar.finalNodeList[moveIndex].y);
 
-        if(targetPos.x <= transform.position.x && targetPos.y <= transform.position.y)
+        // lastPathFindTime += Time.deltaTime;
+        if (transform.position.x == nextPos.x && transform.position.y == nextPos.y)
+        {
+            // lastPathFindTime = 0f;
+            aStar.startPos.x = (int)transform.position.x;
+            aStar.startPos.y = (int)transform.position.y;
+
+            if (enemyCollider2D != null)
+            {
+                aStar.targetPos.x = (int)enemyCollider2D.transform.position.x;
+                aStar.targetPos.y = (int)enemyCollider2D.transform.position.y;
+            }
+            else
+            {
+                aStar.targetPos = aStar.endPos;
+            }
+            aStar.PathFinding();
+            moveIndex = 1;
+        }
+        
+        transform.position = Vector2.MoveTowards(transform.position, nextPos, moveSpeed * Time.deltaTime);
+
+        if(nextPos.x <= transform.position.x && nextPos.y <= transform.position.y)
         {
             moveIndex++;
         }

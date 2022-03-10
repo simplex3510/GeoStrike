@@ -5,6 +5,7 @@ using Photon.Pun;
 
 public class Bot : Unit
 {
+
     protected override void Awake()
     {
         base.Awake();
@@ -27,15 +28,9 @@ public class Bot : Unit
         base.Update();
     }
 
-    //[PunRPC]
-    //public new void OnDamaged(float _damage)
-    //{
-    //    _damage -= defense;
-    //    currentHealth -= 0 < _damage ? _damage : 0;
-
-    //    if (currentHealth <= 0 && isDead == false)
-    //    {
-    //        unitState = EUnitState.Die;
-    //    }
-    //}
+    public override void Attack()
+    {
+        throw new System.NotImplementedException();
+    }
+    
 }
