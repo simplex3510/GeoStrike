@@ -12,6 +12,9 @@ public class UnitTileContainer : MonoBehaviour
     public UnitTile[,,] unitTileArr = new UnitTile[ArrayNumber.PLAYER, ArrayNumber.UNIT_TILE_ROW, ArrayNumber.UNIT_TILE_COLUMN];
     public bool[,] checkUnitArr = new bool[ArrayNumber.UNIT_TILE_ROW, ArrayNumber.UNIT_TILE_COLUMN];
 
+    //Swap
+    public Transform[,] unitTransformArr = new Transform[ArrayNumber.UNIT_TILE_ROW, ArrayNumber.UNIT_TILE_COLUMN]; 
+
     [SerializeField] private Transform parentP1;
     [SerializeField] private Transform parentP2;
 

@@ -8,6 +8,7 @@ public class Detector : MonoBehaviour
     [HideInInspector] private CameraController cameraController;
     [HideInInspector] private TetrominoCreater creater;
     [HideInInspector] private UnitTileContainer unitTileContainer;
+    [HideInInspector] private UnitSelectEffect unitSelectEffect;
 
     // 마우스 위치, 클릭
     private Ray ray;
@@ -33,6 +34,7 @@ public class Detector : MonoBehaviour
         if (cameraController == null) { cameraController = GameObject.FindObjectOfType<CameraController>(); }
         if (creater == null) { creater = GameObject.FindObjectOfType<TetrominoCreater>(); }
         if (unitTileContainer == null) { unitTileContainer = GameObject.FindObjectOfType<UnitTileContainer>(); }
+        if (unitSelectEffect == null) { unitSelectEffect = GameObject.FindObjectOfType<UnitSelectEffect>(); }
     }
 
     private void Update()
@@ -119,14 +121,12 @@ public class Detector : MonoBehaviour
         yield return null;
     }
 
-    // 질문 1 : 오브젝트의 위치로 마우스포인터를 이동 가능한지?
     IEnumerator CBatchMode()
     {
-        // 클릭된 유닛의 타일크기에 맞게 테투리 표시
-        // 이현직님에게 이미지 작업 부탁..
-
         int h = 0;
         int v = 0;
+        Transform temp;
+
         Debug.Log("batchMode");
         cameraController.mouseController.eMouseMode = MouseController.EMouseMode.batch;
         Cursor.lockState = CursorLockMode.Locked;
@@ -155,24 +155,38 @@ public class Detector : MonoBehaviour
             int finalH = Mathf.Clamp(clickedUnit.column + h, 0, 7);
             int finalV = Mathf.Clamp(clickedUnit.row + v, 0, 7);
 
-            // 이동 가능한지 체크하기
-            if (!unitTileContainer.checkUnitArr[finalV, finalH])
+            // 이동 방향에 빈 타일일 경우
+            if (!unitTileContainer.unitTransformArr[finalV, finalH])
             {
-                unitTileContainer.checkUnitArr[clickedUnit.row, clickedUnit.column] = false; // 현재 위치의 유닛 유무
+                unitTileContainer.unitTransformArr[clickedUnit.row, clickedUnit.column] = null; // 현재 위치의 유닛 유무
 
                 clickedUnit.row = finalV;
                 clickedUnit.column = finalH;
 
-                unitTileContainer.checkUnitArr[clickedUnit.row, clickedUnit.column] = true; // 최종 위치의 유닛 유무
+                unitTileContainer.unitTransformArr[clickedUnit.row, clickedUnit.column] = clickedUnit.transform; // 최종 위치의 유닛 유무
                 clickedUnit.unitCreator.spawnPos += new Vector3(h, v, 0);   // Spawn 위치 지정
                 clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos; // 유닛의 실제 위치 이동
             }
+            // 이동 방향에 유닛이 있을경우 Swap
+            //else
+            //{
+            //    unitTileContainer.unitTransformArr[clickedUnit.row, clickedUnit.column] = .transform; // 이동된 다른 유닛 transform
+
+            //    clickedUnit.row = finalV;
+            //    clickedUnit.column = finalH;
+
+            //    unitTileContainer.unitTransformArr[clickedUnit.row, clickedUnit.column] = clickedUnit.transform;
+            //    clickedUnit.unitCreator.spawnPos += new Vector3(h, v, 0);   // Spawn 위치 지정
+            //    clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos; // 유닛의 실제 위치 이동
+            //}
             
+            unitSelectEffect.transform.position = Camera.main.WorldToScreenPoint(clickedUnit.transform.position);
             yield return null;
         }
 
         // 배치모드 끝날시
         clickedUnit = null;
+        unitSelectEffect.transform.position = unitSelectEffect.originPos;
         Cursor.lockState = CursorLockMode.None;
         cameraController.mouseController.eMouseMode = MouseController.EMouseMode.normal;
         Debug.Log("Cancel");
