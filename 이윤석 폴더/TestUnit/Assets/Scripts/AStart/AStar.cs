@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move : MonoBehaviour
+public class AStar : MonoBehaviour
 {
     public Vector2Int bottomLeft, topRight; // 좌하단, 우상단 설정 - 전체 맵의 크기
-    public Vector2Int startPos, targetPos;  // 시작 위치, 목표 위치
-    public Vector2Int endPos;               // 최종 목표 위치
+    public Vector2Int startPos, targetPos;  // 시작 위치, 목표 위치 설정
+    public Vector2Int endPos;
     public List<Node> finalNodeList;        // 최종 노드 리스트 (최단거리)
     public bool allowDiagonal;              // 대각선 이동 허용
     public bool dontCrossCorner;            // 모서리 이동 불허
@@ -82,10 +82,10 @@ public class Move : MonoBehaviour
                 finalNodeList.Add(startNode);
                 finalNodeList.Reverse();
 
-                //for (int i = 0; i < finalNodeList.Count; i++)
-                //{
-                //    print(i + "번째는 " + finalNodeList[i].x + ", " + finalNodeList[i].y);
-                //}
+                for (int i = 0; i < finalNodeList.Count; i++)
+                {
+                    print(i + "번째는 " + finalNodeList[i].x + ", " + finalNodeList[i].y);
+                }
                 return;
             }
 
@@ -115,7 +115,7 @@ public class Move : MonoBehaviour
             !closedList.Contains(nodeArray[checkX - bottomLeft.x, checkY - bottomLeft.y]))  // 닫힌 리스트에 포함되어 있지 않다면
         {
             // 대각선 이동 허용시
-            if (allowDiagonal) 
+            if (allowDiagonal)
             {
                 if (nodeArray[currentNode.x - bottomLeft.x, checkY - bottomLeft.y].isWall &&    // 현재 X좌표에서 상하 노드가 장애물이라면, 그리고
                     nodeArray[checkX - bottomLeft.x, currentNode.y - bottomLeft.y].isWall)      // 현재 Y좌표에서 좌우 노드가 장애물이라면
@@ -125,7 +125,7 @@ public class Move : MonoBehaviour
             }
 
             // 모서리를 가로질러 가지 않을 시
-            if (dontCrossCorner)    
+            if (dontCrossCorner)
             {
                 if (nodeArray[currentNode.x - bottomLeft.x, checkY - bottomLeft.y].isWall ||    // 현재 X좌표에서 상하 노드가 장애물이라면, 또는
                     nodeArray[checkX - bottomLeft.x, currentNode.y - bottomLeft.y].isWall)      // 현재 Y좌표에서 좌우 노드가 장애물이라면
@@ -154,7 +154,12 @@ public class Move : MonoBehaviour
     {
         if (finalNodeList.Count != 0)
         {
-            for (int i = 0; i < finalNodeList.Count - 1; i++)
+            //for (int i = 0; i < finalNodeList.Count - 1; i++)
+            //{
+            //    Gizmos.color = Color.red;
+            //    Gizmos.DrawLine(new Vector2(finalNodeList[i].x, finalNodeList[i].y), new Vector2(finalNodeList[i + 1].x, finalNodeList[i + 1].y));
+            //}
+            for (int i = 0; i < 3; i++)
             {
                 Gizmos.color = Color.red;
                 Gizmos.DrawLine(new Vector2(finalNodeList[i].x, finalNodeList[i].y), new Vector2(finalNodeList[i + 1].x, finalNodeList[i + 1].y));
