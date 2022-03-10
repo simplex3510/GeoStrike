@@ -10,7 +10,7 @@ public class UnitTileContainer : MonoBehaviour
     public static readonly int ARRAY_PLAYER = 2;
 
     public UnitTile[,,] unitTileArr = new UnitTile[ArrayNumber.PLAYER, ArrayNumber.UNIT_TILE_ROW, ArrayNumber.UNIT_TILE_COLUMN];
-    public bool[,] checkUnitArr = new bool[8, 8];
+    public bool[,] checkUnitArr = new bool[ArrayNumber.UNIT_TILE_ROW, ArrayNumber.UNIT_TILE_COLUMN];
 
     [SerializeField] private Transform parentP1;
     [SerializeField] private Transform parentP2;
@@ -36,13 +36,11 @@ public class UnitTileContainer : MonoBehaviour
                     if (player == 0)
                     {
                         unitTileArr[player, row, column] = parentP1.transform.GetChild(p1).GetComponent<UnitTile>();
-                        unitTileArr[player, row, column].tileCoord = new Vector2(column, row); // 좌하단 부터 우측으로 차례로 좌표값 초기화
                         p1++;
                     }
                     else
                     {
                         unitTileArr[player, row, column] = parentP2.transform.GetChild(p2).GetComponent<UnitTile>();
-                        unitTileArr[player, row, column].tileCoord = new Vector2(column, row); // 좌하단 부터 우측으로 차례로 좌표값 초기화
                         p2++;
                     }
                 }
@@ -68,18 +66,6 @@ public class UnitTileContainer : MonoBehaviour
             for (int idx = 0; idx < boxCollArr.Length; idx++)
             {
                 boxCollArr[idx].enabled = false;
-            }
-        }
-    }
-
-    public void TileAllClear()
-    {
-        for (int row = 0; row < ArrayNumber.UNIT_TILE_ROW; row++)
-        {
-            for (int column = 0; column < ArrayNumber.UNIT_TILE_COLUMN; column++)
-            {
-                unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].isEmty = true;
-                unitTileArr[ConnectMgr.GUEST_PLAYER, row, column].isEmty = true;
             }
         }
     }

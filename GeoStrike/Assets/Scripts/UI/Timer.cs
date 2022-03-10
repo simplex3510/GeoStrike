@@ -50,7 +50,6 @@ public class Timer : MonoBehaviour, IPunObservable
             battleTimer = 0f;
 
             translocateField.TranslocateUnits();
-            translocateField.gameObject.GetComponent<UnitTileContainer>().TileAllClear();
         }
     }
 

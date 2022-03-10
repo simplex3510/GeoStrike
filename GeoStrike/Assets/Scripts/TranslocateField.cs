@@ -7,8 +7,9 @@ using Photon.Realtime;
 [DefaultExecutionOrder(201)]
 public class TranslocateField : MonoBehaviourPun
 {
-    // Unit state
+    // Unit
     public List<Unit> unitList = new List<Unit>();
+    private UnitTileContainer unitTileContainer;
 
     // Waiting unit translocate
     [SerializeField] private Transform moveToBattleFieldP1;
@@ -22,6 +23,7 @@ public class TranslocateField : MonoBehaviourPun
 
     private void Awake()
     {
+        if (unitTileContainer == null) { unitTileContainer = GameObject.FindObjectOfType<UnitTileContainer>(); }
         InitPos();
     }
 
@@ -44,6 +46,7 @@ public class TranslocateField : MonoBehaviourPun
         for (int idx = 0; idx < unitList.Count; idx++)
         {
             unitList[idx].unitCreator.rowAndColumnQueue.Enqueue(unitList[idx].rowAndColumn);
+            unitTileContainer.checkUnitArr[unitList[idx].row, unitList[idx].column] = false;
             unitList[idx].transform.parent = null;
             unitList[idx].SetFreezeNone();
         }
