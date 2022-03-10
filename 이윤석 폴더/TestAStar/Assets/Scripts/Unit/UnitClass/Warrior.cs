@@ -27,9 +27,6 @@ public class Warrior : Unit
     protected override void OnEnable()
     {
         base.OnEnable();
-        Move move = new Move();
-        move.startPos.x = Mathf.RoundToInt(transform.position.x);
-        move.PathFinding();
     }
 
     protected override void OnDisable()
@@ -39,6 +36,12 @@ public class Warrior : Unit
 
     protected override void Update()
     {
+        // 자신의 오브젝트가 아니라면 실행하지 않음
+        //if (!photonView.IsMine)
+        //{
+        //    return;
+        //}
+
         base.Update();
 
         switch (unitState)

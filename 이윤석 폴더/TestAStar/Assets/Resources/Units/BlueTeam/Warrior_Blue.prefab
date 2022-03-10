@@ -105,10 +105,11 @@ MonoBehaviour:
   bottomLeft: {x: -40, y: -8}
   topRight: {x: 40, y: 8}
   startPos: {x: 0, y: 0}
-  targetPos: {x: 30, y: 0}
+  targetPos: {x: 0, y: 0}
+  endPos: {x: 30, y: 0}
   finalNodeList: []
-  allowDiagonal: 0
-  dontCrossCorner: 0
+  allowDiagonal: 1
+  dontCrossCorner: 1
 --- !u!114 &-3071955827369384402
 MonoBehaviour:
   m_ObjectHideFlags: 0

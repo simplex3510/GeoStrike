@@ -43,6 +43,10 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 {
     public UnitData initStatus;
     public UnitData deltaStatus;
+
+    
+
+    // 유닛의 오브젝트 풀링
     public Queue<Unit> myPool;
 
     // 배치상태의 위치 저장
@@ -64,18 +68,22 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     public bool isDead { get; protected set; }
     #endregion
 
-    protected LayerMask opponentLayerMask;  // 공격할 대상
-    protected EUnitState unitState;         // 유닛의 FSM의 상태
     protected Collider2D enemyCollider2D;
     protected Rigidbody2D myRigid2D;
+    protected Move aStar;                   // 유닛의 A* 알고리즘 기반 움직임
+    protected LayerMask opponentLayerMask;  // 공격할 대상
+    protected EUnitState unitState;         // 유닛의 FSM의 상태
     protected double lastAttackTime;
     protected bool isPlayer1;
 
+    float lastPathFindTime = 1f;
+    int moveIndex;
     bool isRotate;
 
     protected virtual void Awake()
     {
         myRigid2D = GetComponent<Rigidbody2D>();
+        aStar = GetComponent<Move>();
 
         isPlayer1 = (photonView.ViewID / 1000) == 1 ? true : false; ;
         
@@ -135,10 +143,22 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
     protected virtual void Update()
     {
-        // 자신의 오브젝트가 아니라면 실행하지 않음
-        if(!photonView.IsMine)
+        lastPathFindTime += Time.deltaTime;
+        if (1f <= lastPathFindTime)
         {
-            return;
+            aStar.startPos.x = Mathf.CeilToInt(transform.position.x);
+            aStar.startPos.y = Mathf.CeilToInt(transform.position.y);
+            if(enemyCollider2D != null)
+            {
+                aStar.targetPos.x = Mathf.CeilToInt(enemyCollider2D.transform.position.x);
+                aStar.targetPos.y = Mathf.CeilToInt(enemyCollider2D.transform.position.y);
+            }
+            else
+            {
+                aStar.targetPos = aStar.endPos;
+            }
+            aStar.PathFinding();
+            moveIndex = 1;
         }
 
         switch (unitState)
@@ -162,13 +182,12 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
     void Move() // 앞으로 전진
     {
-        if (isPlayer1)
+        Vector2 targetPos = new Vector2(aStar.finalNodeList[moveIndex].x, aStar.finalNodeList[moveIndex].y);
+        Vector2.MoveTowards(transform.position, targetPos, moveSpeed);
+
+        if(targetPos.x <= transform.position.x && targetPos.y <= transform.position.y)
         {
-            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-        }
-        else
-        {
-            transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+            moveIndex++;
         }
 
         if (!isRotate)
