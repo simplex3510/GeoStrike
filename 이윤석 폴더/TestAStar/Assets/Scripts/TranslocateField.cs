@@ -45,6 +45,7 @@ public class TranslocateField : MonoBehaviourPun
         {
             unitList[idx].transform.parent = null;
             unitList[idx].SetFreezeNone();
+            unitList[idx].StartSet();
         }
         unitList.Clear();
 

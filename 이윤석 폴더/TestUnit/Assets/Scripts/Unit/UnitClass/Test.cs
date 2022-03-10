@@ -9,6 +9,6 @@ public class Test : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3.MoveTowards(transform.position, new Vector3(6, 0, 0), 3 * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(6, 0, 0), 3 * Time.deltaTime);
     }
 }

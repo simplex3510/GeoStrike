@@ -70,7 +70,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
     protected Collider2D enemyCollider2D;
     protected Rigidbody2D myRigid2D;
-    protected Move aStar;                   // 유닛의 A* 알고리즘 기반 움직임
+    protected AStar aStar;                   // 유닛의 A* 알고리즘 기반 움직임
     protected LayerMask opponentLayerMask;  // 공격할 대상
     protected EUnitState unitState;         // 유닛의 FSM의 상태
     protected double lastAttackTime;
@@ -83,7 +83,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     protected virtual void Awake()
     {
         myRigid2D = GetComponent<Rigidbody2D>();
-        aStar = GetComponent<Move>();
+        aStar = GetComponent<AStar>();
 
         isPlayer1 = (photonView.ViewID / 1000) == 1 ? true : false; ;
         
@@ -111,9 +111,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         deltaStatus.moveSpeed = initStatus.moveSpeed;
         #endregion
 
+        //--------------------------------------
         aStar.startPos.x = (int)transform.position.x;
         aStar.startPos.y = (int)transform.position.y;
         aStar.targetPos = aStar.endPos;
+        //--------------------------------------
         aStar.PathFinding();
     }
 
@@ -135,6 +137,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         #endregion
 
         unitState = EUnitState.Move;
+      
     }
 
     // Return to your pool
@@ -169,10 +172,14 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
     void Move() // 앞으로 전진
     {
+    
+
+        //--------------------------------------
         Vector2 nextPos = new Vector2(aStar.finalNodeList[moveIndex].x, aStar.finalNodeList[moveIndex].y);
+        //--------------------------------------
 
         // lastPathFindTime += Time.deltaTime;
-        if (transform.position.x == nextPos.x && transform.position.y == nextPos.y)
+        if (transform.position.x <= nextPos.x && transform.position.y <= nextPos.y)
         {
             // lastPathFindTime = 0f;
             aStar.startPos.x = (int)transform.position.x;
@@ -193,10 +200,10 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         
         transform.position = Vector2.MoveTowards(transform.position, nextPos, moveSpeed * Time.deltaTime);
 
-        if(nextPos.x <= transform.position.x && nextPos.y <= transform.position.y)
-        {
-            moveIndex++;
-        }
+        //if(nextPos.x <= transform.position.x && nextPos.y <= transform.position.y)
+        //{
+        //    moveIndex++;
+        //}
 
         if (!isRotate)
         {
@@ -354,5 +361,15 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     public void SetFreezeAll()
     {
         myRigid2D.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+
+    public void StartSet()
+    {
+        //--------------------------------------
+        aStar.startPos.x = (int)transform.position.x;
+        aStar.startPos.y = (int)transform.position.y;
+        aStar.targetPos = aStar.endPos;
+        //--------------------------------------
+        aStar.PathFinding();
     }
 }

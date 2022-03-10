@@ -23,7 +23,7 @@ public class NetworkMgr : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             //PhotonNetwork.Instantiate("Prefabs/BlueTeam/Player1_Warrior", new Vector3(-8, 0, 0), Quaternion.identity);
-            PhotonNetwork.Instantiate("Prefabs/Bot", new Vector3(-8, 0, 0), Quaternion.identity);
+            //PhotonNetwork.Instantiate("Prefabs/Bot", new Vector3(-8, 0, 0), Quaternion.identity);
         }
         //else
         //{

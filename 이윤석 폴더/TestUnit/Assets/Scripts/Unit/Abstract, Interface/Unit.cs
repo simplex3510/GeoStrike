@@ -66,7 +66,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
     protected Collider2D enemyCollider2D;
     protected Rigidbody2D myRigid2D;
-    protected Move aStar;                   // 유닛의 A* 알고리즘 기반 움직임
+    protected AStar aStar;                   // 유닛의 A* 알고리즘 기반 움직임
     protected LayerMask opponentLayerMask;  // 공격할 대상
     protected EUnitState unitState;         // 유닛의 FSM의 상태
     protected double lastAttackTime;
@@ -79,7 +79,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     protected virtual void Awake()
     {
         myRigid2D = GetComponent<Rigidbody2D>();
-        aStar = GetComponent<Move>();
+        aStar = GetComponent<AStar>();
 
         isPlayer1 = (photonView.ViewID / 1000) == 1 ? true : false; ;
 
@@ -105,10 +105,10 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         deltaStatus.moveSpeed = initStatus.moveSpeed;
         #endregion
 
-        //aStar.startPos.x = (int)transform.position.x;
-        //aStar.startPos.y = (int)transform.position.y;
-        //aStar.targetPos = aStar.endPos;
-        //aStar.PathFinding();
+        aStar.startPos.x = (int)transform.position.x;
+        aStar.startPos.y = (int)transform.position.y;
+        aStar.targetPos = aStar.endPos;
+        aStar.PathFinding();
     }
 
     protected virtual void OnEnable()
@@ -161,34 +161,32 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
     void Move() // 앞으로 전진
     {
-        //Vector2 nextPos = new Vector2(aStar.finalNodeList[moveIndex].x, aStar.finalNodeList[moveIndex].y);
+        Vector2 nextPos = new Vector2(aStar.finalNodeList[moveIndex].x, aStar.finalNodeList[moveIndex].y);
 
-        //// lastPathFindTime += Time.deltaTime;
-        //if (transform.position.x == nextPos.x && transform.position.y == nextPos.y)
-        //{
-        //    // lastPathFindTime = 0f;
-        //    aStar.startPos.x = (int)transform.position.x;
-        //    aStar.startPos.y = (int)transform.position.y;
+        if (transform.position.x == nextPos.x && transform.position.y == nextPos.y)
+        {
+            aStar.startPos.x = (int)transform.position.x;
+            aStar.startPos.y = (int)transform.position.y;
 
-        //    if (enemyCollider2D != null)
-        //    {
-        //        aStar.targetPos.x = (int)enemyCollider2D.transform.position.x;
-        //        aStar.targetPos.y = (int)enemyCollider2D.transform.position.y;
-        //    }
-        //    else
-        //    {
-        //        aStar.targetPos = aStar.endPos;
-        //    }
-        //    aStar.PathFinding();
-        //    moveIndex = 1;
-        //}
+            if (enemyCollider2D != null)
+            {
+                aStar.targetPos.x = (int)enemyCollider2D.transform.position.x;
+                aStar.targetPos.y = (int)enemyCollider2D.transform.position.y;
+            }
+            else
+            {
+                aStar.targetPos = aStar.endPos;
+            }
+            aStar.PathFinding();
+            moveIndex = 1;
+        }
 
-        //Vector2.MoveTowards(transform.position, nextPos, moveSpeed);
+        transform.position = Vector2.MoveTowards(transform.position, nextPos, moveSpeed * Time.deltaTime);
 
-        //if (nextPos.x <= transform.position.x && nextPos.y <= transform.position.y)
-        //{
-        //    moveIndex++;
-        //}
+        if (nextPos.x <= transform.position.x && nextPos.y <= transform.position.y)
+        {
+            moveIndex++;
+        }
 
         Vector2.MoveTowards(transform.position, new Vector2Int(4, 0), moveSpeed * Time.deltaTime);
 

@@ -15,7 +15,7 @@ public class Bot : Unit
     protected override void OnEnable()
     {
         base.OnEnable();
-        unitState = EUnitState.Idle;
+        //unitState = EUnitState.Idle;
     }
 
     //protected override void OnDisable()
