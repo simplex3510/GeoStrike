@@ -156,8 +156,7 @@ public class Detector : MonoBehaviour
             int finalV = Mathf.Clamp(clickedUnit.row + v, 0, 7);
 
             // 이동 방향에 빈 타일일 경우
-            // 필요 연산 : 1.TransformArr, 2.Unit.row & Unit.column, 3. unit.unitCreator.spawnPos, 4. unit.transform.position
-            if (new Vector2(v, h) != Vector2.zero && unitTileContainer.unitTransformArr[finalV, finalH] == null)
+            if (!unitTileContainer.unitTransformArr[finalV, finalH])
             {
                 unitTileContainer.unitTransformArr[clickedUnit.row, clickedUnit.column] = null; // 현재 위치의 유닛 유무
 
@@ -168,30 +167,19 @@ public class Detector : MonoBehaviour
                 clickedUnit.unitCreator.spawnPos += new Vector3(h, v, 0);   // Spawn 위치 지정
                 clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos; // 유닛의 실제 위치 이동
             }
-            //이동 방향에 유닛이 있을경우 Swap
-            else if (new Vector2(v, h) != Vector2.zero && unitTileContainer.unitTransformArr[finalV, finalH] != null &&
-                     unitTileContainer.unitTransformArr[finalV, finalH].GetComponent<Unit>() != clickedUnit)
-            {
-                // temp = Unit A : 클릭한 유닛을 temp에 넣기
-                temp = unitTileContainer.unitTransformArr[clickedUnit.row, clickedUnit.column];
+            // 이동 방향에 유닛이 있을경우 Swap
+            //else
+            //{
+            //    unitTileContainer.unitTransformArr[clickedUnit.row, clickedUnit.column] = .transform; // 이동된 다른 유닛 transform
 
-                // unit B : A가 이동할 자리에있는 유닛B를 A로 이동
-                Transform unitB = unitTileContainer.unitTransformArr[finalV, finalH];
-                unitTileContainer.unitTransformArr[clickedUnit.row, clickedUnit.column] = unitB;
-                unitB.GetComponent<Unit>().row = temp.GetComponent<Unit>().row;
-                unitB.GetComponent<Unit>().column = temp.GetComponent<Unit>().column;
-                unitB.GetComponent<Unit>().unitCreator.spawnPos = temp.GetComponent<Unit>().unitCreator.spawnPos;
-                unitB.transform.position = temp.GetComponent<Unit>().unitCreator.spawnPos;
-                
-                // Unit A : temp를 이동할 자리로 이동
-                clickedUnit.row = finalV;
-                clickedUnit.column = finalH;
+            //    clickedUnit.row = finalV;
+            //    clickedUnit.column = finalH;
 
-                unitTileContainer.unitTransformArr[clickedUnit.row, clickedUnit.column] = temp;
-                clickedUnit.unitCreator.spawnPos += new Vector3(h, v, 0);   // Spawn 위치 지정
-                clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos; // 유닛의 실제 위치 이동
-            }
-
+            //    unitTileContainer.unitTransformArr[clickedUnit.row, clickedUnit.column] = clickedUnit.transform;
+            //    clickedUnit.unitCreator.spawnPos += new Vector3(h, v, 0);   // Spawn 위치 지정
+            //    clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos; // 유닛의 실제 위치 이동
+            //}
+            
             unitSelectEffect.transform.position = Camera.main.WorldToScreenPoint(clickedUnit.transform.position);
             yield return null;
         }
