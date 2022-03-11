@@ -19,6 +19,12 @@ public class AStar : MonoBehaviour
 
     public void PathFinding()
     {
+        if (this.gameObject.name == "aaa")
+        {
+            Debug.Log("fsd");
+        }
+
+
         sizeX = topRight.x - bottomLeft.x + 1;  // ÀüÃ¼ ¸ÊÀÇ XÁÂÇ¥ Å©±â ¼³Á¤
         sizeY = topRight.y - bottomLeft.y + 1;  // ÀüÃ¼ ¸ÊÀÇ YÁÂÇ¥ Å©±â ¼³Á¤
         nodeArray = new Node[sizeX, sizeY];     // ÀüÃ¼ ¸ÊÀÇ Å©±â ¼³Á¤

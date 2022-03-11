@@ -30,11 +30,13 @@ public class TetrominoCreater : MonoBehaviourPun
         BuildOnEmptyTile(resultTileCoord);
         if (GameMgr.isMaster)
         {
-            PhotonNetwork.Instantiate("Tetromino/Prefabs/BlueTeam/" + _tetromino.name, _mousePos - Vector3.forward, Quaternion.Euler(_angle));
+            Tetromino tetromino = PhotonNetwork.Instantiate("Tetromino/Prefabs/BlueTeam/" + _tetromino.name, _mousePos - Vector3.forward, Quaternion.Euler(_angle)).GetComponent<Tetromino>();
+            tetromino.quaternion = Quaternion.Euler(_angle);
         }
         else
         {
-            PhotonNetwork.Instantiate("Tetromino/Prefabs/RedTeam/" + _tetromino.name, _mousePos - Vector3.forward, Quaternion.Euler(_angle));
+            Tetromino tetromino = PhotonNetwork.Instantiate("Tetromino/Prefabs/RedTeam/" + _tetromino.name, _mousePos - Vector3.forward, Quaternion.Euler(_angle)).GetComponent<Tetromino>();
+            tetromino.quaternion = Quaternion.Euler(_angle);
         }
 
         TetrominoPreview.instance.ClearPreview();
@@ -110,7 +112,7 @@ public class TetrominoCreater : MonoBehaviourPun
         return resultTileCoord;
     }
 
-    // 테트로미노 4칸의 좌표와 복소수 회전 연산
+    // 테트로미노 4칸의 좌표와 복소수 회전 곱연산
     private Vector2[] ArrMultipleOperator(Vector2[] _tetrominoCoord, Vector3 _angle)
     {
         Vector2[] multipleTileCoord = new Vector2[4];

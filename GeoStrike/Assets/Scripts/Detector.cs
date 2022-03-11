@@ -26,7 +26,6 @@ public class Detector : MonoBehaviour
 
     // 정보창 & 유닛 배치모드
     private GameObject clickedObject;      // 클릭한 Object 저장
-    private Unit statusPanelUnit;           // 정보창에서 사용할 클릭한 Unit
     private Unit clickedUnit;              // 배치모드에서 사용할 클릭한 Unit 저장
 
     private void Awake()
@@ -55,15 +54,17 @@ public class Detector : MonoBehaviour
         {
             if (clickedObject.CompareTag("Unit"))
             {
-                statusPanelUnit = clickedObject.GetComponent<Unit>();
+                Unit unit = clickedObject.GetComponent<Unit>();
                 GameMgr.instance.canvas.GetComponentInChildren<StatusPanel>().UnitStatusInfo(
-                    statusPanelUnit.GetComponent<SpriteRenderer>(), statusPanelUnit.unitName, statusPanelUnit.currentHealth, statusPanelUnit.damage, statusPanelUnit.defense);
+                    unit.GetComponent<SpriteRenderer>(), unit.unitName, unit.currentHealth, unit.damage, unit.defense);
             }
             else if (clickedObject.CompareTag("Tetromino"))
             {
                 // 구현중
                 // 테트리스건물일 경우 띄워야 할 정보들
                 // 이미지, 이름, 건물 완성도
+                Tetromino tetromino = clickedObject.GetComponent<Tetromino>();
+                GameMgr.instance.canvas.GetComponentInChildren<StatusPanel>().TetrominoStatusInfo(tetromino.GetComponent<SpriteRenderer>(), tetromino.quaternion, tetromino.shapeName);
             }
         }
     }
@@ -80,10 +81,20 @@ public class Detector : MonoBehaviour
             {
                 // 클릭한 Obj 정보 불러오기
                 clickedObject = hit2D.collider.gameObject;
+                
+                // 클릭한 오브젝트에 따라 Status창 구별
+                if (clickedObject.CompareTag("Unit"))
+                {
+
+                }
+                else if (clickedObject.CompareTag("Tetromino")){
+
+                }
+
                 clickedUnit = clickedObject.GetComponent<Unit>();
 
                 // 클릭한 유닛이 Idle (유닛타일에서 대기중) 일때 배치모드 실행
-                if (clickedUnit.unitState == EUnitState.Idle && cameraController.mouseController.eMouseMode == MouseController.EMouseMode.normal)
+                if (clickedObject.CompareTag("Unit") && clickedUnit.unitState == EUnitState.Idle && cameraController.mouseController.eMouseMode == MouseController.EMouseMode.normal)
                 {
                     StartCoroutine(CBatchMode());
                 }

@@ -792,7 +792,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Connect
+  m_Text: Disconnect
 --- !u!222 &1316664195
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -871,7 +871,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: GeoStrike
+  m_Text: Defeate
 --- !u!222 &1447018138
 CanvasRenderer:
   m_ObjectHideFlags: 0

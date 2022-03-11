@@ -11,6 +11,7 @@ public class Pool : MonoBehaviourPun
     public Unit unitP1;
     public Unit unitP2;
 
+    //public GameObject testBlue;
 
 
     // 초기 Object 생성
@@ -32,10 +33,12 @@ public class Pool : MonoBehaviourPun
 
         if (PhotonNetwork.IsMasterClient)
         {
-            newObj = PhotonNetwork.Instantiate("Units/BlueTeam/" + unitP1.name, Vector3.forward * -10, Quaternion.identity).GetComponent<Unit>();
+          
+           newObj = PhotonNetwork.Instantiate("Units/BlueTeam/" + unitP1.name, Vector3.forward * -10, Quaternion.identity).GetComponent<Unit>();
         }
         else
         {
+          
             newObj = PhotonNetwork.Instantiate("Units/RedTeam/" + unitP2.name, Vector3.forward * -10, Quaternion.Euler(0f, 0f, 180f)).GetComponent<Unit>();
         }
 
