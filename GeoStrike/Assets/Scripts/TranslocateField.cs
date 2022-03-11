@@ -46,7 +46,7 @@ public class TranslocateField : MonoBehaviourPun
         for (int idx = 0; idx < unitList.Count; idx++)
         {
             unitList[idx].unitCreator.rowAndColumnQueue.Enqueue(unitList[idx].rowAndColumn);
-            unitTileContainer.checkUnitArr[unitList[idx].row, unitList[idx].column] = false;
+            unitTileContainer.unitTransformArr[unitList[idx].row, unitList[idx].column] = null;
             unitList[idx].transform.parent = null;
             unitList[idx].SetStartAStar(null);
             unitList[idx].SetFreezeNone();
