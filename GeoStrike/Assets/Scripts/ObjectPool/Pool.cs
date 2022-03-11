@@ -32,11 +32,11 @@ public class Pool : MonoBehaviourPun
 
         if (PhotonNetwork.IsMasterClient)
         {
-            newObj = PhotonNetwork.Instantiate("Units/BlueTeam/" + unitP1.name, Vector3.one * 1000, Quaternion.identity).GetComponent<Unit>();
+            newObj = PhotonNetwork.Instantiate("Units/BlueTeam/" + unitP1.name, Vector3.forward * -10, Quaternion.identity).GetComponent<Unit>();
         }
         else
         {
-            newObj = PhotonNetwork.Instantiate("Units/RedTeam/" + unitP2.name, Vector3.one * 1000, Quaternion.Euler(0f, 0f, 180f)).GetComponent<Unit>();
+            newObj = PhotonNetwork.Instantiate("Units/RedTeam/" + unitP2.name, Vector3.forward * -10, Quaternion.Euler(0f, 0f, 180f)).GetComponent<Unit>();
         }
 
         newObj.myPool = ObjPoolQueue;

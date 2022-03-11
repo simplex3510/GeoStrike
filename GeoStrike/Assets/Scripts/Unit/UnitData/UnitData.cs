@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "UnitData", menuName = "Unit Data")]
+[CreateAssetMenu(fileName = "UnitData", menuName = "Data/Unit Data", order = 1)]
 public class UnitData : ScriptableObject
 {
-    [Header("<Status>")]
+    [Header("<Unit Status>")]
     public EUnitIndex unitIndex;
     public string unitName;
     public float health = 0;

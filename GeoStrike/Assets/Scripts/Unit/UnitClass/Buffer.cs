@@ -43,17 +43,12 @@ public class Buffer : Unit
             case EUnitState.Idle:
                 break;
             case EUnitState.Move:
-                animator.SetBool("isMove", true);
-                animator.SetBool("isAttack", false);
                 break;
             case EUnitState.Approach:
                 break;
             case EUnitState.Attack:
-                animator.SetBool("isMove", false);
-                animator.SetBool("isAttack", true);
                 break;
             case EUnitState.Die:
-                StartCoroutine(DieAnimation(weapon));
                 break;
         }
     }
