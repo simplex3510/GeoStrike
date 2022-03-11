@@ -138,8 +138,33 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         #endregion
     }
 
+    private void Start()
+    {
+        StartCoroutine(scan());
+    }
+
+    IEnumerator scan()
+    {
+        while(true)
+        {
+            Vector3 prePosition = transform.position;
+            yield return new WaitForSeconds(0.5f);
+            Vector3 postPosition = transform.position;
+
+            if (prePosition == postPosition && unitState == EUnitState.Move)
+            {
+                SetStartAStar(null);
+            }
+        }
+    }
+
     protected virtual void Update()
     {
+        if (this.gameObject.name =="aaa")
+        {
+            Debug.Log("fsdfarsefsdf");
+        }
+
         switch (unitState)
         {
             case EUnitState.Idle:
@@ -182,41 +207,15 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     // Return to your pool
     protected virtual void OnDisable()
     {
-        if(photonView.IsMine)
-        {
+       // if(photonView.IsMine)
+       // {
             myPool.Enqueue(this);
-        }
+       // }
     }
 
     void Move() // 앞으로 전진
     {
-        #region A* Move
-        Vector2Int nextPos = new Vector2Int(aStar.finalNodeList[moveIndex].x, aStar.finalNodeList[moveIndex].y);
-
-        if(isPlayer1)
-        {
-            if(aStar.finalNodeList[moveIndex].x <= transform.position.x && aStar.finalNodeList[moveIndex].y <= transform.position.y)
-            {
-                if (aStar.finalNodeList.Count - 1 == moveIndex)
-                {
-                    return;
-                }
-                moveIndex++;
-            }
-        }
-        else
-        {
-            if (transform.position.x <= aStar.finalNodeList[moveIndex].x && transform.position.y <= aStar.finalNodeList[moveIndex].y)
-            {
-                if(aStar.finalNodeList.Count - 1 == moveIndex)
-                {
-                    return;
-                }
-                moveIndex++;
-            }
-        }
-        transform.position = Vector2.MoveTowards(transform.position, nextPos, moveSpeed * Time.deltaTime);
-        #endregion
+        // 코루틴으로 이전 위치값과 현재 위치값을 비교한 후 MOVE 상태라면 PathFinding하기
 
         if (!isRotate)
         {
@@ -224,18 +223,65 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         }
 
         enemyCollider2D = Physics2D.OverlapCircle(transform.position, detectRange, opponentLayerMask);
-        if (enemyCollider2D != null)
+        if(enemyCollider2D == null)
+        {
+            SetStartAStar(null);
+        }
+        else
         {
             SetStartAStar(enemyCollider2D);
             unitState = EUnitState.Approach;
-            return;
         }
+
+        #region A* Move
+        try
+        {
+            Vector2Int nextPos = new Vector2Int(aStar.finalNodeList[moveIndex].x, aStar.finalNodeList[moveIndex].y);
+
+            if (isPlayer1)
+            {
+                if (aStar.finalNodeList[moveIndex].x <= transform.position.x && aStar.finalNodeList[moveIndex].y <= transform.position.y)
+                {
+                    if (aStar.finalNodeList.Count - 1 == moveIndex)
+                    {
+                        return;
+                    }
+                    moveIndex++;
+                }
+            }
+            else
+            {
+                if (transform.position.x <= aStar.finalNodeList[moveIndex].x && transform.position.y <= aStar.finalNodeList[moveIndex].y)
+                {
+                    if (aStar.finalNodeList.Count - 1 == moveIndex)
+                    {
+                        return;
+                    }
+                    moveIndex++;
+                }
+            }
+            transform.position = Vector2.MoveTowards(transform.position, nextPos, moveSpeed * Time.deltaTime);
+           
+        }
+        catch (System.Exception)
+        {
+
+            throw;
+        }
+        #endregion
+
     }
 
     void Approach() // 적에게 접근
     {
         enemyCollider2D = Physics2D.OverlapCircle(transform.position, detectRange, opponentLayerMask);
-        if (enemyCollider2D != null)
+        if (enemyCollider2D == null)
+        {
+            SetStartAStar(null);
+            unitState = EUnitState.Move;
+            return;
+        }
+        else
         {
             #region A* Move
             Vector2Int nextPos = new Vector2Int(aStar.finalNodeList[moveIndex].x, aStar.finalNodeList[moveIndex].y);
@@ -280,18 +326,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
                 unitState = EUnitState.Attack;
                 return;
             }
-            //else
-            //{
-            //    SetStartAStar(null);
-            //    unitState = EUnitState.Move;
-            //    return;
-            //}
-        }
-        else
-        {
-            SetStartAStar(null);
-            unitState = EUnitState.Move;
-            return;
         }
     }
 
@@ -432,6 +466,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         }
 
         moveIndex = 1;
+
         aStar.PathFinding();
     }
 

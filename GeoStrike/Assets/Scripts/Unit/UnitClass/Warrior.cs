@@ -68,6 +68,10 @@ public class Warrior : Unit
         }
         else
         {
+            if (this.gameObject.name == "aaa")
+            {
+                Debug.Log("fsd");
+            }
             SetStartAStar(null);
             unitState = EUnitState.Move;
             return;

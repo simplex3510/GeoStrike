@@ -66,6 +66,11 @@ public class Shooter : Unit
         }
         else if (enemyCollider2D == null)
         {
+            if (this.gameObject.name == "aaa")
+            {
+                Debug.Log("fsd");
+            }
+            SetStartAStar(null);
             unitState = EUnitState.Move;
             return;
         }

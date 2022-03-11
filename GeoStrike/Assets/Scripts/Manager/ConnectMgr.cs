@@ -54,7 +54,7 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsConnected && nickname.text != "")
         {
             PhotonNetwork.NickName = nickname.text;
-            PhotonNetwork.JoinOrCreateRoom("Temp", new RoomOptions { MaxPlayers = 2 }, null);
+            PhotonNetwork.JoinOrCreateRoom("GeoStrike", new RoomOptions { MaxPlayers = 2 }, null);
         }
         else
         {
@@ -75,8 +75,17 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
 
     public void OnClickReady()
     {
-        button.interactable = false;
+        // button.interactable = false;
         photonView.RPC("CurrentReady", RpcTarget.MasterClient, EReadyState.Ready);
+        button.onClick.RemoveListener(OnClickReady);
+        button.onClick.AddListener(OnClickCancle);
+    }
+
+    public void OnClickCancle()
+    {
+        photonView.RPC("CurrentReady", RpcTarget.MasterClient, EReadyState.Cancle);
+        button.onClick.RemoveListener(OnClickCancle);
+        button.onClick.AddListener(OnClickReady);
     }
 
     [PunRPC]
