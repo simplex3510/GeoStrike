@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shapeIdx: 1
+  shapeName: 
   coordinate:
   - {x: 0, y: 0}
   - {x: -1, y: 0}
@@ -155,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitTileContainer: {fileID: 0}
   translocateField: {fileID: 0}
+  spawnPos: {x: 0, y: 0, z: 0}
   unitP1: {fileID: 7775492941214096410, guid: c3c4606a00e6ebd4888b064dd1bab774, type: 3}
   unitP2: {fileID: 4429122311321390504, guid: c215ac6f9023c0744b1091a281d2fe42, type: 3}
 --- !u!61 &-6999531429787690816

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 
 public class GameState : MonoBehaviour
@@ -54,5 +54,18 @@ public class GameState : MonoBehaviour
         {
             yield return null;
         }
+    }
+
+    IEnumerator FSM_GameEnd()
+    {
+        // 1.ºí·çÆÀ ³Ø¼­½ºÆÄ±«
+        // ºí·çÆÀ ÆÐ¹è
+        // ·¹µåÆÀ ½Â¸®
+
+        // 2.·¹µåÆÀ ³Ø¼­½º ÆÄ±«
+        // ºí·çÆÀ ½Â¸®
+        // ·¹µåÆÀ ÆÐ¹è
+
+        yield return null;
     }
 }

@@ -35,7 +35,16 @@ public class GameMgr : MonoBehaviourPun
         }
     }
 
+    [SerializeField] private EGameState eGameState = EGameState.FSM_Standby;
+
     public static bool isMaster = false;
+
+    // true = Á¸Àç, false = ÆÄ±«
+    public static bool blueNexus = true;
+    public static bool redNexus = true;
+
+    public Grid grid;
+    public Canvas canvas;
 
     private void Awake()
     {
@@ -59,10 +68,6 @@ public class GameMgr : MonoBehaviourPun
         }
     }
 
-    [SerializeField] private EGameState eGameState = EGameState.FSM_Standby;
-
-    public Grid grid;
-    public Canvas canvas;
 
 
     public EGameState GetState()
@@ -70,6 +75,7 @@ public class GameMgr : MonoBehaviourPun
         return eGameState;
     }
 
+    [PunRPC]
     public void SetState(EGameState _state)
     {
         eGameState = _state;

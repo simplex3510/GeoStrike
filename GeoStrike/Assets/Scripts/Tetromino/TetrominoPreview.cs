@@ -24,6 +24,7 @@ public class TetrominoPreview : MonoBehaviour
         m_previewOriginSize = rectTransform.sizeDelta;
     }
 
+
     public void ClearPreview()
     {
         m_cameraController.mouseController.eMouseMode = MouseController.EMouseMode.normal;  // 마우스 모드 : 노말
