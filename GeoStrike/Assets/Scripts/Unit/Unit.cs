@@ -129,12 +129,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
     }
     protected virtual void Update()
     {
-        // 자신의 오브젝트가 아니라면 실행하지 않음
-        if (!photonView.IsMine)
-        {
-            return;
-        }
-
         switch (unitState)
         {
             case EUnitState.Idle:
@@ -192,6 +186,10 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         {
             if(aStar.finalNodeList[moveIndex].x <= transform.position.x && aStar.finalNodeList[moveIndex].y <= transform.position.y)
             {
+                if (aStar.finalNodeList.Count - 1 == moveIndex)
+                {
+                    return;
+                }
                 moveIndex++;
             }
         }
@@ -199,6 +197,10 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         {
             if (transform.position.x <= aStar.finalNodeList[moveIndex].x && transform.position.y <= aStar.finalNodeList[moveIndex].y)
             {
+                if(aStar.finalNodeList.Count - 1 == moveIndex)
+                {
+                    return;
+                }
                 moveIndex++;
             }
         }
@@ -229,15 +231,25 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
 
             if (isPlayer1)
             {
-                if (aStar.finalNodeList[moveIndex].x <= transform.position.x && aStar.finalNodeList[moveIndex].y <= transform.position.y)
+                if (aStar.finalNodeList[moveIndex].x <= transform.position.x &&
+                    aStar.finalNodeList[moveIndex].y <= transform.position.y)
                 {
+                    if (aStar.finalNodeList.Count - 1 == moveIndex)
+                    {
+                        return;
+                    }
                     moveIndex++;
                 }
             }
             else
             {
-                if (transform.position.x <= aStar.finalNodeList[moveIndex].x && transform.position.y <= aStar.finalNodeList[moveIndex].y)
+                if (transform.position.x <= aStar.finalNodeList[moveIndex].x &&
+                    transform.position.y <= aStar.finalNodeList[moveIndex].y)
                 {
+                    if (aStar.finalNodeList.Count - 1 == moveIndex)
+                    {
+                        return;
+                    }
                     moveIndex++;
                 }
             }
@@ -249,6 +261,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
                 StartCoroutine(RotateAnimation(enemyCollider2D));
             }
 
+            // 적 콜라이더가 공격 범위 내에 들어왔다면 Attack FSM으로 전환
             if ((enemyCollider2D.transform.position - transform.position).magnitude <= attackRange)
             {
                 unitState = EUnitState.Attack;
@@ -261,7 +274,12 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
                 return;
             }
         }
-
+        else
+        {
+            SetStartAStar(null);
+            unitState = EUnitState.Move;
+            return;
+        }
     }
 
     public abstract void Attack();   // 적에게 공격
@@ -386,7 +404,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
                 aStar.targetPos.x = Mathf.FloorToInt(enemy.transform.position.x);
                 aStar.targetPos.y = Mathf.FloorToInt(enemy.transform.position.y);
             }
-            
         }
 
         moveIndex = 1;
@@ -412,5 +429,14 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         }
 
         unitState = EUnitState.Move;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ally"))
+        {
+            print("아군과 충돌하여 새로운 경로 탐색");
+            SetStartAStar(null);
+        }
     }
 }

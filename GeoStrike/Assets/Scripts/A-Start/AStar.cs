@@ -35,6 +35,10 @@ public class AStar : MonoBehaviour
                 {
                     if (col.gameObject.layer != LayerMask.NameToLayer("Default"))   // Default가 아니라면
                     {
+                        if (col.gameObject.layer == LayerMask.NameToLayer("Enemy")) // Enemy라면
+                        {
+                            continue;                                               // 장애물로 인식하지 않음
+                        }
                         isWall = true;                                              // 장애물이므로 표시
                     }
                 }
@@ -99,7 +103,7 @@ public class AStar : MonoBehaviour
                 OpenListAdd(currentNode.x + 1, currentNode.y - 1);
             }
 
-            // ↑ → ↓ ← - 수평 이동
+            // ↑ → ↓ ← - 수평 수직 이동
             OpenListAdd(currentNode.x, currentNode.y + 1);
             OpenListAdd(currentNode.x + 1, currentNode.y);
             OpenListAdd(currentNode.x, currentNode.y - 1);

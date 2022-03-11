@@ -53,6 +53,7 @@ public class Warrior : Unit
                 animator.SetBool("isAttack", true);
                 break;
             case EUnitState.Die:
+                StartCoroutine(DieAnimation(this.gameObject));
                 StartCoroutine(DieAnimation(weapon));
                 break;
         }
