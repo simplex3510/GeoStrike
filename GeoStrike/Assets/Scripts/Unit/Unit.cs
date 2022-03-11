@@ -35,17 +35,27 @@ public struct RowAndColumn
     public int column;
 }
 
-interface IDamageable
+public interface IDamageable
 {
     public void OnDamaged(float _damage);
 }
 
-interface IActivatable
+public interface IActivatable
 {
     public void SetUnitActive(bool _bool);
 }
 
-public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
+interface IBuffable
+{
+    public void OnBuff(float _buff);
+}
+
+interface IDebuffable
+{
+    public void OnDebuff(float _debuff);
+}
+
+public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffable, IDebuffable
 {
     public UnitData initStatus;
     public UnitData deltaStatus;
@@ -127,6 +137,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         deltaStatus.moveSpeed = initStatus.moveSpeed;
         #endregion
     }
+
     protected virtual void Update()
     {
         switch (unitState)
@@ -140,7 +151,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
                 Approach();
                 break;
             case EUnitState.Attack:
-                //Animation에서 Attck() 호출
+                //각 UnitClass 마다 Attck 구현
                 break;
             case EUnitState.Die:
                 Die();
@@ -261,18 +272,20 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
                 StartCoroutine(RotateAnimation(enemyCollider2D));
             }
 
+            enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
+
             // 적 콜라이더가 공격 범위 내에 들어왔다면 Attack FSM으로 전환
-            if ((enemyCollider2D.transform.position - transform.position).magnitude <= attackRange)
+            if (enemyCollider2D != null)
             {
                 unitState = EUnitState.Attack;
                 return;
             }
-            else if (enemyCollider2D == null)
-            {
-                SetStartAStar(null);
-                unitState = EUnitState.Move;
-                return;
-            }
+            //else
+            //{
+            //    SetStartAStar(null);
+            //    unitState = EUnitState.Move;
+            //    return;
+            //}
         }
         else
         {
@@ -310,6 +323,18 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable
         {
             photonView.RPC("SetUnitActive", RpcTarget.Others, isTrue);
         }
+    }
+
+    [PunRPC]
+    public void OnBuff(float _buffDamage)
+    {
+
+    }
+
+    [PunRPC]
+    public void OnDebuff(float _debuffDamage)
+    {
+
     }
 
     protected IEnumerator DieAnimation(GameObject _gameObject)
