@@ -53,7 +53,6 @@ public class Warrior : Unit
                 animator.SetBool("isAttack", true);
                 break;
             case EUnitState.Die:
-                StartCoroutine(DieAnimation(this.gameObject));
                 StartCoroutine(DieAnimation(weapon));
                 break;
         }
@@ -62,19 +61,15 @@ public class Warrior : Unit
     public override void Attack()   // 적에게 공격
     {
         enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
-        if (enemyCollider2D != null)
+        if (enemyCollider2D == null)
         {
-            enemyCollider2D.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
-        }
-        else
-        {
-            if (this.gameObject.name == "aaa")
-            {
-                Debug.Log("fsd");
-            }
             SetStartAStar(null);
             unitState = EUnitState.Move;
             return;
+        }
+        else
+        {
+            enemyCollider2D.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
         }
     }
 }
