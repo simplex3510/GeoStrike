@@ -41,7 +41,7 @@ public class UnitCreator : MonoBehaviourPun
             {
                 for (int column = 0; column < ArrayNumber.UNIT_TILE_COLUMN; column++)
                 {
-                    if (!unitTileContainer.checkUnitArr[row, column])
+                    if (unitTileContainer.unitTransformArr[row, column] == null)
                     {
                         // Unit 생성
                         if ((int)unitP1.unitIndex != 6)
@@ -57,7 +57,7 @@ public class UnitCreator : MonoBehaviourPun
                                 unit.row = row;
                                 unit.column = column;
 
-                                unitTileContainer.checkUnitArr[row, column] = true;
+                                unitTileContainer.unitTransformArr[row, column] = unit.transform;
                                 spawnPos = unit.transform.position;
                             }
                             else
@@ -68,7 +68,7 @@ public class UnitCreator : MonoBehaviourPun
                                 RowAndColumn rowAndColumn = rowAndColumnQueue.Dequeue();
                                 unit.row = rowAndColumn.row;
                                 unit.column = rowAndColumn.column;
-                                unitTileContainer.checkUnitArr[unit.row, unit.column] = true;
+                                unitTileContainer.unitTransformArr[unit.row, unit.column] = unit.transform;
                             }
 
                             // 배틀필드로 유닛 이동시켜주기 위한 작업
@@ -95,7 +95,7 @@ public class UnitCreator : MonoBehaviourPun
             {
                 for (int column = 0; column < ArrayNumber.UNIT_TILE_COLUMN; column++)
                 {
-                    if (!unitTileContainer.checkUnitArr[row, column])
+                    if (unitTileContainer.unitTransformArr[row, column] == null)
                     {
                         // Unit 생성
                         if ((int)unitP1.unitIndex != 6)
@@ -113,7 +113,7 @@ public class UnitCreator : MonoBehaviourPun
                                 unit.row = row;
                                 unit.column = column;
 
-                                unitTileContainer.checkUnitArr[row, column] = true;
+                                unitTileContainer.unitTransformArr[row, column] = unit.transform;
                                 spawnPos = unit.transform.position;
                             }
                             else
@@ -124,7 +124,7 @@ public class UnitCreator : MonoBehaviourPun
                                 RowAndColumn rowAndColumn = rowAndColumnQueue.Dequeue();
                                 unit.row = rowAndColumn.row;
                                 unit.column = rowAndColumn.column;
-                                unitTileContainer.checkUnitArr[unit.row, unit.column] = true;
+                                unitTileContainer.unitTransformArr[unit.row, unit.column] = unit.transform;
                             }
 
                             // 배틀필드로 유닛 이동시켜주기 위한 작업
