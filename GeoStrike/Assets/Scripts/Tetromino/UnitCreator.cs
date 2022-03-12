@@ -108,8 +108,6 @@ public class UnitCreator : MonoBehaviourPun
                             if (spawnPos == Vector3.zero)
                             {
                                 unit.transform.position = unitTileContainer.unitTileArr[ConnectMgr.GUEST_PLAYER, row, column].worldPos + Vector3.back; // 내 유닛 타일에 배치
-
-
                                 unit.row = row;
                                 unit.column = column;
 
@@ -126,6 +124,8 @@ public class UnitCreator : MonoBehaviourPun
                                 unit.column = rowAndColumn.column;
                                 unitTileContainer.unitTransformArr[unit.row, unit.column] = unit.transform;
                             }
+
+                            Debug.Log(unit.name + " : " + unitTileContainer.unitTransformArr[row, column]);
 
                             // 배틀필드로 유닛 이동시켜주기 위한 작업
                             translocateField.unitList.Add(unit);
