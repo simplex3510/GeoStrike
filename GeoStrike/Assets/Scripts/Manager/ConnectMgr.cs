@@ -28,14 +28,11 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        if(!PhotonNetwork.IsConnected)
+        button.interactable = false;
+        stateText.text = "마스터 서버에 접속 중";
+        if (!PhotonNetwork.IsConnected)
         {
-            button.interactable = false;
-            stateText.text = "마스터 서버에 접속 중";
-            if (!PhotonNetwork.IsConnected)
-            {
-                PhotonNetwork.ConnectUsingSettings();
-            }
+            PhotonNetwork.ConnectUsingSettings();
         }
     }
 
@@ -57,7 +54,7 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsConnected && nickname.text != "")
         {
             PhotonNetwork.NickName = nickname.text;
-            PhotonNetwork.JoinOrCreateRoom("GeoStrike", new RoomOptions { MaxPlayers = 2 }, null);
+            PhotonNetwork.JoinOrCreateRoom("Test", new RoomOptions { MaxPlayers = 2 }, null);
         }
         else
         {
@@ -76,18 +73,11 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
         button.onClick.AddListener(OnClickReady);
     }
 
-    public void OnLeaveRoom()
-    {
-        PhotonNetwork.LeaveRoom();
-    }
-
-    public override void OnLeftRoom()
-    {
-        PhotonNetwork.LoadLevel("ConnectScene");
-    }
-
+    
+    
     public void OnClickReady()
     {
+        // button.interactable = false;
         photonView.RPC("CurrentReady", RpcTarget.MasterClient, EReadyState.Ready);
         button.onClick.RemoveListener(OnClickReady);
         button.onClick.AddListener(OnClickCancle);
