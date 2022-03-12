@@ -55,7 +55,7 @@ interface IDebuffable
     public void OnDebuff(float _debuff);
 }
 
-public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffable, IDebuffable
+public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffable, IDebuffable, IPunObservable
 {
     public UnitData initStatus;
     public UnitData deltaStatus;
@@ -140,6 +140,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
     protected virtual void Update()
     {
+        if(GameMgr.blueNexus == false || GameMgr.redNexus == false)
+        {
+            unitState = EUnitState.Idle;
+        }
+
         switch (unitState)
         {
             case EUnitState.Idle:
@@ -312,6 +317,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     {
         isDead = true;
         gameObject.GetComponent<Collider2D>().enabled = false;
+        StartCoroutine(DieAnimation(gameObject));
     }
 
     [PunRPC]
@@ -420,7 +426,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     {
         if (target == null)
         {
-            if (photonView.IsMine)
+            if (isPlayer1)
             {
                 aStar.bottomLeft.x = Mathf.CeilToInt(transform.position.x - detectRange);
                 aStar.bottomLeft.y = Mathf.CeilToInt(transform.position.y - detectRange);
@@ -524,6 +530,18 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             {
                 SetStartAStar(enemyCollider2D);
             }
+        }
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting && photonView.IsMine)
+        {
+            stream.SendNext(unitState);
+        }
+        else
+        {
+            unitState = (EUnitState)stream.ReceiveNext();
         }
     }
 }

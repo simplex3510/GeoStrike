@@ -36,6 +36,11 @@ public class Warrior : Unit
 
     protected override void Update()
     {
+        if(!photonView.IsMine)
+        {
+            return;
+        }
+
         base.Update();
 
         switch (unitState)

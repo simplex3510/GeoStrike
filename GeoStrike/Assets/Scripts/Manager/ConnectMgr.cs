@@ -28,11 +28,14 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        button.interactable = false;
-        stateText.text = "마스터 서버에 접속 중";
-        if (!PhotonNetwork.IsConnected)
+        if(!PhotonNetwork.IsConnected)
         {
-            PhotonNetwork.ConnectUsingSettings();
+            button.interactable = false;
+            stateText.text = "마스터 서버에 접속 중";
+            if (!PhotonNetwork.IsConnected)
+            {
+                PhotonNetwork.ConnectUsingSettings();
+            }
         }
     }
 
@@ -73,11 +76,18 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
         button.onClick.AddListener(OnClickReady);
     }
 
-    
-    
+    public void OnLeaveRoom()
+    {
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public override void OnLeftRoom()
+    {
+        PhotonNetwork.LoadLevel("ConnectScene");
+    }
+
     public void OnClickReady()
     {
-        // button.interactable = false;
         photonView.RPC("CurrentReady", RpcTarget.MasterClient, EReadyState.Ready);
         button.onClick.RemoveListener(OnClickReady);
         button.onClick.AddListener(OnClickCancle);

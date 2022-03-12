@@ -13,14 +13,7 @@ public class Bullet : MonoBehaviourPun
     public float damage;
 
     float speed = 5f;   // 투사체 속도
-    float endDistance;
     bool isRotate;
-    [SerializeField] private int returnTime = 2; 
-
-    private void Awake()
-    {
-
-    }
 
     private void OnEnable()
     {   
@@ -42,10 +35,11 @@ public class Bullet : MonoBehaviourPun
             return;
         }
 
-        transform.position += transform.right * speed * Time.fixedDeltaTime;    // X축 방향으로 투사체를 발사
+        //transform.position += transform.right * speed * Time.fixedDeltaTime;    // X축 방향으로 투사체를 발사
+        transform.position = Vector2.MoveTowards(transform.position, targetCollider2D.transform.position, speed * Time.deltaTime);
 
         // 타겟 벡터 길이까지 이동한 후 투사체 비활성화 - 투사체가 발사된 후 타겟이 비활성화 되었을 때
-        if (Mathf.Approximately(targetCollider2D.transform.position.magnitude, transform.position.magnitude))
+        if (transform.position == targetCollider2D.transform.position)
         {
             SetBulletActive(false);
         }
@@ -91,11 +85,5 @@ public class Bullet : MonoBehaviourPun
             enemy.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
             SetBulletActive(false);
         }
-    }
-
-    IEnumerator EBulletReturn()
-    {
-        yield return new WaitForSeconds(returnTime);
-        SetBulletActive(false);
     }
 }
