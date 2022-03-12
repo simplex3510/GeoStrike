@@ -195,6 +195,12 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             StartCoroutine(RotateAnimation());
         }
 
+        if(transform.position.x == aStar.targetPos.x &&
+           transform.position.y == aStar.targetPos.y)
+        {
+            SetStartAStar(null);
+        }
+
         enemyCollider2D = Physics2D.OverlapCircle(transform.position, detectRange, opponentLayerMask);
         if (enemyCollider2D == null)
         {
@@ -410,37 +416,66 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         #endregion
     }
 
-    public void SetStartAStar(Collider2D enemy)
+    public void SetStartAStar(Collider2D target)
     {
-        if (enemy == null)
+        if (target == null)
         {
             if (photonView.IsMine)
             {
+                aStar.bottomLeft.x = Mathf.CeilToInt(transform.position.x - detectRange);
+                aStar.bottomLeft.y = Mathf.CeilToInt(transform.position.y - detectRange);
+
+                aStar.topRight.x = Mathf.CeilToInt(transform.position.x + detectRange);
+                aStar.topRight.y = Mathf.CeilToInt(transform.position.y + detectRange);
+
                 aStar.startPos.x = Mathf.CeilToInt(transform.position.x);
                 aStar.startPos.y = Mathf.CeilToInt(transform.position.y);
             }
             else
             {
+                aStar.bottomLeft.x = Mathf.FloorToInt(transform.position.x - detectRange);
+                aStar.bottomLeft.y = Mathf.FloorToInt(transform.position.y - detectRange);
+
+                aStar.topRight.x = Mathf.FloorToInt(transform.position.x + detectRange);
+                aStar.topRight.y = Mathf.FloorToInt(transform.position.y + detectRange);
+
                 aStar.startPos.x = Mathf.FloorToInt(transform.position.x);
                 aStar.startPos.y = Mathf.FloorToInt(transform.position.y);
             }
-            aStar.targetPos = aStar.endPos;
+
+            //targetPos ¼³Á¤
+            aStar.targetPos.x = Mathf.FloorToInt(transform.position.x + detectRange);
+            aStar.targetPos.y = Mathf.FloorToInt(transform.position.y);
         }
         else
         {
             if (isPlayer1)
             {
+                aStar.bottomLeft.x = Mathf.CeilToInt(transform.position.x - detectRange);
+                aStar.bottomLeft.y = Mathf.CeilToInt(transform.position.y - detectRange);
+
+                aStar.topRight.x = Mathf.CeilToInt(transform.position.x + detectRange);
+                aStar.topRight.y = Mathf.CeilToInt(transform.position.y + detectRange);
+
                 aStar.startPos.x = Mathf.CeilToInt(transform.position.x);
                 aStar.startPos.y = Mathf.CeilToInt(transform.position.y);
-                aStar.targetPos.x = Mathf.CeilToInt(enemy.transform.position.x);
-                aStar.targetPos.y = Mathf.CeilToInt(enemy.transform.position.y);
+
+                aStar.targetPos.x = Mathf.CeilToInt(target.transform.position.x);
+                aStar.targetPos.y = Mathf.CeilToInt(target.transform.position.y);
             }
             else
             {
+                aStar.bottomLeft.x = Mathf.FloorToInt(transform.position.x - detectRange);
+                aStar.bottomLeft.y = Mathf.FloorToInt(transform.position.y - detectRange);
+
+                aStar.topRight.x = Mathf.FloorToInt(transform.position.x + detectRange);
+                aStar.topRight.y = Mathf.FloorToInt(transform.position.y + detectRange);
+
                 aStar.startPos.x = Mathf.FloorToInt(transform.position.x);
                 aStar.startPos.y = Mathf.FloorToInt(transform.position.y);
-                aStar.targetPos.x = Mathf.FloorToInt(enemy.transform.position.x);
-                aStar.targetPos.y = Mathf.FloorToInt(enemy.transform.position.y);
+
+                aStar.targetPos.x = Mathf.FloorToInt(target.transform.position.x);
+                aStar.targetPos.y = Mathf.FloorToInt(target.transform.position.y);
             }
         }
 

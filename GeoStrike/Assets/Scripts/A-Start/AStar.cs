@@ -19,12 +19,6 @@ public class AStar : MonoBehaviour
 
     public void PathFinding()
     {
-        if (this.gameObject.name == "aaa")
-        {
-            Debug.Log("fsd");
-        }
-
-
         sizeX = topRight.x - bottomLeft.x + 1;  // 전체 맵의 X좌표 크기 설정
         sizeY = topRight.y - bottomLeft.y + 1;  // 전체 맵의 Y좌표 크기 설정
         nodeArray = new Node[sizeX, sizeY];     // 전체 맵의 크기 설정
@@ -54,7 +48,8 @@ public class AStar : MonoBehaviour
         }
 
         startNode = nodeArray[startPos.x - bottomLeft.x, startPos.y - bottomLeft.y];        // 시작 좌표 절대좌표(월드좌표)가 아닌, 전체 맵 배열에 대한 상대좌표(로컬좌표)로 초기화
-        targetNode = nodeArray[targetPos.x - bottomLeft.x, targetPos.y - bottomLeft.y];     // 상동
+        targetNode = nodeArray[Mathf.Clamp(targetPos.x - bottomLeft.x, 0, nodeArray.GetLength(1)-1),
+                               Mathf.Clamp(targetPos.y - bottomLeft.y, 0, nodeArray.GetLength(0)-1)];     // 상동
 
         // 열린 리스트에 시작 노드 설정
         openList = new List<Node>() { startNode };  // 열린 리스트:  
@@ -101,6 +96,7 @@ public class AStar : MonoBehaviour
 
 
             // ↗↖↙↘ - 대각선 이동
+
             if (allowDiagonal)
             {
                 OpenListAdd(currentNode.x + 1, currentNode.y + 1);
