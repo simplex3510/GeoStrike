@@ -19,6 +19,15 @@ public class GameState : MonoBehaviourPun
         StartCoroutine(FSM());
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            GameMgr.redNexus = false;
+            GameMgr.instance.SetState(EGameState.FSM_GameEnd);
+        }
+    }
+
     IEnumerator FSM()
     {
         while (true)
