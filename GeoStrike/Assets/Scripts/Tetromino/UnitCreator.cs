@@ -98,9 +98,9 @@ public class UnitCreator : MonoBehaviourPun
                     if (unitTileContainer.unitTransformArr[row, column] == null)
                     {
                         // Unit 생성
-                        if ((int)unitP1.unitIndex != 6)
+                        if ((int)unitP2.unitIndex != 6)
                         {
-                            Unit unit = ObjectPoolMgr.instance.poolArr[(int)unitP1.initStatus.unitIndex].GetObject();    // 내 Pool에서 내 유닛 꺼내기
+                            Unit unit = ObjectPoolMgr.instance.poolArr[(int)unitP2.initStatus.unitIndex].GetObject();    // 내 Pool에서 내 유닛 꺼내기
                             unit.unitCreator = this;
                             StartCoroutine(unit.IdleToMoveCondition());
                             unit.SetFreezeAll();
@@ -129,7 +129,7 @@ public class UnitCreator : MonoBehaviourPun
 
                             // 배틀필드로 유닛 이동시켜주기 위한 작업
                             translocateField.unitList.Add(unit);
-                            unit.transform.SetParent(translocateField.spawnPosP1.transform);
+                            unit.transform.SetParent(translocateField.spawnPosP2.transform);
                             return;
                         }
                     }

@@ -73,6 +73,8 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
         button.onClick.AddListener(OnClickReady);
     }
 
+    
+    
     public void OnClickReady()
     {
         // button.interactable = false;

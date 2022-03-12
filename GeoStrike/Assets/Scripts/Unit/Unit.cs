@@ -430,6 +430,10 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
                 aStar.startPos.x = Mathf.CeilToInt(transform.position.x);
                 aStar.startPos.y = Mathf.CeilToInt(transform.position.y);
+
+                //targetPos 설정
+                aStar.targetPos.x = Mathf.FloorToInt(transform.position.x + detectRange);
+                aStar.targetPos.y = Mathf.FloorToInt(transform.position.y);
             }
             else
             {
@@ -441,11 +445,13 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
                 aStar.startPos.x = Mathf.FloorToInt(transform.position.x);
                 aStar.startPos.y = Mathf.FloorToInt(transform.position.y);
+
+                //targetPos 설정
+                aStar.targetPos.x = Mathf.FloorToInt(transform.position.x - detectRange);
+                aStar.targetPos.y = Mathf.FloorToInt(transform.position.y);
             }
 
-            //targetPos 설정
-            aStar.targetPos.x = Mathf.FloorToInt(transform.position.x + detectRange);
-            aStar.targetPos.y = Mathf.FloorToInt(transform.position.y);
+            
         }
         else
         {
