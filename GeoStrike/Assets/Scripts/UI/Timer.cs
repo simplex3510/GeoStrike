@@ -15,8 +15,8 @@ public class Timer : MonoBehaviour, IPunObservable
     private readonly int MAX_SEC = 59;
 
     [Header("< Battle Timer >")]
-    [SerializeField] private Text battleTimeTXT;
-    [SerializeField] public float battleTime;
+    public float battleTime;
+    [SerializeField] private Slider slider;
     public float battleTimer = 0f;
 
     double sendtime;
@@ -28,6 +28,9 @@ public class Timer : MonoBehaviour, IPunObservable
     {
         if (translocateField == null) { translocateField = FindObjectOfType<TranslocateField>(); }
         if (gameState == null) { gameState = GetComponent<GameState>(); }
+        if (slider == null) { slider = GetComponentInChildren<Slider>(); }
+
+        slider.maxValue = battleTime;
     }
 
     private void Update()
@@ -42,7 +45,7 @@ public class Timer : MonoBehaviour, IPunObservable
     private void BattleTime()
     {
         battleTimer += Time.deltaTime;
-        battleTimeTXT.text = $"{(int)battleTimer:D}s";
+        slider.value = battleTimer;
 
         if (battleTimer >= battleTime) 
         {
