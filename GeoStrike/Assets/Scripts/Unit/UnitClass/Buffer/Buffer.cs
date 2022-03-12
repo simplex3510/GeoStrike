@@ -6,7 +6,6 @@ using Photon.Pun;
 
 public class Buffer : Unit
 {
-    public Animator animator;
     public GameObject weapon;
 
     [PunRPC]
