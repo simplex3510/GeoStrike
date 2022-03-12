@@ -58,13 +58,17 @@ public class GameMgr : MonoBehaviourPun
             _instance = this;
         }
 
-        if (PhotonNetwork.IsMasterClient)
+        isMaster = PhotonNetwork.IsMasterClient;
+
+        if(isMaster)
         {
-            isMaster = true;
+            PhotonNetwork.Instantiate("Tower/Nexus_Blue", new Vector3(-33.12f, 0, 0), Quaternion.identity);
+            PhotonNetwork.Instantiate("Tower/Turret_Blue", new Vector3(-15.62f, 3.35f, 0), Quaternion.identity);
         }
         else
         {
-            isMaster = false;
+            PhotonNetwork.Instantiate("Tower/Nexus_Red", new Vector3(33.12f, 0, 0), Quaternion.identity);
+            PhotonNetwork.Instantiate("Tower/Turret_Red", new Vector3(15.62f, -3.35f, 0), Quaternion.identity);
         }
     }
 

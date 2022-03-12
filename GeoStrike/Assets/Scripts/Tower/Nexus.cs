@@ -8,11 +8,11 @@ public class Nexus : Tower
     private void OnDisable()
     {
         // 파괴된 넥서스가 블루팀인지 레드팀인지 판별
-        if (GameMgr.isMaster)
+        if (GameMgr.isMaster && photonView.IsMine || !GameMgr.isMaster && !photonView.IsMine)
         {
             GameMgr.blueNexus = false;
         }
-        else
+        else 
         {
             GameMgr.redNexus = false;
         }

@@ -871,7 +871,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: GeoStrike
+  m_Text: Victory
 --- !u!222 &1447018138
 CanvasRenderer:
   m_ObjectHideFlags: 0
