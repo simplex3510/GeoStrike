@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
+using Photon.Realtime;
 
 
-public class GameState : MonoBehaviour
+[DefaultExecutionOrder(202)]
+public class GameState : MonoBehaviourPun
 {
     [SerializeField] private StandbyCount standbyCount;
     
@@ -66,6 +69,31 @@ public class GameState : MonoBehaviour
         // ºí·çÆÀ ½Â¸®
         // ·¹µåÆÀ ÆÐ¹è
 
+        if (GameMgr.blueNexus == false)
+        {
+            if (GameMgr.isMaster)
+            {
+                PhotonNetwork.LoadLevel("DefeateScene");
+            }
+            else
+            {
+                PhotonNetwork.LoadLevel("VictoryScene");
+            }
+        }
+        else if (GameMgr.redNexus == false)
+        {
+            if (GameMgr.isMaster)
+            {
+                PhotonNetwork.LoadLevel("VictoryScene");
+            }
+            else
+            {
+                PhotonNetwork.LoadLevel("DefeateScene");
+            }
+        }
+        
+       
+        
         yield return null;
     }
 }

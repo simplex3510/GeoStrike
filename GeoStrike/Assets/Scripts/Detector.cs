@@ -9,6 +9,7 @@ public class Detector : MonoBehaviour
     [HideInInspector] private TetrominoCreater creater;
     [HideInInspector] private UnitTileContainer unitTileContainer;
     [HideInInspector] private UnitSelectEffect unitSelectEffect;
+    [HideInInspector] private StatusPanel statusPanel;
 
     // 마우스 위치, 클릭
     private Ray ray;
@@ -34,6 +35,7 @@ public class Detector : MonoBehaviour
         if (creater == null) { creater = GameObject.FindObjectOfType<TetrominoCreater>(); }
         if (unitTileContainer == null) { unitTileContainer = GameObject.FindObjectOfType<UnitTileContainer>(); }
         if (unitSelectEffect == null) { unitSelectEffect = GameObject.FindObjectOfType<UnitSelectEffect>(); }
+        if (statusPanel == null) { statusPanel = GameObject.FindObjectOfType<StatusPanel>(); }
     }
 
     private void Update()
@@ -52,19 +54,22 @@ public class Detector : MonoBehaviour
     {
         if (clickedObject != null)
         {
-            if (clickedObject.CompareTag("Unit"))
-            {
-                Unit unit = clickedObject.GetComponent<Unit>();
-                GameMgr.instance.canvas.GetComponentInChildren<StatusPanel>().UnitStatusInfo(
-                    unit.GetComponent<SpriteRenderer>(), unit.unitName, unit.currentHealth, unit.damage, unit.defense);
-            }
-            else if (clickedObject.CompareTag("Tetromino"))
+            if (clickedObject.CompareTag("Tetromino"))
             {
                 // 구현중
                 // 테트리스건물일 경우 띄워야 할 정보들
                 // 이미지, 이름, 건물 완성도
                 Tetromino tetromino = clickedObject.GetComponent<Tetromino>();
-                GameMgr.instance.canvas.GetComponentInChildren<StatusPanel>().TetrominoStatusInfo(tetromino.GetComponent<SpriteRenderer>(), tetromino.quaternion, tetromino.shapeName);
+                statusPanel.clickedObjectArr[0].TetrominoStatusInfo(tetromino.GetComponent<SpriteRenderer>(), tetromino.quaternion, tetromino.shapeName);
+            }
+            else if (clickedObject.CompareTag("Unit"))
+            {
+                Unit unit = clickedObject.GetComponent<Unit>();
+                statusPanel.clickedObjectArr[1].UnitStatusInfo(unit.GetComponent<SpriteRenderer>(), unit.unitName, unit.currentHealth, unit.damage, unit.defense);
+            }
+            else if (clickedObject.CompareTag("Tower"))
+            {
+                Debug.Log("Clicked Tower");
             }
         }
     }
@@ -81,15 +86,9 @@ public class Detector : MonoBehaviour
             {
                 // 클릭한 Obj 정보 불러오기
                 clickedObject = hit2D.collider.gameObject;
-                
-                // 클릭한 오브젝트에 따라 Status창 구별
-                if (clickedObject.CompareTag("Unit"))
-                {
 
-                }
-                else if (clickedObject.CompareTag("Tetromino")){
-
-                }
+                // 클릭한 obj 따라 Status창 띄우기
+                WhichObjStatus();
 
                 clickedUnit = clickedObject.GetComponent<Unit>();
 
@@ -99,6 +98,27 @@ public class Detector : MonoBehaviour
                     StartCoroutine(CBatchMode());
                 }
             }
+        }
+    }
+
+    private void WhichObjStatus()
+    {
+        if (clickedObject.CompareTag("Tetromino"))
+        {
+            statusPanel.SetActiveFalseAll();
+            statusPanel.clickedObjectArr[0].gameObject.SetActive(true);
+        }
+        else if (clickedObject.CompareTag("Unit"))
+        {
+
+            statusPanel.SetActiveFalseAll();
+            statusPanel.clickedObjectArr[1].gameObject.SetActive(true);
+        }
+        else if (clickedObject.CompareTag("Tower"))
+        {
+
+            statusPanel.SetActiveFalseAll();
+            statusPanel.clickedObjectArr[2].gameObject.SetActive(true);
         }
     }
 

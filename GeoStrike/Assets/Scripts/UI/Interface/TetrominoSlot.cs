@@ -49,6 +49,7 @@ public class TetrominoSlot : MonoBehaviour, IPointerClickHandler
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             ChoiceTetrominoSlot();
+            cameraController.autoMoveCamera.MoveToBuildZone();
             PreviewImgSize();
 
             cameraController.mouseController.CursorVisible(false);

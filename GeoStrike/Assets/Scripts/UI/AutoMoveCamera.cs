@@ -1,14 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class AutoMoveCamera : MonoBehaviour
+
+[DefaultExecutionOrder(202)]
+public class AutoMoveCamera : MonoBehaviourPun
 {
     [SerializeField] private CameraController mainCamera;
 
     private void Awake()
     {
         if (mainCamera == null) { mainCamera = GetComponent<CameraController>(); }
+
+        if (GameMgr.isMaster)
+        {
+            PhotonNetwork.Instantiate("BuildZone", mainCamera.p1Pos, Quaternion.identity);
+        }
+        else
+        {
+            PhotonNetwork.Instantiate("BuildZone", mainCamera.p2Pos, Quaternion.identity);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D _collision)
@@ -31,7 +44,14 @@ public class AutoMoveCamera : MonoBehaviour
     {
         if (!mainCamera.onZone)
         {
-            mainCamera.transform.position = new Vector3(-32f, -24f, -10f);
+            if (GameMgr.isMaster)
+            {
+                mainCamera.transform.position = mainCamera.p1Pos;
+            }
+            else
+            {
+                mainCamera.transform.position = mainCamera.p2Pos;
+            }
         }
     }
 }

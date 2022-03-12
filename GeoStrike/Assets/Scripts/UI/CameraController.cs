@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour
     [Header("< Componenet >")]
     public Camera mainCamera;
     public MouseController mouseController;
+    public AutoMoveCamera autoMoveCamera;
     [SerializeField] private RectTransform rectTransform;     // Resolution 1920 x 1080
 
     // Camera movement
@@ -23,6 +24,9 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float zoomIn = 0f;
     [SerializeField] private float zoomOut = 0f;
 
+    // Start Pos
+    [HideInInspector] public Vector3 p1Pos = new Vector3(-31.7f, -24f, -10f);
+    [HideInInspector] public Vector3 p2Pos = new Vector3(31.7f, -24f, -10f);
 
     // Auto Move BuildZone
     public bool onZone { get; set; }
@@ -31,7 +35,8 @@ public class CameraController : MonoBehaviour
     {
         if (mainCamera == null) { mainCamera = GetComponent<Camera>(); }
         if (mouseController == null) { mouseController = GetComponent<MouseController>(); }
- 
+        if (autoMoveCamera == null) { autoMoveCamera = GetComponent<AutoMoveCamera>(); }
+
         InitStartPos();
     }
 
@@ -45,11 +50,11 @@ public class CameraController : MonoBehaviour
     {
         if (GameMgr.isMaster)
         {
-            mainCamera.transform.position = new Vector3 (-31.7f, -24f, -10f);
+            mainCamera.transform.position = p1Pos;
         }
         else
         {
-            mainCamera.transform.position = new Vector3(31.7f, -24f, -10f);
+            mainCamera.transform.position = p2Pos;
         }
     }
 
