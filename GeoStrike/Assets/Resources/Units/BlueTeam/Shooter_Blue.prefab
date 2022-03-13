@@ -108,7 +108,7 @@ MonoBehaviour:
   topRight: {x: 40, y: 8}
   startPos: {x: 0, y: 0}
   targetPos: {x: 0, y: 0}
-  endPos: {x: 30, y: 0}
+  endPos: {x: 33, y: 0}
   finalNodeList: []
   allowDiagonal: 1
   dontCrossCorner: 1
@@ -189,6 +189,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: 8677361059674119659}
   - {fileID: 2353060910538526301}
   sceneViewId: 0
   InstantiationId: 0

@@ -370,7 +370,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         deltaStatus.damage -= _buff;
         if (photonView.IsMine)
         {
-            photonView.RPC("OnBuff", RpcTarget.Others, _buff);
+            photonView.RPC("OffBuff", RpcTarget.Others, _buff);
         }
     }
 
@@ -456,6 +456,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     {
         if (target == null)
         {
+            if (gameObject.name == "aaa")
+            {
+                print("aaa");
+            }
+
             if (isPlayer1)
             {
                 aStar.bottomLeft.x = Mathf.CeilToInt(transform.position.x - detectRange);
@@ -467,7 +472,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
                 aStar.startPos.x = Mathf.CeilToInt(transform.position.x);
                 aStar.startPos.y = Mathf.CeilToInt(transform.position.y);
 
-                //targetPos 설정
+                // targetPos 설정
                 aStar.targetPos.x = Mathf.FloorToInt(transform.position.x + detectRange);
                 aStar.targetPos.y = Mathf.FloorToInt(transform.position.y);
             }
@@ -482,15 +487,21 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
                 aStar.startPos.x = Mathf.FloorToInt(transform.position.x);
                 aStar.startPos.y = Mathf.FloorToInt(transform.position.y);
 
-                //targetPos 설정
+                // targetPos 설정
                 aStar.targetPos.x = Mathf.FloorToInt(transform.position.x - detectRange);
                 aStar.targetPos.y = Mathf.FloorToInt(transform.position.y);
             }
+            // aStar.targetPos = aStar.endPos;
 
-            
+
         }
         else
         {
+            if (gameObject.name == "aaa")
+            {
+                print("aaa");
+            }
+
             if (isPlayer1)
             {
                 aStar.bottomLeft.x = Mathf.CeilToInt(transform.position.x - detectRange);

@@ -19,6 +19,11 @@ public class AStar : MonoBehaviour
 
     public void PathFinding()
     {
+        if(gameObject.name == "aaa")
+        {
+            print("aaa");
+        }
+
         sizeX = topRight.x - bottomLeft.x + 1;  // 전체 맵의 X좌표 크기 설정
         sizeY = topRight.y - bottomLeft.y + 1;  // 전체 맵의 Y좌표 크기 설정
         nodeArray = new Node[sizeX, sizeY];     // 전체 맵의 크기 설정
@@ -33,12 +38,13 @@ public class AStar : MonoBehaviour
                 // 현재 노드를 중심으로 8방면이 장애물인지 검사
                 foreach (Collider2D col in Physics2D.OverlapCircleAll(new Vector2(i + bottomLeft.x, j + bottomLeft.y), 0.4f))
                 {
+                    if (col.gameObject.layer == LayerMask.NameToLayer("Enemy"))     // Enemy라면
+                    {
+                        continue;                                                   // 장애물로 인식하지 않음
+                    }
+
                     if (col.gameObject.layer != LayerMask.NameToLayer("Default"))   // Default가 아니라면
                     {
-                        if (col.gameObject.layer == LayerMask.NameToLayer("Enemy")) // Enemy라면
-                        {
-                            continue;                                               // 장애물로 인식하지 않음
-                        }
                         isWall = true;                                              // 장애물이므로 표시
                     }
                 }
@@ -47,9 +53,20 @@ public class AStar : MonoBehaviour
             }
         }
 
-        startNode = nodeArray[startPos.x - bottomLeft.x, startPos.y - bottomLeft.y];        // 시작 좌표 절대좌표(월드좌표)가 아닌, 전체 맵 배열에 대한 상대좌표(로컬좌표)로 초기화
+        startNode  = nodeArray[startPos.x  - bottomLeft.x, startPos.y  - bottomLeft.y];                   // 시작 좌표 절대좌표(월드좌표)가 아닌, 전체 맵 배열에 대한 상대좌표(로컬좌표)로 초기화
         targetNode = nodeArray[Mathf.Clamp(targetPos.x - bottomLeft.x, 0, nodeArray.GetLength(1)-1),
                                Mathf.Clamp(targetPos.y - bottomLeft.y, 0, nodeArray.GetLength(0)-1)];     // 상동
+
+        if(targetNode.isWall == true)
+        {
+            int i = targetPos.x - bottomLeft.x;
+            int j = targetPos.y - bottomLeft.y;
+            do
+            {
+                i--;
+                targetNode = nodeArray[i, j];
+            } while (nodeArray[i, j].isWall == true) ;
+        }
 
         // 열린 리스트에 시작 노드 설정
         openList = new List<Node>() { startNode };  // 열린 리스트:  
