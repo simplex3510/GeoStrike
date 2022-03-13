@@ -32,7 +32,6 @@ public class Minimap : MonoBehaviour, IPointerClickHandler
         mousePos = Input.mousePosition;
         mousePos = minimapCamera.ScreenToWorldPoint(mousePos);
 
-        print(mousePos);
         mainCamera.transform.position = new Vector3(mousePos.x, mousePos.y, -10);
     }
 }
