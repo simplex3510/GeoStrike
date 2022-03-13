@@ -162,7 +162,7 @@ public class Detector : MonoBehaviour
         cameraController.mouseController.eMouseMode = MouseController.EMouseMode.batch;
         Cursor.lockState = CursorLockMode.Locked;
         while (!Input.GetKeyDown(KeyCode.Escape) && !Input.GetMouseButtonDown(MouseController.CLICK_RIGHT) &&
-               clickedUnit.unitState == EUnitState.Idle && GameMgr.instance.GetState() == EGameState.FSM_SpawnCount)
+               clickedUnit.unitState == EUnitState.Idle && GameMgr.instance.GetState() == EGameState.SpawnCount)
         {
             h = 0;
             v = 0;

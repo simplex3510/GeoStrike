@@ -34,7 +34,7 @@ public class Timer : MonoBehaviour, IPunObservable
 
     private void Update()
     {
-        if (GameMgr.instance.GetState() != EGameState.FSM_Standby)
+        if (GameMgr.instance.GetState() != EGameState.Standby)
         {
             WorldTime();
             BattleTime();
@@ -46,13 +46,18 @@ public class Timer : MonoBehaviour, IPunObservable
         battleTimer += Time.deltaTime;
         slider.value = battleTimer;
 
+        if (GameMgr.instance.GetState() != EGameState.SpawnCount)
+        {
+            GameMgr.instance.SetState(EGameState.SpawnCount);
+        }
+
         if (battleTimer >= battleTime) 
         {
-            GameMgr.instance.SetState(EGameState.FSM_Battle);
+            GameMgr.instance.SetState(EGameState.Battle);
             battleTimer = 0f;
 
             translocateField.TranslocateUnits();
-        }
+        } 
     }
 
     private void WorldTime()

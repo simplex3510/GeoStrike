@@ -70,24 +70,23 @@ public class TetrominoState : MonoBehaviour
 
     IEnumerator FSM_Normal()
     {
-        // 1초 대기시간 후 유닛 소환
-        yield return new WaitForSeconds(1);
-        GameMgr.instance.SetState(EGameState.FSM_SpawnCount);
+        yield return new WaitForSeconds(0.5f);  // 건물완성 후 0.5초 뒤 유닛 생성
 
-        if (GameMgr.instance.GetState() == EGameState.FSM_SpawnCount)
+        if (GameMgr.instance.GetState() == EGameState.SpawnCount)
         {
             // 유닛 소환
             Debug.Log("Summone unit");
             unitCreation.UnitSpawn();
             SetState(ETetrominoState.FSM_Summoned);
         }
+        yield return null;
     }
 
     // 배틀 타임이 될때까지 대기, 유닛이 이동되고 다시 소환대기 상태로 전환
     IEnumerator FSM_Summoned()
     {
         Debug.Log("Summoned");
-        while (GameMgr.instance.GetState() == EGameState.FSM_SpawnCount)
+        while (GameMgr.instance.GetState() == EGameState.SpawnCount)
         {   
             yield return null;
         }

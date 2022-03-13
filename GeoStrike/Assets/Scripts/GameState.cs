@@ -16,7 +16,7 @@ public class GameState : MonoBehaviourPun
 
     private void Start()
     {
-        StartCoroutine(FSM());
+        StartCoroutine(EStandbyCount());
     }
 
     private void Update()
@@ -24,20 +24,18 @@ public class GameState : MonoBehaviourPun
         if (Input.GetKeyDown(KeyCode.F2))
         {
             GameMgr.redNexus = false;
-            GameMgr.instance.SetState(EGameState.FSM_GameEnd);
+            GameMgr.instance.SetState(EGameState.GameEnd);
         }
-    }
 
-    IEnumerator FSM()
-    {
-        while (true)
+        // 게임 승/패 결과
+        if (GameMgr.instance.GetState() == EGameState.GameEnd)
         {
-            yield return StartCoroutine(GameMgr.instance.GetState().ToString());
+            GameEnd();
         }
     }
 
     // 게임 시작 전 준비 시간 (카운트 다운)
-    IEnumerator FSM_Standby()
+    IEnumerator EStandbyCount()
     {
         for(int count = GAMESTATE_STANDBYTIME; count > 0; count--)
         {
@@ -47,28 +45,10 @@ public class GameState : MonoBehaviourPun
         standbyCount.gameObject.SetActive(false);
 
         Debug.Log("Game Start");
-        GameMgr.instance.SetState(EGameState.FSM_SpawnCount);
+        GameMgr.instance.SetState(EGameState.SpawnCount);
     }
 
-    // BattleTimer 0s ~ Xs 사이
-    IEnumerator FSM_SpawnCount()
-    {
-        while (GameMgr.instance.GetState() == EGameState.FSM_SpawnCount)
-        {
-            yield return null;
-        }
-    }
-
-    // 0s가 되는 순간 (SpawnTime)
-    IEnumerator FSM_Battle()
-    {
-        while(GameMgr.instance.GetState() == EGameState.FSM_Battle)
-        {
-            yield return null;
-        }
-    }
-
-    IEnumerator FSM_GameEnd()
+    public void GameEnd()
     {
         // 1.블루팀 넥서스파괴
         // 블루팀 패배
@@ -100,9 +80,5 @@ public class GameState : MonoBehaviourPun
                 PhotonNetwork.LoadLevel("DefeateScene");
             }
         }
-        
-       
-        
-        yield return null;
     }
 }

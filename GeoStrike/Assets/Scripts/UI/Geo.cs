@@ -10,7 +10,6 @@ public class Geo : MonoBehaviour
     [SerializeField] private Text geoTXT;
     private float currentGeo = 0;
 
-    public static readonly float GEO_INCREASE = 2;
     public static readonly float GEO_SQUARE = 3;
     public static readonly float GEO_BOUNUS = 10;
 
@@ -21,10 +20,10 @@ public class Geo : MonoBehaviour
 
     private void Update()
     {
-        if (GameMgr.instance.GetState() != EGameState.FSM_Standby)
+        if (GameMgr.instance.GetState() != EGameState.Standby)
         {
             GeoTxT();
-            DeltaGeo(Time.deltaTime / GEO_INCREASE);
+            DeltaGeo(Time.fixedDeltaTime);
         }
     }
 

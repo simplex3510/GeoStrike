@@ -539,11 +539,12 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     // Idle에서 Move가 되는 조건
     public IEnumerator IdleToMoveCondition()
     {
-        while (GameMgr.instance.GetState() == EGameState.FSM_SpawnCount)
+        while (GameMgr.instance.GetState() == EGameState.SpawnCount)
         {
             yield return null;
         }
 
+        Debug.Log("SEt");
         unitState = EUnitState.Move;
     }
 

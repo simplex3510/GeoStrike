@@ -17,6 +17,6 @@ public class Nexus : Tower
             GameMgr.redNexus = false;
         }
 
-        GameMgr.instance.SetState(EGameState.FSM_GameEnd);
+        GameMgr.instance.SetState(EGameState.GameEnd);
     }
 }
