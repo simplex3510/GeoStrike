@@ -15,11 +15,6 @@ public class Bullet : MonoBehaviourPun
     float speed = 5f;   // 투사체 속도
     bool isRotate;
 
-    private void OnEnable()
-    {   
-        //StartCoroutine(EBulletReturn());
-    }
-
     private void OnDisable()
     {
         if (photonView.IsMine)
@@ -38,8 +33,9 @@ public class Bullet : MonoBehaviourPun
         //transform.position += transform.right * speed * Time.fixedDeltaTime;    // X축 방향으로 투사체를 발사
         transform.position = Vector2.MoveTowards(transform.position, targetCollider2D.transform.position, speed * Time.deltaTime);
 
-        // 타겟 벡터 길이까지 이동한 후 투사체 비활성화 - 투사체가 발사된 후 타겟이 비활성화 되었을 때
-        if (transform.position == targetCollider2D.transform.position)
+        // 투사체가 발사된 후 타겟이 비활성화 되었을 때
+        if (transform.position == targetCollider2D.transform.position ||
+            targetCollider2D.enabled == false)
         {
             SetBulletActive(false);
         }

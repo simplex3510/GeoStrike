@@ -48,11 +48,13 @@ public interface IActivatable
 interface IBuffable
 {
     public void OnBuff(float _buff);
+    public void OffBuff(float _buff);
 }
 
 interface IDebuffable
 {
     public void OnDebuff(float _debuff);
+    public void OffDebuff(float _debuff);
 }
 
 public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffable, IDebuffable, IPunObservable
@@ -79,6 +81,9 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     public int row;
     public int column;
 
+    // 유닛의 버프 받는지 여부
+    public bool hasBuff { get; protected set; }
+
     // 유닛의 FSM의 상태
     public EUnitState unitState { get; protected set; }
 
@@ -96,6 +101,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     public float moveSpeed { get; protected set; }
     public bool isDead { get; protected set; }
     #endregion
+
 
     protected LayerMask opponentLayerMask;  // 공격할 대상
     protected Collider2D enemyCollider2D;
@@ -342,14 +348,38 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         }
     }
 
-    [PunRPC]
-    public void OnBuff(float _buffDamage)
+    public void OnBuff(float _buff)
+    {
+        if(!hasBuff)
+        {
+            return;
+        }
+
+        hasBuff = true;
+        deltaStatus.damage += _buff;
+        if(photonView.IsMine)
+        {
+            photonView.RPC("OnBuff", RpcTarget.Others, _buff);
+        }
+
+    }
+
+    public void OffBuff(float _buff)
+    {
+        hasBuff = false;
+        deltaStatus.damage -= _buff;
+        if (photonView.IsMine)
+        {
+            photonView.RPC("OnBuff", RpcTarget.Others, _buff);
+        }
+    }
+
+    public void OnDebuff(float _debuff)
     {
 
     }
 
-    [PunRPC]
-    public void OnDebuff(float _debuffDamage)
+    public void OffDebuff(float _debuff)
     {
 
     }

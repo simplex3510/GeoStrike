@@ -3,11 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
+public enum EBuff
+{
+    Damage,
+    // 추가
+}
 
 public class Buffer : Unit
 {
     public Animator animator;
     public GameObject weapon;
+
+    Collider2D[] allyCollider2D;
+    Unit ally;
+    EBuff currentBuff;
+    float buffRange;
+
+    // Buff Status Delta
+    float buffDamage = 2f;
 
     [PunRPC]
     public void OnEnforceStartHealth()
@@ -22,6 +35,8 @@ public class Buffer : Unit
     protected override void Awake()
     {
         base.Awake();
+        opponentLayerMask = 1 << (int)EPlayer.Ally;
+        buffRange = attackRange;
     }
 
     protected override void OnEnable()
@@ -47,6 +62,7 @@ public class Buffer : Unit
             case EUnitState.Approach:
                 break;
             case EUnitState.Attack:
+                Buff(currentBuff);
                 break;
             case EUnitState.Die:
                 break;
@@ -55,16 +71,27 @@ public class Buffer : Unit
 
     public override void Attack()   // 적에게 공격
     {
-        opponentLayerMask = 1 << (int)EPlayer.Ally;
-        enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
-        if (enemyCollider2D != null && (enemyCollider2D.name != "Buffer_Red" || enemyCollider2D.name != "Buffer_Blue"))
+        return;
+    }
+
+    protected void Buff(EBuff currentBuff)
+    {
+        allyCollider2D = Physics2D.OverlapCircleAll(transform.position, buffRange, opponentLayerMask);
+        foreach (var _allyCollider2D in allyCollider2D)
         {
-            enemyCollider2D.GetComponent<PhotonView>().RPC("OnBuff", RpcTarget.All, damage);
-        }
-        else
-        {
-            unitState = EUnitState.Move;
-            return;
+            ally = _allyCollider2D.GetComponent<Unit>();
+            if (ally.unitIndex != EUnitIndex.Buffer || ally.hasBuff)
+            {
+                continue;
+            }
+
+            switch(currentBuff)
+            {
+                case EBuff.Damage:
+                    OnBuff(buffDamage);
+                    break;
+            }
+            // 사거리 벗어나는 경우를 구현하면서 OffBuff를 실행
         }
     }
 }
