@@ -102,8 +102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b80e911c2a170914f95647d6b4ad62b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bottomLeft: {x: 0, y: 0}
-  topRight: {x: 0, y: 0}
+  bottomLeft: {x: -40, y: -8}
+  topRight: {x: 40, y: 8}
   startPos: {x: 0, y: 0}
   targetPos: {x: 0, y: 0}
   endPos: {x: 33, y: 0}
@@ -150,6 +150,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
+  - {fileID: -3071955827369384402}
   - {fileID: 2353060910538526301}
   sceneViewId: 0
   InstantiationId: 0
