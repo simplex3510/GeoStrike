@@ -1,0 +1,636 @@
+fileFormatVersion: 2
+guid: 5b854be59db4495498cde603297ffb44
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1203685923689416482
+    second: Unit_RedTeam_Shooter_Animation_0
+  - first:
+      213: 1361302283911139448
+    second: Unit_RedTeam_Shooter_Animation_1
+  - first:
+      213: -6177880210653453780
+    second: Unit_RedTeam_Shooter_Animation_2
+  - first:
+      213: 7411253579995726933
+    second: Unit_RedTeam_Shooter_Animation_3
+  - first:
+      213: -6395739043590507258
+    second: Unit_RedTeam_Shooter_Animation_4
+  - first:
+      213: -3774760899849960422
+    second: Unit_RedTeam_Shooter_Animation_5
+  - first:
+      213: 1452617714282188284
+    second: Unit_RedTeam_Shooter_Animation_6
+  - first:
+      213: -4440502200876228517
+    second: Unit_RedTeam_Shooter_Animation_7
+  - first:
+      213: 7844358609682389007
+    second: Unit_RedTeam_Shooter_Animation_8
+  - first:
+      213: -5595904209481229892
+    second: Unit_RedTeam_Shooter_Animation_9
+  - first:
+      213: -5186263303970997643
+    second: Unit_RedTeam_Shooter_Animation_10
+  - first:
+      213: -5853384645115166103
+    second: Unit_RedTeam_Shooter_Animation_11
+  - first:
+      213: 5134744778347918643
+    second: Unit_RedTeam_Shooter_Animation_12
+  - first:
+      213: 8093116888066889456
+    second: Unit_RedTeam_Shooter_Animation_13
+  - first:
+      213: 9074202727883205412
+    second: Unit_RedTeam_Shooter_Animation_14
+  - first:
+      213: 3482733404254503511
+    second: Unit_RedTeam_Shooter_Animation_15
+  - first:
+      213: -9032788096854935767
+    second: Unit_RedTeam_Shooter_Animation_16
+  - first:
+      213: 1965800054468431377
+    second: Unit_RedTeam_Shooter_Animation_17
+  - first:
+      213: -6769746166913452275
+    second: Unit_RedTeam_Shooter_Animation_18
+  - first:
+      213: 3853996072585634318
+    second: Unit_RedTeam_Shooter_Animation_19
+  - first:
+      213: 7914085996847802366
+    second: Unit_RedTeam_Shooter_Animation_20
+  - first:
+      213: 3774236045139635149
+    second: Unit_RedTeam_Shooter_Animation_21
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22745ae58f954b010800000000000000
+      internalID: 1203685923689416482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_1
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8709378f63154e210800000000000000
+      internalID: 1361302283911139448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_2
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c22e5132ea2c34aa0800000000000000
+      internalID: -6177880210653453780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_3
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 554ccff4ddf0ad660800000000000000
+      internalID: 7411253579995726933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_4
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 605f0b6d935cd37a0800000000000000
+      internalID: -6395739043590507258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a14c86c06fa5d9bc0800000000000000
+      internalID: -3774760899849960422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_6
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfdca366d1cb82410800000000000000
+      internalID: 1452617714282188284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_7
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b50ae6c66ca2062c0800000000000000
+      internalID: -4440502200876228517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_8
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0855e42892ccdc60800000000000000
+      internalID: 7844358609682389007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_9
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb912c415ca5752b0800000000000000
+      internalID: -5595904209481229892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_10
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57a3a27c001b608b0800000000000000
+      internalID: -5186263303970997643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_11
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9624f268da994cea0800000000000000
+      internalID: -5853384645115166103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_12
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33538bdbb27424740800000000000000
+      internalID: 5134744778347918643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_13
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f611f63ee6805070800000000000000
+      internalID: 8093116888066889456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_14
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42beb57cd4b0eed70800000000000000
+      internalID: 9074202727883205412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_15
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7520aff2497255030800000000000000
+      internalID: 3482733404254503511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_16
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 927b59b651715a280800000000000000
+      internalID: -9032788096854935767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_17
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11ec80afbbce74b10800000000000000
+      internalID: 1965800054468431377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_18
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d07bf859ab70d02a0800000000000000
+      internalID: -6769746166913452275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_19
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e02a73832052c7530800000000000000
+      internalID: 3853996072585634318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_20
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef7a104984b74dd60800000000000000
+      internalID: 7914085996847802366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_RedTeam_Shooter_Animation_21
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcbe501bfa7c06430800000000000000
+      internalID: 3774236045139635149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

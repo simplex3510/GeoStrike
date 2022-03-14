@@ -1,0 +1,636 @@
+fileFormatVersion: 2
+guid: c6bb19f61d6f5b1478d7f12b28690bba
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4880648619051976335
+    second: Unit_BuleTeam_Shooter_Animation_0
+  - first:
+      213: -8543040614159798401
+    second: Unit_BuleTeam_Shooter_Animation_1
+  - first:
+      213: -4309293323958891548
+    second: Unit_BuleTeam_Shooter_Animation_2
+  - first:
+      213: 2568697370271605336
+    second: Unit_BuleTeam_Shooter_Animation_3
+  - first:
+      213: 5352731367604329982
+    second: Unit_BuleTeam_Shooter_Animation_4
+  - first:
+      213: 5456214579441017928
+    second: Unit_BuleTeam_Shooter_Animation_5
+  - first:
+      213: -3845121059079790485
+    second: Unit_BuleTeam_Shooter_Animation_6
+  - first:
+      213: 2172221395296921877
+    second: Unit_BuleTeam_Shooter_Animation_7
+  - first:
+      213: -557307485076201336
+    second: Unit_BuleTeam_Shooter_Animation_8
+  - first:
+      213: 5322167961365543834
+    second: Unit_BuleTeam_Shooter_Animation_9
+  - first:
+      213: -1281470234843367949
+    second: Unit_BuleTeam_Shooter_Animation_10
+  - first:
+      213: -6459094349248430444
+    second: Unit_BuleTeam_Shooter_Animation_11
+  - first:
+      213: 405216589585249771
+    second: Unit_BuleTeam_Shooter_Animation_12
+  - first:
+      213: -2735721729978882111
+    second: Unit_BuleTeam_Shooter_Animation_13
+  - first:
+      213: -6939525281741773450
+    second: Unit_BuleTeam_Shooter_Animation_14
+  - first:
+      213: -2490408274764143045
+    second: Unit_BuleTeam_Shooter_Animation_15
+  - first:
+      213: 7856344791646292352
+    second: Unit_BuleTeam_Shooter_Animation_16
+  - first:
+      213: -7319609083342741877
+    second: Unit_BuleTeam_Shooter_Animation_17
+  - first:
+      213: -4901361140573866484
+    second: Unit_BuleTeam_Shooter_Animation_18
+  - first:
+      213: 3000776770146160915
+    second: Unit_BuleTeam_Shooter_Animation_19
+  - first:
+      213: 5661918678808497808
+    second: Unit_BuleTeam_Shooter_Animation_20
+  - first:
+      213: -8201272844124220967
+    second: Unit_BuleTeam_Shooter_Animation_21
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f86081c6f0c8bb340800000000000000
+      internalID: 4880648619051976335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_1
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7f254b03d5017980800000000000000
+      internalID: -8543040614159798401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_2
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ebc770bd805234c0800000000000000
+      internalID: -4309293323958891548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_3
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 852e48216a8d5a320800000000000000
+      internalID: 2568697370271605336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_4
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efd9520a1d8b84a40800000000000000
+      internalID: 5352731367604329982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 844a3e1704e58bb40800000000000000
+      internalID: 5456214579441017928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_6
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b60ec23e4c263aac0800000000000000
+      internalID: -3845121059079790485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_7
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5192d20a9d7452e10800000000000000
+      internalID: 2172221395296921877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_8
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 880ed598bcb0448f0800000000000000
+      internalID: -557307485076201336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_9
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9b782410932cd940800000000000000
+      internalID: 5322167961365543834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_10
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 56
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f5bce56c9d473ee0800000000000000
+      internalID: -1281470234843367949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_11
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49e705e39efac56a0800000000000000
+      internalID: -6459094349248430444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_12
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be5f25f575e9f9500800000000000000
+      internalID: 405216589585249771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_13
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c7aa40c493c80ad0800000000000000
+      internalID: -2735721729978882111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_14
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67560fff58ad1bf90800000000000000
+      internalID: -6939525281741773450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_15
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b366dfc6eda407dd0800000000000000
+      internalID: -2490408274764143045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_16
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 089411b96f7570d60800000000000000
+      internalID: 7856344791646292352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_17
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8e12a4d1568b6a90800000000000000
+      internalID: -7319609083342741877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_18
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c06f03cd20edafbb0800000000000000
+      internalID: -4901361140573866484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_19
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3115ecad296e4a920800000000000000
+      internalID: 3000776770146160915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_20
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09e878d4a0d239e40800000000000000
+      internalID: 5661918678808497808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Shooter_Animation_21
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d11bebecc93f2e80800000000000000
+      internalID: -8201272844124220967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
