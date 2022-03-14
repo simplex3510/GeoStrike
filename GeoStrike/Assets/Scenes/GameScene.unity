@@ -28185,10 +28185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d3bf37b6b2a6114299d6fe272940e32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraController: {fileID: 366190038}
-  tileDetector: {fileID: 8426533187915313210}
   tetrominoMaker: {fileID: 912067517}
   rectSlot: {fileID: 0}
+  image: {fileID: 514118755}
   slotImage: {fileID: 514118755}
   tilePos: {x: 0, y: 0, z: 0}
   tileSize: {x: 0, y: 0, z: 0}
@@ -28238,9 +28237,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AutoMoveCamera, Assembly-CSharp
-        m_MethodName: MoveToBuildZone
+      - m_Target: {fileID: 912067513}
+        m_TargetAssemblyTypeName: TetrominoSlot, Assembly-CSharp
+        m_MethodName: ClickSlot
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -36307,10 +36306,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d3bf37b6b2a6114299d6fe272940e32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraController: {fileID: 366190038}
-  tileDetector: {fileID: 8426533187915313210}
   tetrominoMaker: {fileID: 1389848057}
   rectSlot: {fileID: 0}
+  image: {fileID: 1840886454}
   slotImage: {fileID: 1840886454}
   tilePos: {x: 0, y: 0, z: 0}
   tileSize: {x: 0, y: 0, z: 0}
@@ -36360,9 +36358,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AutoMoveCamera, Assembly-CSharp
-        m_MethodName: MoveToBuildZone
+      - m_Target: {fileID: 1389848053}
+        m_TargetAssemblyTypeName: TetrominoSlot, Assembly-CSharp
+        m_MethodName: ClickSlot
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

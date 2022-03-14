@@ -14,8 +14,8 @@ public class TetrominoMaker : MonoBehaviourPun
     public TetrominoSlot tetrominoSlot;
     private GameObject tetrominoObj;
 
-    private int randomShape;     // ·£´ý ¸ð¾ç
-    private int randomRotation;   // ·£´ý È¸Àü °ª
+    private int randomShape;     // ·£´ý ¸ð¾ç idx
+    private int randomRotation;   // ·£´ý È¸Àü idx
     private Vector3 angle;
 
     private int[] angleArr = { 0, 90, 180, 270 };

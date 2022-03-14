@@ -4,16 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class TetrominoSlot : MonoBehaviour, IPointerClickHandler
+[DefaultExecutionOrder(203)]
+public class TetrominoSlot : MonoBehaviour
 {
-    [Header("< Components >")]
-    [SerializeField] private CameraController cameraController;
-    [SerializeField] private Detector tileDetector;
-    [SerializeField] public TetrominoMaker tetrominoMaker;
+    // Auto input components
+    [HideInInspector] private CameraController cameraController;
+    [HideInInspector] private Detector detector;
+    [HideInInspector] public TetrominoMaker tetrominoMaker;
     [HideInInspector] public RectTransform rectSlot;
+    [HideInInspector] private Button button;
+
+    // 자원량에 따른 이미지 색깔 변화
+    [Header("< Manual Input Components >")]
+    [SerializeField] private Image image;
 
     // 프리뷰 이미지와 슬롯 이미지 동기화 변수
-    [HideInInspector]public Image slotImage;
+    [HideInInspector] public Image slotImage;
 
     // Tile의 위치, 사이즈 저장
     [HideInInspector] public Vector3 tilePos;
@@ -25,9 +31,18 @@ public class TetrominoSlot : MonoBehaviour, IPointerClickHandler
 
     private void Awake()
     {
+        if (cameraController == null) { cameraController = GameObject.FindObjectOfType<CameraController>(); }
+        if (detector == null) { detector = GameObject.FindObjectOfType<Detector>(); }
         if (tetrominoMaker == null) { tetrominoMaker = GetComponent<TetrominoMaker>(); }
         if (rectSlot == null) { rectSlot = GetComponent<RectTransform>(); }
+        if (button == null) { button = GetComponentInChildren<Button>(); }
     }
+
+    private void Start()
+    {
+        StartCoroutine(EOnOFFButton());
+    }
+
 
     // When choice slot.
     public void ChoiceTetrominoSlot()
@@ -37,23 +52,20 @@ public class TetrominoSlot : MonoBehaviour, IPointerClickHandler
         TetrominoPreview.instance.rectTransform.Rotate(tetrominoMaker.GetAngle());
         cameraController.mouseController.eMouseMode = MouseController.EMouseMode.build;
 
-        tileDetector.tetrominoObj = tetrominoMaker.GetTetrominoObj();
-        tileDetector.tetromino = tetrominoMaker.GetTetromino();
-        tileDetector.angle = tetrominoMaker.GetAngle();
+        detector.tetrominoObj = tetrominoMaker.GetTetrominoObj();
+        detector.tetromino = tetrominoMaker.GetTetromino();
+        detector.angle = tetrominoMaker.GetAngle();
 
         StartCoroutine(CTetrominoPreviewPos());
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void ClickSlot()
     {
-        if (eventData.button == PointerEventData.InputButton.Left)
-        {
-            ChoiceTetrominoSlot();
-            cameraController.autoMoveCamera.MoveToBuildZone();
-            PreviewImgSize();
+        ChoiceTetrominoSlot();
+        cameraController.autoMoveCamera.MoveToBuildZone();
+        PreviewImgSize();
 
-            cameraController.mouseController.CursorVisible(false);
-        }
+        cameraController.mouseController.CursorVisible(false);
     }
 
     // Set preview size
@@ -88,9 +100,35 @@ public class TetrominoSlot : MonoBehaviour, IPointerClickHandler
     {
         while (cameraController.mouseController.eMouseMode == MouseController.EMouseMode.build)
         {
-            TetrominoPreview.instance.transform.position = Camera.main.WorldToScreenPoint(Get_TilePos(tileDetector.tile));
+            TetrominoPreview.instance.transform.position = Camera.main.WorldToScreenPoint(Get_TilePos(detector.tile));
 
             StartCoroutine(CCancel());
+            yield return null;
+        }
+    }
+
+    IEnumerator EOnOFFButton()
+    {
+        // 자원이 부족하면 버튼 비활성화
+        while (true)
+        {
+            if (Geo.CurrentGeo < tetrominoMaker.GetTetrominoObj().GetComponent<Tetromino>().cost)
+            {
+                if (button.interactable == true)
+                {
+                    button.interactable = false;
+                    image.color = new Color(60 / 255, 60 / 255, 60 / 255);
+                }
+            }
+            else
+            {
+                if (button.interactable == false)
+                {
+                    button.interactable = true;
+                    image.color = new Color(1, 1, 1);
+                }
+            }
+            yield return null;
             yield return null;
         }
     }
