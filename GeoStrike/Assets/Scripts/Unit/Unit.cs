@@ -555,7 +555,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             yield return null;
         }
 
-        Debug.Log("SEt");
+        Debug.Log("Set Move state");
         unitState = EUnitState.Move;
     }
 
