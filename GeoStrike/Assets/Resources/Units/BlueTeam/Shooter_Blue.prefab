@@ -130,6 +130,7 @@ MonoBehaviour:
   unitCreator: {fileID: 0}
   row: 0
   column: 0
+  debuffTime: 0
   unitIndex: 1
   bulletSpawnPos:
   - {fileID: 2942227000734488926}

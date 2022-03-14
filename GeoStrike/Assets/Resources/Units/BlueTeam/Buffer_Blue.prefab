@@ -315,6 +315,7 @@ MonoBehaviour:
   unitCreator: {fileID: 0}
   row: 0
   column: 0
+  debuffTime: 0
   unitIndex: 0
   animator: {fileID: 8835580005163108076}
   weapon: {fileID: 0}

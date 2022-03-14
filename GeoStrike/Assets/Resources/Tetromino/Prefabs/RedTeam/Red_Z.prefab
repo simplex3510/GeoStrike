@@ -101,8 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shapeIdx: 5
   shapeName: 
-  quaternion: {x: 0, y: 0, z: 0, w: 0}
   cost: 0
+  quaternion: {x: 0, y: 0, z: 0, w: 0}
   coordinate:
   - {x: 0, y: 1}
   - {x: 0, y: 0}
@@ -159,8 +159,8 @@ MonoBehaviour:
   unitTileContainer: {fileID: 0}
   translocateField: {fileID: 0}
   spawnPos: {x: 0, y: 0, z: 0}
-  unitP1: {fileID: 0}
-  unitP2: {fileID: 0}
+  unitP1: {fileID: 6761232826708604601, guid: 5dae0c2ccc026034b81cdbc9d0c8d246, type: 3}
+  unitP2: {fileID: -7444300735562069704, guid: 8cda2642bce3ff04ea6b80b66ac89156, type: 3}
 --- !u!61 &-3765980190462290898
 BoxCollider2D:
   m_ObjectHideFlags: 0

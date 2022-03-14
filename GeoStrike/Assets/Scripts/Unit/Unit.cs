@@ -81,8 +81,12 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     public int row;
     public int column;
 
+    public int debuffTime;
+
     // 유닛의 버프 받는지 여부
     public bool hasBuff { get; protected set; }
+    // 유닛의 디버프 받는지 여부
+    public bool hasDebuff { get; protected set; }
 
     // 유닛의 FSM의 상태
     public EUnitState unitState { get; protected set; }
@@ -377,12 +381,36 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
     public void OnDebuff(float _debuff)
     {
+        if (!hasDebuff)
+        {
+            return;
+        }
 
+        hasDebuff = true;
+        deltaStatus.damage -= _debuff;
+        if (photonView.IsMine)
+        {
+            photonView.RPC("OnDebuff", RpcTarget.Others, _debuff);
+        }
+
+        for (int _debuffTime = debuffTime; _debuffTime < 0; _debuffTime--)
+        {
+            Debug.Log(_debuffTime);
+            if (_debuffTime == 0)
+            {
+                OffDebuff(_debuff);
+            }
+        }
     }
 
     public void OffDebuff(float _debuff)
     {
-
+        hasDebuff = false;
+        deltaStatus.damage += _debuff;
+        if (photonView.IsMine)
+        {
+            photonView.RPC("OffDebuff", RpcTarget.Others, _debuff);
+        }
     }
     #endregion
 

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5bd9e0a4759d7c438664996219f19ba, type: 3}
   m_Name: Debuffer_Init
   m_EditorClassIdentifier: 
-  unitIndex: 1
+  unitIndex: 5
   unitName: Debuffer
   health: 7
   damage: 5
   defense: 4
-  attackRange: 1.25
+  attackRange: 4
   detectRange: 10
   attackSpeed: 1.5
   moveSpeed: 3
