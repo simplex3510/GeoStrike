@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 280212628439633368}
   - component: {fileID: 280212628439633369}
   - component: {fileID: 1773930833179923820}
+  - component: {fileID: 6114629358486935206}
   - component: {fileID: 6676113491186877483}
   - component: {fileID: 1599485226406806687}
   - component: {fileID: 770455383308893976}
-  - component: {fileID: 8262808403268621646}
+  - component: {fileID: -7444300735562069704}
   m_Layer: 0
   m_Name: DeBuffer_Red
   m_TagString: Unit
@@ -128,6 +129,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6114629358486935206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280212628439633366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80e911c2a170914f95647d6b4ad62b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bottomLeft: {x: 0, y: 0}
+  topRight: {x: 0, y: 0}
+  startPos: {x: 0, y: 0}
+  targetPos: {x: 0, y: 0}
+  endPos: {x: -33, y: 0}
+  finalNodeList: []
+  allowDiagonal: 1
+  dontCrossCorner: 1
 --- !u!58 &6676113491186877483
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -164,7 +185,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 770455383308893976}
-  - {fileID: 8262808403268621646}
+  - {fileID: -7444300735562069704}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -184,7 +205,7 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 0
---- !u!114 &8262808403268621646
+--- !u!114 &-7444300735562069704
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,15 +214,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 280212628439633366}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a0590597921cca46a745644f037fdb5, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a210ecd5b9181e43b2f2658da97cc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initStatus: {fileID: 11400000, guid: 8a5ef7a521fcf5f46aead5a43ce68d2c, type: 2}
-  deltaStatus: {fileID: 11400000, guid: 3627bc3787cd0a648a1cad6461c25a42, type: 2}
+  initStatus: {fileID: 11400000, guid: f65361c24194869499012dec11730034, type: 2}
+  deltaStatus: {fileID: 11400000, guid: 75cedc10cf4e2ef40933511cf8cebd7b, type: 2}
   unitTile: {fileID: 0}
   unitCreator: {fileID: 0}
   row: 0
   column: 0
+  debuffTime: 0
   unitIndex: 0
-  animator: {fileID: 280212628439633369}
-  weapon: {fileID: 0}

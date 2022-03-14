@@ -6,12 +6,12 @@ using Photon.Pun;
 using Photon.Realtime;
 
 
-[DefaultExecutionOrder(202)]
+[DefaultExecutionOrder(203)]
 public class TetrominoMaker : MonoBehaviourPun
 {
-    public Tetromino[] tetrominoArr = new Tetromino[7]; // 7가지 모양을 담는 배열
+    [HideInInspector] public Tetromino[] tetrominoArr = new Tetromino[7]; // 7가지 모양을 담는 배열
 
-    public TetrominoSlot tetrominoSlot;
+    [HideInInspector] public TetrominoSlot tetrominoSlot;
     private GameObject tetrominoObj;
 
     private int randomShape;     // 랜덤 모양 idx
@@ -46,6 +46,10 @@ public class TetrominoMaker : MonoBehaviourPun
 
         tetrominoSlot.rectSlot.Rotate(GetAngle());   // 슬롯 이미지 회전
         tetrominoSlot.slotImage.sprite = tetrominoObj.GetComponent<SpriteRenderer>().sprite;  // 슬롯 이미지 전달
+
+        // 슬롯의 텍스트 
+        tetrominoSlot.costText.text = tetrominoObj.GetComponent<Tetromino>().cost.ToString();
+        tetrominoSlot.slotInfoText.text = tetrominoObj.GetComponent<Tetromino>().shapeIdx + " Mino : " + tetrominoObj.GetComponent<Tetromino>().unitIdx;     
     }
 
     public GameObject GetTetrominoObj()

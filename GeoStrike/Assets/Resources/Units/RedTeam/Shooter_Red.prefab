@@ -110,8 +110,8 @@ MonoBehaviour:
   targetPos: {x: 0, y: 0}
   endPos: {x: -33, y: 0}
   finalNodeList: []
-  allowDiagonal: 0
-  dontCrossCorner: 0
+  allowDiagonal: 1
+  dontCrossCorner: 1
 --- !u!114 &5751252549581005398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +130,7 @@ MonoBehaviour:
   unitCreator: {fileID: 0}
   row: 0
   column: 0
+  debuffTime: 0
   unitIndex: 3
   bulletSpawnPos:
   - {fileID: 2942227000734488926}

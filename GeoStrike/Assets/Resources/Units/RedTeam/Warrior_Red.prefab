@@ -128,6 +128,7 @@ MonoBehaviour:
   unitCreator: {fileID: 0}
   row: 0
   column: 0
+  debuffTime: 0
   unitIndex: 0
   animator: {fileID: 3868155411218932853}
   sword: {fileID: 7786633145386498038}
