@@ -46,6 +46,7 @@ public class UnitCreator : MonoBehaviourPun
                         // Unit 생성
                         if ((int)unitP1.unitIndex != 6)
                         {
+
                             Unit unit = ObjectPoolMgr.instance.poolArr[(int)unitP1.initStatus.unitIndex].GetObject();    // 내 Pool에서 내 유닛 꺼내기
                             unit.unitCreator = this;
                             unit.StartCoroutine(unit.IdleToMoveCondition());

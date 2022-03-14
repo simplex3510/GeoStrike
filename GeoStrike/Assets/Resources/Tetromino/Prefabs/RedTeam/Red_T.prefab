@@ -100,6 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shapeIdx: 1
+  shapeName: 
+  quaternion: {x: 0, y: 0, z: 0, w: 0}
+  cost: 0
   coordinate:
   - {x: 0, y: 0}
   - {x: -1, y: 0}
@@ -155,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitTileContainer: {fileID: 0}
   translocateField: {fileID: 0}
+  spawnPos: {x: 0, y: 0, z: 0}
   unitP1: {fileID: 2987873757324890670, guid: 97d58be899a7f864583b661b0441788d, type: 3}
   unitP2: {fileID: 6318801970180173552, guid: 74e5a33fee91fa846b3e51c91aef4572, type: 3}
 --- !u!61 &-2282632870966418027

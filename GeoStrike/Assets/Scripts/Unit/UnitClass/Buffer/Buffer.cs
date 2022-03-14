@@ -3,12 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public enum EBuff
-{
-    Damage,
-    // 추가
-}
-
 public class Buffer : Unit
 {
     public Animator animator;
@@ -93,5 +87,10 @@ public class Buffer : Unit
             }
             // 사거리 벗어나는 경우를 구현하면서 OffBuff를 실행
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
     }
 }
