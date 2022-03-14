@@ -16,13 +16,10 @@ public class UnitCreator : MonoBehaviourPun
     public Unit unitP1;
     public Unit unitP2;
 
-    private Geo geo;
-
     private void Start()
     {
         if (unitTileContainer == null) { unitTileContainer = GameMgr.instance.grid.GetComponentInChildren<UnitTileContainer>(); }
         if (translocateField == null) { translocateField = unitTileContainer.GetComponent<TranslocateField>(); }
-        if (geo == null) { geo = GameMgr.instance.canvas.GetComponentInChildren<Geo>(); }
     }
 
     public void UnitSpawn()
@@ -33,7 +30,7 @@ public class UnitCreator : MonoBehaviourPun
             if ((int)unitP1.unitIndex == 6)
             {
                 Debug.Log("Get GEO : " + Geo.GEO_SQUARE);
-                geo.DeltaGeo(Geo.GEO_SQUARE);
+                Geo.DeltaGeo(Geo.GEO_SQUARE);
                 return;
             }
 
@@ -87,7 +84,7 @@ public class UnitCreator : MonoBehaviourPun
             if ((int)unitP2.unitIndex == 6)
             {
                 Debug.Log("Get GEO : " + Geo.GEO_SQUARE);
-                geo.DeltaGeo(Geo.GEO_SQUARE);
+                Geo.DeltaGeo(Geo.GEO_SQUARE);
                 return;
             }
 

@@ -17,11 +17,12 @@ public enum EShapeIndex
 
 public abstract class Tetromino : MonoBehaviour
 {
-    public EShapeIndex shapeIdx;
-    public string shapeName;
-    public Quaternion quaternion;
-    public int cost;
-    public Vector2[] coordinate = new Vector2[4];
+    [HideInInspector] public EShapeIndex shapeIdx;
+    [HideInInspector] public string shapeName;
+    public int cost;    // 비용
+
+    [HideInInspector] public Quaternion quaternion;                     // 회전 값
+    [HideInInspector] public Vector2[] coordinate = new Vector2[4];     // 좌표
     
     public abstract Vector2[] GetCoordinate();
 

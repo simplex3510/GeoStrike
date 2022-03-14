@@ -8,7 +8,9 @@ public class Geo : MonoBehaviour
     [SerializeField] private Image geoImage;
     [SerializeField] private Sprite getSprite;
     [SerializeField] private Text geoTXT;
-    private float currentGeo = 0;
+    
+    private static float currentGeo = 0;
+    public static float CurrentGeo { get { return currentGeo; } }
 
     public static readonly float GEO_SQUARE = 3;
     public static readonly float GEO_BOUNUS = 10;
@@ -23,7 +25,7 @@ public class Geo : MonoBehaviour
         if (GameMgr.instance.GetState() != EGameState.Standby)
         {
             GeoTxT();
-            DeltaGeo(Time.fixedDeltaTime);
+            DeltaGeo(Time.deltaTime);
         }
     }
 
@@ -32,7 +34,7 @@ public class Geo : MonoBehaviour
         geoTXT.text = string.Format(": {0}", (int)currentGeo);
     }
 
-    public void DeltaGeo(float _delta)
+    public static void DeltaGeo(float _delta)
     {
         currentGeo += _delta;
     }

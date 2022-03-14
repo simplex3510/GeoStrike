@@ -7,9 +7,9 @@ using Photon.Realtime;
 [DefaultExecutionOrder(201)]
 public class TetrominoCreater : MonoBehaviourPun
 {
-    public TetrominoTileContainer tileContainer;
-    public TetrominoSlotContainer slotContainer;
-    public Detector detector;
+    [HideInInspector] public TetrominoTileContainer tileContainer;
+    [HideInInspector] public TetrominoSlotContainer slotContainer;
+    [HideInInspector] public Detector detector;
 
     private Vector2[] resultTileCoord = new Vector2[4];
 
@@ -17,6 +17,7 @@ public class TetrominoCreater : MonoBehaviourPun
     {
         if (tileContainer == null) { tileContainer = GameObject.FindObjectOfType<TetrominoTileContainer>(); }
         if (slotContainer == null) { slotContainer = GameObject.FindObjectOfType<TetrominoSlotContainer>(); }
+        if (detector == null) { detector = GameObject.FindObjectOfType<Detector>(); }
     }
 
     // Build tetromino
@@ -32,11 +33,13 @@ public class TetrominoCreater : MonoBehaviourPun
         {
             Tetromino tetromino = PhotonNetwork.Instantiate("Tetromino/Prefabs/BlueTeam/" + _tetromino.name, _mousePos - Vector3.forward, Quaternion.Euler(_angle)).GetComponent<Tetromino>();
             tetromino.quaternion = Quaternion.Euler(_angle);
+            Geo.DeltaGeo(-_tetromino.GetComponent<Tetromino>().cost);
         }
         else
         {
             Tetromino tetromino = PhotonNetwork.Instantiate("Tetromino/Prefabs/RedTeam/" + _tetromino.name, _mousePos - Vector3.forward, Quaternion.Euler(_angle)).GetComponent<Tetromino>();
             tetromino.quaternion = Quaternion.Euler(_angle);
+            Geo.DeltaGeo(-_tetromino.GetComponent<Tetromino>().cost);
         }
 
         TetrominoPreview.instance.ClearPreview();
