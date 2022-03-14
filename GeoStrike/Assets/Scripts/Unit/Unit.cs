@@ -348,6 +348,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         }
     }
 
+    #region buff & debuff
     public void OnBuff(float _buff)
     {
         if(!hasBuff)
@@ -383,7 +384,9 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     {
 
     }
+    #endregion
 
+    #region animation
     protected IEnumerator DieAnimation(GameObject _gameObject)
     {
         unitState = EUnitState.Idle;
@@ -438,6 +441,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
         isRotate = false;
     }
+    #endregion
 
     private void OnApplicationQuit()
     {
@@ -456,11 +460,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     {
         if (target == null)
         {
-            if (gameObject.name == "aaa")
-            {
-                print("aaa");
-            }
-
             if (isPlayer1)
             {
                 aStar.bottomLeft.x = Mathf.CeilToInt(transform.position.x - detectRange);
@@ -497,11 +496,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         }
         else
         {
-            if (gameObject.name == "aaa")
-            {
-                print("aaa");
-            }
-
             if (isPlayer1)
             {
                 aStar.bottomLeft.x = Mathf.CeilToInt(transform.position.x - detectRange);
@@ -555,7 +549,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             yield return null;
         }
 
-        Debug.Log("Set Move state");
+        Debug.Log("Set Move State");
         unitState = EUnitState.Move;
     }
 
