@@ -61,30 +61,34 @@ public class CameraController : MonoBehaviour
     private void CameraMovement()
     {
         Vector3 velocity;
-    
+        int h = 0;
+        int v = 0;
+
         // Camera move horizotnal
         if (/* mouseController.mousePos.x >= rectTransform.rect.width || */(Input.GetKey(KeyCode.RightArrow)))
         {
-            velocity = transform.position + Vector3.right;
-            transform.position = Vector3.Lerp(transform.position, velocity, cameraSpeed);
+            h = 1;
         }
         else if (/*mouseController.mousePos.x <= ZERO || */(Input.GetKey(KeyCode.LeftArrow)))
         {
-            velocity = transform.position - Vector3.right;
-            transform.position = Vector3.Lerp(transform.position, velocity, cameraSpeed);
+            h = -1;
         }
 
         // Camera move verticals
         if (/*mouseController.mousePos.y >= rectTransform.rect.height || */(Input.GetKey(KeyCode.UpArrow)))
         {
-            velocity = transform.position + Vector3.up;
-            transform.position = Vector3.Lerp(transform.position, velocity, cameraSpeed);
+            v = 1;
         }
         else if (/*mouseController.mousePos.y <= ZERO || */(Input.GetKey(KeyCode.DownArrow)))
         {
-            velocity = transform.position - Vector3.up;
-            transform.position = Vector3.Lerp(transform.position, velocity, cameraSpeed);
+            v = -1;
         }
+
+        velocity = transform.position + new Vector3(h, v, 0);
+        velocity.x = Mathf.Clamp(velocity.x, -36, 36);
+        velocity.y = Mathf.Clamp(velocity.y, -30, 7);
+        
+        transform.position = Vector3.Lerp(transform.position, velocity, cameraSpeed);
     }
 
     private void CameraZoom()
