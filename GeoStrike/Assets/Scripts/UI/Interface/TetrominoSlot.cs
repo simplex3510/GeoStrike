@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-[DefaultExecutionOrder(203)]
+[DefaultExecutionOrder(204)]
 public class TetrominoSlot : MonoBehaviour
 {
     // Auto input components
@@ -18,7 +18,7 @@ public class TetrominoSlot : MonoBehaviour
     [Header("< Manual Input Components >")]
     [SerializeField] private Image image;
 
-    // 프리뷰 이미지와 슬롯 이미지 동기화 변수
+    // 프리뷰 이미지와 슬롯 이미지 초기화 변수
     [HideInInspector] public Image slotImage;
 
     // Tile의 위치, 사이즈 저장
@@ -28,6 +28,10 @@ public class TetrominoSlot : MonoBehaviour
     // Size
     [HideInInspector] public Vector2 tetrominoImgSize;
     [HideInInspector] public Vector3 offset;
+
+    // 현재 슬롯의 테트로미노, 유닛 텍스트
+    public Text slotInfoText;
+    public Text costText;
 
     private void Awake()
     {

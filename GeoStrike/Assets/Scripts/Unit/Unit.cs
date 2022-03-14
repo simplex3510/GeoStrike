@@ -64,8 +64,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     public Queue<Unit> myPool;
 
     // 배치상태의 위치 저장
-    public UnitTile unitTile;
-    public UnitCreator unitCreator;
+    [HideInInspector] public UnitTile unitTile;
+    [HideInInspector] public UnitCreator unitCreator;
 
     // 주석 추가 필요
     public RowAndColumn rowAndColumn
@@ -78,8 +78,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         }
     }
     private RowAndColumn RowAndColumn;
-    public int row;
-    public int column;
+    [HideInInspector] public int row;
+    [HideInInspector] public int column;
 
     // 유닛의 버프 받는지 여부
     public bool hasBuff { get; protected set; }

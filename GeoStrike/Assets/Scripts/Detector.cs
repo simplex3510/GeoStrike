@@ -10,6 +10,7 @@ public class Detector : MonoBehaviour
     [HideInInspector] private UnitTileContainer unitTileContainer;
     [HideInInspector] private UnitSelectEffect unitSelectEffect;
     [HideInInspector] private StatusPanel statusPanel;
+    [HideInInspector] private KeySlotPanel keySlotPanel;
 
     // 마우스 위치, 클릭
     private Ray ray;
@@ -36,6 +37,7 @@ public class Detector : MonoBehaviour
         if (unitTileContainer == null) { unitTileContainer = GameObject.FindObjectOfType<UnitTileContainer>(); }
         if (unitSelectEffect == null) { unitSelectEffect = GameObject.FindObjectOfType<UnitSelectEffect>(); }
         if (statusPanel == null) { statusPanel = GameObject.FindObjectOfType<StatusPanel>(); }
+        if (keySlotPanel == null) { keySlotPanel = GameObject.FindObjectOfType<KeySlotPanel>(); }
     }
 
     private void Update()
@@ -74,7 +76,6 @@ public class Detector : MonoBehaviour
         }
     }
 
-
     // 클릭한 오브젝트 Data 가져오기
     private void ClickedObjectData()
     {
@@ -87,8 +88,8 @@ public class Detector : MonoBehaviour
                 // 클릭한 Obj 정보 불러오기
                 clickedObject = hit2D.collider.gameObject;
 
-                // 클릭한 obj 따라 Status창 띄우기
-                WhichObjStatus();
+                // 클릭한 obj 따라 Status, KeySlot창 띄우기
+                WhichObjInterface();
 
                 clickedUnit = clickedObject.GetComponent<Unit>();
 
@@ -101,24 +102,30 @@ public class Detector : MonoBehaviour
         }
     }
 
-    private void WhichObjStatus()
+    private void WhichObjInterface()
     {
         if (clickedObject.CompareTag("Tetromino"))
         {
             statusPanel.SetActiveFalseAll();
             statusPanel.clickedObjectArr[0].gameObject.SetActive(true);
+
+            keySlotPanel.SetActiveFalseAll();
+            keySlotPanel.keySlotArr[0].gameObject.SetActive(true);
         }
         else if (clickedObject.CompareTag("Unit"))
         {
-
             statusPanel.SetActiveFalseAll();
             statusPanel.clickedObjectArr[1].gameObject.SetActive(true);
+
+            keySlotPanel.SetActiveFalseAll();
+            keySlotPanel.keySlotArr[1].gameObject.SetActive(true);
         }
         else if (clickedObject.CompareTag("Tower"))
         {
-
             statusPanel.SetActiveFalseAll();
             statusPanel.clickedObjectArr[2].gameObject.SetActive(true);
+
+            keySlotPanel.SetActiveFalseAll();
         }
     }
 

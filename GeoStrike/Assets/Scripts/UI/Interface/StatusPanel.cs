@@ -9,7 +9,7 @@ public class StatusPanel : MonoBehaviour
 
     private void Awake()
     {
-        if (clickedObjectArr == null) { clickedObjectArr = GetComponentsInChildren<StatusInfo>(); }
+        clickedObjectArr = GetComponentsInChildren<StatusInfo>();
     }
 
     public void SetActiveFalseAll()

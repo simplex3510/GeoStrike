@@ -15,9 +15,22 @@ public enum EShapeIndex
     O
 }
 
+public enum EUnitIdx
+{
+    Warrior = 0,
+    Shielder,
+    Shooter,
+    Splasher,
+    Buffer,
+    Debuffer,
+    Geo
+}
+
+
 public abstract class Tetromino : MonoBehaviour
 {
-    [HideInInspector] public EShapeIndex shapeIdx;
+    public EShapeIndex shapeIdx;
+    public EUnitIdx unitIdx;
     [HideInInspector] public string shapeName;
     public int cost;    // ºñ¿ë
 
