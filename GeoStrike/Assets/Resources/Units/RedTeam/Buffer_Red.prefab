@@ -164,6 +164,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 8344325425926403117}
+  - {fileID: -8370310838560235909}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -197,7 +198,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initStatus: {fileID: 11400000, guid: 8a5ef7a521fcf5f46aead5a43ce68d2c, type: 2}
   deltaStatus: {fileID: 11400000, guid: 3627bc3787cd0a648a1cad6461c25a42, type: 2}
-  myParent: {fileID: 0}
+  unitTile: {fileID: 0}
+  unitCreator: {fileID: 0}
+  row: 0
+  column: 0
   unitIndex: 0
   animator: {fileID: 8835580005163108076}
   weapon: {fileID: 0}

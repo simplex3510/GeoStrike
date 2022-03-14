@@ -68,9 +68,6 @@ TextureImporter:
   - first:
       213: 3774236045139635149
     second: Unit_RedTeam_Shooter_Animation_21
-  - first:
-      213: -4568848686648326951
-    second: Unit_RedTeam_Shooter_Animation_22
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -164,7 +161,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 108
+        y: 56
         width: 50
         height: 50
       alignment: 0
@@ -185,7 +182,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 52
-        y: 108
+        y: 56
         width: 50
         height: 50
       alignment: 0
@@ -206,7 +203,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 103
-        y: 108
+        y: 56
         width: 50
         height: 50
       alignment: 0
@@ -227,7 +224,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 154
-        y: 108
+        y: 56
         width: 50
         height: 50
       alignment: 0
@@ -248,7 +245,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 205
-        y: 108
+        y: 56
         width: 50
         height: 50
       alignment: 0
@@ -269,7 +266,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 108
+        y: 56
         width: 50
         height: 50
       alignment: 0
@@ -290,7 +287,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 307
-        y: 108
+        y: 56
         width: 50
         height: 50
       alignment: 0
@@ -311,7 +308,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 358
-        y: 108
+        y: 56
         width: 50
         height: 50
       alignment: 0
@@ -332,7 +329,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 409
-        y: 108
+        y: 56
         width: 50
         height: 50
       alignment: 0
@@ -353,7 +350,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 460
-        y: 108
+        y: 56
         width: 50
         height: 50
       alignment: 0
@@ -374,7 +371,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 511
-        y: 108
+        y: 56
         width: 50
         height: 50
       alignment: 0
@@ -395,7 +392,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 54
+        y: 2
         width: 50
         height: 50
       alignment: 0
@@ -416,7 +413,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 52
-        y: 54
+        y: 2
         width: 50
         height: 50
       alignment: 0
@@ -437,7 +434,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 103
-        y: 54
+        y: 2
         width: 50
         height: 50
       alignment: 0
@@ -458,7 +455,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 154
-        y: 54
+        y: 2
         width: 50
         height: 50
       alignment: 0
@@ -479,7 +476,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 205
-        y: 54
+        y: 2
         width: 50
         height: 50
       alignment: 0
@@ -500,7 +497,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 54
+        y: 2
         width: 50
         height: 50
       alignment: 0
@@ -521,7 +518,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 307
-        y: 54
+        y: 2
         width: 50
         height: 50
       alignment: 0
@@ -542,7 +539,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 358
-        y: 54
+        y: 2
         width: 50
         height: 50
       alignment: 0
@@ -563,7 +560,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 409
-        y: 54
+        y: 2
         width: 50
         height: 50
       alignment: 0
@@ -584,7 +581,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 460
-        y: 54
+        y: 2
         width: 50
         height: 50
       alignment: 0
@@ -605,7 +602,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 511
-        y: 54
+        y: 2
         width: 50
         height: 50
       alignment: 0
@@ -617,27 +614,6 @@ TextureImporter:
       bones: []
       spriteID: dcbe501bfa7c06430800000000000000
       internalID: 3774236045139635149
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Unit_RedTeam_Shooter_Animation_22
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 2
-        width: 50
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9d401d783503890c0800000000000000
-      internalID: -4568848686648326951
       vertices: []
       indices: 
       edges: []

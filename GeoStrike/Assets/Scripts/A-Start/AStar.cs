@@ -63,8 +63,7 @@ public class AStar : MonoBehaviour
             int j = targetPos.y - bottomLeft.y;
             do
             {
-                i--;
-                targetNode = nodeArray[i, j];
+                targetNode = nodeArray[i--, j];
             } while (nodeArray[i, j].isWall == true) ;
         }
 
