@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 7053638004295786073}
   - component: {fileID: -6495427560475685090}
   - component: {fileID: 2258209552917774572}
+  - component: {fileID: 5912640222225347798}
   m_Layer: 0
   m_Name: Buffer_Blue
   m_TagString: Unit
@@ -242,6 +243,7 @@ MonoBehaviour:
   row: 0
   column: 0
   unitIndex: 0
+  isPlayer1: 0
   animator: {fileID: 8835580005163108076}
   buff: {fileID: 205257173124744665}
 --- !u!114 &8020710291790958506
@@ -360,3 +362,25 @@ MonoBehaviour:
   finalNodeList: []
   allowDiagonal: 1
   dontCrossCorner: 1
+--- !u!195 &5912640222225347798
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8835580005163108067}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

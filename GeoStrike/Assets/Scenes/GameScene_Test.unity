@@ -805,6 +805,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 320410837}
   - {fileID: 1052743731}
   - {fileID: 1419650245}
   m_Father: {fileID: 1763289380}
@@ -18825,7 +18826,7 @@ GameObject:
   - component: {fileID: 320410839}
   - component: {fileID: 320410838}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: BattleField_Nav
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18838,12 +18839,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320410836}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 7.9, y: 1, z: 1.6}
   m_Children: []
-  m_Father: {fileID: 1763289380}
-  m_RootOrder: 2
+  m_Father: {fileID: 28265480}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &320410838
 MeshCollider:
@@ -31540,7 +31541,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 28265480}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &1052743732
 SpriteRenderer:
@@ -38326,7 +38327,7 @@ Transform:
   - {fileID: 643942805}
   - {fileID: 1402587535}
   m_Father: {fileID: 28265480}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &1421089257 stripped
 Transform:
@@ -44088,7 +44089,6 @@ Transform:
   m_Children:
   - {fileID: 28265480}
   - {fileID: 998792458}
-  - {fileID: 320410837}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

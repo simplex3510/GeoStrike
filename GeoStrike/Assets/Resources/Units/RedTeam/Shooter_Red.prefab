@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2353060910538526301}
   - component: {fileID: 1260308143512598917}
   - component: {fileID: -7474983531588650897}
+  - component: {fileID: 3827705756953463454}
   m_Layer: 0
   m_Name: Shooter_Red
   m_TagString: Unit
@@ -130,8 +131,8 @@ MonoBehaviour:
   unitCreator: {fileID: 0}
   row: 0
   column: 0
-  debuffTime: 0
   unitIndex: 3
+  isPlayer1: 0
   bulletSpawnPos:
   - {fileID: 2942227000734488926}
   - {fileID: 956237547952624303}
@@ -256,6 +257,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!195 &3827705756953463454
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110568053594303446}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1192799042389165976
 GameObject:
   m_ObjectHideFlags: 0
