@@ -66,7 +66,7 @@ public class Shielder : Unit
     public override void Attack()   // 적에게 공격
     {
         enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask);
-        if (enemyColliders == null)
+        if (enemyColliders.Length == 0)
         {
             unitState = EUnitState.Move;
             return;

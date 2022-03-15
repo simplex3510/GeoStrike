@@ -54,7 +54,6 @@ public class Warrior : Unit
             case EUnitState.Approach:
                 break;
             case EUnitState.Attack:
-                unitMove.agent.speed = 0;
                 animator.SetBool("isMove", false);
                 animator.SetBool("isAttack", true);
                 break;
@@ -67,15 +66,15 @@ public class Warrior : Unit
     public override void Attack()   // 적에게 공격
     {
         enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask);
-        if (enemyColliders.Length == 0)
+        if (enemyColliders.Length != 0)
         {
-            unitMove.agent.speed = moveSpeed;
-            unitState = EUnitState.Move;
-            return;
+            enemyColliders[0].GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
         }
         else
         {
-            enemyColliders[0].GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
+            unitMove.agent.isStopped = false;
+            unitState = EUnitState.Move;
+            return;
         }
     }
 }

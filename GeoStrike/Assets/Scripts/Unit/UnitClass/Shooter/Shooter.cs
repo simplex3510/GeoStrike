@@ -56,7 +56,7 @@ public class Shooter : Unit
     public override void Attack()
     {
         enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask);
-        if (enemyColliders != null && lastAttackTime + attackSpeed <= PhotonNetwork.Time)
+        if (enemyColliders.Length != 0 && lastAttackTime + attackSpeed <= PhotonNetwork.Time)
         {
             lastAttackTime = PhotonNetwork.Time;
 
@@ -71,6 +71,7 @@ public class Shooter : Unit
         }
         else if (enemyColliders == null)
         {
+            unitMove.agent.isStopped = false;
             unitState = EUnitState.Move;
             return;
         }

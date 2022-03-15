@@ -195,12 +195,15 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
                 break;
             case EUnitState.Attack:
                 //각 Unit Class 마다 Attck 구현
+                unitMove.agent.velocity = Vector3.zero;
+                unitMove.agent.isStopped = true;
                 break;
             case EUnitState.Die:
                 Die();
                 break;
         }
     }
+
     #region FSM
     void Move() // 앞으로 전진
     {
