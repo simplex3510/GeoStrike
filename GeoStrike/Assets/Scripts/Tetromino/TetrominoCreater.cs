@@ -23,6 +23,8 @@ public class TetrominoCreater : MonoBehaviourPun
     // Build tetromino
     public void BuildTetromino(GameObject _tetromino, Vector3 _mousePos,  Vector3 _tileCoord, Vector2[] _tetrominoCoord, Vector3 _angle)
     {
+        Vector3 angle = new Vector3(90f, 0f, _angle.z);
+
         // 테트로미노 회전 연산 -> 좌표 합산
         ArrSumOperator(_tileCoord, ArrMultipleOperator(_tetrominoCoord, _angle));
 
@@ -31,13 +33,13 @@ public class TetrominoCreater : MonoBehaviourPun
         BuildOnEmptyTile(resultTileCoord);
         if (GameMgr.isMaster)
         {
-            Tetromino tetromino = PhotonNetwork.Instantiate("Tetromino/Prefabs/BlueTeam/" + _tetromino.name, _mousePos - Vector3.forward, Quaternion.Euler(_angle)).GetComponent<Tetromino>();
+            Tetromino tetromino = PhotonNetwork.Instantiate("Tetromino/Prefabs/BlueTeam/" + _tetromino.name, _mousePos, Quaternion.Euler(angle)).GetComponent<Tetromino>();
             tetromino.quaternion = Quaternion.Euler(_angle);
             Geo.DeltaGeo(-_tetromino.GetComponent<Tetromino>().cost);
         }
         else
         {
-            Tetromino tetromino = PhotonNetwork.Instantiate("Tetromino/Prefabs/RedTeam/" + _tetromino.name, _mousePos - Vector3.forward, Quaternion.Euler(_angle)).GetComponent<Tetromino>();
+            Tetromino tetromino = PhotonNetwork.Instantiate("Tetromino/Prefabs/RedTeam/" + _tetromino.name, _mousePos, Quaternion.Euler(angle)).GetComponent<Tetromino>();
             tetromino.quaternion = Quaternion.Euler(_angle);
             Geo.DeltaGeo(-_tetromino.GetComponent<Tetromino>().cost);
         }
