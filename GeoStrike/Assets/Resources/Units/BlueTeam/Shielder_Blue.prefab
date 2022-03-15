@@ -128,7 +128,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8173733403797653944}
   - component: {fileID: 8173733403797653951}
-  - component: {fileID: -3087604980119649740}
   - component: {fileID: -4504352326755751712}
   - component: {fileID: 8173733403797653950}
   - component: {fileID: -6651150791345317909}
@@ -137,7 +136,7 @@ GameObject:
   - component: {fileID: -7345891549214390338}
   - component: {fileID: 6474237222304657761}
   m_Layer: 0
-  m_Name: Defender_Blue
+  m_Name: Shielder_Blue
   m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -209,26 +208,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-3087604980119649740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8173733403797653949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b80e911c2a170914f95647d6b4ad62b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bottomLeft: {x: 0, y: 0}
-  topRight: {x: 0, y: 0}
-  startPos: {x: 0, y: 0}
-  targetPos: {x: 0, y: 0}
-  endPos: {x: 33, y: 0}
-  finalNodeList: []
-  allowDiagonal: 0
-  dontCrossCorner: 0
 --- !u!114 &-4504352326755751712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,7 +227,6 @@ MonoBehaviour:
   row: 0
   column: 0
   unitIndex: 0
-  isPlayer1: 0
   animator: {fileID: 8173733403797653950}
   shild: {fileID: 8173733402153910181}
 --- !u!95 &8173733403797653950

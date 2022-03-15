@@ -128,17 +128,15 @@ GameObject:
   m_Component:
   - component: {fileID: 8173733403797653944}
   - component: {fileID: 8173733403797653951}
-  - component: {fileID: 2423593374696087797}
   - component: {fileID: 5327907639951520919}
   - component: {fileID: 210230309928423962}
   - component: {fileID: -1460699470688573805}
-  - component: {fileID: 4429122311321390504}
   - component: {fileID: 3633500072746690503}
   - component: {fileID: 8140646364092300299}
   - component: {fileID: 8173733403797653950}
   - component: {fileID: 6513155298048337779}
   m_Layer: 0
-  m_Name: Defender_Red
+  m_Name: Shielder_Red
   m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,26 +208,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2423593374696087797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8173733403797653949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b80e911c2a170914f95647d6b4ad62b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bottomLeft: {x: 0, y: 0}
-  topRight: {x: 0, y: 0}
-  startPos: {x: 0, y: 0}
-  targetPos: {x: 0, y: 0}
-  endPos: {x: -33, y: 0}
-  finalNodeList: []
-  allowDiagonal: 0
-  dontCrossCorner: 0
 --- !u!114 &5327907639951520919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,8 +227,7 @@ MonoBehaviour:
   row: 0
   column: 0
   unitIndex: 0
-  isPlayer1: 0
-  animator: {fileID: 0}
+  animator: {fileID: 8173733403797653950}
   shild: {fileID: 8173733402153910181}
 --- !u!114 &210230309928423962
 MonoBehaviour:
@@ -273,7 +250,6 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 5327907639951520919}
   - {fileID: -1460699470688573805}
-  - {fileID: 4429122311321390504}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -293,28 +269,6 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 0
---- !u!114 &4429122311321390504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8173733403797653949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a0590597921cca46a745644f037fdb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initStatus: {fileID: 11400000, guid: 31810c8f887e0834b84c29ffe41a89c4, type: 2}
-  deltaStatus: {fileID: 11400000, guid: 0eba4100142bc20449900006291b1071, type: 2}
-  unitTile: {fileID: 0}
-  unitCreator: {fileID: 0}
-  row: 0
-  column: 0
-  unitIndex: 0
-  isPlayer1: 0
-  animator: {fileID: 8173733403797653950}
-  sword: {fileID: 0}
 --- !u!50 &3633500072746690503
 Rigidbody2D:
   serializedVersion: 4
