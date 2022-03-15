@@ -68,7 +68,6 @@ public class Warrior : Unit
         enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
         if (enemyCollider2D == null)
         {
-            SetStartAStar(null);
             unitState = EUnitState.Move;
             return;
         }

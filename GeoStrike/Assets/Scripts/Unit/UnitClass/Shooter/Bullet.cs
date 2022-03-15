@@ -30,15 +30,17 @@ public class Bullet : MonoBehaviourPun
             return;
         }
 
-        //transform.position += transform.right * speed * Time.fixedDeltaTime;    // X축 방향으로 투사체를 발사
-        transform.position = Vector2.MoveTowards(transform.position, targetCollider2D.transform.position, speed * Time.deltaTime);
-
         // 투사체가 발사된 후 타겟이 비활성화 되었을 때
-        if (transform.position == targetCollider2D.transform.position ||
+        if (targetCollider2D == null ||
+            transform.position == targetCollider2D.transform.position ||
             targetCollider2D.enabled == false)
         {
             SetBulletActive(false);
         }
+
+        //transform.position += transform.right * speed * Time.fixedDeltaTime;    // X축 방향으로 투사체를 발사
+        transform.position = Vector2.MoveTowards(transform.position, targetCollider2D.transform.position, speed * Time.deltaTime);
+
 
         if (!isRotate)
         {

@@ -100,15 +100,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     #endregion
 
     protected LayerMask opponentLayerMask;  // 공격할 대상
+    protected UnitMove unitMove;
     protected Collider2D enemyCollider2D;
     protected Rigidbody2D myRigid2D;
-    protected AStar aStar;
     protected double lastAttackTime;
-    /// <summary>
-    /// ////////////////////////////////////////////////////////
-    ///  protected bool isPlayer1;
-    /// </summary>
-    public bool isPlayer1;
+    protected bool isPlayer1;
 
     int moveIndex = 1;
     bool isRotate;
@@ -116,25 +112,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     protected virtual void Awake()
     {
         myRigid2D = GetComponent<Rigidbody2D>();
-        aStar = GetComponent<AStar>();
-        ////////////////////////////////
-        //  isPlayer1 = (photonView.ViewID / 1000) == 1 ? true : false;
+        unitMove = GetComponent<UnitMove>();
 
-        //if (photonView.IsMine)
-        //{
-        //    gameObject.layer = (int)EPlayer.Ally;
-        //    opponentLayerMask = 1 << (int)EPlayer.Enemy;
-        //}
-        //else
-        //{
-        //    gameObject.layer = (int)EPlayer.Enemy;
-        //    opponentLayerMask = 1 << (int)EPlayer.Ally;
-        //}
-        /////////////////////////////////////////////////
-        ///
+        isPlayer1 = (photonView.ViewID / 1000) == 1 ? true : false;
 
-       
-        if (isPlayer1)
+        if (photonView.IsMine)
         {
             gameObject.layer = (int)EPlayer.Ally;
             opponentLayerMask = 1 << (int)EPlayer.Enemy;
@@ -174,10 +156,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         attackSpeed = deltaStatus.attackSpeed;
         moveSpeed = deltaStatus.moveSpeed;
         #endregion
-        //unitState = EUnitState.Idle;
-        /////////////////////////////////////////////
+
         unitState = EUnitState.Move;
-        /////////////////////////////////////////////////
     }
 
     // Return to your pool
@@ -222,55 +202,17 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             StartCoroutine(RotateAnimation());
         }
 
-        if(transform.position.x == aStar.targetPos.x &&
-           transform.position.y == aStar.targetPos.y)
-        {
-            SetStartAStar(null);
-        }
-
         enemyCollider2D = Physics2D.OverlapCircle(transform.position, detectRange, opponentLayerMask);
         if (enemyCollider2D == null)
         {
-            if (aStar.finalNodeList.Count == 0)
-            {
-                SetStartAStar(null);
-                return;
-            }
-
-            #region A* Move
-            Vector2Int nextPos = new Vector2Int(aStar.finalNodeList[moveIndex].x, aStar.finalNodeList[moveIndex].y);
-
-            if (isPlayer1)
-            {
-                if (aStar.finalNodeList[moveIndex].x <= transform.position.x &&
-                    aStar.finalNodeList[moveIndex].y <= transform.position.y)
-                {
-                    if (moveIndex <= aStar.finalNodeList.Count - 1)
-                    {
-                        moveIndex++;
-                    }
-                }
-            }
-            else
-            {
-                if (transform.position.x <= aStar.finalNodeList[moveIndex].x &&
-                    transform.position.y <= aStar.finalNodeList[moveIndex].y)
-                {
-                    if (moveIndex <= aStar.finalNodeList.Count - 1)
-                    {
-                        moveIndex++;
-                    }
-                }
-            }
-
-            transform.position = Vector2.MoveTowards(transform.position, nextPos, moveSpeed * Time.deltaTime);
-            #endregion
+            unitMove.agent.destination = unitMove.target.position;
         }
-        else
+        else 
         {
-            SetStartAStar(enemyCollider2D);
+            unitMove.agent.destination = enemyCollider2D.transform.position;
             unitState = EUnitState.Approach;
         }
+        
     }
 
     void Approach() // 적에게 접근
@@ -278,7 +220,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         enemyCollider2D = Physics2D.OverlapCircle(transform.position, detectRange, opponentLayerMask);
         if (enemyCollider2D == null)
         {
-            SetStartAStar(null);
             unitState = EUnitState.Move;
             return;
         }
@@ -288,41 +229,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             {
                 StartCoroutine(RotateAnimation(enemyCollider2D));
             }
-
-            if (aStar.finalNodeList.Count == 0)
-            {
-                SetStartAStar(enemyCollider2D);
-                return;
-            }
-
-            #region A* Move
-            Vector2Int nextPos = new Vector2Int(aStar.finalNodeList[moveIndex].x, aStar.finalNodeList[moveIndex].y);
-
-            if (isPlayer1)
-            {
-                if (aStar.finalNodeList[moveIndex].x <= transform.position.x &&
-                    aStar.finalNodeList[moveIndex].y <= transform.position.y)
-                {
-                    if (moveIndex <= aStar.finalNodeList.Count - 1)
-                    {
-                        moveIndex++;
-                    }
-                }
-            }
-            else
-            {
-                if (transform.position.x <= aStar.finalNodeList[moveIndex].x &&
-                    transform.position.y <= aStar.finalNodeList[moveIndex].y)
-                {
-                    if (moveIndex <= aStar.finalNodeList.Count - 1)
-                    {
-                        moveIndex++;
-                    }
-                }
-            }
-
-            transform.position = Vector2.MoveTowards(transform.position, nextPos, moveSpeed * Time.deltaTime);
-            #endregion
 
             enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
             if (enemyCollider2D != null)
@@ -422,11 +328,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
         if (isPlayer1)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.identity, 1f);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(90f, 0f, 0f), 1f);
         }
         else
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0f, 0f, 180f), 1f);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(90f, 180f, 0f), 1f);
         }
 
         isRotate = false;
@@ -440,7 +346,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
         Vector3 direct = enemy.transform.position - transform.position;     // 방향을 구함
         float angle = Mathf.Atan2(direct.y, direct.x) * Mathf.Rad2Deg;      // 두 객체 간의 각을 구함
-        Quaternion target = Quaternion.AngleAxis(angle, Vector3.forward);   // 최종적으로 회전해야 하는 회전값
+        Quaternion target = Quaternion.AngleAxis(angle, Vector3.up);   // 최종적으로 회전해야 하는 회전값
 
         while (!Mathf.Approximately(transform.rotation.z, target.z))
         {
@@ -466,81 +372,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         #endregion
     }
 
-    public void SetStartAStar(Collider2D target)
-    {
-        if (target == null)
-        {
-            if (isPlayer1)
-            {
-                aStar.bottomLeft.x = Mathf.CeilToInt(transform.position.x - detectRange);
-                aStar.bottomLeft.y = Mathf.CeilToInt(transform.position.y - detectRange);
-
-                aStar.topRight.x = Mathf.CeilToInt(transform.position.x + detectRange);
-                aStar.topRight.y = Mathf.CeilToInt(transform.position.y + detectRange);
-
-                aStar.startPos.x = Mathf.CeilToInt(transform.position.x);
-                aStar.startPos.y = Mathf.CeilToInt(transform.position.y);
-
-                // targetPos 설정
-                aStar.targetPos.x = Mathf.FloorToInt(transform.position.x + detectRange);
-                aStar.targetPos.y = Mathf.FloorToInt(transform.position.y);
-            }
-            else
-            {
-                aStar.bottomLeft.x = Mathf.FloorToInt(transform.position.x - detectRange);
-                aStar.bottomLeft.y = Mathf.FloorToInt(transform.position.y - detectRange);
-
-                aStar.topRight.x = Mathf.FloorToInt(transform.position.x + detectRange);
-                aStar.topRight.y = Mathf.FloorToInt(transform.position.y + detectRange);
-
-                aStar.startPos.x = Mathf.FloorToInt(transform.position.x);
-                aStar.startPos.y = Mathf.FloorToInt(transform.position.y);
-
-                // targetPos 설정
-                aStar.targetPos.x = Mathf.FloorToInt(transform.position.x - detectRange);
-                aStar.targetPos.y = Mathf.FloorToInt(transform.position.y);
-            }
-            // aStar.targetPos = aStar.endPos;
-
-
-        }
-        else
-        {
-            if (isPlayer1)
-            {
-                aStar.bottomLeft.x = Mathf.CeilToInt(transform.position.x - detectRange);
-                aStar.bottomLeft.y = Mathf.CeilToInt(transform.position.y - detectRange);
-
-                aStar.topRight.x = Mathf.CeilToInt(transform.position.x + detectRange);
-                aStar.topRight.y = Mathf.CeilToInt(transform.position.y + detectRange);
-
-                aStar.startPos.x = Mathf.CeilToInt(transform.position.x);
-                aStar.startPos.y = Mathf.CeilToInt(transform.position.y);
-
-                aStar.targetPos.x = Mathf.CeilToInt(target.transform.position.x);
-                aStar.targetPos.y = Mathf.CeilToInt(target.transform.position.y);
-            }
-            else
-            {
-                aStar.bottomLeft.x = Mathf.FloorToInt(transform.position.x - detectRange);
-                aStar.bottomLeft.y = Mathf.FloorToInt(transform.position.y - detectRange);
-
-                aStar.topRight.x = Mathf.FloorToInt(transform.position.x + detectRange);
-                aStar.topRight.y = Mathf.FloorToInt(transform.position.y + detectRange);
-
-                aStar.startPos.x = Mathf.FloorToInt(transform.position.x);
-                aStar.startPos.y = Mathf.FloorToInt(transform.position.y);
-
-                aStar.targetPos.x = Mathf.FloorToInt(target.transform.position.x);
-                aStar.targetPos.y = Mathf.FloorToInt(target.transform.position.y);
-            }
-        }
-
-        moveIndex = 1;
-
-        aStar.PathFinding();
-    }
-
     public void SetFreezeNone()
     {
         myRigid2D.constraints = RigidbodyConstraints2D.None;
@@ -561,22 +392,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
         Debug.Log("Set Move State");
         unitState = EUnitState.Move;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ally"))
-        {
-            print("아군과 충돌하여 새로운 경로 탐색");
-            if(enemyCollider2D == null)
-            {
-                SetStartAStar(null);
-            }
-            else
-            {
-                SetStartAStar(enemyCollider2D);
-            }
-        }
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

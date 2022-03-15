@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 
 
-public class Shilder : Unit
+public class Shielder : Unit
 {
     public Animator animator;
     public GameObject shild;
@@ -68,7 +68,6 @@ public class Shilder : Unit
         enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
         if (enemyCollider2D == null)
         {
-            SetStartAStar(null);
             unitState = EUnitState.Move;
             return;
         }

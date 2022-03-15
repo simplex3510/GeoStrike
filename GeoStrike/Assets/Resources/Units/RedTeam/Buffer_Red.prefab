@@ -122,7 +122,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8835580005163108078}
   - component: {fileID: 8835580005163108077}
-  - component: {fileID: -721685401729514353}
   - component: {fileID: -5487952765609733228}
   - component: {fileID: 8020710291790958506}
   - component: {fileID: 8344325425926403117}
@@ -204,26 +203,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-721685401729514353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8835580005163108067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b80e911c2a170914f95647d6b4ad62b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bottomLeft: {x: 0, y: 0}
-  topRight: {x: 0, y: 0}
-  startPos: {x: 0, y: 0}
-  targetPos: {x: 0, y: 0}
-  endPos: {x: -33, y: 0}
-  finalNodeList: []
-  allowDiagonal: 1
-  dontCrossCorner: 1
 --- !u!114 &-5487952765609733228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,7 +222,6 @@ MonoBehaviour:
   row: 0
   column: 0
   unitIndex: 0
-  isPlayer1: 0
   animator: {fileID: 8835580005163108076}
   buff: {fileID: 1861839153013920146}
 --- !u!114 &8020710291790958506

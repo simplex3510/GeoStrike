@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1110568053594303445}
   - component: {fileID: 1110568053594303444}
-  - component: {fileID: 7059366323517899758}
   - component: {fileID: 5751252549581005398}
   - component: {fileID: 5440597514414868709}
   - component: {fileID: 1110568053594303440}
@@ -93,26 +92,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7059366323517899758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110568053594303446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b80e911c2a170914f95647d6b4ad62b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bottomLeft: {x: 0, y: 0}
-  topRight: {x: 0, y: 0}
-  startPos: {x: 0, y: 0}
-  targetPos: {x: 0, y: 0}
-  endPos: {x: -33, y: 0}
-  finalNodeList: []
-  allowDiagonal: 1
-  dontCrossCorner: 1
 --- !u!114 &5751252549581005398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +111,6 @@ MonoBehaviour:
   row: 0
   column: 0
   unitIndex: 3
-  isPlayer1: 0
   bulletSpawnPos:
   - {fileID: 2942227000734488926}
   - {fileID: 956237547952624303}
