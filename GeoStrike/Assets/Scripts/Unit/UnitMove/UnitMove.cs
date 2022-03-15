@@ -7,11 +7,12 @@ public class UnitMove : MonoBehaviour
 {
     public Transform target;
     public NavMeshAgent agent;
-
+    public Unit unit;
 
     // Start is called before the first frame update
     void Awake()
     {
+        unit = GetComponent<Unit>();
         agent = GetComponent<NavMeshAgent>();
         agent.destination = target.position;
     }
@@ -25,6 +26,10 @@ public class UnitMove : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Euler(90f, 0, 0);
-        agent.SetDestination(agent.destination);
+
+        if (unit.unitState != EUnitState.Idle)
+        {
+            agent.SetDestination(agent.destination);
+        }
     }
 }

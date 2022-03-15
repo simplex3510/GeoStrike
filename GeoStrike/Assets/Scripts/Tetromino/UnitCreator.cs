@@ -51,7 +51,8 @@ public class UnitCreator : MonoBehaviourPun
 
                             if (spawnPos == Vector3.zero)
                             {
-                                unit.transform.position = unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].worldPos + Vector3.back; // 내 유닛 타일에 배치                          
+                                unit.transform.position = unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].transform.position; // 내 유닛 타일에 배치                          
+
                                 unit.row = row;
                                 unit.column = column;
 
@@ -105,7 +106,7 @@ public class UnitCreator : MonoBehaviourPun
 
                             if (spawnPos == Vector3.zero)
                             {
-                                unit.transform.position = unitTileContainer.unitTileArr[ConnectMgr.GUEST_PLAYER, row, column].worldPos + Vector3.back; // 내 유닛 타일에 배치
+                                unit.transform.position = unitTileContainer.unitTileArr[ConnectMgr.GUEST_PLAYER, row, column].transform.position; // 내 유닛 타일에 배치
 
 
                                 unit.row = row;
