@@ -65,15 +65,15 @@ public class Shielder : Unit
 
     public override void Attack()   // 적에게 공격
     {
-        enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
-        if (enemyCollider2D == null)
+        enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask);
+        if (enemyColliders == null)
         {
             unitState = EUnitState.Move;
             return;
         }
         else
         {
-            enemyCollider2D.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
+            enemyColliders[0].GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
         }
     }
 }

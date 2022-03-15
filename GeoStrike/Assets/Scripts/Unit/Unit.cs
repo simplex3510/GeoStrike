@@ -29,32 +29,38 @@ public enum EUnitIndex
     Debuffer
 }
 
+public enum EBuffandDebuff
+{
+    Damage,
+    // 추가
+}
+
 public struct RowAndColumn
 {
     public int row;
     public int column;
 }
 
-public interface IDamageable
+interface IDamageable
 {
     public void OnDamaged(float _damage);
 }
 
-public interface IActivatable
+interface IActivatable
 {
     public void SetUnitActive(bool _bool);
 }
 
 interface IBuffable
 {
-    public void OnBuff(float _buff);
-    public void OffBuff(float _buff);
+    public void OnBuff(EBuffandDebuff _buffType, float _buff);
+    public void OffBuff(EBuffandDebuff _DebuffType, float _buff);
 }
 
 interface IDebuffable
 {
-    public void OnDebuff(float _debuff);
-    public void OffDebuff(float _debuff);
+    public void OnDebuff(EBuffandDebuff _DebuffType, float _debuff);
+    public void OffDebuff(EBuffandDebuff _DebuffType, float _debuff);
 }
 
 public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffable, IDebuffable, IPunObservable
@@ -101,17 +107,18 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
     protected LayerMask opponentLayerMask;  // 공격할 대상
     protected UnitMove unitMove;
-    protected Collider2D enemyCollider2D;
-    protected Rigidbody2D myRigid2D;
+    protected Collider[] enemyColliders;    // 현재 범위에 들어온 모든 enemy
+    protected Rigidbody myRigid;
     protected double lastAttackTime;
     protected bool isPlayer1;
 
-    int moveIndex = 1;
+    bool hasBuff;
+    bool hasDebuff;
     bool isRotate;
 
     protected virtual void Awake()
     {
-        myRigid2D = GetComponent<Rigidbody2D>();
+        myRigid = GetComponent<Rigidbody>();
         unitMove = GetComponent<UnitMove>();
 
         isPlayer1 = (photonView.ViewID / 1000) == 1 ? true : false;
@@ -194,7 +201,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
                 break;
         }
     }
-
+    #region FSM
     void Move() // 앞으로 전진
     {
         if (!isRotate)
@@ -202,14 +209,14 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             StartCoroutine(RotateAnimation());
         }
 
-        enemyCollider2D = Physics2D.OverlapCircle(transform.position, detectRange, opponentLayerMask);
-        if (enemyCollider2D == null)
+        enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, detectRange, opponentLayerMask);
+        if (enemyColliders.Length == 0)
         {
             unitMove.agent.destination = unitMove.target.position;
         }
         else 
         {
-            unitMove.agent.destination = enemyCollider2D.transform.position;
+            unitMove.agent.destination = enemyColliders[0].transform.position;
             unitState = EUnitState.Approach;
         }
         
@@ -217,8 +224,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
     void Approach() // 적에게 접근
     {
-        enemyCollider2D = Physics2D.OverlapCircle(transform.position, detectRange, opponentLayerMask);
-        if (enemyCollider2D == null)
+        enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, detectRange, opponentLayerMask);
+        if (enemyColliders.Length == 0)
         {
             unitState = EUnitState.Move;
             return;
@@ -227,11 +234,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         {
             if (!isRotate)
             {
-                StartCoroutine(RotateAnimation(enemyCollider2D));
+                StartCoroutine(RotateAnimation(enemyColliders[0]));
             }
 
-            enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
-            if (enemyCollider2D != null)
+            enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask);
+            if (enemyColliders.Length != 0)
             {
                 unitState = EUnitState.Attack;
                 return;
@@ -244,9 +251,10 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     void Die()    // 유닛 사망
     {
         isDead = true;
-        gameObject.GetComponent<Collider2D>().enabled = false;
+        gameObject.GetComponent<Collider>().enabled = false;
         StartCoroutine(DieAnimation(gameObject));
     }
+    #endregion 
 
     [PunRPC]
     public void OnDamaged(float _damage)
@@ -271,31 +279,40 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     }
 
     #region buff & debuff
-    public void OnBuff(float _buff)
+    public void OnBuff(EBuffandDebuff buffType, float _buff)
     {
-        damage += _buff;
-        if(photonView.IsMine)
+        switch(buffType)
         {
-            photonView.RPC("OnBuff", RpcTarget.Others, _buff);
-        }
-
-    }
-
-    public void OffBuff(float _buff)
-    {
-        damage -= _buff;
-        if (photonView.IsMine)
-        {
-            photonView.RPC("OffBuff", RpcTarget.Others, _buff);
+            case EBuffandDebuff.Damage:
+                if (!hasBuff) { hasBuff = true; return; }
+                damage += _buff;
+                if (photonView.IsMine) { photonView.RPC("OnBuff", RpcTarget.Others, _buff); }
+                break;
         }
     }
 
-    public void OnDebuff(float _debuff)
+    public void OffBuff(EBuffandDebuff buffType, float _buff)
     {
-
+        switch (buffType)
+        {
+            case EBuffandDebuff.Damage:
+                hasBuff = false;
+                damage -= _buff;
+                if (photonView.IsMine) { photonView.RPC("OnBuff", RpcTarget.Others, _buff); }
+                break;
+        }
     }
 
-    public void OffDebuff(float _debuff)
+    public void OnDebuff(EBuffandDebuff buffType, float _debuff)
+    {
+        switch(buffType)
+        {
+            case EBuffandDebuff.Damage:
+                break;
+        }
+    }
+
+    public void OffDebuff(EBuffandDebuff buffType, float _debuff)
     {
 
     }
@@ -317,7 +334,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         }
 
         _gameObject.SetActive(false);
-        gameObject.GetComponent<Collider2D>().enabled = true;
+        gameObject.GetComponent<Collider>().enabled = true;
         spriteRenderer.color = Color.white;
     }
 
@@ -340,7 +357,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     }
 
     // enemy를 바라보는 애니메이션
-    IEnumerator RotateAnimation(Collider2D enemy)
+    IEnumerator RotateAnimation(Collider enemy)
     {
         isRotate = true;
 
@@ -374,12 +391,12 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
     public void SetFreezeNone()
     {
-        myRigid2D.constraints = RigidbodyConstraints2D.None;
+        myRigid.constraints = RigidbodyConstraints.None;
     }
 
     public void SetFreezeAll()
     {
-        myRigid2D.constraints = RigidbodyConstraints2D.FreezeAll;
+        myRigid.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     // Idle에서 Move가 되는 조건

@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviourPun
     // Bullet Pool
     public Queue<Bullet> myPool;
 
-    public Collider2D targetCollider2D;
+    public Collider targetCollider;
     public float damage;
 
     float speed = 5f;   // 투사체 속도
@@ -31,20 +31,20 @@ public class Bullet : MonoBehaviourPun
         }
 
         // 투사체가 발사된 후 타겟이 비활성화 되었을 때
-        if (targetCollider2D == null ||
-            transform.position == targetCollider2D.transform.position ||
-            targetCollider2D.enabled == false)
+        if (targetCollider == null ||
+            transform.position == targetCollider.transform.position ||
+            targetCollider.enabled == false)
         {
             SetBulletActive(false);
         }
 
         //transform.position += transform.right * speed * Time.fixedDeltaTime;    // X축 방향으로 투사체를 발사
-        transform.position = Vector2.MoveTowards(transform.position, targetCollider2D.transform.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, targetCollider.transform.position, speed * Time.deltaTime);
 
 
         if (!isRotate)
         {
-            StartCoroutine(RotateAnimation(targetCollider2D));
+            StartCoroutine(RotateAnimation(targetCollider));
         }
     }
 
@@ -58,7 +58,7 @@ public class Bullet : MonoBehaviourPun
         }
     }
 
-    IEnumerator RotateAnimation(Collider2D enemy)
+    IEnumerator RotateAnimation(Collider enemy)
     {
         isRotate = true;
 

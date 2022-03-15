@@ -55,8 +55,8 @@ public class Shooter : Unit
 
     public override void Attack()
     {
-        enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
-        if (enemyCollider2D != null && lastAttackTime + attackSpeed <= PhotonNetwork.Time)
+        enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask);
+        if (enemyColliders != null && lastAttackTime + attackSpeed <= PhotonNetwork.Time)
         {
             lastAttackTime = PhotonNetwork.Time;
 
@@ -64,12 +64,12 @@ public class Shooter : Unit
             bullet.transform.position = bulletSpawnPos[bulletPosIdx].position;  // 투사체의 위치값 설정
             bullet.transform.rotation = this.transform.rotation;                // 투사체의 회전값 설정
             bullet.damage = this.damage;                                        // 투사체 대미지 설정
-            bullet.targetCollider2D = enemyCollider2D;                          // 투사체의 목표를 설정
+            bullet.targetCollider = enemyColliders[0];                          // 투사체의 목표를 설정
             bullet.SetBulletActive(true);                                       // 투사체 활성화
 
             bulletPosIdx = bulletPosIdx > 0 ? 0 : 1;
         }
-        else if (enemyCollider2D == null)
+        else if (enemyColliders == null)
         {
             unitState = EUnitState.Move;
             return;

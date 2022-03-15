@@ -5,14 +5,13 @@ using Photon.Pun;
 
 public class Debuffer : Unit
 {
-    //public Transform[] bulletSpawnPos = new Transform[2];
-    //public BulletPool bulletPool;
-    //public Bullet bullet;
+    Collider[] enemyColliders;
+
+    float debuffDamage = 2f;
 
     protected override void Awake()
     {
         base.Awake();
-        // bulletPool = GetComponent<BulletPool>();
     }
 
     protected override void OnEnable()
@@ -52,23 +51,18 @@ public class Debuffer : Unit
 
     public override void Attack()
     {
-        enemyCollider2D = Physics2D.OverlapCircle(transform.position, attackRange, opponentLayerMask);
-        if (enemyCollider2D != null && lastAttackTime + attackSpeed <= PhotonNetwork.Time)
+        enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask);
+        if (enemyColliders != null && lastAttackTime + attackSpeed <= PhotonNetwork.Time)
         {
             lastAttackTime = PhotonNetwork.Time;
 
-            enemyCollider2D.GetComponent<Unit>().OnDebuff(this.damage);
-
-            //bullet = bulletPool.GetBullet();                                    // 투사체 생성
-            //bullet.transform.position = bulletSpawnPos[bulletPosIdx].position;  // 투사체의 위치값 설정
-            //bullet.transform.rotation = this.transform.rotation;                // 투사체의 회전값 설정
-            //bullet.damage = this.damage;                                        // 투사체 대미지 설정
-            //bullet.targetCollider2D = enemyCollider2D;                          // 투사체의 목표를 설정
-            //bullet.SetBulletActive(true);                                       // 투사체 활성화
-
-            //bulletPosIdx = bulletPosIdx > 0 ? 0 : 1;
+            for (int i = 0; i < 4; i++)
+            {
+                enemyColliders[i].GetComponent<Unit>().OnDamaged(damage);
+                enemyColliders[i].GetComponent<Unit>().OnDebuff(EBuffandDebuff.Damage, debuffDamage);
+            }
         }
-        else if (enemyCollider2D == null)
+        else if (enemyColliders[0] == null)
         {
             unitState = EUnitState.Move;
             return;

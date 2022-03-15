@@ -3,18 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public enum EBuff
-{
-    Damage,
-    // 추가
-}
-
 public class Buffer : Unit
 {
     public Animator animator;
     public GameObject buff;
 
-    EBuff currentBuff;
+    EBuffandDebuff currentBuff;
     float buffRange;
 
     // Buff Status Delta
@@ -66,13 +60,8 @@ public class Buffer : Unit
         }
     }
 
-    public override void Attack()   // 적에게 공격
+    public override void Attack()   // 적에게 공격(없음)
     {
         return;
-    }
-
-    protected void Buff(EBuff currentBuff)
-    {
-        
     }
 }
