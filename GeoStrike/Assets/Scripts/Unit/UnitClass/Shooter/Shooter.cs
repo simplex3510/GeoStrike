@@ -69,7 +69,7 @@ public class Shooter : Unit
 
             bulletPosIdx = bulletPosIdx > 0 ? 0 : 1;
         }
-        else if (enemyColliders == null)
+        else if (enemyColliders.Length == 0)
         {
             unitMove.agent.isStopped = false;
             unitState = EUnitState.Move;

@@ -164,7 +164,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         moveSpeed = deltaStatus.moveSpeed;
         #endregion
 
-        unitState = EUnitState.Idle;
+        unitState = EUnitState.Move;
     }
 
     // Return to your pool
@@ -195,6 +195,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
                 break;
             case EUnitState.Attack:
                 //각 Unit Class 마다 Attck 구현
+                myRigid.velocity = Vector3.zero;
                 unitMove.agent.velocity = Vector3.zero;
                 unitMove.agent.isStopped = true;
                 break;
@@ -222,7 +223,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             unitMove.agent.destination = enemyColliders[0].transform.position;
             unitState = EUnitState.Approach;
         }
-        
     }
 
     void Approach() // 적에게 접근

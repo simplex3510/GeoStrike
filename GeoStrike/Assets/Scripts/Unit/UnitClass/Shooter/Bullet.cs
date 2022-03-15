@@ -38,8 +38,7 @@ public class Bullet : MonoBehaviourPun
             SetBulletActive(false);
         }
 
-        //transform.position += transform.right * speed * Time.fixedDeltaTime;    // X축 방향으로 투사체를 발사
-        transform.position = Vector2.MoveTowards(transform.position, targetCollider.transform.position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetCollider.transform.position, speed * Time.deltaTime);
 
 
         if (!isRotate)

@@ -6,10 +6,10 @@ using UnityEngine.AI;
 public class UnitMove : MonoBehaviour
 {
     public Transform target;
-    public NavMeshAgent agent;
-    public Unit unit;
+    public NavMeshAgent agent { get; private set; }
 
-    // Start is called before the first frame update
+    Unit unit;
+
     void Awake()
     {
         unit = GetComponent<Unit>();
@@ -17,16 +17,9 @@ public class UnitMove : MonoBehaviour
         agent.destination = target.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(agent.destination == null)
-        {
-            agent.destination = target.position;
-        }
-
-        transform.rotation = Quaternion.Euler(90f, 0, 0);
-
+        transform.rotation = Quaternion.Euler(90f, 0f, 0f);
         if (unit.unitState != EUnitState.Idle)
         {
             agent.SetDestination(agent.destination);
