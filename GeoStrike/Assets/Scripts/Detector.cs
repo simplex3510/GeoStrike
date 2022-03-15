@@ -27,7 +27,7 @@ public class Detector : MonoBehaviour
     [HideInInspector] public Vector3 angle;
 
     // 정보창 & 유닛 배치모드
-    private GameObject clickedObject;      // 클릭한 Object 저장
+    [HideInInspector] public GameObject clickedObject;      // 클릭한 Object 저장
     private Unit clickedUnit;              // 배치모드에서 사용할 클릭한 Unit 저장
 
     private void Awake()
@@ -118,7 +118,19 @@ public class Detector : MonoBehaviour
             statusPanel.clickedObjectArr[1].gameObject.SetActive(true);
 
             keySlotPanel.SetActiveFalseAll();
-            keySlotPanel.keySlotArr[1].gameObject.SetActive(true);
+
+            // 버퍼와 디버퍼 기술 선택창
+            if (clickedObject.GetComponent<Unit>().initStatus.unitIndex == EUnitIndex.Buffer)
+            {
+                Debug.Log("Buffer`s Enhance");
+                keySlotPanel.keySlotArr[1].gameObject.SetActive(true);
+            }
+            else if (clickedObject.GetComponent<Unit>().initStatus.unitIndex == EUnitIndex.Debuffer)
+            {
+                Debug.Log("Debuffer`s Enhance");
+                keySlotPanel.keySlotArr[1].gameObject.SetActive(true);
+            }
+            
         }
         else if (clickedObject.CompareTag("Tower"))
         {
