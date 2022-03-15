@@ -10,6 +10,7 @@ public class KeySlotPanel : MonoBehaviour
     private void Awake()
     {
         keySlotArr = GetComponentsInChildren<KeySlotInfo>();
+        SetActiveFalseAll();
     }
 
     public void SetActiveFalseAll()

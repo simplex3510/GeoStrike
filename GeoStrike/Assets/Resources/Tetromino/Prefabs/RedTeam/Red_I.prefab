@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shapeIdx: 0
+  unitIdx: 0
   shapeName: 
   cost: 5
   quaternion: {x: 0, y: 0, z: 0, w: 0}
@@ -159,7 +160,7 @@ MonoBehaviour:
   unitTileContainer: {fileID: 0}
   translocateField: {fileID: 0}
   spawnPos: {x: 0, y: 0, z: 0}
-  unitP1: {fileID: -3071955827369384402, guid: 910d87c2ef1aec34ca7d63391e187e9c, type: 3}
+  unitP1: {fileID: -3071955827369384402, guid: 930bbcded9b16564caefe5bce0298313, type: 3}
   unitP2: {fileID: 1234357198173039138, guid: c4dee110a30cd0647b89371b35e54475, type: 3}
 --- !u!61 &-119556013082309852
 BoxCollider2D:

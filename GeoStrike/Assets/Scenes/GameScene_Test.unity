@@ -19506,9 +19506,9 @@ GameObject:
   - component: {fileID: 366190034}
   - component: {fileID: 366190038}
   - component: {fileID: 366190037}
+  - component: {fileID: 366190040}
   - component: {fileID: 366190039}
   - component: {fileID: 366190041}
-  - component: {fileID: 366190040}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -19575,7 +19575,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 366190033}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -32.5, y: 1, z: -16}
+  m_LocalPosition: {x: -28.64, y: 1, z: -16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1643485642}
@@ -19615,8 +19615,8 @@ MonoBehaviour:
   zoomSpeed: 1
   zoomIn: 5
   zoomOut: 15
-  p1Pos: {x: -31.7, y: -24, z: -10}
-  p2Pos: {x: 31.7, y: -24, z: -10}
+  p1Pos: {x: 0, y: 0, z: 0}
+  p2Pos: {x: 0, y: 0, z: 0}
 --- !u!50 &366190039
 Rigidbody2D:
   serializedVersion: 4
@@ -38438,10 +38438,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0198fc8257c81f498aa867687845df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickedObjectArr:
-  - {fileID: 1734296114}
-  - {fileID: 891205138}
-  - {fileID: 841321393}
+  statusInfoArr:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!222 &1421507256
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -49258,9 +49258,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d10c8b69afa813b46b6577162b0ecbd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotList:
-  - {fileID: 1389848053}
-  - {fileID: 912067513}
+  slotArr:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &2048436897 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8501093279707025521, guid: e2f3328778f20f64cab265ada0b8fd16, type: 3}
@@ -53175,6 +53175,7 @@ MonoBehaviour:
   tetrominoObj: {fileID: 0}
   tetromino: {fileID: 0}
   angle: {x: 0, y: 0, z: 0}
+  clickedObject: {fileID: 0}
 --- !u!4 &8426533187915313211
 Transform:
   m_ObjectHideFlags: 0

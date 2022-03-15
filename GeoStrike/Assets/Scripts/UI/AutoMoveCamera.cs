@@ -16,11 +16,11 @@ public class AutoMoveCamera : MonoBehaviourPun
 
         if (GameMgr.isMaster)
         {
-            PhotonNetwork.Instantiate("BuildZone", mainCamera.p1Pos, Quaternion.identity);
+            PhotonNetwork.Instantiate("BuildZone", mainCamera.GetCameraStartPos("p1"), Quaternion.identity);
         }
         else
         {
-            PhotonNetwork.Instantiate("BuildZone", mainCamera.p2Pos, Quaternion.identity);
+            PhotonNetwork.Instantiate("BuildZone", mainCamera.GetCameraStartPos("p2"), Quaternion.identity);
         }
     }
 
@@ -46,11 +46,11 @@ public class AutoMoveCamera : MonoBehaviourPun
         {
             if (GameMgr.isMaster)
             {
-                mainCamera.transform.position = mainCamera.p1Pos;
+                mainCamera.transform.position = mainCamera.GetCameraStartPos("p1");
             }
             else
             {
-                mainCamera.transform.position = mainCamera.p2Pos;
+                mainCamera.transform.position = mainCamera.GetCameraStartPos("p2");
             }
         }
     }

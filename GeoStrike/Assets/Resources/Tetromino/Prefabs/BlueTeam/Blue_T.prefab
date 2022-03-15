@@ -157,11 +157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e47b21eb35cbf14ab57ffd257f798c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitTileContainer: {fileID: 0}
-  translocateField: {fileID: 0}
   spawnPos: {x: 0, y: 0, z: 0}
-  unitP1: {fileID: 7775492941214096410, guid: c3c4606a00e6ebd4888b064dd1bab774, type: 3}
-  unitP2: {fileID: 4429122311321390504, guid: c215ac6f9023c0744b1091a281d2fe42, type: 3}
+  unitP1: {fileID: -4504352326755751712, guid: c3c4606a00e6ebd4888b064dd1bab774, type: 3}
+  unitP2: {fileID: 5327907639951520919, guid: c215ac6f9023c0744b1091a281d2fe42, type: 3}
 --- !u!61 &-6999531429787690816
 BoxCollider2D:
   m_ObjectHideFlags: 0

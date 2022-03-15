@@ -25,15 +25,15 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float zoomOut = 0f;
 
     // Start Pos
-    [HideInInspector] public Vector3 p1Pos = new Vector3(-32.5f, 1f, -16f);
-    [HideInInspector] public Vector3 p2Pos = new Vector3( 32.5f, 1f, -16f);
+    private Vector3 p1Pos = new Vector3(-32.5f, 1f, -16f);
+    private Vector3 p2Pos = new Vector3( 32.5f, 1f, -16f);
 
     // Auto Move BuildZone
     public bool onZone { get; set; }
 
     private void Awake()
     {
-        if (mainCamera      == null)    { mainCamera      = GetComponent<Camera>(); }
+        if (mainCamera == null)    { mainCamera = GetComponent<Camera>(); }
         if (mouseController == null)    { mouseController = GetComponent<MouseController>(); }
         if (autoMoveCamera  == null)    { autoMoveCamera  = GetComponent<AutoMoveCamera>(); }
 
@@ -85,8 +85,8 @@ public class CameraController : MonoBehaviour
         }
 
         velocity = transform.position + new Vector3(h, 0, v);
-        //velocity.x = Mathf.Clamp(velocity.x, -36, 36);
-        //velocity.y = Mathf.Clamp(velocity.y, -30, 7);
+        velocity.x = Mathf.Clamp(velocity.x, -36, 36);
+        velocity.z = Mathf.Clamp(velocity.z, -20, 7);
         
         transform.position = Vector3.Lerp(transform.position, velocity, cameraSpeed);
     }
@@ -106,5 +106,21 @@ public class CameraController : MonoBehaviour
         }
     }
 
-     
+    
+    public Vector3 GetCameraStartPos(string _pNum)
+    {
+        if (_pNum == "p1")
+        {
+            return p1Pos;
+        }
+        else if (_pNum == "p2")
+        {
+            return p2Pos;
+        }
+        else
+        {
+            return Vector3.zero;
+        }
+
+    }
 }

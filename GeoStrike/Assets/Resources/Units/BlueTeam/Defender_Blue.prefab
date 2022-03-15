@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: -7345891549214390338}
   - component: {fileID: 6474237222304657761}
   m_Layer: 0
-  m_Name: Shielder_Blue
+  m_Name: Defender_Blue
   m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

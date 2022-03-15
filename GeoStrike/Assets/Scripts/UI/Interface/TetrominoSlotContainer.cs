@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class TetrominoSlotContainer : MonoBehaviour
 {
-    public List<TetrominoSlot> slotList = new List<TetrominoSlot>();
+    public TetrominoSlot[] slotArr = new TetrominoSlot[2];
+
+    private void Awake()
+    {
+        slotArr = GetComponentsInChildren<TetrominoSlot>();
+    }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F1))
         {
-            for (int idx = 0; idx < slotList.Count; idx++)
+            for (int idx = 0; idx < slotArr.Length; idx++)
             {
-                slotList[idx].tetrominoMaker.RandomTetromino();
+                slotArr[idx].tetrominoMaker.RandomTetromino();
             }
         }
     }

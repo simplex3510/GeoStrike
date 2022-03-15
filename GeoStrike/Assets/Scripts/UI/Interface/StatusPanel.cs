@@ -5,16 +5,18 @@ using UnityEngine;
 public class StatusPanel : MonoBehaviour
 {
     // 0 : Tetromino, 1 : Unit, 2: Tower
-    public StatusInfo[] clickedObjectArr = new StatusInfo[3];
+    public StatusInfo[] statusInfoArr = new StatusInfo[3];
 
     private void Awake()
     {
-        clickedObjectArr = GetComponentsInChildren<StatusInfo>();
+        statusInfoArr = GetComponentsInChildren<StatusInfo>();
+
+        SetActiveFalseAll();
     }
 
     public void SetActiveFalseAll()
     {
-        foreach (StatusInfo info in clickedObjectArr)
+        foreach (StatusInfo info in statusInfoArr)
         {
             info.gameObject.SetActive(false);
         }

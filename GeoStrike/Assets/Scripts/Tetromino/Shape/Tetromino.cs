@@ -18,7 +18,7 @@ public enum EShapeIndex
 public enum EUnitIdx
 {
     Warrior = 0,
-    Shielder,
+    Defender,
     Shooter,
     Splasher,
     Buffer,

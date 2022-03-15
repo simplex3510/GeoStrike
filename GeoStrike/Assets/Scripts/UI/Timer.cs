@@ -24,12 +24,14 @@ public class Timer : MonoBehaviour, IPunObservable
     private TranslocateField translocateField;
     private GameState gameState;
     private Detector detector;
+    private KeySlotPanel keySlotPanel;
 
     private void Awake()
     {
         if (translocateField == null) { translocateField = FindObjectOfType<TranslocateField>(); }
         if (gameState == null) { gameState = GetComponent<GameState>(); }
         if (detector == null) { detector = GameObject.FindObjectOfType<Detector>(); }
+        if (keySlotPanel == null) { keySlotPanel = GameObject.FindObjectOfType<KeySlotPanel>(); }
 
         slider.maxValue = battleTime;
     }
@@ -56,9 +58,9 @@ public class Timer : MonoBehaviour, IPunObservable
         if (battleTimer >= battleTime) 
         {
             // (버퍼,디버퍼)유닛의 스킬 선택창 유지 방지
-            if (detector.clickedObject.CompareTag("Unit") && detector.clickedObject.GetComponent<Unit>().unitState == EUnitState.Idle)
+            if (detector.clickedObject != null && detector.clickedObject.CompareTag("Unit") && detector.clickedObject.GetComponent<Unit>().unitState == EUnitState.Idle)
             {
-                detector.clickedObject = null;
+                keySlotPanel.SetActiveFalseAll();
             }
 
             GameMgr.instance.SetState(EGameState.Battle);
@@ -102,7 +104,6 @@ public class Timer : MonoBehaviour, IPunObservable
             sec += lag;
 
             min = (int)stream.ReceiveNext();
-
         }
     }
 }

@@ -7,11 +7,11 @@ using Photon.Realtime;
 [DefaultExecutionOrder(202)]
 public class UnitCreator : MonoBehaviourPun
 {
-    [SerializeField] private UnitTileContainer unitTileContainer;
-    [SerializeField] private TranslocateField translocateField;
+    private UnitTileContainer unitTileContainer;
+    private TranslocateField translocateField;
 
     public Queue<RowAndColumn> rowAndColumnQueue = new Queue<RowAndColumn>();
-    public Vector3 spawnPos = Vector3.zero;
+    [HideInInspector] public Vector3 spawnPos = Vector3.zero;
 
     public Unit unitP1;
     public Unit unitP2;

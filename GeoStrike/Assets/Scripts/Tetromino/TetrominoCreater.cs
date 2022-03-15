@@ -66,7 +66,7 @@ public class TetrominoCreater : MonoBehaviourPun
     // 건물 생성 후 슬롯 리셋 시키기
     private void ResetTetrominoSlot()
     {
-        foreach(TetrominoSlot slot in slotContainer.slotList)
+        foreach(TetrominoSlot slot in slotContainer.slotArr)
         {
             slot.tetrominoMaker.RandomTetromino();
         }

@@ -62,12 +62,12 @@ public class Detector : MonoBehaviour
                 // 테트리스건물일 경우 띄워야 할 정보들
                 // 이미지, 이름, 건물 완성도
                 Tetromino tetromino = clickedObject.GetComponent<Tetromino>();
-                statusPanel.clickedObjectArr[0].TetrominoStatusInfo(tetromino.GetComponent<SpriteRenderer>(), tetromino.quaternion, tetromino.shapeName);
+                statusPanel.statusInfoArr[0].TetrominoStatusInfo(tetromino.GetComponent<SpriteRenderer>(), tetromino.quaternion, tetromino.shapeName);
             }
             else if (clickedObject.CompareTag("Unit"))
             {
                 Unit unit = clickedObject.GetComponent<Unit>();
-                statusPanel.clickedObjectArr[1].UnitStatusInfo(unit.GetComponent<SpriteRenderer>(), unit.unitName, unit.currentHealth, unit.damage, unit.defense);
+                statusPanel.statusInfoArr[1].UnitStatusInfo(unit.GetComponent<SpriteRenderer>(), unit.unitName, unit.currentHealth, unit.damage, unit.defense);
             }
             else if (clickedObject.CompareTag("Tower"))
             {
@@ -107,7 +107,7 @@ public class Detector : MonoBehaviour
         if (clickedObject.CompareTag("Tetromino"))
         {
             statusPanel.SetActiveFalseAll();
-            statusPanel.clickedObjectArr[0].gameObject.SetActive(true);
+            statusPanel.statusInfoArr[0].gameObject.SetActive(true);
 
             keySlotPanel.SetActiveFalseAll();
             keySlotPanel.keySlotArr[0].gameObject.SetActive(true);
@@ -115,7 +115,7 @@ public class Detector : MonoBehaviour
         else if (clickedObject.CompareTag("Unit"))
         {
             statusPanel.SetActiveFalseAll();
-            statusPanel.clickedObjectArr[1].gameObject.SetActive(true);
+            statusPanel.statusInfoArr[1].gameObject.SetActive(true);
 
             keySlotPanel.SetActiveFalseAll();
 
@@ -135,7 +135,7 @@ public class Detector : MonoBehaviour
         else if (clickedObject.CompareTag("Tower"))
         {
             statusPanel.SetActiveFalseAll();
-            statusPanel.clickedObjectArr[2].gameObject.SetActive(true);
+            statusPanel.statusInfoArr[2].gameObject.SetActive(true);
 
             keySlotPanel.SetActiveFalseAll();
         }

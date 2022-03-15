@@ -63,11 +63,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     public UnitData deltaStatus;
     public Queue<Unit> myPool;
 
-    // 배치상태의 위치 저장
-    public UnitTile unitTile;
-    public UnitCreator unitCreator;
+    // 배치상태의 위치 저장 Components
+    [HideInInspector] public UnitTile unitTile;
+    [HideInInspector] public UnitCreator unitCreator;
 
-    // 주석 추가 필요
+    // Unit의 Spawn 위치 기억 
     public RowAndColumn rowAndColumn
     {
         get
@@ -78,8 +78,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         }
     }
     private RowAndColumn RowAndColumn;
-    public int row;
-    public int column;
+    [HideInInspector] public int row;
+    [HideInInspector] public int column;
 
     // 유닛의 FSM의 상태
     public EUnitState unitState { get; protected set; }
@@ -390,7 +390,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             yield return null;
         }
 
-        Debug.Log("Set Move State");
         unitState = EUnitState.Move;
     }
 
