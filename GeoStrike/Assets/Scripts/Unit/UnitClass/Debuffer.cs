@@ -5,8 +5,6 @@ using Photon.Pun;
 
 public class Debuffer : Unit
 {
-    Collider[] enemyColliders;
-
     float debuffDamage = 2f;
 
     protected override void Awake()
