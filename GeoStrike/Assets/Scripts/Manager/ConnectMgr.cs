@@ -23,7 +23,7 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
     public Button button;
     public Text readyText;
 
-    readonly int MAX_PLAYER = 1;
+    readonly int MAX_PLAYER = 2;
     int readyPlayer = 0;
 
     void Start()
