@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -1437987558259770869}
   - component: {fileID: 391335623893995796}
   - component: {fileID: 8503105003174561509}
-  - component: {fileID: 8031474728095792097}
+  - component: {fileID: 1114181668086917815}
   m_Layer: 13
   m_Name: Red_O
   m_TagString: Tetromino
@@ -160,29 +160,16 @@ MonoBehaviour:
   spawnPos: {x: 0, y: 0, z: 0}
   unitP1: {fileID: 0}
   unitP2: {fileID: 0}
---- !u!61 &8031474728095792097
-BoxCollider2D:
+--- !u!65 &1114181668086917815
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3836356501882905108}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 5}
-    newSize: {x: 5, y: 5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 5}
-  m_EdgeRadius: 0
+  m_Size: {x: 1.7952514, y: 1.8213091, z: 0.20000005}
+  m_Center: {x: 0.4820149, y: 0.50807, z: 1.1468318e-16}

@@ -15,7 +15,6 @@ public class Detector : MonoBehaviour
     // 마우스 위치, 클릭
     private Ray ray;
     private RaycastHit hit;
-    private RaycastHit2D hit2D;
     [SerializeField] private LayerMask mask;
 
     [HideInInspector] public TetrominoTile tile;    // 마우스 위치의 타일 정보
@@ -27,7 +26,7 @@ public class Detector : MonoBehaviour
     [HideInInspector] public Vector3 angle;
 
     // 정보창 & 유닛 배치모드
-    [HideInInspector] public GameObject clickedObject;      // 클릭한 Object 저장
+     public GameObject clickedObject;      // 클릭한 Object 저장
     private Unit clickedUnit;              // 배치모드에서 사용할 클릭한 Unit 저장
 
     private void Awake()
@@ -81,12 +80,13 @@ public class Detector : MonoBehaviour
     {
         if (cameraController.mouseController.eMouseMode == MouseController.EMouseMode.normal && Input.GetMouseButtonDown(MouseController.CLICK_LEFT))
         {
-            Vector2 pos = cameraController.mainCamera.ScreenToWorldPoint(cameraController.mouseController.mousePos);
-            hit2D = Physics2D.Raycast(pos, Vector2.zero, 0f, mask);
-            if (hit2D.collider != null)
+            ray = cameraController.mainCamera.ScreenPointToRay(cameraController.mouseController.mousePos);
+            Physics.Raycast(ray, out hit, Mathf.Infinity, mask);
+
+            if (hit.collider != null)
             {
                 // 클릭한 Obj 정보 불러오기
-                clickedObject = hit2D.collider.gameObject;
+                clickedObject = hit.collider.gameObject;
 
                 // 클릭한 obj 따라 Status, KeySlot창 띄우기
                 WhichObjInterface();

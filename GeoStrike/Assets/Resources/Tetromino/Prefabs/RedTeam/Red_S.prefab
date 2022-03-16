@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 474114710512293802}
   - component: {fileID: 6085139240122281537}
   - component: {fileID: -6630867532638261768}
-  - component: {fileID: 357074724140541104}
+  - component: {fileID: 769126532709081840}
   m_Layer: 13
   m_Name: Red_S
   m_TagString: Tetromino
@@ -160,29 +160,16 @@ MonoBehaviour:
   spawnPos: {x: 0, y: 0, z: 0}
   unitP1: {fileID: -1789467782189597113, guid: 822a2a7982ce0da439b2ab581f2140e4, type: 3}
   unitP2: {fileID: -5487952765609733228, guid: c1b773219744696468870ed7ccbb6a19, type: 3}
---- !u!61 &357074724140541104
-BoxCollider2D:
+--- !u!65 &769126532709081840
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5399040593794595423}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 5}
-    newSize: {x: 5, y: 5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 5}
-  m_EdgeRadius: 0
+  m_Size: {x: 1.782223, y: 2.8113928, z: 0.20000005}
+  m_Center: {x: 0.5015563, y: -0.00000011920929, z: -4.038968e-28}
