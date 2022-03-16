@@ -73,7 +73,7 @@ public class Grenade : MonoBehaviourPun
         if (enemy.gameObject.layer == (int)EPlayer.Enemy)
         {
             enemy.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
-            SetBulletActive(false);
+            SetGrenadeActive(false);
         }
     }
 }

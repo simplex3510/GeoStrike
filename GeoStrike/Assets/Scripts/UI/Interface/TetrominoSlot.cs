@@ -76,7 +76,7 @@ public class TetrominoSlot : MonoBehaviour
     private void PreviewImgSize()
     {
         tetrominoImgSize = slotImage.sprite.rect.size;
-        TetrominoPreview.instance.rectTransform.sizeDelta = TetrominoPreview.instance.clickSlot.tetrominoImgSize * 2.15f;
+        TetrominoPreview.instance.rectTransform.sizeDelta = TetrominoPreview.instance.clickSlot.tetrominoImgSize * 1.8f;
     }
 
     public Vector3 Get_TilePos(TetrominoTile _tile)

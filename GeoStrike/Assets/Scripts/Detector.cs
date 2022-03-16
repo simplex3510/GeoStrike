@@ -66,7 +66,7 @@ public class Detector : MonoBehaviour
             else if (clickedObject.CompareTag("Unit"))
             {
                 Unit unit = clickedObject.GetComponent<Unit>();
-                statusPanel.statusInfoArr[1].UnitStatusInfo(unit.GetComponent<SpriteRenderer>(), unit.unitName, unit.currentHealth, unit.damage, unit.defense);
+                statusPanel.statusInfoArr[1].UnitStatusInfo(unit.GetComponentInChildren<SpriteRenderer>(), unit.unitName, unit.currentHealth, unit.damage, unit.defense);
             }
             else if (clickedObject.CompareTag("Tower"))
             {
@@ -180,7 +180,7 @@ public class Detector : MonoBehaviour
         cameraController.mouseController.eMouseMode = MouseController.EMouseMode.batch;
         //Cursor.lockState = CursorLockMode.Locked;
         while (!Input.GetKeyDown(KeyCode.Escape) && !Input.GetMouseButtonDown(MouseController.CLICK_RIGHT) &&
-               clickedUnit.unitState == EUnitState.Idle && GameMgr.instance.GetState() == EGameState.SpawnCount)
+               clickedUnit != null && clickedUnit.unitState == EUnitState.Idle && GameMgr.instance.GetState() == EGameState.SpawnCount)
         {
             h = 0;
             v = 0;
@@ -214,7 +214,7 @@ public class Detector : MonoBehaviour
                 clickedUnit.column = finalH;
 
                 unitTileContainer.unitTransformArr[clickedUnit.row, clickedUnit.column] = clickedUnit.transform; // 최종 위치의 유닛 유무
-                clickedUnit.unitCreator.spawnPos += new Vector3(h, v, 0);   // Spawn 위치 지정
+                clickedUnit.unitCreator.spawnPos += new Vector3(h, 0, v);   // Spawn 위치 지정
                 clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos; // 유닛의 실제 위치 이동
             }
             //이동 방향에 유닛이 있을경우 Swap
@@ -237,7 +237,7 @@ public class Detector : MonoBehaviour
                 clickedUnit.column = finalH;
 
                 unitTileContainer.unitTransformArr[clickedUnit.row, clickedUnit.column] = temp;
-                clickedUnit.unitCreator.spawnPos += new Vector3(h, v, 0);   // Spawn 위치 지정
+                clickedUnit.unitCreator.spawnPos += new Vector3(h, 0, v);   // Spawn 위치 지정
                 clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos; // 유닛의 실제 위치 이동
             }
 

@@ -21,7 +21,7 @@ public class Buff : MonoBehaviourPun
     {
         if(ally.gameObject.layer == LayerMask.NameToLayer("Ally"))
         {
-            ally.GetComponent<Unit>().OnBuff(EBuffandDebuff.Damage, buffDamage);
+            ally.GetComponent<Unit>().OnBuff(currentBuff, buffDamage);
         }
 
     }
@@ -30,7 +30,7 @@ public class Buff : MonoBehaviourPun
     {
         if (ally.gameObject.layer == LayerMask.NameToLayer("Ally"))
         {
-            ally.GetComponent<Unit>().OffBuff(EBuffandDebuff.Damage, buffDamage);
+            ally.GetComponent<Unit>().OffBuff(currentBuff, buffDamage);
         }
     }
 
@@ -38,10 +38,12 @@ public class Buff : MonoBehaviourPun
     {
         currentBuff = EBuffandDebuff.Damage;
     }
+
     public void ChoiceBuffDefence()
     {
         currentBuff = EBuffandDebuff.Defence;
     }
+
     public void ChoiceBuffHaste()
     {
         currentBuff = EBuffandDebuff.Haste;

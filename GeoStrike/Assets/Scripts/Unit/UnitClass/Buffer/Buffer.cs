@@ -10,7 +10,6 @@ public class Buffer : Unit
     public GameObject buff;
 
     Collider[] targetCollider;
-    EBuffandDebuff currentBuff;
     float buffRange;
     float buffDamage = 2f;    // Buff Status Delta
 
