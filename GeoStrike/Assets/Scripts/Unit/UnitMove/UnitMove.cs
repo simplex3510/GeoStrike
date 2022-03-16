@@ -24,7 +24,6 @@ public class UnitMove : MonoBehaviour
             return;
         }
 
-        transform.rotation = Quaternion.Euler(90f, 0f, 0f);
         agent.SetDestination(agent.destination);
     }
 }

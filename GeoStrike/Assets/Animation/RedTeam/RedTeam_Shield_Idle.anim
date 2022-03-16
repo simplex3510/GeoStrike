@@ -63,8 +63,10 @@ AnimationClip:
       value: {fileID: 7479089349888685789, guid: 9a99e82d41cd6d544b398f6cdd430596, type: 3}
     - time: 1.75
       value: {fileID: 2986458404211737444, guid: 9a99e82d41cd6d544b398f6cdd430596, type: 3}
+    - time: 1.8333334
+      value: {fileID: -6481720622193385766, guid: 9a99e82d41cd6d544b398f6cdd430596, type: 3}
     attribute: m_Sprite
-    path: 
+    path: Defender_Red_Body
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 12
@@ -75,7 +77,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 0
+      path: 3504540316
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -104,12 +106,13 @@ AnimationClip:
     - {fileID: -5360603888605914696, guid: 9a99e82d41cd6d544b398f6cdd430596, type: 3}
     - {fileID: 7479089349888685789, guid: 9a99e82d41cd6d544b398f6cdd430596, type: 3}
     - {fileID: 2986458404211737444, guid: 9a99e82d41cd6d544b398f6cdd430596, type: 3}
+    - {fileID: -6481720622193385766, guid: 9a99e82d41cd6d544b398f6cdd430596, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.8333334
+    m_StopTime: 1.9166667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
