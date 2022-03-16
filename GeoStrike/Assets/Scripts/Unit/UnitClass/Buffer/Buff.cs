@@ -7,6 +7,8 @@ public class Buff : MonoBehaviourPun
 {
     LayerMask opponentLayerMask;
 
+    EBuffandDebuff currentBuff = EBuffandDebuff.Damage;
+
     // Buff Status Delta
     float buffDamage = 2f;
 
@@ -30,5 +32,18 @@ public class Buff : MonoBehaviourPun
         {
             ally.GetComponent<Unit>().OffBuff(EBuffandDebuff.Damage, buffDamage);
         }
+    }
+
+    public void ChoiceBuffAttack()
+    {
+        currentBuff = EBuffandDebuff.Damage;
+    }
+    public void ChoiceBuffDefence()
+    {
+        currentBuff = EBuffandDebuff.Defence;
+    }
+    public void ChoiceBuffHaste()
+    {
+        currentBuff = EBuffandDebuff.Haste;
     }
 }

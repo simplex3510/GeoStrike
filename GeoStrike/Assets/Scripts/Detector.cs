@@ -26,8 +26,8 @@ public class Detector : MonoBehaviour
     [HideInInspector] public Vector3 angle;
 
     // 정보창 & 유닛 배치모드
-     public GameObject clickedObject;      // 클릭한 Object 저장
-    private Unit clickedUnit;              // 배치모드에서 사용할 클릭한 Unit 저장
+    public GameObject clickedObject;      // 클릭한 Object 저장
+    public Unit clickedUnit;              // 배치모드에서 사용할 클릭한 Unit 저장
 
     private void Awake()
     {
@@ -87,11 +87,10 @@ public class Detector : MonoBehaviour
             {
                 // 클릭한 Obj 정보 불러오기
                 clickedObject = hit.collider.gameObject;
+                clickedUnit = clickedObject.GetComponent<Unit>();
 
                 // 클릭한 obj 따라 Status, KeySlot창 띄우기
                 WhichObjInterface();
-
-                clickedUnit = clickedObject.GetComponent<Unit>();
 
                 // 클릭한 유닛이 Idle (유닛타일에서 대기중) 일때 배치모드 실행
                 if (clickedObject.CompareTag("Unit") && clickedUnit.unitState == EUnitState.Idle && cameraController.mouseController.eMouseMode == MouseController.EMouseMode.normal)
@@ -120,12 +119,12 @@ public class Detector : MonoBehaviour
             keySlotPanel.SetActiveFalseAll();
 
             // 버퍼와 디버퍼 기술 선택창
-            if (clickedObject.GetComponent<Unit>().initStatus.unitIndex == EUnitIndex.Buffer)
+            if (clickedUnit.initStatus.unitIndex == EUnitIndex.Buffer)
             {
                 Debug.Log("Buffer`s Enhance");
                 keySlotPanel.keySlotArr[1].gameObject.SetActive(true);
             }
-            else if (clickedObject.GetComponent<Unit>().initStatus.unitIndex == EUnitIndex.Debuffer)
+            else if (clickedUnit.initStatus.unitIndex == EUnitIndex.Debuffer)
             {
                 Debug.Log("Debuffer`s Enhance");
                 keySlotPanel.keySlotArr[1].gameObject.SetActive(true);
@@ -179,7 +178,7 @@ public class Detector : MonoBehaviour
 
         Debug.Log("batchMode");
         cameraController.mouseController.eMouseMode = MouseController.EMouseMode.batch;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         while (!Input.GetKeyDown(KeyCode.Escape) && !Input.GetMouseButtonDown(MouseController.CLICK_RIGHT) &&
                clickedUnit.unitState == EUnitState.Idle && GameMgr.instance.GetState() == EGameState.SpawnCount)
         {
@@ -249,7 +248,7 @@ public class Detector : MonoBehaviour
         // 배치모드 끝날시
         clickedUnit = null;
         unitSelectEffect.transform.position = unitSelectEffect.originPos;
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.lockState = CursorLockMode.None;
         cameraController.mouseController.eMouseMode = MouseController.EMouseMode.normal;
         Debug.Log("Cancel");
     }

@@ -32,6 +32,8 @@ public enum EUnitIndex
 public enum EBuffandDebuff
 {
     Damage,
+    Defence,
+    Haste
     // Ãß°¡
 }
 

@@ -58,9 +58,10 @@ public class Timer : MonoBehaviour, IPunObservable
         if (battleTimer >= battleTime) 
         {
             // (버퍼,디버퍼)유닛의 스킬 선택창 유지 방지
-            if (detector.clickedObject != null && detector.clickedObject.CompareTag("Unit") && detector.clickedObject.GetComponent<Unit>().unitState == EUnitState.Idle)
+            if (detector.clickedUnit != null && detector.clickedObject.CompareTag("Unit") && detector.clickedObject.GetComponent<Unit>().unitState == EUnitState.Idle)
             {
                 keySlotPanel.SetActiveFalseAll();
+                detector.clickedUnit = null;
             }
 
             GameMgr.instance.SetState(EGameState.Battle);

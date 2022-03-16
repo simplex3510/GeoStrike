@@ -8,4 +8,29 @@ public class KeySlotInfo : MonoBehaviour
     // obj 클릭 - 유닛일경우 - 배틀필드에 있을 경우 - 누를거 없음 None
     //                      - Idle상태 - 버퍼 - 버프 선택 누르기
     //                                 - 디버퍼 - 디버프 선택 누르기
+
+    public Detector detector;
+
+    private void Awake()
+    {
+        if (detector == null) { detector = GameObject.FindObjectOfType<Detector>(); }
+    }
+
+    public void OnButtonAttack()
+    {
+        detector.clickedUnit.GetComponentInChildren<Buff>().ChoiceBuffAttack();
+        Debug.Log("choice");
+    }
+
+    public void OnButtonDefence()
+    {
+        detector.clickedUnit.GetComponentInChildren<Buff>().ChoiceBuffDefence();
+        Debug.Log("choice");
+    }
+
+    public void OnButtonHaste()
+    {
+        detector.clickedUnit.GetComponentInChildren<Buff>().ChoiceBuffHaste();
+        Debug.Log("choice");
+    }
 }
