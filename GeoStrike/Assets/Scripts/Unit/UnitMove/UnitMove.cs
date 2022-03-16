@@ -19,10 +19,11 @@ public class UnitMove : MonoBehaviour
 
     void Update()
     {
-        // transform.rotation = Quaternion.Euler(90f, 0f, 0f);
-        if (unit.unitState != EUnitState.Idle)
+        if (unit.unitState == EUnitState.Idle)
         {
-            agent.SetDestination(agent.destination);
+            return;
         }
+
+        agent.SetDestination(agent.destination);
     }
 }
