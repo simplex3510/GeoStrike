@@ -208,10 +208,10 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     #region FSM
     void Move() // 앞으로 전진
     {
-        if (!isRotate)
-        {
-            StartCoroutine(RotateAnimation());
-        }
+        //if (!isRotate)
+        //{
+        //    StartCoroutine(RotateAnimation());
+        //}
 
         enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, detectRange, opponentLayerMask);
         if (enemyColliders.Length == 0)
