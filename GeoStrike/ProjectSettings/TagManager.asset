@@ -9,6 +9,7 @@ TagManager:
   - Unit
   - UnitTile
   - Tetromino
+  - Tower
   layers:
   - Default
   - TransparentFX
