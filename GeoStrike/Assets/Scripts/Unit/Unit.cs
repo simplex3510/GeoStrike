@@ -235,10 +235,10 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         }
         else
         {
-            if (!isRotate)
-            {
-                StartCoroutine(RotateAnimation(enemyColliders[0]));
-            }
+            //if (!isRotate)
+            //{
+            //    StartCoroutine(RotateAnimation(enemyColliders[0]));
+            //}
 
             enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask);
             if (enemyColliders.Length != 0)
