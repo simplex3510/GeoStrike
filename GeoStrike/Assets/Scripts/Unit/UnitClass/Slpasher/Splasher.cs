@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class Slpasher : Unit
+public class Splasher : Unit
 {
     //public Animator animator;
     public Transform grenadeSpawnPos;
-    public BulletPool bulletPool;
+    public GrenadePool grenadePool;
     public Grenade grenade;
 
     protected override void Awake()
     {
         base.Awake();
-        bulletPool = GetComponent<BulletPool>();
+        grenadePool = GetComponent<GrenadePool>();
     }
 
     protected override void OnEnable()
@@ -58,12 +58,12 @@ public class Slpasher : Unit
         {
             lastAttackTime = PhotonNetwork.Time;
 
-            //grenade = bulletPool.GetBullet();                                    // 투사체 생성
-            grenade.transform.position = grenadeSpawnPos.position;  // 투사체의 위치값 설정
-            grenade.transform.rotation = this.transform.rotation;                // 투사체의 회전값 설정
-            grenade.damage = this.damage;                                        // 투사체 대미지 설정
-            grenade.targetCollider = enemyColliders[0];                          // 투사체의 목표를 설정
-            //grenade.SetBulletActive(true);                                       // 투사체 활성화
+            grenade = grenadePool.GetGrenade();                                 // 투사체 생성
+            grenade.transform.position = grenadeSpawnPos.position;              // 투사체의 위치값 설정
+            grenade.transform.rotation = this.transform.rotation;               // 투사체의 회전값 설정
+            grenade.damage = this.damage;                                       // 투사체 대미지 설정
+            grenade.targetCollider = enemyColliders[0];                         // 투사체의 목표를 설정
+            grenade.SetGrenadeActive(true);                                     // 투사체 활성화
 
         }
         else if (enemyColliders.Length == 0)

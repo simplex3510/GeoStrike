@@ -17,8 +17,9 @@ GameObject:
   - component: {fileID: 3534268290996263844}
   - component: {fileID: 3534268290996263847}
   - component: {fileID: 3534268290996263845}
+  - component: {fileID: 8605852610716481200}
   m_Layer: 0
-  m_Name: Slpasher_Red
+  m_Name: Splasher_Blue
   m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,6 +37,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5116392966917540536}
+  - {fileID: 9198209533132698392}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -104,16 +106,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca85f844ed525847bfd69cacf7fbd61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initStatus: {fileID: 0}
-  deltaStatus: {fileID: 0}
+  initStatus: {fileID: 11400000, guid: b96765b5e6512c747ade7944e35b335e, type: 2}
+  deltaStatus: {fileID: 11400000, guid: 4debea5d876ddd14488ce90bffc1794f, type: 2}
   unitTile: {fileID: 0}
   unitCreator: {fileID: 0}
   row: 0
   column: 0
   unitIndex: 0
-  grenadeSpawnPos: {fileID: 0}
-  bulletPool: {fileID: 0}
-  grenade: {fileID: 0}
+  grenadeSpawnPos: {fileID: 9198209533132698392}
+  grenadePool: {fileID: 8605852610716481200}
+  grenade: {fileID: 8645156045591362323, guid: 4717f33952637044d85ace70e89c2e70, type: 3}
 --- !u!95 &3393526228156239370
 Animator:
   serializedVersion: 3
@@ -185,6 +187,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &8605852610716481200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3534268290996264025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dcad6ca15f8b8e4e9c543e513935338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grenade: {fileID: 8645156045591362323, guid: 4717f33952637044d85ace70e89c2e70, type: 3}
 --- !u!1 &5116392966917540537
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,3 +282,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6430449680587490262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9198209533132698392}
+  m_Layer: 0
+  m_Name: GrenadeSpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9198209533132698392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6430449680587490262}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.309, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3534268290996264026}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

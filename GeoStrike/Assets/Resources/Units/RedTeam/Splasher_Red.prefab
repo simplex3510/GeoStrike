@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3534268290996263847}
   - component: {fileID: 3534268290996263845}
   m_Layer: 0
-  m_Name: Slpasher_Blue
+  m_Name: Splasher_Red
   m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
   column: 0
   unitIndex: 0
   grenadeSpawnPos: {fileID: 0}
-  bulletPool: {fileID: 0}
+  grenadePool: {fileID: 0}
   grenade: {fileID: 0}
 --- !u!95 &3393526228156239370
 Animator:

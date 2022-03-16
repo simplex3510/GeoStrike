@@ -119,12 +119,12 @@ public class Detector : MonoBehaviour
             keySlotPanel.SetActiveFalseAll();
 
             // 버퍼와 디버퍼 기술 선택창
-            if (clickedUnit.initStatus.unitIndex == EUnitIndex.Buffer)
+            if (clickedUnit.initStatus.unitIndex == EUnitIndex.Buffer && clickedUnit.unitState == EUnitState.Idle)
             {
                 Debug.Log("Buffer`s Enhance");
                 keySlotPanel.keySlotArr[1].gameObject.SetActive(true);
             }
-            else if (clickedUnit.initStatus.unitIndex == EUnitIndex.Debuffer)
+            else if (clickedUnit.initStatus.unitIndex == EUnitIndex.Debuffer && clickedUnit.unitState == EUnitState.Idle)
             {
                 Debug.Log("Debuffer`s Enhance");
                 keySlotPanel.keySlotArr[1].gameObject.SetActive(true);

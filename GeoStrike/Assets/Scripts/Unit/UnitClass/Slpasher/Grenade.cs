@@ -29,15 +29,11 @@ public class Grenade : MonoBehaviourPun
             return;
         }
 
-        // 투사체가 발사된 후 타겟이 비활성화 되었을 때
-        if (targetCollider == null ||
-            transform.position == targetCollider.transform.position ||
-            targetCollider.enabled == false)
+        // 수류탄이 타겟위치 까지가면 폭발
+        if (transform.position == targetCollider.transform.position)
         {
-            SetGrenadeActive(false);
+            Explosion();
         }
-
-        transform.position = Vector3.MoveTowards(transform.position, targetCollider.transform.position, speed * Time.deltaTime);
     }
 
     [PunRPC]
@@ -48,6 +44,21 @@ public class Grenade : MonoBehaviourPun
         {
             photonView.RPC("SetGrenadeActive", RpcTarget.Others, isTrue);
         }
+    }
+
+    private void Explosion()
+    {
+        // 폭발범위 내 적 감지
+        RaycastHit[] rayHits = Physics.SphereCastAll(transform.position, 5f, Vector3.zero, 0f, LayerMask.GetMask("Enemy"));
+        
+        // 감지된 적들에게 데미지
+        foreach (RaycastHit hitObj in rayHits)
+        {
+            hitObj.transform.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
+        }
+
+        // 이후 처리
+        SetGrenadeActive(false);
     }
 
     //IEnumerator RotateAnimation(Collider enemy)
@@ -68,12 +79,12 @@ public class Grenade : MonoBehaviourPun
     //    isRotate = false;
     //}
 
-    private void OnTriggerEnter2D(Collider2D enemy)
-    {
-        if (enemy.gameObject.layer == (int)EPlayer.Enemy)
-        {
-            enemy.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
-            SetGrenadeActive(false);
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D enemy)
+    //{
+    //    if (enemy.gameObject.layer == (int)EPlayer.Enemy)
+    //    {
+    //        enemy.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
+    //        SetGrenadeActive(false);
+    //    }
+    //}
 }
