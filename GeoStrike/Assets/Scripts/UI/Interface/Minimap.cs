@@ -10,7 +10,7 @@ public class Minimap : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Camera minimapCamera;
 
     RectTransform rectTransform;
-    Vector2 mousePos;
+    Vector3 mousePos;
 
     public GameObject test;
 
@@ -32,6 +32,6 @@ public class Minimap : MonoBehaviour, IPointerClickHandler
         mousePos = Input.mousePosition;
         mousePos = minimapCamera.ScreenToWorldPoint(mousePos);
 
-        mainCamera.transform.position = new Vector3(mousePos.x, mousePos.y, -10);
+        mainCamera.transform.position = new Vector3(mousePos.x, 1, mousePos.z);
     }
 }
