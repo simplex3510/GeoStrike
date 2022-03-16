@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1110568053594303446
+--- !u!1 &664470912
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1110568053594303445}
-  - component: {fileID: 1110568053594303444}
-  - component: {fileID: 1473030078234538168}
-  - component: {fileID: 8677361059674119659}
-  - component: {fileID: 3376903756685589441}
-  - component: {fileID: 1110568053594303442}
-  - component: {fileID: 2353060910538526301}
-  - component: {fileID: 1260308143512598917}
-  - component: {fileID: 4422859747861276935}
-  - component: {fileID: 5676720458694432951}
-  - component: {fileID: -3795617742885449503}
+  - component: {fileID: 664470913}
+  - component: {fileID: 4673172483856548959}
   m_Layer: 0
-  m_Name: Shooter_Blue
-  m_TagString: Unit
+  m_Name: Shooter_Bule_Body
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1110568053594303445
+--- !u!4 &664470913
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110568053594303446}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_GameObject: {fileID: 664470912}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2942227000734488926}
-  - {fileID: 3901933710174599758}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!212 &1110568053594303444
+  m_Children: []
+  m_Father: {fileID: 1110568053594303445}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &4673172483856548959
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110568053594303446}
+  m_GameObject: {fileID: 664470912}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -93,6 +82,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1110568053594303446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1110568053594303445}
+  - component: {fileID: 1473030078234538168}
+  - component: {fileID: 8677361059674119659}
+  - component: {fileID: 3376903756685589441}
+  - component: {fileID: 1110568053594303442}
+  - component: {fileID: 2353060910538526301}
+  - component: {fileID: 1260308143512598917}
+  - component: {fileID: 4422859747861276935}
+  - component: {fileID: 5676720458694432951}
+  - component: {fileID: -3795617742885449503}
+  m_Layer: 0
+  m_Name: Shooter_Blue
+  m_TagString: Unit
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1110568053594303445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110568053594303446}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2942227000734488926}
+  - {fileID: 3901933710174599758}
+  - {fileID: 664470913}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &1473030078234538168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +257,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
