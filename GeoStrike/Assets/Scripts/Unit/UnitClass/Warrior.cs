@@ -7,6 +7,7 @@ using Photon.Pun;
 public class Warrior : Unit
 {
     public Animator animator;
+    public GameObject body;
     public GameObject sword;
 
     [PunRPC]
@@ -59,20 +60,25 @@ public class Warrior : Unit
                 break;
             case EUnitState.Die:
                 StartCoroutine(DieAnimation(sword));
+                StartCoroutine(DieAnimation(body));
                 break;
         }
     }
 
-    public override void Attack()   // 적에게 공격
+    public override void Attack()
     {
-        enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask);
-        if (enemyColliders.Length != 0)
+        enemyCollider = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask).Length != 0 ?
+                        Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask)[0] :
+                        null;
+
+        if (enemyCollider != null)
         {
-            enemyColliders[0].GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
+            enemyCollider.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
         }
         else
         {
             unitMove.agent.isStopped = false;
+            unitMove.agent.updatePosition = true;
             unitState = EUnitState.Move;
             return;
         }

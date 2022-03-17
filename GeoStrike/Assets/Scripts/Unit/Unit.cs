@@ -67,8 +67,11 @@ interface IDebuffable
 
 public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffable, IDebuffable, IPunObservable
 {
+    // 스테이터스
     public UnitData initStatus;
     public UnitData deltaStatus;
+
+    // 오브젝트 풀
     public Queue<Unit> myPool;
 
     // 배치상태의 위치 저장 Components
@@ -89,8 +92,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     [HideInInspector] public int row;
     [HideInInspector] public int column;
 
+    // 유닛이 행동을 취할 대상
+    public LayerMask opponentLayerMask { get; protected set; }
+
     // 유닛의 FSM의 상태
-    public EUnitState unitState { get; protected set; }
+    /*[HideInInspector]*/public EUnitState unitState;
 
     #region Status
     [HideInInspector]
@@ -104,23 +110,20 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     public float detectRange { get; protected set; }
     public float attackSpeed { get; protected set; }
     public float moveSpeed { get; protected set; }
-    public bool isDead { get; protected set; }
     #endregion
 
-    protected LayerMask opponentLayerMask;  // 공격할 대상
+    protected Collider enemyCollider;   // 공격 대상
     protected UnitMove unitMove;
-    protected Collider[] enemyColliders;    // 현재 범위에 들어온 모든 enemy
-    protected Rigidbody myRigid;
+    protected Rigidbody rigidBody;
     protected double lastAttackTime;
     protected bool isPlayer1;
 
     bool hasBuff;
     bool hasDebuff;
-    bool isRotate;
 
     protected virtual void Awake()
     {
-        myRigid = GetComponent<Rigidbody>();
+        rigidBody = GetComponent<Rigidbody>();
         unitMove = GetComponent<UnitMove>();
 
         isPlayer1 = (photonView.ViewID / 1000) == 1 ? true : false;
@@ -151,8 +154,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
     protected virtual void OnEnable()
     {
-        isDead = false;
-
         #region deltaStatus Init
         unitIndex = deltaStatus.unitIndex;
         unitName = deltaStatus.unitName;
@@ -185,16 +186,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             case EUnitState.Idle:
                 return;
             case EUnitState.Move:
-                Move();
-                break;
+                return;
             case EUnitState.Approach:
-                Approach();
-                break;
+                return;
             case EUnitState.Attack:
                 //각 Unit Class 마다 Attck 구현
-                myRigid.velocity = Vector3.zero;
-                unitMove.agent.velocity = Vector3.zero;
-                unitMove.agent.isStopped = true;
                 break;
             case EUnitState.Die:
                 Die();
@@ -207,59 +203,12 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         }
     }
 
-    #region FSM
-    void Move() // 앞으로 전진
-    {
-        //if (!isRotate)
-        //{
-        //    StartCoroutine(RotateAnimation());
-        //}
-
-        enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, detectRange, opponentLayerMask);
-        if (enemyColliders.Length == 0)
-        {
-            unitMove.agent.destination = unitMove.target.position;
-        }
-        else 
-        {
-            unitMove.agent.destination = enemyColliders[0].transform.position;
-            unitState = EUnitState.Approach;
-        }
-    }
-
-    void Approach() // 적에게 접근
-    {
-        enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, detectRange, opponentLayerMask);
-        if (enemyColliders.Length == 0)
-        {
-            unitState = EUnitState.Move;
-            return;
-        }
-        else
-        {
-            //if (!isRotate)
-            //{
-            //    StartCoroutine(RotateAnimation(enemyColliders[0]));
-            //}
-
-            enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask);
-            if (enemyColliders.Length != 0)
-            {
-                unitState = EUnitState.Attack;
-                return;
-            }
-        }
-    }
-
-    public abstract void Attack();   // 적에게 공격
+    public virtual void Attack() { }   // 적에게 공격
 
     void Die()    // 유닛 사망
     {
-        isDead = true;
         gameObject.GetComponent<Collider>().enabled = false;
-        StartCoroutine(DieAnimation(gameObject));
     }
-    #endregion 
 
     [PunRPC]
     public void OnDamaged(float _damage)
@@ -267,7 +216,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         _damage -= defense;
         currentHealth -= 0 < _damage ? _damage : 0;
 
-        if (currentHealth <= 0 && isDead == false)
+        if (currentHealth <= 0)
         {
             unitState = EUnitState.Die;
         }
@@ -323,7 +272,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     }
     #endregion
 
-    #region animation
     protected IEnumerator DieAnimation(GameObject _gameObject)
     {
         unitState = EUnitState.Idle;
@@ -332,54 +280,20 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         var color = spriteRenderer.color;
         while (0 <= color.a)
         {
-            color.a -= 1f * Time.deltaTime;
+            color.a -= 1.5f * Time.deltaTime;
             spriteRenderer.color = color;
 
             yield return null;
         }
 
-        _gameObject.SetActive(false);
         gameObject.GetComponent<Collider>().enabled = true;
         spriteRenderer.color = Color.white;
-    }
 
-    // 앞을 바라보는 애니메이션
-    IEnumerator RotateAnimation()
-    {
-        isRotate = true;
-
-        if (isPlayer1)
+        if(_gameObject.name == "Body")
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(90f, 0f, 0f), 1f);
+            SetUnitActive(false);
         }
-        else
-        {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(90f, 180f, 0f), 1f);
-        }
-
-        isRotate = false;
-        yield return null;
     }
-
-    // enemy를 바라보는 애니메이션
-    IEnumerator RotateAnimation(Collider enemy)
-    {
-        isRotate = true;
-
-        Vector3 direct = enemy.transform.position - transform.position;     // 방향을 구함
-        float angle = Mathf.Atan2(direct.y, direct.x) * Mathf.Rad2Deg;      // 두 객체 간의 각을 구함
-        Quaternion target = Quaternion.AngleAxis(angle, Vector3.up);   // 최종적으로 회전해야 하는 회전값
-
-        while (!Mathf.Approximately(transform.rotation.z, target.z))
-        {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, target, 1.5f);
-
-            yield return null;
-        }
-
-        isRotate = false;
-    }
-    #endregion
 
     private void OnApplicationQuit()
     {
@@ -396,12 +310,12 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
     public void SetFreezeNone()
     {
-        myRigid.constraints = RigidbodyConstraints.None;
+        rigidBody.constraints = RigidbodyConstraints.None;
     }
 
     public void SetFreezeAll()
     {
-        myRigid.constraints = RigidbodyConstraints.FreezeAll;
+        rigidBody.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     // Idle에서 Move가 되는 조건
