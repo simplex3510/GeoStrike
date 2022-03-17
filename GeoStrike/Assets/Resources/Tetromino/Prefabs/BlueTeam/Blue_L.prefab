@@ -158,8 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPos: {x: 0, y: 0, z: 0}
-  unitP1: {fileID: 4816769123180856472, guid: 2777406a6f5f261469fcad8b0f4aa7ba, type: 3}
-  unitP2: {fileID: 5751252549581005398, guid: 74e5a33fee91fa846b3e51c91aef4572, type: 3}
+  unitP1: {fileID: 4816769123180856472, guid: 1737f0f279ab44c459d380416ba4a22c, type: 3}
+  unitP2: {fileID: 4816769123180856472, guid: b9e3629a2c72b924cbf75ac28353a722, type: 3}
 --- !u!65 &-7692055585575141612
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -61,6 +61,7 @@ public class Grenade : MonoBehaviourPun
         foreach (RaycastHit hitObj in rayHits)
         {
             hitObj.transform.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
+            Debug.Log("enemy : " + hitObj.transform.name);
         }
 
         // 이후 처리
