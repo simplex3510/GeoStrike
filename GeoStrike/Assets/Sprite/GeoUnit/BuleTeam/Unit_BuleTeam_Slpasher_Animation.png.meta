@@ -1,0 +1,660 @@
+fileFormatVersion: 2
+guid: fb1d9235ebb41dc4fbc7ce0ac8ad21a6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7559787407613766981
+    second: Unit_BuleTeam_Slpasher_Animation_0
+  - first:
+      213: 1424014561099931769
+    second: Unit_BuleTeam_Slpasher_Animation_1
+  - first:
+      213: -2721491212264653513
+    second: Unit_BuleTeam_Slpasher_Animation_2
+  - first:
+      213: -4129017375424594812
+    second: Unit_BuleTeam_Slpasher_Animation_3
+  - first:
+      213: 5601302460012259356
+    second: Unit_BuleTeam_Slpasher_Animation_4
+  - first:
+      213: 5408359943901311993
+    second: Unit_BuleTeam_Slpasher_Animation_5
+  - first:
+      213: -4913369671232626227
+    second: Unit_BuleTeam_Slpasher_Animation_6
+  - first:
+      213: -2557544720200853657
+    second: Unit_BuleTeam_Slpasher_Animation_7
+  - first:
+      213: -297967351740399552
+    second: Unit_BuleTeam_Slpasher_Animation_8
+  - first:
+      213: 2083064358783565675
+    second: Unit_BuleTeam_Slpasher_Animation_9
+  - first:
+      213: -5191775179730268807
+    second: Unit_BuleTeam_Slpasher_Animation_10
+  - first:
+      213: -7267842596098791507
+    second: Unit_BuleTeam_Slpasher_Animation_11
+  - first:
+      213: 8498935757221964046
+    second: Unit_BuleTeam_Slpasher_Animation_12
+  - first:
+      213: 3202834595194980245
+    second: Unit_BuleTeam_Slpasher_Animation_13
+  - first:
+      213: -5495379401496259626
+    second: Unit_BuleTeam_Slpasher_Animation_14
+  - first:
+      213: 982028854415090387
+    second: Unit_BuleTeam_Slpasher_Animation_15
+  - first:
+      213: -8153029567979487727
+    second: Unit_BuleTeam_Slpasher_Animation_16
+  - first:
+      213: 296643851362813253
+    second: Unit_BuleTeam_Slpasher_Animation_17
+  - first:
+      213: -524908141462940899
+    second: Unit_BuleTeam_Slpasher_Animation_18
+  - first:
+      213: -5980806981778773995
+    second: Unit_BuleTeam_Slpasher_Animation_19
+  - first:
+      213: 5192688700732456797
+    second: Unit_BuleTeam_Slpasher_Animation_20
+  - first:
+      213: -438083271546906420
+    second: Unit_BuleTeam_Slpasher_Animation_21
+  - first:
+      213: 305885958110493819
+    second: Unit_BuleTeam_Slpasher_Animation_22
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb2d5bff76d361790800000000000000
+      internalID: -7559787407613766981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_1
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9706855d2bd13c310800000000000000
+      internalID: 1424014561099931769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_2
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73d3e9959225b3ad0800000000000000
+      internalID: -2721491212264653513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_3
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48cb662d298c2b6c0800000000000000
+      internalID: -4129017375424594812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_4
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c186d8019e2dbbd40800000000000000
+      internalID: 5601302460012259356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f370b9d6ba5e0b40800000000000000
+      internalID: 5408359943901311993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_6
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc16000f05430dbb0800000000000000
+      internalID: -4913369671232626227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_7
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 767904f90a6c18cd0800000000000000
+      internalID: -2557544720200853657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_8
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04089d4b5486ddbf0800000000000000
+      internalID: -297967351740399552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_9
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6f329d6ff788ec10800000000000000
+      internalID: 2083064358783565675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_10
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97dcc723bfb13f7b0800000000000000
+      internalID: -5191775179730268807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_11
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da724106aaf632b90800000000000000
+      internalID: -7267842596098791507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_12
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e09a41aba0942f570800000000000000
+      internalID: 8498935757221964046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_13
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 597cde05811c27c20800000000000000
+      internalID: 3202834595194980245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_14
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d311d3dc8d7cb3b0800000000000000
+      internalID: -5495379401496259626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_15
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d268924a0ed0ad00800000000000000
+      internalID: 982028854415090387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_16
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11e7355fdce9ade80800000000000000
+      internalID: -8153029567979487727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_17
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 545c849d204ed1400800000000000000
+      internalID: 296643851362813253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_18
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d13146093d627b8f0800000000000000
+      internalID: -524908141462940899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_19
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51866ecdcb7effca0800000000000000
+      internalID: -5980806981778773995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_20
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5fb75c7cd2201840800000000000000
+      internalID: 5192688700732456797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_21
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc8d769e59d9be9f0800000000000000
+      internalID: -438083271546906420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BuleTeam_Slpasher_Animation_22
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7cb4f288a9be3400800000000000000
+      internalID: 305885958110493819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
