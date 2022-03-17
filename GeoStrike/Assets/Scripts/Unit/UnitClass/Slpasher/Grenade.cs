@@ -10,9 +10,12 @@ public class Grenade : MonoBehaviourPun
     public Queue<Grenade> myPool;
 
     public Collider targetCollider;
+    public Vector3 targetPos;
     public float damage;
 
-    float speed = 5f;   // 투사체 속도
+    [SerializeField] private ParticleSystem explosionEffect;
+    
+    float speed = 3f;   // 투사체 속도
 
     private void OnDisable()
     {
@@ -29,8 +32,10 @@ public class Grenade : MonoBehaviourPun
             return;
         }
 
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+
         // 수류탄이 타겟위치 까지가면 폭발
-        if (transform.position == targetCollider.transform.position)
+        if (transform.position == targetPos)
         {
             Explosion();
         }
@@ -49,6 +54,7 @@ public class Grenade : MonoBehaviourPun
     private void Explosion()
     {
         // 폭발범위 내 적 감지
+        explosionEffect.Play(true);
         RaycastHit[] rayHits = Physics.SphereCastAll(transform.position, 5f, Vector3.zero, 0f, LayerMask.GetMask("Enemy"));
         
         // 감지된 적들에게 데미지
@@ -59,32 +65,7 @@ public class Grenade : MonoBehaviourPun
 
         // 이후 처리
         SetGrenadeActive(false);
+        Debug.Log("Explosion");
     }
 
-    //IEnumerator RotateAnimation(Collider enemy)
-    //{
-    //    isRotate = true;
-
-    //    Vector3 direct = enemy.transform.position - transform.position;     // 방향을 구함
-    //    float angle = Mathf.Atan2(direct.y, direct.x) * Mathf.Rad2Deg;      // 두 객체 간의 각을 구함
-    //    Quaternion target = Quaternion.AngleAxis(angle, Vector3.forward);   // 최종적으로 회전해야 하는 회전값
-
-    //    while (!Mathf.Approximately(transform.rotation.z, target.z))
-    //    {
-    //        transform.rotation = Quaternion.RotateTowards(transform.rotation, target, 1.5f);
-
-    //        yield return null;
-    //    }
-
-    //    isRotate = false;
-    //}
-
-    //private void OnTriggerEnter2D(Collider2D enemy)
-    //{
-    //    if (enemy.gameObject.layer == (int)EPlayer.Enemy)
-    //    {
-    //        enemy.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
-    //        SetGrenadeActive(false);
-    //    }
-    //}
 }

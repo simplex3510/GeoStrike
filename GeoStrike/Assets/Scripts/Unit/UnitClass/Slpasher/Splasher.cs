@@ -63,6 +63,7 @@ public class Splasher : Unit
             grenade.transform.rotation = this.transform.rotation;               // 투사체의 회전값 설정
             grenade.damage = this.damage;                                       // 투사체 대미지 설정
             grenade.targetCollider = enemyColliders[0];                         // 투사체의 목표를 설정
+            grenade.targetPos = enemyColliders[0].transform.position;           // 투사체의 폭발 위치 지정
             grenade.SetGrenadeActive(true);                                     // 투사체 활성화
 
         }

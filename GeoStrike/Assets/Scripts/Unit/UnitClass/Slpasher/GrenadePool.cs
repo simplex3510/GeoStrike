@@ -14,7 +14,7 @@ public class GrenadePool : MonoBehaviourPun
     {
         if (photonView.IsMine)
         {
-            Grenade newGrenade = PhotonNetwork.Instantiate("Units/Projectiles/" + grenade.name, Vector3.zero, Quaternion.identity).GetComponent<Grenade>();
+            Grenade newGrenade = PhotonNetwork.Instantiate("Units/Projectiles/" + grenade.name, Vector3.zero, Quaternion.Euler(90f, 0f, 0f)).GetComponent<Grenade>();
 
             newGrenade.myPool = grenadeQueue;                     // 투사체 풀(Queue) 설정
             newGrenade.SetGrenadeActive(false);                   // 투사체 비활성화
