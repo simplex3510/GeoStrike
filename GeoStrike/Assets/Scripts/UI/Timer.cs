@@ -50,7 +50,7 @@ public class Timer : MonoBehaviour, IPunObservable
         battleTimer += Time.deltaTime;
         slider.value = battleTimer;
 
-        if (GameMgr.instance.GetState() != EGameState.SpawnCount)
+        if (GameMgr.instance.GetState() != EGameState.SpawnCount && GameMgr.instance.GetState() != EGameState.GameEnd)
         {
             GameMgr.instance.SetState(EGameState.SpawnCount);
         }

@@ -24,6 +24,6 @@ public class UnitMove : MonoBehaviour
             return;
         }
 
-        agent.SetDestination(agent.destination);
+        //agent.SetDestination(agent.destination);
     }
 }

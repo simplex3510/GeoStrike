@@ -180,15 +180,10 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
     protected virtual void Update()
     {
-        if(GameMgr.blueNexus == false || GameMgr.redNexus == false)
-        {
-            unitState = EUnitState.Idle;
-        }
-
         switch (unitState)
         {
             case EUnitState.Idle:
-                break;
+                return;
             case EUnitState.Move:
                 Move();
                 break;
@@ -204,6 +199,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             case EUnitState.Die:
                 Die();
                 break;
+        }
+
+        if (GameMgr.blueNexus == false || GameMgr.redNexus == false)
+        {
+            unitState = EUnitState.Idle;
         }
     }
 
