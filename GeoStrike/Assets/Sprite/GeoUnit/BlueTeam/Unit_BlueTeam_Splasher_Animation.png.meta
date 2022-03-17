@@ -1,0 +1,660 @@
+fileFormatVersion: 2
+guid: d857ffe843753b54fad035e5c87b1260
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6344767344419637069
+    second: Unit_BlueTeam_Splasher_Animation_0
+  - first:
+      213: -4880652704036988460
+    second: Unit_BlueTeam_Splasher_Animation_1
+  - first:
+      213: 1150562214605896660
+    second: Unit_BlueTeam_Splasher_Animation_2
+  - first:
+      213: 5265811044054764211
+    second: Unit_BlueTeam_Splasher_Animation_3
+  - first:
+      213: 7551279954923942956
+    second: Unit_BlueTeam_Splasher_Animation_4
+  - first:
+      213: -8266153518601821333
+    second: Unit_BlueTeam_Splasher_Animation_5
+  - first:
+      213: 7000262314198301003
+    second: Unit_BlueTeam_Splasher_Animation_6
+  - first:
+      213: 4851091567118011045
+    second: Unit_BlueTeam_Splasher_Animation_7
+  - first:
+      213: -7807012556676914596
+    second: Unit_BlueTeam_Splasher_Animation_8
+  - first:
+      213: 6561248966677642791
+    second: Unit_BlueTeam_Splasher_Animation_9
+  - first:
+      213: -5610806501908637321
+    second: Unit_BlueTeam_Splasher_Animation_10
+  - first:
+      213: 9163303947957973152
+    second: Unit_BlueTeam_Splasher_Animation_11
+  - first:
+      213: -923032764962529447
+    second: Unit_BlueTeam_Splasher_Animation_12
+  - first:
+      213: -7577502508582125815
+    second: Unit_BlueTeam_Splasher_Animation_13
+  - first:
+      213: -6383337389425431350
+    second: Unit_BlueTeam_Splasher_Animation_14
+  - first:
+      213: -3311599345206625420
+    second: Unit_BlueTeam_Splasher_Animation_15
+  - first:
+      213: -5439068185668755491
+    second: Unit_BlueTeam_Splasher_Animation_16
+  - first:
+      213: -2218670371538684377
+    second: Unit_BlueTeam_Splasher_Animation_17
+  - first:
+      213: -4194600062142980047
+    second: Unit_BlueTeam_Splasher_Animation_18
+  - first:
+      213: -8863375492800494657
+    second: Unit_BlueTeam_Splasher_Animation_19
+  - first:
+      213: -298876619941924420
+    second: Unit_BlueTeam_Splasher_Animation_20
+  - first:
+      213: 2817284782863677004
+    second: Unit_BlueTeam_Splasher_Animation_21
+  - first:
+      213: -7125748308916611599
+    second: Unit_BlueTeam_Splasher_Animation_22
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4781a2a8442d0850800000000000000
+      internalID: 6344767344419637069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_1
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d953d77930744cb0800000000000000
+      internalID: -4880652704036988460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_2
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4db329dfc3e97ff00800000000000000
+      internalID: 1150562214605896660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_3
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ba863fbe3be31940800000000000000
+      internalID: 5265811044054764211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_4
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c24f4c05c198bc860800000000000000
+      internalID: 7551279954923942956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b63a4e8bb29b84d80800000000000000
+      internalID: -8266153518601821333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_6
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b49f75c5c7de52160800000000000000
+      internalID: 7000262314198301003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_7
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aa46fef31a825340800000000000000
+      internalID: 4851091567118011045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_8
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c52224a617be7a390800000000000000
+      internalID: -7807012556676914596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_9
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72e38b51c2d3e0b50800000000000000
+      internalID: 6561248966677642791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_10
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 108
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 779984eb6396222b0800000000000000
+      internalID: -5610806501908637321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_11
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a038f234689a2f70800000000000000
+      internalID: 9163303947957973152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_12
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95f9c58379ab033f0800000000000000
+      internalID: -923032764962529447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_13
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90fb453ad9d47d690800000000000000
+      internalID: -7577502508582125815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_14
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acce3d5f674d967a0800000000000000
+      internalID: -6383337389425431350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_15
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47bfa8ee0f5da02d0800000000000000
+      internalID: -3311599345206625420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_16
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddfd5147d4c8484b0800000000000000
+      internalID: -5439068185668755491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_17
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 726b0c65d03b531e0800000000000000
+      internalID: -2218670371538684377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_18
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 130e229a779c9c5c0800000000000000
+      internalID: -4194600062142980047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_19
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb349b013f6fef480800000000000000
+      internalID: -8863375492800494657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_20
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb131b43c4d2adbf0800000000000000
+      internalID: -298876619941924420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_21
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 54
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c46f3b95591091720800000000000000
+      internalID: 2817284782863677004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Unit_BlueTeam_Splasher_Animation_22
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f55f28baa14c1d90800000000000000
+      internalID: -7125748308916611599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
