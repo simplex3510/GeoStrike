@@ -10,14 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 3534268290996264026}
   - component: {fileID: 2420436534062297888}
+  - component: {fileID: 8605852610716481200}
   - component: {fileID: 3534268290996264029}
   - component: {fileID: 2216467995086125522}
   - component: {fileID: 4816769123180856472}
   - component: {fileID: 3393526228156239370}
-  - component: {fileID: 3534268290996263844}
   - component: {fileID: 3534268290996263847}
+  - component: {fileID: 3534268290996263844}
   - component: {fileID: 3534268290996263845}
-  - component: {fileID: 8605852610716481200}
   m_Layer: 0
   m_Name: Splasher_Blue
   m_TagString: Unit
@@ -54,6 +54,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2396335744122673610, guid: 7fd3023528f8a90429039979d224f094, type: 3}
+--- !u!114 &8605852610716481200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3534268290996264025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dcad6ca15f8b8e4e9c543e513935338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grenade: {fileID: 8645156045591362323, guid: 4717f33952637044d85ace70e89c2e70, type: 3}
 --- !u!114 &3534268290996264029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,7 +139,7 @@ Animator:
   m_GameObject: {fileID: 3534268290996264025}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fa0d743bdce60794283b4d455be87ca3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -135,20 +148,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!136 &3534268290996263844
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3534268290996264025}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.0000002
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3534268290996263847
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -165,6 +164,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &3534268290996263844
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3534268290996264025}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.0000002
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &3534268290996263845
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -187,19 +200,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &8605852610716481200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3534268290996264025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dcad6ca15f8b8e4e9c543e513935338, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grenade: {fileID: 8645156045591362323, guid: 4717f33952637044d85ace70e89c2e70, type: 3}
 --- !u!1 &5116392966917540537
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +271,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8057346198915502538, guid: 02c3d18d868b39644b6528bfa534e761, type: 3}
+  m_Sprite: {fileID: -7559787407613766981, guid: fb1d9235ebb41dc4fbc7ce0ac8ad21a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -306,7 +306,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6430449680587490262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.309, y: 0, z: 0}
+  m_LocalPosition: {x: 0.33, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3534268290996264026}

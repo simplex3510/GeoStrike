@@ -42,6 +42,11 @@ public class Buffer : Unit
 
     protected new void Update()
     {
+        if(!photonView.IsMine)
+        {
+            return;
+        }
+
         if (GameMgr.blueNexus == false || GameMgr.redNexus == false)
         {
             unitState = EUnitState.Idle;

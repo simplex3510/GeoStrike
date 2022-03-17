@@ -57,7 +57,7 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsConnected && nickname.text != "")
         {
             PhotonNetwork.NickName = nickname.text;
-            PhotonNetwork.JoinOrCreateRoom("Test2", new RoomOptions { MaxPlayers = 2 }, null);
+            PhotonNetwork.JoinOrCreateRoom("Temp", new RoomOptions { MaxPlayers = 2 }, null);
         }
         else
         {

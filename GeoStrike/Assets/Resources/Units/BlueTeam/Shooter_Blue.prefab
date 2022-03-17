@@ -97,8 +97,8 @@ GameObject:
   - component: {fileID: 1110568053594303442}
   - component: {fileID: 2353060910538526301}
   - component: {fileID: 1260308143512598917}
-  - component: {fileID: 4422859747861276935}
   - component: {fileID: 5676720458694432951}
+  - component: {fileID: 4422859747861276935}
   - component: {fileID: -3795617742885449503}
   m_Layer: 0
   m_Name: Shooter_Blue
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a8276a473b4544290aea64008c8998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 2396335744122673610, guid: 7fd3023528f8a90429039979d224f094, type: 3}
 --- !u!114 &8677361059674119659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,19 +233,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &4422859747861276935
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1110568053594303446}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.0000002, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5676720458694432951
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -262,6 +249,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &4422859747861276935
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110568053594303446}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000002, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &-3795617742885449503
 NavMeshAgent:
   m_ObjectHideFlags: 0
