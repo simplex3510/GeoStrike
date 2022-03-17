@@ -54675,7 +54675,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7380732769498575482
 Transform:
   m_ObjectHideFlags: 0
@@ -54865,7 +54865,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &8451934661184493580
 CapsuleCollider:
   m_ObjectHideFlags: 0

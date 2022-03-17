@@ -13,8 +13,9 @@ public class Grenade : MonoBehaviourPun
     public Vector3 targetPos;
     public float damage;
 
-    [SerializeField] private ParticleSystem explosionEffect;
-    
+    public GameObject shootEffect;          // 폭발전 효과
+    public GameObject explosionEffect;      // 폭발 효과
+
     float speed = 3f;   // 투사체 속도
 
     private void OnDisable()
@@ -51,22 +52,48 @@ public class Grenade : MonoBehaviourPun
         }
     }
 
+    [PunRPC]
+    public void SetShootActive(bool isTrue)
+    {
+        shootEffect.SetActive(isTrue);
+
+        if (photonView.IsMine)
+        {
+            photonView.RPC("SetShootActive", RpcTarget.Others, isTrue);
+        }
+    }
+
+    [PunRPC]
+    public void SetExplosionActive(bool isTrue)
+    {
+        explosionEffect.SetActive(isTrue);
+
+        if (photonView.IsMine)
+        {
+            photonView.RPC("SetExplosionActive", RpcTarget.Others, isTrue);
+        }
+    }
+
     private void Explosion()
     {
+        SetShootActive(false);
+        SetExplosionActive(true);
+        StartCoroutine(CActiveDelay());
+
         // 폭발범위 내 적 감지
-        explosionEffect.Play(true);
-        RaycastHit[] rayHits = Physics.SphereCastAll(transform.position, 5f, Vector3.zero, 0f, LayerMask.GetMask("Enemy"));
-        
+        RaycastHit[] rayHits = Physics.SphereCastAll(transform.position, 5f, Vector3.up, 0f, LayerMask.GetMask("Enemy"));
+
         // 감지된 적들에게 데미지
         foreach (RaycastHit hitObj in rayHits)
         {
             hitObj.transform.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
             Debug.Log("enemy : " + hitObj.transform.name);
         }
-
-        // 이후 처리
-        SetGrenadeActive(false);
-        Debug.Log("Explosion");
     }
 
+    IEnumerator CActiveDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SetGrenadeActive(false);
+    }
 }
