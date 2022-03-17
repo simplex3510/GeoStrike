@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviourPun
     public Collider targetCollider;
     public float damage;
 
-    float speed = 5f;   // 투사체 속도
+    float speed = 7f;   // 투사체 속도
     bool isRotate;
 
     private void OnDisable()
