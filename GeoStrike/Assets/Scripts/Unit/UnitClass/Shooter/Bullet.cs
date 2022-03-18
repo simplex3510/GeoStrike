@@ -83,4 +83,13 @@ public class Bullet : MonoBehaviourPun
             SetBulletActive(false);
         }
     }
+
+    //private void OnTriggerEnter(Collider enemy)
+    //{
+    //    if (enemy.gameObject.layer == (int)EPlayer.Enemy)
+    //    {
+    //        enemy.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
+    //        SetBulletActive(false);
+    //    }
+    //}
 }

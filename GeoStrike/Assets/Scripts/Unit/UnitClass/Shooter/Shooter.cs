@@ -6,7 +6,7 @@ using Photon.Pun;
 public class Shooter : Unit
 {
     //public Animator animator;
-    public Transform[] bulletSpawnPos = new Transform[2];
+    public Transform[] bulletSpawnPos;
     public BulletPool bulletPool;
     public Bullet bullet;
     public GameObject body;
