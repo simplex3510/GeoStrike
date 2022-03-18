@@ -26,7 +26,8 @@ public enum EUnitIndex
     Shooter,
     Splasher,
     Buffer,
-    Debuffer
+    Debuffer,
+    Geo
 }
 
 public enum EBuffandDebuff

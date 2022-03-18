@@ -27,7 +27,7 @@ public class UnitCreator : MonoBehaviourPun
         if (photonView.IsMine && GameMgr.isMaster)
         {
             // ÀÚ¿ø È¹µæ
-            if ((int)unitP1.unitIndex == 6)
+            if ((int)unitP1.initStatus.unitIndex == 6)
             {
                 Debug.Log("Get GEO : " + Geo.GEO_SQUARE);
                 Geo.DeltaGeo(Geo.GEO_SQUARE);
@@ -41,9 +41,8 @@ public class UnitCreator : MonoBehaviourPun
                     if (unitTileContainer.unitTransformArr[row, column] == null)
                     {
                         // Unit »ý¼º
-                        if ((int)unitP1.unitIndex != 6)
+                        if ((int)unitP1.initStatus.unitIndex != 6)
                         {
-
                             Unit unit = ObjectPoolMgr.instance.poolArr[(int)unitP1.initStatus.unitIndex].GetObject();    // ³» Pool¿¡¼­ ³» À¯´Ö ²¨³»±â
                             unit.unitCreator = this;
                             unit.StartCoroutine(unit.IdleToMoveCondition());
@@ -83,7 +82,7 @@ public class UnitCreator : MonoBehaviourPun
         else if (photonView.IsMine && !GameMgr.isMaster)
         {
             // ÀÚ¿ø È¹µæ
-            if ((int)unitP2.unitIndex == 6)
+            if ((int)unitP2.initStatus.unitIndex == 6)
             {
                 Debug.Log("Get GEO : " + Geo.GEO_SQUARE);
                 Geo.DeltaGeo(Geo.GEO_SQUARE);
@@ -97,7 +96,7 @@ public class UnitCreator : MonoBehaviourPun
                     if (unitTileContainer.unitTransformArr[row, column] == null)
                     {
                         // Unit »ý¼º
-                        if ((int)unitP2.unitIndex != 6)
+                        if ((int)unitP2.initStatus.unitIndex != 6)
                         {
                             Unit unit = ObjectPoolMgr.instance.poolArr[(int)unitP2.initStatus.unitIndex].GetObject();    // ³» Pool¿¡¼­ ³» À¯´Ö ²¨³»±â
                             unit.unitCreator = this;
