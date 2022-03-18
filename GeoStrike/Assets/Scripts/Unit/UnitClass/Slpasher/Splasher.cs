@@ -67,7 +67,8 @@ public class Splasher : Unit
             grenade.targetCollider = enemyColliders[0];                         // 투사체의 목표를 설정
             grenade.targetPos = enemyColliders[0].transform.position;           // 투사체의 폭발 위치 지정
             grenade.SetGrenadeActive(true);                                     // 투사체 활성화
-
+            grenade.SetGrenadeActive(true);
+            grenade.SetExplosionActive(false);
         }
         else if (enemyColliders.Length == 0)
         {
