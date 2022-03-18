@@ -75,11 +75,11 @@ public class Bullet : MonoBehaviourPun
         isRotate = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D enemy)
+    private void OnCollisionEnter(Collision enemy)
     {
         if (enemy.gameObject.layer == (int)EPlayer.Enemy)
         {
-            enemy.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
+            enemy.gameObject.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
             SetBulletActive(false);
         }
     }

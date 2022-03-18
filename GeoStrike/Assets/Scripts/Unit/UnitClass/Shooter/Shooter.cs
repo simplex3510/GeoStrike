@@ -71,7 +71,7 @@ public class Shooter : Unit
             bullet.targetCollider = enemyCollider;                              // 투사체의 목표를 설정
             bullet.SetBulletActive(true);                                       // 투사체 활성화
 
-            bulletPosIdx = bulletPosIdx > 0 ? 0 : 1;
+            bulletPosIdx = 0 != bulletPosIdx ? 0 : 1;
         }
         else if (enemyCollider == null)
         {
