@@ -21,11 +21,14 @@ public class UnitMove : MonoBehaviour
 
     private void OnEnable()
     {
+
         agent.destination = transform.position;
 
         agent.isStopped = false;
         agent.updatePosition = true;
         agent.updateRotation = true;
+
+        agent.enabled = false;
     }
 
     private void Update()
