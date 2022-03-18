@@ -222,7 +222,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0.58771515, b: 1, a: 1}
+      maxColor: {r: 0.9245283, g: 0.42964897, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4818,7 +4818,7 @@ GameObject:
   - component: {fileID: 648489792856150385}
   - component: {fileID: 4977446194947245098}
   m_Layer: 8
-  m_Name: Grenade_Blue
+  m_Name: Grenade_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5132,7 +5132,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0.24169374, b: 0.9528302, a: 1}
+      maxColor: {r: 0.9529412, g: 0.1465364, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

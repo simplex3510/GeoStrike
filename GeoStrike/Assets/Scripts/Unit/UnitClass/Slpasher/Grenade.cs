@@ -11,17 +11,21 @@ public class Grenade : MonoBehaviourPun
 
     public Collider targetCollider;
     public Vector3 targetPos;
-    public float damage;
 
-    public GameObject shootEffect;          // 폭발전 효과
-    public GameObject explosionEffect;      // 폭발 효과
+    public GameObject shootEffect;          // 폭발전 이펙트
+    public GameObject explosionEffect;      // 폭발 이펙트
+
+    public float damage;
+    public float ExplosionRadius = 3f;    // 폭발 효과 범위
 
     float speed = 3f;   // 투사체 속도
+    bool onExplosion = false;
 
     private void OnDisable()
     {
         if (photonView.IsMine)
         {
+            onExplosion = false;
             myPool.Enqueue(this);
         }
     }
@@ -36,7 +40,7 @@ public class Grenade : MonoBehaviourPun
         transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 
         // 수류탄이 타겟위치 까지가면 폭발
-        if (transform.position == targetPos)
+        if (transform.position == targetPos && !onExplosion)
         {
             Explosion();
         }
@@ -76,12 +80,13 @@ public class Grenade : MonoBehaviourPun
 
     private void Explosion()
     {
+        onExplosion = true;
         SetShootActive(false);
         SetExplosionActive(true);
         StartCoroutine(CActiveDelay());
 
         // 폭발범위 내 적 감지
-        RaycastHit[] rayHits = Physics.SphereCastAll(transform.position, 5f, Vector3.up, 0f, LayerMask.GetMask("Enemy"));
+        RaycastHit[] rayHits = Physics.SphereCastAll(transform.position, ExplosionRadius, Vector3.up, 0f, LayerMask.GetMask("Enemy"));
 
         // 감지된 적들에게 데미지
         foreach (RaycastHit hitObj in rayHits)

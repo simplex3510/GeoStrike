@@ -176,9 +176,8 @@ public class Detector : MonoBehaviour
         int v = 0;
         Transform temp;
 
-        Debug.Log("batchMode");
         cameraController.mouseController.eMouseMode = MouseController.EMouseMode.batch;
-        while (!Input.GetKeyDown(KeyCode.Escape) && !Input.GetMouseButtonDown(MouseController.CLICK_RIGHT) &&
+        while (!Input.GetKeyDown(KeyCode.Escape) && !Input.GetMouseButtonDown(MouseController.CLICK_RIGHT) && clickedUnit.gameObject.layer == (int)EPlayer.Ally &&
                clickedUnit != null && clickedUnit.unitState == EUnitState.Idle && GameMgr.instance.GetState() == EGameState.SpawnCount)
         {
             h = 0;
@@ -248,6 +247,5 @@ public class Detector : MonoBehaviour
         clickedUnit = null;
         unitSelectEffect.transform.position = unitSelectEffect.originPos;
         cameraController.mouseController.eMouseMode = MouseController.EMouseMode.normal;
-        Debug.Log("Cancel");
     }
 }

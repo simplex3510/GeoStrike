@@ -75,7 +75,7 @@ MonoBehaviour:
   unitIndex: 0
   grenadeSpawnPos: {fileID: 8628165896533552057}
   grenadePool: {fileID: 635828793969947218}
-  grenade: {fileID: 8645156045591362323, guid: 4717f33952637044d85ace70e89c2e70, type: 3}
+  grenade: {fileID: 7650077227405637268, guid: e70cb090a4f04b340a9ef9c489f6d2a2, type: 3}
 --- !u!114 &635828793969947218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dcad6ca15f8b8e4e9c543e513935338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grenade: {fileID: 8645156045591362323, guid: 4717f33952637044d85ace70e89c2e70, type: 3}
+  grenade: {fileID: 7650077227405637268, guid: e70cb090a4f04b340a9ef9c489f6d2a2, type: 3}
 --- !u!114 &3534268290996264029
 MonoBehaviour:
   m_ObjectHideFlags: 0
