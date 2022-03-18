@@ -14,7 +14,7 @@ public class BulletPool : MonoBehaviourPun
     {
         if(photonView.IsMine)
         {
-            Bullet newBullet = PhotonNetwork.Instantiate("Units/Projectiles/" + bullet.name, Vector3.zero, Quaternion.identity).GetComponent<Bullet>();
+            Bullet newBullet = PhotonNetwork.Instantiate("Units/Projectiles/" + bullet.name, Vector3.zero, Quaternion.Euler(90f, 0f, 0f)).GetComponent<Bullet>();
 
             newBullet.myPool = bulletQueue;                     // 투사체 풀(Queue) 설정
             newBullet.SetBulletActive(false);                   // 투사체 비활성화
