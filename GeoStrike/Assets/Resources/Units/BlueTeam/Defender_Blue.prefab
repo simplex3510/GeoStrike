@@ -265,7 +265,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8173733403797653949}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 6769671517168737261}
   - component: {fileID: 3457511854470972485}
   m_Layer: 0
-  m_Name: Defender_Blue_Body
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

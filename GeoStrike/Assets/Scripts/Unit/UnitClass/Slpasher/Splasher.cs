@@ -72,7 +72,7 @@ public class Splasher : Unit
         }
         else if (enemyColliders.Length == 0)
         {
-            unitMove.agent.isStopped = false;
+            unitMove.SetMove();
             unitState = EUnitState.Move;
             return;
         }

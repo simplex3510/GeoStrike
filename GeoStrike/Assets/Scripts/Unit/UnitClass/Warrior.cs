@@ -67,9 +67,12 @@ public class Warrior : Unit
 
     public override void Attack()
     {
-        enemyCollider = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask).Length != 0 ?
-                        Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask)[0] :
-                        null;
+        if (enemyCollider == null)
+        {
+            enemyCollider = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask).Length != 0 ?
+                            Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask)[0] :
+                            null;
+        }
 
         if (enemyCollider != null)
         {
@@ -77,8 +80,7 @@ public class Warrior : Unit
         }
         else
         {
-            unitMove.agent.isStopped = false;
-            unitMove.agent.updatePosition = true;
+            unitMove.SetMove();
             unitState = EUnitState.Move;
             return;
         }

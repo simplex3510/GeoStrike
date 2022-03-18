@@ -64,6 +64,7 @@ public class Debuffer : Unit
         }
         else if (enemyColliders.Length == 0)
         {
+            unitMove.SetMove();
             unitState = EUnitState.Move;
             return;
         }

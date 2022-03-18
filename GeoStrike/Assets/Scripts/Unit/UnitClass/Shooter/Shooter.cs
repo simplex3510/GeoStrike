@@ -75,7 +75,7 @@ public class Shooter : Unit
         }
         else if (enemyCollider == null)
         {
-            unitMove.agent.isStopped = false;
+            unitMove.SetMove();
             unitState = EUnitState.Move;
             return;
         }

@@ -21,14 +21,12 @@ public class UnitMove : MonoBehaviour
 
     private void OnEnable()
     {
-
-        agent.destination = transform.position;
-
-        agent.isStopped = false;
-        agent.updatePosition = true;
-        agent.updateRotation = true;
-
-        agent.enabled = false;
+        agent.isStopped = true;
+        rigidBody.angularVelocity = Vector3.zero;
+        rigidBody.velocity = Vector3.zero;
+        agent.velocity = Vector3.zero;
+        agent.updatePosition = false;
+        agent.updateRotation = false;
     }
 
     private void Update()
@@ -80,9 +78,10 @@ public class UnitMove : MonoBehaviour
             if (enemyColliders.Length != 0)     // 공격 범위 내에 적이 있다면
             {
                 rigidBody.velocity = Vector3.zero;
+                rigidBody.angularVelocity = Vector3.zero;
                 agent.velocity = Vector3.zero;
                 agent.isStopped = true;
-                // agent.updatePosition = false;    // 이 부분에서 포지션이 고정되지 않고 Y축으로 상승함
+                agent.updatePosition = false;    // 이 부분에서 포지션이 고정되지 않고 Y축으로 상승함
 
                 unit.unitState = EUnitState.Attack;
                 return;
@@ -100,4 +99,21 @@ public class UnitMove : MonoBehaviour
         agent.updateRotation = false;
     }
     #endregion 
+
+    public void SetMove()
+    {
+        agent.isStopped = false;
+        agent.updatePosition = true;
+        agent.updateRotation = true;
+    }
+
+    public void SetStop()
+    {
+        agent.isStopped = true;
+        rigidBody.angularVelocity = Vector3.zero;
+        rigidBody.velocity = Vector3.zero;
+        agent.velocity = Vector3.zero;
+        agent.updatePosition = false;
+        agent.updateRotation = false;
+    }
 }
