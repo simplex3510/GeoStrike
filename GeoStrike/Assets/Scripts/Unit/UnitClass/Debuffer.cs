@@ -5,6 +5,7 @@ using Photon.Pun;
 
 public class Debuffer : Unit
 {
+    Collider[] enemyColliders;
     float debuffDamage = 2f;
 
     protected override void Awake()
@@ -50,7 +51,8 @@ public class Debuffer : Unit
     public override void Attack()
     {
         enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask);
-        if (enemyColliders != null && lastAttackTime + attackSpeed <= PhotonNetwork.Time)
+
+        if (enemyColliders.Length != 0 && lastAttackTime + attackSpeed <= PhotonNetwork.Time)
         {
             lastAttackTime = PhotonNetwork.Time;
 
@@ -60,7 +62,7 @@ public class Debuffer : Unit
                 enemyColliders[i].GetComponent<Unit>().OnDebuff(EBuffandDebuff.Damage, debuffDamage);
             }
         }
-        else if (enemyColliders[0] == null)
+        else if (enemyColliders.Length == 0)
         {
             unitState = EUnitState.Move;
             return;

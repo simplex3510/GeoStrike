@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a8276a473b4544290aea64008c8998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2396335744122673610, guid: 7fd3023528f8a90429039979d224f094, type: 3}
+  enemyNexus: {fileID: 2396335744122673610, guid: 7fd3023528f8a90429039979d224f094, type: 3}
 --- !u!114 &-4504352326755751712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +166,7 @@ MonoBehaviour:
   unitCreator: {fileID: 0}
   row: 0
   column: 0
+  unitState: 0
   unitIndex: 0
   animator: {fileID: 8173733403797653950}
   shild: {fileID: 8173733402153910181}

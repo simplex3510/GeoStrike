@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a8276a473b4544290aea64008c8998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 6386195217646654438, guid: 4c7f64cfe28661646977f7f1ef733cef, type: 3}
+  enemyNexus: {fileID: 6386195217646654438, guid: 4c7f64cfe28661646977f7f1ef733cef, type: 3}
 --- !u!114 &1234357198173039138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,8 +70,10 @@ MonoBehaviour:
   unitCreator: {fileID: 0}
   row: 0
   column: 0
+  unitState: 0
   unitIndex: 0
   animator: {fileID: 3868155411218932853}
+  body: {fileID: 0}
   sword: {fileID: 7786633145386498038}
 --- !u!114 &1233569061901722368
 MonoBehaviour:

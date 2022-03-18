@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a8276a473b4544290aea64008c8998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 6386195217646654438, guid: 4c7f64cfe28661646977f7f1ef733cef, type: 3}
+  enemyNexus: {fileID: 6386195217646654438, guid: 4c7f64cfe28661646977f7f1ef733cef, type: 3}
 --- !u!114 &1599485226406806687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,6 +129,7 @@ MonoBehaviour:
   unitCreator: {fileID: 0}
   row: 0
   column: 0
+  unitState: 0
   unitIndex: 0
 --- !u!195 &-2369398689286784635
 NavMeshAgent:

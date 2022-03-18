@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a8276a473b4544290aea64008c8998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2396335744122673610, guid: 7fd3023528f8a90429039979d224f094, type: 3}
+  enemyNexus: {fileID: 2396335744122673610, guid: 7fd3023528f8a90429039979d224f094, type: 3}
 --- !u!114 &8677361059674119659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,12 +155,14 @@ MonoBehaviour:
   unitCreator: {fileID: 0}
   row: 0
   column: 0
+  unitState: 0
   unitIndex: 1
   bulletSpawnPos:
   - {fileID: 2942227000734488926}
   - {fileID: 3901933710174599758}
   bulletPool: {fileID: 3376903756685589441}
   bullet: {fileID: -7795045542651076442, guid: 594ee59f67c7f374f88951397aff2059, type: 3}
+  body: {fileID: 0}
 --- !u!114 &3376903756685589441
 MonoBehaviour:
   m_ObjectHideFlags: 0

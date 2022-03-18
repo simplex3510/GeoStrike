@@ -67,7 +67,6 @@ public class Shooter : Unit
 
             bullet = bulletPool.GetBullet();                                    // 투사체 생성
             bullet.transform.position = bulletSpawnPos[bulletPosIdx].position;  // 투사체의 위치값 설정
-            bullet.transform.rotation = this.transform.rotation;                // 투사체의 회전값 설정
             bullet.damage = this.damage;                                        // 투사체 대미지 설정
             bullet.targetCollider = enemyCollider;                              // 투사체의 목표를 설정
             bullet.SetBulletActive(true);                                       // 투사체 활성화

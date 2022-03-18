@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab96d4d065646ba4e908fb6b48c2f017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetCollider2D: {fileID: 0}
+  targetCollider: {fileID: 0}
   damage: 0
 --- !u!114 &7944732164949121661
 MonoBehaviour:
