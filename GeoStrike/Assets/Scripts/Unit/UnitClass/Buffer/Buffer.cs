@@ -7,7 +7,6 @@ public class Buffer : Unit
 {
     public Transform allyNexus;
     public Animator animator;
-    public GameObject body;
     public GameObject buff;
 
     Collider[] targetColliders;
@@ -43,11 +42,6 @@ public class Buffer : Unit
 
     protected new void Update()
     {
-        if(!photonView.IsMine)
-        {
-            return;
-        }
-
         if (GameMgr.blueNexus == false || GameMgr.redNexus == false)
         {
             unitState = EUnitState.Idle;
@@ -74,29 +68,37 @@ public class Buffer : Unit
     #region FSM
     void Move()
     {
+        if(!photonView.IsMine)
+        {
+            return;
+        }
+
         targetColliders = Physics.OverlapCapsule(transform.position, transform.position, detectRange, opponentLayerMask);
         if (1 == targetColliders.Length)
         {
-            unitMove.agent.destination = allyNexus.position;                                    // 목적지를 아군 넥서스로 설정
+            unitMove.agent.SetDestination(allyNexus.position);                                  // 목적지를 아군 넥서스로 설정
         }
-        else    // 자신을 제외한 콜라이더
+        else                                                                                    // 자신을 제외한 콜라이더
         {
-            unitMove.agent.destination = targetColliders[1].transform.position;                  // 목적지를 아군으로 설정
             unitState = EUnitState.Approach;
         }
     }
 
     void Approach() // 아군에게 접근
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
         targetColliders = Physics.OverlapCapsule(transform.position, transform.position, detectRange, opponentLayerMask);  // 범위 내 아군 탐색
         if (1 < targetColliders.Length)                                                                                    // 범위 내 아군이 있다면
         {
-            unitMove.agent.destination = targetColliders[1].transform.position;
+            unitMove.agent.SetDestination(targetColliders[1].transform.position);                                          // 아군에게 접근
         }
-        else                                                                                                              // 범위 내 아군이 없다면
+        else                                                                                                               // 범위 내 아군이 없다면
         {
-            unitMove.agent.destination = allyNexus.position;                                                              // 아군 넥서스 쪽으로 이동
-            unitState = EUnitState.Move;                                                                                  // 계속 이동
+            unitState = EUnitState.Move;                                                                                   // 아군 넥서스로 이동
         }
     }
 

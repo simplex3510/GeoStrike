@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-
 public class Warrior : Unit
 {
     public Animator animator;
-    public GameObject body;
     public GameObject sword;
 
     [PunRPC]
@@ -37,11 +35,6 @@ public class Warrior : Unit
 
     protected override void Update()
     {
-        if(!photonView.IsMine)
-        {
-            return;
-        }
-
         base.Update();
 
         switch (unitState)
@@ -67,12 +60,14 @@ public class Warrior : Unit
 
     public override void Attack()
     {
-        if (enemyCollider == null)
+        if (!photonView.IsMine)
         {
-            enemyCollider = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask).Length != 0 ?
-                            Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask)[0] :
-                            null;
+            return;
         }
+
+        enemyCollider = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask).Length != 0 ?
+                        Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask)[0] :
+                        null;
 
         if (enemyCollider != null)
         {

@@ -99,6 +99,9 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     // 유닛의 FSM의 상태
     /*[HideInInspector]*/public EUnitState unitState;
 
+    // 유닛의 몸체(스프라이트)
+    public GameObject body;
+
     #region Status
     [HideInInspector]
     public EUnitIndex unitIndex;
@@ -185,11 +188,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         switch (unitState)
         {
             case EUnitState.Idle:
-                return;
+                break;
             case EUnitState.Move:
-                return;
+                break;
             case EUnitState.Approach:
-                return;
+                break;
             case EUnitState.Attack:
                 //각 Unit Class 마다 Attck 구현
                 break;
@@ -204,11 +207,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         }
     }
 
-    public virtual void Attack() { }   // 적에게 공격
+    public virtual void Attack() { }
 
     void Die()    // 유닛 사망
     {
-        gameObject.GetComponent<Collider>().enabled = false;
+        StartCoroutine(DieAnimation(body));
     }
 
     [PunRPC]
@@ -276,6 +279,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     protected IEnumerator DieAnimation(GameObject _gameObject)
     {
         unitState = EUnitState.Idle;
+        gameObject.GetComponent<Collider>().enabled = false;
 
         var spriteRenderer = _gameObject.GetComponent<SpriteRenderer>();
         var color = spriteRenderer.color;
@@ -287,13 +291,13 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             yield return null;
         }
 
-        gameObject.GetComponent<Collider>().enabled = true;
-        spriteRenderer.color = Color.white;
-
         if(_gameObject.name == "Body")
         {
             SetUnitActive(false);
         }
+
+        spriteRenderer.color = Color.white;
+        gameObject.GetComponent<Collider>().enabled = true;
     }
 
     private void OnApplicationQuit()

@@ -71,6 +71,7 @@ MonoBehaviour:
   row: 0
   column: 0
   unitState: 0
+  body: {fileID: 3933890940465753944}
   unitIndex: 0
 --- !u!114 &1599485226406806687
 MonoBehaviour:

@@ -167,6 +167,7 @@ MonoBehaviour:
   row: 0
   column: 0
   unitState: 0
+  body: {fileID: 8401870176638755151}
   unitIndex: 0
   animator: {fileID: 8173733403797653950}
   shild: {fileID: 8173733402153910181}

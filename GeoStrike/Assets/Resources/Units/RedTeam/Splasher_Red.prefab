@@ -112,6 +112,7 @@ MonoBehaviour:
   row: 0
   column: 0
   unitState: 0
+  body: {fileID: 5116392966917540537}
   unitIndex: 0
   grenadeSpawnPos: {fileID: 8628165896533552057}
   grenadePool: {fileID: 635828793969947218}

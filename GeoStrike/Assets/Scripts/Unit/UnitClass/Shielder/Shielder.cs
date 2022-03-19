@@ -36,11 +36,6 @@ public class Shielder : Unit
 
     protected override void Update()
     {
-        if(!photonView.IsMine)
-        {
-            return;
-        }
-
         base.Update();
 
         switch (unitState)
@@ -65,6 +60,11 @@ public class Shielder : Unit
 
     public override void Attack()   // 적에게 공격
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
         enemyCollider = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask).Length != 0 ?
                         Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask)[0] :
                         null;

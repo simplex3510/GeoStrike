@@ -236,9 +236,9 @@ MonoBehaviour:
   row: 0
   column: 0
   unitState: 0
+  body: {fileID: 1715835706}
   unitIndex: 0
   animator: {fileID: 7501077593732519817}
-  body: {fileID: 1715835706}
   sword: {fileID: 3443019731302398212}
 --- !u!114 &8506501462537962974
 MonoBehaviour:

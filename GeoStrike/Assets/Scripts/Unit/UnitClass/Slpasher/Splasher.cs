@@ -30,11 +30,6 @@ public class Splasher : Unit
 
     protected override void Update()
     {
-        if (!photonView.IsMine)
-        {
-            return;
-        }
-
         base.Update();
 
         switch (unitState)
@@ -55,6 +50,11 @@ public class Splasher : Unit
 
     public override void Attack()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
         enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask);
 
         if (enemyColliders.Length != 0 && lastAttackTime + attackSpeed <= PhotonNetwork.Time)

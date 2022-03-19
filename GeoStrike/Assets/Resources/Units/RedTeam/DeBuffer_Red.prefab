@@ -130,6 +130,7 @@ MonoBehaviour:
   row: 0
   column: 0
   unitState: 0
+  body: {fileID: 6918781755836907139}
   unitIndex: 0
 --- !u!195 &-2369398689286784635
 NavMeshAgent:

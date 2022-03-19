@@ -264,10 +264,10 @@ MonoBehaviour:
   row: 0
   column: 0
   unitState: 0
+  body: {fileID: 4715634741368314133}
   unitIndex: 0
   allyNexus: {fileID: 6386195217646654438, guid: 4c7f64cfe28661646977f7f1ef733cef, type: 3}
   animator: {fileID: 8835580005163108076}
-  body: {fileID: 0}
   buff: {fileID: 205257173124744665}
 --- !u!114 &8020710291790958506
 MonoBehaviour:

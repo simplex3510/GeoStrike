@@ -9,7 +9,6 @@ public class Shooter : Unit
     public Transform[] bulletSpawnPos;
     public BulletPool bulletPool;
     public Bullet bullet;
-    public GameObject body;
 
     int bulletPosIdx = 0;
 
@@ -31,11 +30,6 @@ public class Shooter : Unit
 
     protected override void Update()
     {
-        if(!photonView.IsMine)
-        {
-            return;
-        }
-
         base.Update();
 
         switch (unitState)
@@ -57,6 +51,11 @@ public class Shooter : Unit
 
     public override void Attack()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
         enemyCollider = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask).Length != 0 ?
                         Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask)[0] :
                         null;

@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Photon.Pun;
 
-public class UnitMove : MonoBehaviour
+public class UnitMove : MonoBehaviourPun
 {
     public NavMeshAgent agent { get; private set; }
     public Transform enemyNexus;
@@ -11,6 +12,7 @@ public class UnitMove : MonoBehaviour
     Unit unit;
     Collider[] enemyColliders;
     Rigidbody rigidBody;
+    Vector3 destination;
 
     void Awake()
     {
@@ -21,16 +23,16 @@ public class UnitMove : MonoBehaviour
 
     private void OnEnable()
     {
-        agent.isStopped = true;
-        rigidBody.angularVelocity = Vector3.zero;
-        rigidBody.velocity = Vector3.zero;
-        agent.velocity = Vector3.zero;
-        agent.updatePosition = false;
-        agent.updateRotation = false;
+        SetMove();
     }
 
     private void Update()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
         switch (unit.unitState)
         {
             case EUnitState.Idle:
@@ -52,37 +54,38 @@ public class UnitMove : MonoBehaviour
     #region FSM
     void Move()
     {
+        agent.SetDestination(destination);  // 실질적 이동
+
         enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, unit.detectRange, unit.opponentLayerMask);
         if (enemyColliders.Length == 0)     // 탐지 범위 내에 적이 없다면
         {
-            agent.destination = enemyNexus.position;
+            destination = enemyNexus.position;
         }
         else                                // 탐지 범위 내에 적이 있다면
         {
-            agent.destination = enemyColliders[0].transform.position;
+            destination = enemyColliders[0].transform.position;
             unit.unitState = EUnitState.Approach;
+            return;
         }
     }
 
     void Approach() // 적에게 접근
     {
+        agent.SetDestination(destination);      // 실질적 이동
+
         enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, unit.detectRange, unit.opponentLayerMask);
-        if (enemyColliders.Length == 0)         // 탐지 범위 내에 적이 없다면
+        if (enemyColliders.Length == 0)         // 탐지 범위 내에 적이 없어졌다면
         {
+            destination = enemyNexus.position;
             unit.unitState = EUnitState.Move;
             return;
         }
-        else
+        else                                    // 탐지 범위 내에 적이 있고
         {
             enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, unit.attackRange, unit.opponentLayerMask);
             if (enemyColliders.Length != 0)     // 공격 범위 내에 적이 있다면
             {
-                rigidBody.velocity = Vector3.zero;
-                rigidBody.angularVelocity = Vector3.zero;
-                agent.velocity = Vector3.zero;
-                agent.isStopped = true;
-                agent.updatePosition = false;    // 이 부분에서 포지션이 고정되지 않고 Y축으로 상승함
-
+                SetStop();
                 unit.unitState = EUnitState.Attack;
                 return;
             }
@@ -91,12 +94,7 @@ public class UnitMove : MonoBehaviour
 
     void Die()
     {
-        agent.destination = transform.position;
-
-        agent.isStopped = true;
-        agent.velocity = Vector3.zero;
-        agent.updatePosition = false;
-        agent.updateRotation = false;
+        SetStop();
     }
     #endregion 
 
@@ -104,7 +102,6 @@ public class UnitMove : MonoBehaviour
     {
         agent.isStopped = false;
         agent.updatePosition = true;
-        agent.updateRotation = true;
     }
 
     public void SetStop()
@@ -114,6 +111,5 @@ public class UnitMove : MonoBehaviour
         rigidBody.velocity = Vector3.zero;
         agent.velocity = Vector3.zero;
         agent.updatePosition = false;
-        agent.updateRotation = false;
     }
 }
