@@ -48,7 +48,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Defender_Blue_Body/BlueTeam_Weapon_Shield
+    path: Body/BlueTeam_Weapon_Shield
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves:
@@ -58,7 +58,7 @@ AnimationClip:
     - time: 1.8333334
       value: {fileID: 5501788209768119987, guid: 540a6c20a4b736e4f8211437e22568e6, type: 3}
     attribute: m_Sprite
-    path: Defender_Blue_Body
+    path: Body
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -69,14 +69,14 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 3657858550
+      path: 181393003
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3965999030
+      path: 2073732236
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -140,7 +140,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Defender_Blue_Body/BlueTeam_Weapon_Shield
+    path: Body/BlueTeam_Weapon_Shield
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -168,7 +168,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Defender_Blue_Body/BlueTeam_Weapon_Shield
+    path: Body/BlueTeam_Weapon_Shield
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -196,7 +196,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Defender_Blue_Body/BlueTeam_Weapon_Shield
+    path: Body/BlueTeam_Weapon_Shield
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves: []

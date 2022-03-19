@@ -64,7 +64,7 @@ AnimationClip:
     - time: 1.75
       value: {fileID: 1452541691443012708, guid: 6675125c088d0fb429268d6000d7746c, type: 3}
     attribute: m_Sprite
-    path: Slpasher_Blue_Body
+    path: Body
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 12
@@ -75,7 +75,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 912736962
+      path: 2073732236
       attribute: 0
       script: {fileID: 0}
       typeID: 212

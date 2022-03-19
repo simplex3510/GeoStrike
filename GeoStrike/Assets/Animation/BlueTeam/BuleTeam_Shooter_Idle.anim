@@ -66,7 +66,7 @@ AnimationClip:
     - time: 1.8333334
       value: {fileID: 4880648619051976335, guid: c6bb19f61d6f5b1478d7f12b28690bba, type: 3}
     attribute: m_Sprite
-    path: Shooter_Blue_Body
+    path: Body
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 12
@@ -77,7 +77,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 66461374
+      path: 2073732236
       attribute: 0
       script: {fileID: 0}
       typeID: 212

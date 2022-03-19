@@ -66,7 +66,7 @@ AnimationClip:
     - time: 1.8333334
       value: {fileID: -876600579549806499, guid: 4c545fef951ef1d4fa59b54173a02b51, type: 3}
     attribute: m_Sprite
-    path: Warrior_Red_Body
+    path: Body
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 12
@@ -77,7 +77,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 1736592690
+      path: 2073732236
       attribute: 0
       script: {fileID: 0}
       typeID: 212

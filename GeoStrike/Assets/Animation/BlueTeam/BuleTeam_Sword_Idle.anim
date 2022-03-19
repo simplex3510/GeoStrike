@@ -64,7 +64,7 @@ AnimationClip:
     - time: 1.75
       value: {fileID: -3387723889213218751, guid: 02c3d18d868b39644b6528bfa534e761, type: 3}
     attribute: m_Sprite
-    path: Warriot_Bule_Body
+    path: Body
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 12
@@ -75,7 +75,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2763686208
+      path: 2073732236
       attribute: 0
       script: {fileID: 0}
       typeID: 212

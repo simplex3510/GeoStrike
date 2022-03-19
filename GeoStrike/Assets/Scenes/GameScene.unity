@@ -29425,6 +29425,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Warrior_Blue
       objectReference: {fileID: 0}
+    - target: {fileID: 8506501462537962970, guid: 930bbcded9b16564caefe5bce0298313, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8506501462537962974, guid: 930bbcded9b16564caefe5bce0298313, type: 3}
       propertyPath: sceneViewId
       value: 14
@@ -36272,7 +36276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7263912412579857143, guid: 69753bdc55f1d4245b25ffec49050894, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7263912412579857147, guid: 69753bdc55f1d4245b25ffec49050894, type: 3}
       propertyPath: sceneViewId
@@ -44065,7 +44069,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2396335744122673611, guid: 7fd3023528f8a90429039979d224f094, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2396335744122673623, guid: 7fd3023528f8a90429039979d224f094, type: 3}
       propertyPath: sceneViewId
@@ -54385,7 +54389,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7380732769498575482
 Transform:
   m_ObjectHideFlags: 0
@@ -54575,7 +54579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &8451934661184493580
 CapsuleCollider:
   m_ObjectHideFlags: 0
