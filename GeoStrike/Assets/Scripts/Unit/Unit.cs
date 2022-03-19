@@ -313,16 +313,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         #endregion
     }
 
-    public void SetFreezeNone()
-    {
-        rigidBody.constraints = RigidbodyConstraints.None;
-    }
-
-    public void SetFreezeAll()
-    {
-        rigidBody.constraints = RigidbodyConstraints.FreezeAll;
-    }
-
     // Idle에서 Move가 되는 조건
     public IEnumerator IdleToMoveCondition()
     {

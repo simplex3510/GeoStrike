@@ -30,16 +30,14 @@ public class Bullet : MonoBehaviourPun
             return;
         }
 
+        transform.position = Vector3.MoveTowards(transform.position, targetCollider.transform.position, speed * Time.deltaTime);
+
         // 투사체가 발사된 후 타겟이 비활성화 되었을 때
-        if (targetCollider == null ||
-            transform.position == targetCollider.transform.position ||
-            targetCollider.enabled == false)
+        if (transform.position == targetCollider.transform.position ||
+            targetCollider.gameObject.activeSelf == false)
         {
             SetBulletActive(false);
         }
-
-        transform.position = Vector3.MoveTowards(transform.position, targetCollider.transform.position, speed * Time.deltaTime);
-
 
         if (!isRotate)
         {
@@ -75,7 +73,7 @@ public class Bullet : MonoBehaviourPun
         isRotate = false;
     }
 
-    private void OnCollisionEnter(Collision enemy)
+    private void OnTriggerEnter(Collider enemy)
     {
         if (enemy.gameObject.layer == (int)EPlayer.Enemy)
         {
@@ -83,13 +81,4 @@ public class Bullet : MonoBehaviourPun
             SetBulletActive(false);
         }
     }
-
-    //private void OnTriggerEnter(Collider enemy)
-    //{
-    //    if (enemy.gameObject.layer == (int)EPlayer.Enemy)
-    //    {
-    //        enemy.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
-    //        SetBulletActive(false);
-    //    }
-    //}
 }

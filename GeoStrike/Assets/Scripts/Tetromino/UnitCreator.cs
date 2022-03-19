@@ -46,7 +46,6 @@ public class UnitCreator : MonoBehaviourPun
                             Unit unit = ObjectPoolMgr.instance.poolArr[(int)unitP1.initStatus.unitIndex].GetObject();    // ³» Pool¿¡¼­ ³» À¯´Ö ²¨³»±â
                             unit.unitCreator = this;
                             unit.StartCoroutine(unit.IdleToMoveCondition());
-                            unit.SetFreezeAll();
 
                             if (spawnPos == Vector3.zero)
                             {
@@ -101,7 +100,6 @@ public class UnitCreator : MonoBehaviourPun
                             Unit unit = ObjectPoolMgr.instance.poolArr[(int)unitP2.initStatus.unitIndex].GetObject();    // ³» Pool¿¡¼­ ³» À¯´Ö ²¨³»±â
                             unit.unitCreator = this;
                             unit.StartCoroutine(unit.IdleToMoveCondition());
-                            unit.SetFreezeAll();
 
                             if (spawnPos == Vector3.zero)
                             {
