@@ -298,6 +298,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
         spriteRenderer.color = Color.white;
         gameObject.GetComponent<Collider>().enabled = true;
+        gameObject.SetActive(false);
     }
 
     private void OnApplicationQuit()
