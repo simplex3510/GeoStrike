@@ -121,12 +121,10 @@ public class Detector : MonoBehaviour
             // 버퍼와 디버퍼 기술 선택창
             if (clickedUnit.initStatus.unitIndex == EUnitIndex.Buffer && clickedUnit.unitState == EUnitState.Idle)
             {
-                Debug.Log("Buffer`s Enhance");
                 keySlotPanel.keySlotArr[1].gameObject.SetActive(true);
             }
             else if (clickedUnit.initStatus.unitIndex == EUnitIndex.Debuffer && clickedUnit.unitState == EUnitState.Idle)
             {
-                Debug.Log("Debuffer`s Enhance");
                 keySlotPanel.keySlotArr[1].gameObject.SetActive(true);
             }
             
@@ -177,8 +175,8 @@ public class Detector : MonoBehaviour
         Transform temp;
 
         cameraController.mouseController.eMouseMode = MouseController.EMouseMode.batch;
-        while (!Input.GetKeyDown(KeyCode.Escape) && !Input.GetMouseButtonDown(MouseController.CLICK_RIGHT) && clickedUnit.gameObject.layer == (int)EPlayer.Ally &&
-               clickedUnit != null && clickedUnit.unitState == EUnitState.Idle && GameMgr.instance.GetState() == EGameState.SpawnCount)
+        while (!Input.GetKeyDown(KeyCode.Escape) && !Input.GetMouseButtonDown(MouseController.CLICK_RIGHT) && clickedUnit != null &&
+               clickedUnit.gameObject.layer == (int)EPlayer.Ally && clickedUnit.unitState == EUnitState.Idle && GameMgr.instance.GetState() == EGameState.SpawnCount)
         {
             h = 0;
             v = 0;
