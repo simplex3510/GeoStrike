@@ -15,7 +15,7 @@ public class TimeSC : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Z))
         {
-            Time.timeScale = 3;
+            Time.timeScale = 10;
         }
         else
         {

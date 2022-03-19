@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5bd9e0a4759d7c438664996219f19ba, type: 3}
   m_Name: Shooter_Red
   m_EditorClassIdentifier: 
-  unitIndex: 0
-  unitName: 
-  health: 0
-  damage: 0
-  defense: 0
-  attackRange: 0
-  detectRange: 0
-  attackSpeed: 0
-  moveSpeed: 0
+  unitIndex: 2
+  unitName: Shooter
+  health: 10
+  damage: 2
+  defense: 1
+  attackRange: 6
+  detectRange: 10
+  attackSpeed: 5
+  moveSpeed: 3

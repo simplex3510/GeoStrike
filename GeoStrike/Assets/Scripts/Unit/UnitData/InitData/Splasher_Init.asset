@@ -15,7 +15,7 @@ MonoBehaviour:
   unitIndex: 3
   unitName: Splasher
   health: 10
-  damage: 5
+  damage: 2
   defense: 1
   attackRange: 6
   detectRange: 10
