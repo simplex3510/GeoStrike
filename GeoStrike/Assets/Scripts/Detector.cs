@@ -57,9 +57,6 @@ public class Detector : MonoBehaviour
         {
             if (clickedObject.CompareTag("Tetromino"))
             {
-                // 구현중
-                // 테트리스건물일 경우 띄워야 할 정보들
-                // 이미지, 이름, 건물 완성도
                 Tetromino tetromino = clickedObject.GetComponent<Tetromino>();
                 statusPanel.statusInfoArr[0].TetrominoStatusInfo(tetromino.GetComponent<SpriteRenderer>(), tetromino.quaternion, tetromino.shapeName);
             }
@@ -70,7 +67,9 @@ public class Detector : MonoBehaviour
             }
             else if (clickedObject.CompareTag("Tower"))
             {
-                Debug.Log("Clicked Tower");
+                // 터렛 이름 설정해주기, 미구현 : 공격력
+                Tower tower = clickedObject.GetComponent<Tower>();
+                statusPanel.statusInfoArr[2].TowerStatusInfo(tower.GetComponent<SpriteRenderer>(), tower.initStatus.name, tower.Health, tower.Defense);
             }
         }
     }

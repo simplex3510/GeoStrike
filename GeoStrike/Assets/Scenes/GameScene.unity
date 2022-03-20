@@ -54670,7 +54670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mask:
     serializedVersion: 2
-    m_Bits: 8384
+    m_Bits: 8896
   tile: {fileID: 0}
   tetrominoObj: {fileID: 0}
   tetromino: {fileID: 0}

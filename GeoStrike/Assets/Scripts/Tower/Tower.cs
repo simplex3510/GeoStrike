@@ -10,8 +10,8 @@ public abstract class Tower : MonoBehaviourPun, IDamageable
     public TowerData deltaStatus;
 
     #region Tower Data
-    protected float Health { get; private set; }
-    protected float Defense { get; private set; }
+    public float Health { get; private set; }
+    public float Defense { get; private set; }
     #endregion
 
     [SerializeField] protected LayerMask towerLayerMask;

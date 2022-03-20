@@ -26,4 +26,13 @@ public class StatusInfo : MonoBehaviour
         img.transform.rotation = _quaternion;
         textName.text = _name;
     }
+
+    public void TowerStatusInfo(SpriteRenderer _spriteRenderer, string _name, float _hp, float _def)
+    {
+        img.sprite = _spriteRenderer.sprite;
+        textName.text = (_name);
+        textHP.text = ("HP : " + _hp);
+        //textATK.text = ("Attack : " + _atk);
+        textDEF.text = ("Defence : " + _def);
+    }
 }
