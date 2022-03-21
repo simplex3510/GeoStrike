@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using Photon.Pun;
 
 public class Buffer : Unit
@@ -9,9 +10,13 @@ public class Buffer : Unit
     public Animator animator;
     public GameObject buff;
 
+    NavMeshAgent agent;
     Collider[] targetColliders;
+    Transform target;
     float buffRange;
-    float buffDamage = 2f;    // Buff Status Delta
+    float buffDamage = 2f;    // Delta Buff Status 
+
+    float distance;
 
     [PunRPC]
     public void OnEnforceStartHealth()
@@ -27,6 +32,7 @@ public class Buffer : Unit
     {
         base.Awake();
         opponentLayerMask = 1 << (int)EPlayer.Ally;
+        agent = GetComponent<NavMeshAgent>();
         buffRange = attackRange;
     }
 
@@ -42,11 +48,6 @@ public class Buffer : Unit
 
     protected new void Update()
     {
-        if (GameMgr.blueNexus == false || GameMgr.redNexus == false)
-        {
-            unitState = EUnitState.Idle;
-        }
-
         switch (unitState)
         {
             case EUnitState.Idle:
@@ -63,6 +64,11 @@ public class Buffer : Unit
                 Die();
                 break;
         }
+
+        if (GameMgr.blueNexus == false || GameMgr.redNexus == false)
+        {
+            unitState = EUnitState.Idle;
+        }
     }
 
     #region FSM
@@ -73,12 +79,45 @@ public class Buffer : Unit
             return;
         }
 
-        targetColliders = Physics.OverlapCapsule(transform.position, transform.position, detectRange, opponentLayerMask);
+        if(target.gameObject.activeSelf == false)
+        {
+            targetColliders = Physics.OverlapCapsule(transform.position, transform.position, detectRange, opponentLayerMask);
+
+            int me = -1;
+            int tartgetIndex = -1;
+
+            for (int i = 0; i < targetColliders.Length; i++)
+            {
+                if (targetColliders[i].gameObject == this.gameObject)
+                {
+                    me = i;
+                    break;
+                }
+            }
+            distance = 100;
+            for (int i = 0; i < targetColliders.Length; i++)
+            {
+                if (me == i)
+                {
+                    return;
+                }
+
+                if (distance > Vector3.Distance(this.transform.position, targetColliders[i].transform.position))
+                {
+                    distance = Vector3.Distance(this.transform.position, targetColliders[i].transform.position);
+                    tartgetIndex = i;
+                }
+            }
+
+            target = targetColliders[tartgetIndex].transform;
+        }
+
+        
         if (1 == targetColliders.Length)
         {
-            unitMove.agent.SetDestination(allyNexus.position);                                  // 목적지를 아군 넥서스로 설정
+            agent.SetDestination(allyNexus.position);                                  // 목적지를 아군 넥서스로 설정
         }
-        else                                                                                    // 자신을 제외한 콜라이더
+        else                                                                           // 자신을 제외한 콜라이더
         {
             unitState = EUnitState.Approach;
         }
@@ -94,7 +133,7 @@ public class Buffer : Unit
         targetColliders = Physics.OverlapCapsule(transform.position, transform.position, detectRange, opponentLayerMask);  // 범위 내 아군 탐색
         if (1 < targetColliders.Length)                                                                                    // 범위 내 아군이 있다면
         {
-            unitMove.agent.SetDestination(targetColliders[1].transform.position);                                          // 아군에게 접근
+            agent.SetDestination(targetColliders[1].transform.position - new Vector3(0.8f, 0f, 0.8f));                         // 아군에게 접근
         }
         else                                                                                                               // 범위 내 아군이 없다면
         {
@@ -102,12 +141,10 @@ public class Buffer : Unit
         }
     }
 
-    void Die()    // 유닛 사망
+    new void Die()    // 유닛 사망
     {
         gameObject.GetComponent<Collider>().enabled = false;
         StartCoroutine(DieAnimation(body));
     }
     #endregion
-
-
 }

@@ -10,27 +10,27 @@ public class Buff : MonoBehaviourPun
     EBuffandDebuff currentBuff = EBuffandDebuff.Damage;
 
     // Buff Status Delta
-    float buffDamage = 2f;
+    float buffDeltaStatus = 2f;
 
     protected void Awake()
     {
         opponentLayerMask = 1 << (int)EPlayer.Ally;
     }
 
-    private void OnTriggerEnter2D(Collider2D ally)
+    private void OnTriggerEnter(Collider ally)
     {
         if(ally.gameObject.layer == LayerMask.NameToLayer("Ally"))
         {
-            ally.GetComponent<Unit>().OnBuff(currentBuff, buffDamage);
+            ally.GetComponent<Unit>().OnBuff((int)currentBuff, buffDeltaStatus);
         }
 
     }
 
-    private void OnTriggerExit2D(Collider2D ally)
+    private void OnTriggerExit(Collider ally)
     {
         if (ally.gameObject.layer == LayerMask.NameToLayer("Ally"))
         {
-            ally.GetComponent<Unit>().OffBuff(currentBuff, buffDamage);
+            ally.GetComponent<Unit>().OffBuff((int)currentBuff, buffDeltaStatus);
         }
     }
 

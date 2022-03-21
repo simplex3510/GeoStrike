@@ -56,14 +56,14 @@ interface IActivatable
 
 interface IBuffable
 {
-    public void OnBuff(EBuffandDebuff _buffType, float _buff);
-    public void OffBuff(EBuffandDebuff _DebuffType, float _buff);
+    public void OnBuff(int _buffType, float _buff);
+    public void OffBuff(int _DebuffType, float _buff);
 }
 
 interface IDebuffable
 {
-    public void OnDebuff(EBuffandDebuff _DebuffType, float _debuff);
-    public void OffDebuff(EBuffandDebuff _DebuffType, float _debuff);
+    public void OnDebuff(int _DebuffType, float _debuff);
+    public void OffDebuff(int _DebuffType, float _debuff);
 }
 
 public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffable, IDebuffable, IPunObservable
@@ -209,7 +209,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
     public virtual void Attack() { }
 
-    void Die()    // À¯´Ö »ç¸Á
+    protected virtual void Die()    // À¯´Ö »ç¸Á
     {
         StartCoroutine(DieAnimation(body));
     }
@@ -237,42 +237,58 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     }
 
     #region buff & debuff
-    public void OnBuff(EBuffandDebuff buffType, float _buff)
+    public void OnBuff(int _buffType, float _buff)
     {
-        switch(buffType)
+        if(hasBuff == false)
+        {
+            hasBuff = true;
+            return;
+        }
+
+        switch((EBuffandDebuff)_buffType)
         {
             case EBuffandDebuff.Damage:
-                if (!hasBuff) { hasBuff = true; return; }
                 damage += _buff;
                 if (photonView.IsMine) { photonView.RPC("OnBuff", RpcTarget.Others, _buff); }
                 break;
         }
     }
 
-    public void OffBuff(EBuffandDebuff buffType, float _buff)
+    public void OffBuff(int _buffType, float _buff)
     {
-        switch (buffType)
+        switch ((EBuffandDebuff)_buffType)
         {
             case EBuffandDebuff.Damage:
-                hasBuff = false;
                 damage -= _buff;
                 if (photonView.IsMine) { photonView.RPC("OnBuff", RpcTarget.Others, _buff); }
                 break;
         }
+
+        hasDebuff = false;
     }
 
-    public void OnDebuff(EBuffandDebuff buffType, float _debuff)
+    public void OnDebuff(int _debuffType, float _debuff)
     {
-        switch(buffType)
+        switch((EBuffandDebuff)_debuffType)
         {
             case EBuffandDebuff.Damage:
+                hasDebuff = false;
+                damage -= _debuff;
+                if (photonView.IsMine) { photonView.RPC("OnDebuff", RpcTarget.Others, _debuff); }
                 break;
         }
     }
 
-    public void OffDebuff(EBuffandDebuff buffType, float _debuff)
+    public void OffDebuff(int _debuffType, float _debuff)
     {
-
+        switch ((EBuffandDebuff)_debuffType)
+        {
+            case EBuffandDebuff.Damage:
+                hasDebuff = false;
+                damage += _debuff;
+                if (photonView.IsMine) { photonView.RPC("OnDebuff", RpcTarget.Others, _debuff); }
+                break;
+        }
     }
     #endregion
 
