@@ -9,6 +9,7 @@ public class Grenade : MonoBehaviourPun
     // Bullet Pool
     public Queue<Grenade> myPool;
 
+    public Transform parent;
     public Collider targetCollider;
     public Vector3 targetPos;
 
@@ -98,6 +99,7 @@ public class Grenade : MonoBehaviourPun
     IEnumerator CActiveDelay()
     {
         yield return new WaitForSeconds(0.5f);
+        transform.SetParent(parent);
         SetGrenadeActive(false);
     }
 }

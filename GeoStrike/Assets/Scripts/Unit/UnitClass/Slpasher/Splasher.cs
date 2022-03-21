@@ -66,6 +66,8 @@ public class Splasher : Unit
             grenade.damage = this.damage;                                       // 투사체 대미지 설정
             grenade.targetCollider = enemyColliders[0];                         // 투사체의 목표를 설정
             grenade.targetPos = enemyColliders[0].transform.position;           // 투사체의 폭발 위치 지정
+            grenade.parent = this.transform;                                    // 투사체 부모 설정 (폭발후 다시 부모의 하위로 돌아감)
+            grenade.transform.SetParent(null);                                  // 투사체 공격 유지 : 부모가 죽어도 이미 발사된 투사체는 계속해서 나아감
             grenade.SetGrenadeActive(true);                                     // 투사체 활성화
             grenade.SetShootActive(true);                                       // 투사체 이펙트 활성화
             grenade.SetExplosionActive(false);                                  // 투사체 폭발 이펙트 비활성화

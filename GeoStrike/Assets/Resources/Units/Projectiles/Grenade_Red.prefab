@@ -4865,6 +4865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab584b00b4d62e41b9030fafe7743d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parent: {fileID: 0}
   targetCollider: {fileID: 0}
   targetPos: {x: 0, y: 0, z: 0}
   shootEffect: {fileID: 5819532731989433718}
