@@ -12,11 +12,9 @@ public class Buffer : Unit
 
     NavMeshAgent agent;
     Collider[] targetColliders;
-    Transform target;
+    GameObject target;
     float buffRange;
     float buffDamage = 2f;    // Delta Buff Status 
-
-    float distance;
 
     [PunRPC]
     public void OnEnforceStartHealth()
@@ -79,46 +77,48 @@ public class Buffer : Unit
             return;
         }
 
-        if(target.gameObject.activeSelf == false)
-        {
-            targetColliders = Physics.OverlapCapsule(transform.position, transform.position, detectRange, opponentLayerMask);
-
-            int me = -1;
-            int tartgetIndex = -1;
-
-            for (int i = 0; i < targetColliders.Length; i++)
-            {
-                if (targetColliders[i].gameObject == this.gameObject)
-                {
-                    me = i;
-                    break;
-                }
-            }
-            distance = 100;
-            for (int i = 0; i < targetColliders.Length; i++)
-            {
-                if (me == i)
-                {
-                    return;
-                }
-
-                if (distance > Vector3.Distance(this.transform.position, targetColliders[i].transform.position))
-                {
-                    distance = Vector3.Distance(this.transform.position, targetColliders[i].transform.position);
-                    tartgetIndex = i;
-                }
-            }
-
-            target = targetColliders[tartgetIndex].transform;
-        }
-
-        
+        targetColliders = Physics.OverlapSphere(transform.position, detectRange, opponentLayerMask);
         if (1 == targetColliders.Length)
         {
-            agent.SetDestination(allyNexus.position);                                  // 목적지를 아군 넥서스로 설정
+            agent.SetDestination(allyNexus.position);
         }
-        else                                                                           // 자신을 제외한 콜라이더
+        else
         {
+            if (targetColliders[0].gameObject == this.gameObject)
+            {
+                target = targetColliders[1].gameObject;
+            }
+            else
+            {
+                target = targetColliders[0].gameObject;
+            }
+
+            if (target.gameObject.activeSelf == false)
+            {
+                float temp;
+                float distance;
+                int targetIndex = -1;
+
+                distance = 10;
+                for (int i = 0; i < targetColliders.Length; i++)
+                {
+                    if (targetColliders[i].gameObject == this.gameObject)
+                    {
+                        continue;
+                    }
+
+                    temp = Vector3.Distance(this.transform.position, targetColliders[i].transform.position);
+
+                    if (temp < distance)
+                    {
+                        distance = temp;
+                        targetIndex = i;
+                    }
+                }
+
+                target = targetColliders[targetIndex].gameObject;
+            }
+
             unitState = EUnitState.Approach;
         }
     }
@@ -130,18 +130,18 @@ public class Buffer : Unit
             return;
         }
 
-        targetColliders = Physics.OverlapCapsule(transform.position, transform.position, detectRange, opponentLayerMask);  // 범위 내 아군 탐색
-        if (1 < targetColliders.Length)                                                                                    // 범위 내 아군이 있다면
+        targetColliders = Physics.OverlapSphere(transform.position, detectRange, opponentLayerMask);  // 범위 내 아군 탐색
+        if (1 < targetColliders.Length && target.activeSelf != false)                                 // 범위 내 아군이 있다면
         {
-            agent.SetDestination(targetColliders[1].transform.position - new Vector3(0.8f, 0f, 0.8f));                         // 아군에게 접근
+            agent.SetDestination(target.transform.position);                                          // 아군에게 접근
         }
-        else                                                                                                               // 범위 내 아군이 없다면
+        else                                                                                          // 범위 내 아군이 없다면
         {
-            unitState = EUnitState.Move;                                                                                   // 아군 넥서스로 이동
+            unitState = EUnitState.Move;                                                              // 아군 넥서스로 이동
         }
     }
 
-    new void Die()    // 유닛 사망
+    new void Die()
     {
         gameObject.GetComponent<Collider>().enabled = false;
         StartCoroutine(DieAnimation(body));
