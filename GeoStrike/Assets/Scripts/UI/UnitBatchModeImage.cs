@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [DefaultExecutionOrder(202)]
-public class UnitSelectEffect : MonoBehaviour
+public class UnitBatchModeImage : MonoBehaviour
 {
     public Image image;
     public Vector3 originPos;

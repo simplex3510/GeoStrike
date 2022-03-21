@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Detector : MonoBehaviour
 {
-    [Header("< Component >")]
+    // Components
     [HideInInspector] private CameraController cameraController;
     [HideInInspector] private TetrominoCreater creater;
     [HideInInspector] private UnitTileContainer unitTileContainer;
-    [HideInInspector] private UnitSelectEffect unitSelectEffect;
+    [HideInInspector] private UnitBatchModeImage unitBatchModeImage;
+    [HideInInspector] private UnitSelectImage unitSelectImage;
     [HideInInspector] private StatusPanel statusPanel;
     [HideInInspector] private KeySlotPanel keySlotPanel;
 
@@ -34,7 +35,8 @@ public class Detector : MonoBehaviour
         if (cameraController == null) { cameraController = GameObject.FindObjectOfType<CameraController>(); }
         if (creater == null) { creater = GameObject.FindObjectOfType<TetrominoCreater>(); }
         if (unitTileContainer == null) { unitTileContainer = GameObject.FindObjectOfType<UnitTileContainer>(); }
-        if (unitSelectEffect == null) { unitSelectEffect = GameObject.FindObjectOfType<UnitSelectEffect>(); }
+        if (unitBatchModeImage == null) { unitBatchModeImage = GameObject.FindObjectOfType<UnitBatchModeImage>(); }
+        if (unitSelectImage == null) { unitSelectImage = GameObject.FindObjectOfType<UnitSelectImage>(); }
         if (statusPanel == null) { statusPanel = GameObject.FindObjectOfType<StatusPanel>(); }
         if (keySlotPanel == null) { keySlotPanel = GameObject.FindObjectOfType<KeySlotPanel>(); }
     }
@@ -55,6 +57,8 @@ public class Detector : MonoBehaviour
     {
         if (clickedObject != null)
         {
+            unitSelectImage.transform.position = Camera.main.WorldToScreenPoint(clickedObject.transform.position);
+
             if (clickedObject.CompareTag("Tetromino"))
             {
                 Tetromino tetromino = clickedObject.GetComponent<Tetromino>();
@@ -63,7 +67,7 @@ public class Detector : MonoBehaviour
             else if (clickedObject.CompareTag("Unit"))
             {
                 Unit unit = clickedObject.GetComponent<Unit>();
-                statusPanel.statusInfoArr[1].UnitStatusInfo(unit.GetComponentInChildren<SpriteRenderer>(), unit.unitName, unit.currentHealth, unit.damage, unit.defense);
+                statusPanel.statusInfoArr[1].UnitStatusInfo(unit.GetComponentInChildren<SpriteRenderer>(), unit.initStatus.unitName, unit.currentHealth, unit.damage, unit.defense);
             }
             else if (clickedObject.CompareTag("Tower"))
             {
@@ -71,6 +75,10 @@ public class Detector : MonoBehaviour
                 Tower tower = clickedObject.GetComponent<Tower>();
                 statusPanel.statusInfoArr[2].TowerStatusInfo(tower.GetComponent<SpriteRenderer>(), tower.initStatus.name, tower.Health, tower.Defense);
             }
+        }
+        else
+        {
+            unitSelectImage.transform.position = unitSelectImage.originPos;
         }
     }
 
@@ -236,13 +244,13 @@ public class Detector : MonoBehaviour
                 clickedUnit.transform.position = clickedUnit.unitCreator.spawnPos; // 유닛의 실제 위치 이동
             }
 
-            unitSelectEffect.transform.position = Camera.main.WorldToScreenPoint(clickedUnit.transform.position);
+            unitBatchModeImage.transform.position = Camera.main.WorldToScreenPoint(clickedUnit.transform.position);
             yield return null;
         }
 
         // 배치모드 끝날시
         clickedUnit = null;
-        unitSelectEffect.transform.position = unitSelectEffect.originPos;
+        unitBatchModeImage.transform.position = unitBatchModeImage.originPos;
         cameraController.mouseController.eMouseMode = MouseController.EMouseMode.normal;
     }
 }
