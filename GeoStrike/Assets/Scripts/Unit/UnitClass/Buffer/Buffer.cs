@@ -12,8 +12,11 @@ public class Buffer : Unit
 
     NavMeshAgent agent;
     Collider[] targetColliders;
+    Transform target;
     float buffRange;
     float buffDamage = 2f;    // Delta Buff Status 
+
+    float distance;
 
     [PunRPC]
     public void OnEnforceStartHealth()
@@ -76,7 +79,40 @@ public class Buffer : Unit
             return;
         }
 
-        targetColliders = Physics.OverlapCapsule(transform.position, transform.position, detectRange, opponentLayerMask);
+        if(target.gameObject.activeSelf == false)
+        {
+            targetColliders = Physics.OverlapCapsule(transform.position, transform.position, detectRange, opponentLayerMask);
+
+            int me = -1;
+            int tartgetIndex = -1;
+
+            for (int i = 0; i < targetColliders.Length; i++)
+            {
+                if (targetColliders[i].gameObject == this.gameObject)
+                {
+                    me = i;
+                    break;
+                }
+            }
+            distance = 100;
+            for (int i = 0; i < targetColliders.Length; i++)
+            {
+                if (me == i)
+                {
+                    return;
+                }
+
+                if (distance > Vector3.Distance(this.transform.position, targetColliders[i].transform.position))
+                {
+                    distance = Vector3.Distance(this.transform.position, targetColliders[i].transform.position);
+                    tartgetIndex = i;
+                }
+            }
+
+            target = targetColliders[tartgetIndex].transform;
+        }
+
+        
         if (1 == targetColliders.Length)
         {
             agent.SetDestination(allyNexus.position);                                  // 목적지를 아군 넥서스로 설정
