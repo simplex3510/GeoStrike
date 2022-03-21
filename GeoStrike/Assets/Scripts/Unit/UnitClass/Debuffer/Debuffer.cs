@@ -6,7 +6,8 @@ using Photon.Pun;
 public class Debuffer : Unit
 {
     Collider[] enemyColliders;
-    float debuffDamage = 2f;
+    EBuffandDebuff currentDebuff;
+    float debuffDeltaStatus = 2f;
 
     protected override void Awake()
     {
@@ -39,6 +40,7 @@ public class Debuffer : Unit
                 Attack();
                 break;
             case EUnitState.Die:
+                Die();
                 break;
         }
     }
@@ -52,14 +54,12 @@ public class Debuffer : Unit
 
         enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask);
 
-        if (enemyColliders.Length != 0 && lastAttackTime + attackSpeed <= PhotonNetwork.Time)
+        if (enemyColliders.Length != 0)
         {
-            lastAttackTime = PhotonNetwork.Time;
-
             for (int i = 0; i < 4; i++)
             {
                 enemyColliders[i].GetComponent<Unit>().OnDamaged(damage);
-                enemyColliders[i].GetComponent<Unit>().OnDebuff(EBuffandDebuff.Damage, debuffDamage);
+                enemyColliders[i].GetComponent<Unit>().OnDebuff((int)currentDebuff, debuffDeltaStatus);
             }
         }
         else if (enemyColliders.Length == 0)
@@ -67,6 +67,17 @@ public class Debuffer : Unit
             unitMove.SetMove();
             unitState = EUnitState.Move;
             return;
+        }
+    }
+
+    protected override void Die()
+    {
+        if(enemyColliders.Length != 0)
+        {
+            for (int i = 0; i < enemyColliders.Length; i++)
+            {
+                enemyColliders[0].GetComponent<Unit>().OffDebuff((int)currentDebuff, debuffDeltaStatus);
+            }
         }
     }
 }

@@ -11,14 +11,12 @@ public class UnitMove : MonoBehaviourPun
 
     Unit unit;
     Collider[] enemyColliders;
-    //Rigidbody rigidBody;
     Vector3 destination;
 
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         unit = GetComponent<Unit>();
-        //rigidBody = GetComponent<Rigidbody>();
     }
 
     private void OnEnable()
@@ -107,8 +105,6 @@ public class UnitMove : MonoBehaviourPun
     public void SetStop()
     {
         agent.isStopped = true;
-        //rigidBody.angularVelocity = Vector3.zero;
-        //rigidBody.velocity = Vector3.zero;
         agent.velocity = Vector3.zero;
         agent.updatePosition = false;
     }
