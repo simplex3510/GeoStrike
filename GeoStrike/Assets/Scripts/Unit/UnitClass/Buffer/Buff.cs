@@ -8,6 +8,25 @@ public class Buff : MonoBehaviourPun
     LayerMask opponentLayerMask;
 
     EBuffandDebuff currentBuff = EBuffandDebuff.Damage;
+    public EBuffandDebuff CurrentBuff 
+    {
+        get { return currentBuff; }
+        set
+        {
+            switch (value)
+            {
+                case EBuffandDebuff.Damage:
+                    break;
+                case EBuffandDebuff.Defence:
+                    break;
+                case EBuffandDebuff.Haste:
+                    break;
+                default:
+                    break;
+            }
+        }    
+    } 
+
 
     // Buff Status Delta
     float buffDeltaStatus = 2f;
@@ -34,18 +53,18 @@ public class Buff : MonoBehaviourPun
         }
     }
 
-    public void ChoiceBuffAttack()
-    {
-        currentBuff = EBuffandDebuff.Damage;
-    }
+    //public void ChoiceBuffAttack()
+    //{
+    //    currentBuff = EBuffandDebuff.Damage;
+    //}
 
-    public void ChoiceBuffDefence()
-    {
-        currentBuff = EBuffandDebuff.Defence;
-    }
+    //public void ChoiceBuffDefence()
+    //{
+    //    currentBuff = EBuffandDebuff.Defence;
+    //}
 
-    public void ChoiceBuffHaste()
-    {
-        currentBuff = EBuffandDebuff.Haste;
-    }
+    //public void ChoiceBuffHaste()
+    //{
+    //    currentBuff = EBuffandDebuff.Haste;
+    //}
 }

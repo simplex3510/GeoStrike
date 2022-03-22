@@ -29,6 +29,9 @@ public class Detector : MonoBehaviour
     // 정보창 & 유닛 배치모드
     public GameObject clickedObject;      // 클릭한 Object 저장
     public Unit clickedUnit;              // 배치모드에서 사용할 클릭한 Unit 저장
+    Coroutine currentCoroutine;           // 배치모드 현재 실행중인 코루틴
+
+    
 
     private void Awake()
     {
@@ -85,7 +88,7 @@ public class Detector : MonoBehaviour
     // 클릭한 오브젝트 Data 가져오기
     private void ClickedObjectData()
     {
-        if (cameraController.mouseController.eMouseMode == MouseController.EMouseMode.normal && Input.GetMouseButtonDown(MouseController.CLICK_LEFT))
+        if (cameraController.mouseController.eMouseMode != MouseController.EMouseMode.build && Input.GetMouseButtonDown(MouseController.CLICK_LEFT))
         {
             ray = cameraController.mainCamera.ScreenPointToRay(cameraController.mouseController.mousePos);
             Physics.Raycast(ray, out hit, Mathf.Infinity, mask);
@@ -100,13 +103,22 @@ public class Detector : MonoBehaviour
                 WhichObjInterface();
 
                 // 클릭한 유닛이 Idle (유닛타일에서 대기중) 일때 배치모드 실행
-                if (clickedObject.CompareTag("Unit") && clickedUnit.unitState == EUnitState.Idle && cameraController.mouseController.eMouseMode == MouseController.EMouseMode.normal)
+                if (clickedObject.CompareTag("Unit") && clickedUnit.unitState == EUnitState.Idle)
                 {
-                    StartCoroutine(CBatchMode());
+                    // 첫 코루틴 예외처리
+                    if (currentCoroutine != null)
+                    {
+                        // 코루틴 중복 실행 방지
+                        StopCoroutine(currentCoroutine);
+                    }
+                    // 현재 실행중인 코루틴 주소
+                    currentCoroutine = StartCoroutine(CBatchMode());
                 }
             }
         }
     }
+
+
 
     private void WhichObjInterface()
     {
@@ -182,6 +194,10 @@ public class Detector : MonoBehaviour
         Transform temp;
 
         cameraController.mouseController.eMouseMode = MouseController.EMouseMode.batch;
+
+        Debug.Log("BatchMode");
+
+        // 배치모드 취소조건 : ESC, 우클릭, 시간에 의한 유닛 이동
         while (!Input.GetKeyDown(KeyCode.Escape) && !Input.GetMouseButtonDown(MouseController.CLICK_RIGHT) && clickedUnit != null &&
                clickedUnit.gameObject.layer == (int)EPlayer.Ally && clickedUnit.unitState == EUnitState.Idle && GameMgr.instance.GetState() == EGameState.SpawnCount)
         {
@@ -252,5 +268,6 @@ public class Detector : MonoBehaviour
         clickedUnit = null;
         unitBatchModeImage.transform.position = unitBatchModeImage.originPos;
         cameraController.mouseController.eMouseMode = MouseController.EMouseMode.normal;
+        Debug.Log("Cancel");
     }
 }
