@@ -13,9 +13,7 @@ public abstract class Tower : MonoBehaviourPun, IDamageable
     public float Health { get; private set; }
     public float Defense { get; private set; }
     #endregion
-
-    [SerializeField] protected LayerMask towerLayerMask;
-
+    
     protected virtual void Awake()
     {
         #region Initialize Delta Tower Data
@@ -30,13 +28,11 @@ public abstract class Tower : MonoBehaviourPun, IDamageable
 
         if (photonView.IsMine)
         {
-            gameObject.layer = LayerMask.NameToLayer("Tower");
-            towerLayerMask = 1 << LayerMask.NameToLayer("Ally") | 1 << LayerMask.NameToLayer("Tower");
+            gameObject.layer = LayerMask.NameToLayer("Ally");
         }
         else
         {
-            gameObject.layer = (int)EPlayer.Enemy;
-            towerLayerMask = 1 << LayerMask.NameToLayer("Enemy") | 1 << LayerMask.NameToLayer("Tower");
+            gameObject.layer = LayerMask.NameToLayer("Tower");
         }
     }
 
@@ -59,8 +55,8 @@ public abstract class Tower : MonoBehaviourPun, IDamageable
         {
             photonView.RPC("SetTowerActive", RpcTarget.Others, false);
         }
-
     }
+
     protected IEnumerator DieAnimation()
     {
         var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
