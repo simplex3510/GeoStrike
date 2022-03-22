@@ -19241,7 +19241,7 @@ GameObject:
   - component: {fileID: 338177587}
   - component: {fileID: 338177586}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: MoveSpeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20768,7 +20768,7 @@ GameObject:
   - component: {fileID: 417245672}
   - component: {fileID: 417245671}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21262,7 +21262,7 @@ GameObject:
   - component: {fileID: 428181230}
   - component: {fileID: 428181229}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: AttackSpeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29611,7 +29611,7 @@ GameObject:
   - component: {fileID: 893933309}
   - component: {fileID: 893933308}
   m_Layer: 5
-  m_Name: Button_Attack
+  m_Name: Button_Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30510,7 +30510,7 @@ GameObject:
   - component: {fileID: 954543139}
   - component: {fileID: 954543138}
   m_Layer: 5
-  m_Name: Button_Defence
+  m_Name: Button_Defense
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30588,7 +30588,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: Defence
+          m_StringArgument: Defense
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &954543139
@@ -31631,7 +31631,7 @@ GameObject:
   - component: {fileID: 1031838099}
   - component: {fileID: 1031838098}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Defense
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37965,7 +37965,7 @@ GameObject:
   - component: {fileID: 1356608419}
   - component: {fileID: 1356608418}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43593,7 +43593,7 @@ GameObject:
   - component: {fileID: 1625365301}
   - component: {fileID: 1625365300}
   m_Layer: 5
-  m_Name: Button (5)
+  m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
