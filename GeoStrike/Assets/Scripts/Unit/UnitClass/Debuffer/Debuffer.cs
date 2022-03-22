@@ -58,10 +58,13 @@ public class Debuffer : Unit
         if (enemyColliders.Length != 0 && lastAttackTime + attackSpeed <= PhotonNetwork.Time)
         {
             lastAttackTime = PhotonNetwork.Time;
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 4 && i < enemyColliders.Length; i++)
             {
-                enemyColliders[i].GetComponent<Unit>().OnDamaged(damage);
-                enemyColliders[i].GetComponent<Unit>().OnDebuff((int)currentDebuff, debuffDeltaStatus, applyTime);
+                enemyColliders[i].GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
+                if(enemyColliders[i].GetComponent<Unit>() != null)
+                {
+                    enemyColliders[i].GetComponent<Unit>().OnDebuff((int)currentDebuff, debuffDeltaStatus, applyTime);
+                }
             }
         }
         else if (enemyColliders.Length == 0)
