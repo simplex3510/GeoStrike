@@ -52,19 +52,4 @@ public class Buff : MonoBehaviourPun
             ally.GetComponent<Unit>().OffBuff((int)currentBuff, buffDeltaStatus);
         }
     }
-
-    //public void ChoiceBuffAttack()
-    //{
-    //    currentBuff = EBuffandDebuff.Damage;
-    //}
-
-    //public void ChoiceBuffDefence()
-    //{
-    //    currentBuff = EBuffandDebuff.Defence;
-    //}
-
-    //public void ChoiceBuffHaste()
-    //{
-    //    currentBuff = EBuffandDebuff.Haste;
-    //}
 }

@@ -18345,7 +18345,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1315604953}
         m_TargetAssemblyTypeName: KeySlotInfo, Assembly-CSharp
-        m_MethodName: OnButtonBuff
+        m_MethodName: OnButtonBuffAndDebuff
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -29682,7 +29682,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1315604953}
         m_TargetAssemblyTypeName: KeySlotInfo, Assembly-CSharp
-        m_MethodName: OnButtonBuff
+        m_MethodName: OnButtonBuffAndDebuff
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -30581,7 +30581,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1315604953}
         m_TargetAssemblyTypeName: KeySlotInfo, Assembly-CSharp
-        m_MethodName: OnButtonBuff
+        m_MethodName: OnButtonBuffAndDebuff
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
