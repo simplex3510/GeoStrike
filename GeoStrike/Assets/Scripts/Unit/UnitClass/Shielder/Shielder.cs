@@ -22,6 +22,8 @@ public class Shielder : Unit
     protected override void Awake()
     {
         base.Awake();
+
+        shild.layer = this.gameObject.layer;
     }
 
     protected override void OnEnable()
@@ -69,14 +71,15 @@ public class Shielder : Unit
                         Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask)[0] :
                         null;
 
-        if (enemyCollider == null)
+        if (enemyCollider != null)
         {
-            unitState = EUnitState.Move;
-            return;
+            enemyCollider.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
         }
         else
         {
-            enemyCollider.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
+            unitMove.SetMove();
+            unitState = EUnitState.Move;
+            return;
         }
     }
 }
