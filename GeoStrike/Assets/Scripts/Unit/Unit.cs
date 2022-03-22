@@ -30,6 +30,7 @@ public enum EUnitIndex
     Geo
 }
 
+[SerializeField]
 public enum EBuffandDebuff
 {
     Damage,
