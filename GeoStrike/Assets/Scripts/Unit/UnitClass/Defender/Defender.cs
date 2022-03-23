@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 
 
-public class Shielder : Unit
+public class Defender : Unit
 {
     public Animator animator;
     public GameObject shild;
