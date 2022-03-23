@@ -226,11 +226,13 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         }
     }
 
-    public IEnumerator OnKnockback(Vector3 KnockbackPos)
+    public IEnumerator OnKnockback(Vector3 enemyPos)
     {
-        while(transform.position == KnockbackPos)
+        Vector3 direct = (transform.position - enemyPos).normalized;
+
+        while (transform.position != enemyPos)
         {
-            Vector3.MoveTowards(transform.position, KnockbackPos, 1f);
+            transform.position = Vector3.MoveTowards(transform.position, transform.position + direct * 1.2f, 1f);
             yield return null;
         }
     }
