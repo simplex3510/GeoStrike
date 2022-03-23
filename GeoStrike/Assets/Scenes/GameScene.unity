@@ -37322,8 +37322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   worldTimeTXT: {fileID: 353670781}
-  sec: 0
-  battleTime: 60
+  battleTime: 10
   slider: {fileID: 1488233306}
   battleTimer: 0
 --- !u!114 &1306418365
@@ -37357,8 +37356,7 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents:
-  - {fileID: 1306418364}
+  ObservedComponents: []
   sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0

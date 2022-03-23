@@ -268,6 +268,7 @@ MonoBehaviour:
   allyNexus: {fileID: 2396335744122673610, guid: 7fd3023528f8a90429039979d224f094, type: 3}
   animator: {fileID: 8835580005163108076}
   buff: {fileID: 1861839153013920146}
+  test: {fileID: 0}
 --- !u!114 &8020710291790958506
 MonoBehaviour:
   m_ObjectHideFlags: 0
