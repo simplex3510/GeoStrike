@@ -226,6 +226,15 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         }
     }
 
+    public IEnumerator OnKnockback(Vector3 KnockbackPos)
+    {
+        while(transform.position == KnockbackPos)
+        {
+            Vector3.MoveTowards(transform.position, KnockbackPos, 1f);
+            yield return null;
+        }
+    }
+
     [PunRPC]
     public void SetUnitActive(bool isTrue)
     {

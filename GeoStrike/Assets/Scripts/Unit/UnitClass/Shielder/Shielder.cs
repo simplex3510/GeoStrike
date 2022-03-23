@@ -73,7 +73,17 @@ public class Shielder : Unit
 
         if (enemyCollider != null)
         {
+            Vector3 knockbackPos;
+
             enemyCollider.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
+
+            // 방향 벡터 * 넉백 오프셋
+
+            if(enemyCollider.GetComponent<Unit>() != null)
+            {
+                knockbackPos = enemyCollider.transform.position.normalized * 1.5f;  // 방향 벡터 * 밀려남 오프셋
+                enemyCollider.GetComponent<Unit>().StartCoroutine(enemyCollider.GetComponent<Unit>().OnKnockback(knockbackPos));
+            }
         }
         else
         {

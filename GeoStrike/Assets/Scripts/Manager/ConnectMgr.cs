@@ -19,6 +19,7 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
     public const int GUEST_PLAYER = 1;
 
     public Text stateText;
+    public InputField roomName;
     public InputField nickname;
     public Button button;
     public Text readyText;
@@ -26,7 +27,7 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
     readonly int MAX_PLAYER = 2;
     int readyPlayer = 0;
 
-    void Start()
+    void Awake()
     {
         if(!PhotonNetwork.IsConnected)
         {
@@ -54,10 +55,14 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
 
     public void OnClickJoinOrCreateRoom()
     {
-        if (PhotonNetwork.IsConnected && nickname.text != "")
+        if (PhotonNetwork.IsConnected && nickname.text != "" && roomName.text != "")
         {
             PhotonNetwork.NickName = nickname.text;
-            PhotonNetwork.JoinOrCreateRoom("GeoStrike2", new RoomOptions { MaxPlayers = 2 }, null);
+            PhotonNetwork.JoinOrCreateRoom(roomName.text, new RoomOptions { MaxPlayers = 2 }, null);
+        }
+        else if (nickname.text == "")
+        {
+            stateText.text = "∑Î ¿Ã∏ß « ø‰";
         }
         else
         {
@@ -69,6 +74,8 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
     {
         nickname.gameObject.SetActive(false);
         readyText.gameObject.SetActive(true);
+
+        button.transform.position = new Vector3(-150f, 0f, 0f);
 
         photonView.RPC("CurrentReady", RpcTarget.MasterClient, EReadyState.Enter);
         button.GetComponentInChildren<Text>().text = "Ready";
