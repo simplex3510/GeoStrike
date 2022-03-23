@@ -100,9 +100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initStatus: {fileID: 11400000, guid: 9adc1f3c9c3dbb045a9bb08f60b782aa, type: 2}
   deltaStatus: {fileID: 11400000, guid: 6a0569d2de15264499d7f5c9770deeb9, type: 2}
-  towerLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!114 &3674539283034588942
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -23,6 +23,8 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
     public InputField nickname;
     public Button button;
     public Text readyText;
+    public Text roomNameText;
+    public Text nicknameText;
 
     readonly int MAX_PLAYER = 2;
     int readyPlayer = 0;
@@ -60,7 +62,7 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
             PhotonNetwork.NickName = nickname.text;
             PhotonNetwork.JoinOrCreateRoom(roomName.text, new RoomOptions { MaxPlayers = 2 }, null);
         }
-        else if (nickname.text == "")
+        else if (roomName.text == "")
         {
             stateText.text = "∑Î ¿Ã∏ß « ø‰";
         }
@@ -72,10 +74,13 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        roomNameText.gameObject.SetActive(false);
+        roomName.gameObject.SetActive(false);
+        nicknameText.gameObject.SetActive(false);
         nickname.gameObject.SetActive(false);
         readyText.gameObject.SetActive(true);
 
-        button.transform.position = new Vector3(-150f, 0f, 0f);
+        button.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, -150f);
 
         photonView.RPC("CurrentReady", RpcTarget.MasterClient, EReadyState.Enter);
         button.GetComponentInChildren<Text>().text = "Ready";
@@ -119,7 +124,7 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
                 photonView.RPC("UpReady", RpcTarget.All);
                 break;
             case EReadyState.Cancle:
-                photonView.RPC("DownReady", RpcTarget.MasterClient);
+                photonView.RPC("DownReady", RpcTarget.All);
                 break;
         }
     }
