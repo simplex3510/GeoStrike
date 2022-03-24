@@ -35,7 +35,7 @@ public class GameMgr : MonoBehaviourPun
         }
     }
 
-    [SerializeField] private EGameState eGameState = EGameState.Standby;
+    [SerializeField] private EGameState eGameState = EGameState.SpawnCount;
 
     public static bool isMaster = false;
 

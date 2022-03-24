@@ -17,15 +17,11 @@ public class Timer : MonoBehaviour
     [Header("< Battle Timer >")]
     [SerializeField] public float battleTime;
     [SerializeField] private Slider slider;
-    //public float battleTimer = 0f;
-    //private int count = 1;
 
-    //double sendtime;
+    // PhotonTime
     float lastBattleTime;
     float lastWorldTime;
     float currentTime;       // 현재 photon 시간
-    //float playTime;        // currentTime - lastTime = 현재 게임 플레이한 시간
-
 
     private TranslocateField translocateField;
     private GameState gameState;
@@ -67,8 +63,8 @@ public class Timer : MonoBehaviour
 
         if (battleTime <= currentTime - lastBattleTime) 
         {
-            //count++;
             lastBattleTime = (float)PhotonNetwork.Time;
+
             // (버퍼,디버퍼)유닛의 스킬 선택창 유지 방지
             #region 스킬 선책창 유지 방지
             if (detector.clickedUnit != null && detector.clickedObject.CompareTag("Unit") && detector.clickedObject.GetComponent<Unit>().unitState == EUnitState.Idle)
@@ -81,10 +77,6 @@ public class Timer : MonoBehaviour
             GameMgr.instance.SetState(EGameState.Battle);
 
             translocateField.TranslocateUnits();
-
-            // 매 배틀 타임마다 게이지 최소,최대 값 설정
-            // slider.minValue = battleTime * (count - 1);
-            // slider.maxValue = battleTime * count;
 
             slider.value = 0f;
         } 
@@ -106,29 +98,4 @@ public class Timer : MonoBehaviour
 
         worldTimeTXT.text = $"{min:D2} : {(int)sec:D2}";
     }
-
-    //public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    //{
-    //    if (stream.IsWriting && PhotonNetwork.IsMasterClient)
-    //    {
-    //        sendtime = (float)PhotonNetwork.Time;
-    //        stream.SendNext(sendtime);
-
-    //        stream.SendNext(battleTimer);
-    //        stream.SendNext(sec);
-    //        stream.SendNext(min);
-    //    }
-    //    else
-    //    {
-    //        sendtime = (double)stream.ReceiveNext();
-    //        float lag = Mathf.Abs((float)(PhotonNetwork.Time - sendtime));
-
-    //        battleTimer = (float)stream.ReceiveNext();
-
-    //        sec = (float)stream.ReceiveNext();
-    //        sec += lag;
-
-    //        min = (int)stream.ReceiveNext();
-    //    }
-    //}
 }

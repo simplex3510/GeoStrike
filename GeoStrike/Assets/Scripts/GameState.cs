@@ -9,18 +9,22 @@ using Photon.Realtime;
 [DefaultExecutionOrder(202)]
 public class GameState : MonoBehaviourPun
 {
-    [SerializeField] private StandbyCount standbyCount;
-    
     public static readonly int GAMESTATE_STANDBYTIME = 5;
     public static readonly int GAMESTATE_COUNT = 1;
+    public float stanbyCount; 
 
     private void Start()
     {
-        StartCoroutine(EStandbyCount());
+        //StartCoroutine(EStandbyCount());
     }
 
     private void Update()
     {
+        if (GameMgr.instance.GetState() == EGameState.Standby)
+        {
+            stanbyCount = stanbyCount - Time.deltaTime;
+        }
+
         if (Input.GetKeyDown(KeyCode.F2))
         {
             GameMgr.redNexus = false;
@@ -37,12 +41,21 @@ public class GameState : MonoBehaviourPun
     // 게임 시작 전 준비 시간 (카운트 다운)
     IEnumerator EStandbyCount()
     {
-        for(int count = GAMESTATE_STANDBYTIME; count > 0; count--)
+        // SelectSpecialSkill 활성화하기
+        while (stanbyCount <= 0 /* && 선택완료할떄까지 */)
         {
-            standbyCount.stanbyCountTXT.text = string.Format("{0}", count);
-            yield return new WaitForSeconds(GAMESTATE_COUNT);
+            yield return null;
         }
-        standbyCount.gameObject.SetActive(false);
+        // SelectSpecialSkill 비활성화하기
+
+        //-------------------------old-----------------------------
+        //for(int count = GAMESTATE_STANDBYTIME; count > 0; count--)
+        //{
+        //    //standbyCount.stanbyCountTXT.text = string.Format("{0}", count);
+        //    yield return new WaitForSeconds(GAMESTATE_COUNT);
+        //}
+
+        ////standbyCount.gameObject.SetActive(false);
 
         Debug.Log("Game Start");
         GameMgr.instance.SetState(EGameState.SpawnCount);
