@@ -28,11 +28,11 @@ public abstract class Tower : MonoBehaviourPun, IDamageable
 
         if (photonView.IsMine)
         {
-            gameObject.layer = LayerMask.NameToLayer("Ally");
+            gameObject.layer = LayerMask.NameToLayer("Tower");
         }
         else
         {
-            gameObject.layer = LayerMask.NameToLayer("Tower");
+            gameObject.layer = LayerMask.NameToLayer("Enemy");
         }
     }
 
