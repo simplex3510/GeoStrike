@@ -76,7 +76,7 @@ public class Defender : Unit
 
         if (enemyCollider != null)
         {
-            enemyCollider.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
+            // enemyCollider.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
 
             if(enemyCollider.GetComponent<Unit>() != null)
             {
