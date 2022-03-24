@@ -129,7 +129,6 @@ GameObject:
   - component: {fileID: 8173733403797653950}
   - component: {fileID: 8088996943722354464}
   - component: {fileID: 6474237222304657761}
-  - component: {fileID: 2555057214757925915}
   m_Layer: 0
   m_Name: Defender_Blue
   m_TagString: Unit
@@ -188,6 +187,8 @@ MonoBehaviour:
   unitIndex: 0
   animator: {fileID: 8173733403797653950}
   shild: {fileID: 8173733402153910181}
+  knockbackPower: 1.5
+  knockbackCount: 0.1
 --- !u!114 &-3991912423502629211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,22 +283,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!54 &2555057214757925915
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8173733403797653949}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 84
-  m_CollisionDetection: 0
 --- !u!1 &8401870176638755151
 GameObject:
   m_ObjectHideFlags: 0

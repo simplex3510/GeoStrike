@@ -35,6 +35,7 @@ public class Warrior : Unit
             photonView.RPC("OnEnforceDefense", RpcTarget.Others);
         }
     }
+
     public void OnEnforceAttackSpeed()
     {
         deltaStatus.attackSpeed -= 0.2f;    // 조정 필요

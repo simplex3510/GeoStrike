@@ -123,6 +123,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     protected double lastAttackTime;
     protected bool isPlayer1;
 
+    public bool IsKnockback { get { return isKnockback; } private set { isKnockback = value; } }
+    bool isKnockback = false;
     bool hasDebuff;
 
     protected virtual void Awake()
@@ -226,15 +228,23 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         }
     }
 
-    public IEnumerator OnKnockback(Vector3 enemyPos)
+    public IEnumerator OnKnockback(Vector3 enemyPos, float count, float power)
     {
-        Vector3 direct = (transform.position - enemyPos).normalized;
+        isKnockback = true;
 
-        while (transform.position != enemyPos)
+        Vector3 direct = (transform.position - enemyPos ).normalized;
+        Vector3 destiantion = transform.position + direct * power ;
+
+        Vector3 startPos = this.transform.position;
+
+        for (float i = count; i <= 1.0f; i+=count)
         {
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + direct * 1.2f, 1f);
+            // this.transform.position = Vector3.Lerp(startPos, destiantion, i);
+            unitMove.agent.SetDestination(destiantion);
             yield return null;
         }
+
+        isKnockback = false;
     }
 
     [PunRPC]

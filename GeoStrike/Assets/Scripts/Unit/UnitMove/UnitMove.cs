@@ -57,11 +57,17 @@ public class UnitMove : MonoBehaviourPun
         enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, unit.detectRange, unit.opponentLayerMask);
         if (enemyColliders.Length == 0)     // 탐지 범위 내에 적이 없다면
         {
-            destination = enemyNexus.position;
+            if(!unit.IsKnockback)
+            {
+                agent.SetDestination(destination = enemyNexus.position);
+            }
         }
         else                                // 탐지 범위 내에 적이 있다면
         {
-            destination = enemyColliders[0].transform.position;
+            if(!unit.IsKnockback)
+            {
+                agent.SetDestination(enemyColliders[0].transform.position);
+            }
             unit.unitState = EUnitState.Approach;
             return;
         }
@@ -74,7 +80,10 @@ public class UnitMove : MonoBehaviourPun
         enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, unit.detectRange, unit.opponentLayerMask);
         if (enemyColliders.Length == 0)         // 탐지 범위 내에 적이 없어졌다면
         {
-            destination = enemyNexus.position;
+            if(!unit.IsKnockback)
+            {
+                agent.SetDestination(enemyNexus.position);
+            }
             unit.unitState = EUnitState.Move;
             return;
         }
