@@ -15,7 +15,7 @@ MonoBehaviour:
   unitIndex: 1
   unitName: Defender
   health: 15
-  damage: 4
+  damage: 5
   defense: 4
   attackRange: 1
   detectRange: 10

@@ -94,8 +94,8 @@ public class Warrior : Unit
             return;
         }
 
-        enemyCollider = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask).Length != 0 ?
-                        Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask)[0] :
+        enemyCollider = Physics.OverlapSphere(transform.position, attackRange, opponentLayerMask).Length != 0 ?
+                        Physics.OverlapSphere(transform.position, attackRange, opponentLayerMask)[0] :
                         null;
 
         if (enemyCollider != null)
