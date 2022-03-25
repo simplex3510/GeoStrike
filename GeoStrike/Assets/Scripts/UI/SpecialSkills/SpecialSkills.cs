@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-
+using UnityEngine.UI;
 
 public enum ESpecialSkills
 {
@@ -15,6 +15,7 @@ public enum ESpecialSkills
 public class SpecialSkills : MonoBehaviour
 {
     public List<SpecialSkills> skillList = new List<SpecialSkills>();
+    public Image skillImage;
 
     public void TryOnSkill(string _skillName)
     {
