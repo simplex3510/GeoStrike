@@ -195,8 +195,6 @@ public class Detector : MonoBehaviour
 
         cameraController.mouseController.eMouseMode = MouseController.EMouseMode.batch;
 
-        Debug.Log("BatchMode");
-
         // 배치모드 취소조건 : ESC, 우클릭, 시간에 의한 유닛 이동
         while (!Input.GetKeyDown(KeyCode.Escape) && !Input.GetMouseButtonDown(MouseController.CLICK_RIGHT) && clickedUnit != null &&
                clickedUnit.gameObject.layer == (int)EPlayer.Ally && clickedUnit.unitState == EUnitState.Idle && GameMgr.instance.GetState() == EGameState.SpawnCount)
@@ -268,6 +266,5 @@ public class Detector : MonoBehaviour
         clickedUnit = null;
         unitBatchModeImage.transform.position = unitBatchModeImage.originPos;
         cameraController.mouseController.eMouseMode = MouseController.EMouseMode.normal;
-        Debug.Log("Cancel");
     }
 }
