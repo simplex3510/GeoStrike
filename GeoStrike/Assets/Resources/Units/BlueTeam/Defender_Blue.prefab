@@ -187,8 +187,6 @@ MonoBehaviour:
   unitIndex: 0
   animator: {fileID: 8173733403797653950}
   shild: {fileID: 8173733402153910181}
-  knockbackPower: 1.5
-  knockbackCount: 0.1
 --- !u!114 &-3991912423502629211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,7 +272,7 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 480
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1

@@ -8,9 +8,8 @@ public class Defender : Unit
 {
     public Animator animator;
     public GameObject shild;
-    public float knockbackPower = 1.5f;
-    [Range(0.0001f,0.5f)]
-    public float knockbackCount = 0.1f;
+
+    float stunTime = 1.5f;
 
     [PunRPC]
     public void OnEnforceStartHealth()
@@ -76,11 +75,12 @@ public class Defender : Unit
 
         if (enemyCollider != null)
         {
-            // enemyCollider.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
+            enemyCollider.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
 
             if(enemyCollider.GetComponent<Unit>() != null)
             {
-                StartCoroutine(enemyCollider.GetComponent<Unit>().OnKnockback(transform.position, knockbackCount, knockbackPower));
+                StartCoroutine(enemyCollider.GetComponent<Unit>().OnStun(stunTime));
+                //StartCoroutine(enemyCollider.GetComponent<Unit>().OnKnockback(transform.position, knockbackCount, knockbackPower));
             }
         }
 

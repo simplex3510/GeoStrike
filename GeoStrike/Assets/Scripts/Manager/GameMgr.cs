@@ -48,6 +48,7 @@ public class GameMgr : MonoBehaviourPun
 
     private void Awake()
     {
+        #region Singleton
         if (_instance != null)
         {
             Debug.LogError(" Mgr duplicated.  ");
@@ -57,6 +58,7 @@ public class GameMgr : MonoBehaviourPun
         {
             _instance = this;
         }
+        #endregion
 
         isMaster = PhotonNetwork.IsMasterClient;
 
@@ -67,7 +69,7 @@ public class GameMgr : MonoBehaviourPun
         }
         else
         {
-            PhotonNetwork.Instantiate("Tower/Nexus_Red",  new Vector3(33.12f, 0,      0), Quaternion.Euler(90f, 0, 0));
+            PhotonNetwork.Instantiate("Tower/Nexus_Red" , new Vector3(33.12f, 0,      0), Quaternion.Euler(90f, 0, 0));
             PhotonNetwork.Instantiate("Tower/Turret_Red", new Vector3(15.62f, 0, -3.35f), Quaternion.Euler(90f, 0, 0));
         }
     }

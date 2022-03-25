@@ -15,15 +15,15 @@ public class GameState : MonoBehaviourPun
 
     private void Start()
     {
-        //StartCoroutine(EStandbyCount());
+        StartCoroutine(EStandbyCount());
     }
 
     private void Update()
     {
-        if (GameMgr.instance.GetState() == EGameState.Standby)
-        {
-            stanbyCount = stanbyCount - Time.deltaTime;
-        }
+        //if (GameMgr.instance.GetState() == EGameState.Standby)
+        //{
+        //    stanbyCount = stanbyCount - Time.deltaTime;
+        //}
 
         if (Input.GetKeyDown(KeyCode.F2))
         {
@@ -42,8 +42,9 @@ public class GameState : MonoBehaviourPun
     IEnumerator EStandbyCount()
     {
         // SelectSpecialSkill 활성화하기
-        while (stanbyCount <= 0 /* && 선택완료할떄까지 */)
+        while (0 <= stanbyCount /* && 선택완료할떄까지 */)
         {
+            stanbyCount -= Time.deltaTime;
             yield return null;
         }
         // SelectSpecialSkill 비활성화하기

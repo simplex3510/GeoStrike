@@ -98,7 +98,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     public LayerMask opponentLayerMask { get; protected set; }
 
     // 유닛의 FSM의 상태
-    /*[HideInInspector]*/public EUnitState unitState;
+    /*[HideInInspector]*/
+    public EUnitState unitState;
 
     // 유닛의 몸체(스프라이트)
     public GameObject body;
@@ -123,8 +124,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     protected double lastAttackTime;
     protected bool isPlayer1;
 
-    public bool IsKnockback { get { return isKnockback; } private set { isKnockback = value; } }
-    bool isKnockback = false;
+    public bool IsStun { get { return isStun; } private set { isStun = value; } }
+    bool isStun;
     bool hasDebuff;
 
     protected virtual void Awake()
@@ -228,24 +229,38 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         }
     }
 
-    public IEnumerator OnKnockback(Vector3 enemyPos, float count, float power)
+    public IEnumerator OnStun(float _stunTime)
     {
-        isKnockback = true;
+        unitState = EUnitState.Idle;
 
-        Vector3 direct = (transform.position - enemyPos ).normalized;
-        Vector3 destiantion = transform.position + direct * power ;
-
-        Vector3 startPos = this.transform.position;
-
-        for (float i = count; i <= 1.0f; i+=count)
+        float currentTime = 0;
+        while(currentTime <= _stunTime)
         {
-            // this.transform.position = Vector3.Lerp(startPos, destiantion, i);
-            unitMove.agent.SetDestination(destiantion);
+            currentTime += Time.deltaTime;
             yield return null;
         }
 
-        isKnockback = false;
+        unitState = EUnitState.Attack;
     }
+
+    //public IEnumerator OnKnockback(Vector3 enemyPos, float count, float power)
+    //{
+    //    isKnockback = true;
+
+    //    Vector3 direct = (transform.position - enemyPos ).normalized;
+    //    Vector3 destiantion = transform.position + direct * power ;
+
+    //    Vector3 startPos = this.transform.position;
+
+    //    for (float i = count; i <= 1.0f; i+=count)
+    //    {
+    //        // this.transform.position = Vector3.Lerp(startPos, destiantion, i);
+    //        unitMove.agent.SetDestination(destiantion);
+    //        yield return null;
+    //    }
+
+    //    isKnockback = false;
+    //}
 
     [PunRPC]
     public void SetUnitActive(bool isTrue)

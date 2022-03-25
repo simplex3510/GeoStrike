@@ -26,7 +26,7 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
     public Text roomNameText;
     public Text nicknameText;
 
-    readonly int MAX_PLAYER = 2;
+    readonly int MAX_PLAYER = 1;
     int readyPlayer = 0;
 
     void Awake()
@@ -76,8 +76,10 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
     {
         roomNameText.gameObject.SetActive(false);
         roomName.gameObject.SetActive(false);
+
         nicknameText.gameObject.SetActive(false);
         nickname.gameObject.SetActive(false);
+
         readyText.gameObject.SetActive(true);
 
         button.GetComponent<RectTransform>().anchoredPosition = new Vector2(0f, -150f);
