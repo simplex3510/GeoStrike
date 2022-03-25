@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6386195217646654433}
   - component: {fileID: -6598249916147328450}
   - component: {fileID: -403509165047716415}
+  - component: {fileID: -3333438679495746809}
   m_Layer: 9
   m_Name: Nexus_Blue
   m_TagString: Tower
@@ -152,3 +153,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!208 &-3333438679495746809
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6386195217646654437}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.7, y: 2.7, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

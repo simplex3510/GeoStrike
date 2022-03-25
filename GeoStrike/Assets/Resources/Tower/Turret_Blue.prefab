@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3674539283034588942}
   - component: {fileID: 4490861895555407229}
   - component: {fileID: 7347612631739932146}
+  - component: {fileID: 8910757035910074522}
   m_Layer: 9
   m_Name: Turret_Blue
   m_TagString: Tower
@@ -152,3 +153,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!208 &8910757035910074522
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3674539283034588938}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.7, y: 2.7, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

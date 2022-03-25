@@ -15,9 +15,7 @@ public class Buffer : Unit
     GameObject target;
 
     float buffRange;
-    float buffDamage = 2f;    // Delta Buff Status 
-
-    public Transform test;
+    float buffDamage = 2f;    // Delta Buff Status
 
     [PunRPC]
     public void OnEnforceStartHealth()
@@ -81,7 +79,7 @@ public class Buffer : Unit
         }
 
         targetColliders = Physics.OverlapSphere(transform.position, detectRange, opponentLayerMask);
-        if (1 == targetColliders.Length)
+        if (targetColliders.Length <= 1)
         {
             agent.SetDestination(allyNexus.position);
         }
@@ -134,35 +132,15 @@ public class Buffer : Unit
         }
 
         targetColliders = Physics.OverlapSphere(transform.position, detectRange, opponentLayerMask);  // 범위 내 아군 탐색
-        Transform short_enemy = null;
 
-        if (targetColliders.Length > 0)
+        if (1 < targetColliders.Length && target.activeSelf != false)                                 // 범위 내 아군이 있다면
         {
-            float short_distance = Mathf.Infinity;
-
-            foreach (Collider s_trg in targetColliders)
-            {
-                float playertoenemy = Vector3.SqrMagnitude(this.transform.position - s_trg.transform.position);
-
-                if (short_distance > playertoenemy)
-                {
-                    short_distance = playertoenemy;
-                    short_enemy = s_trg.transform;
-                }
-            }
-
-            test = short_enemy;
-            agent.SetDestination(target.transform.position * 1.05f);
+            agent.SetDestination(target.transform.position * 1.05f);                                          // 아군에게 접근
         }
-
-        //if (1 < targetColliders.Length && target.activeSelf != false)                                 // 범위 내 아군이 있다면
-        //{
-        //    agent.SetDestination(target.transform.position * 1.05f);                                          // 아군에게 접근
-        //}
-        //else                                                                                          // 범위 내 아군이 없다면
-        //{
-        //    unitState = EUnitState.Move;                                                              // 아군 넥서스로 이동
-        //}
+        else                                                                                          // 범위 내 아군이 없다면
+        {
+            unitState = EUnitState.Move;                                                              // 아군 넥서스로 이동
+        }
     }
 
     new void Die()
