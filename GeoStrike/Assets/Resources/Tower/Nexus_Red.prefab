@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2396335744122673623}
   - component: {fileID: 314641438856382767}
   - component: {fileID: -8679545871532192305}
+  - component: {fileID: 1377548925319777820}
   m_Layer: 9
   m_Name: Nexus_Red
   m_TagString: Tower
@@ -152,3 +153,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!208 &1377548925319777820
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2396335744122673611}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2.7, y: 2.7, z: 0.1}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
