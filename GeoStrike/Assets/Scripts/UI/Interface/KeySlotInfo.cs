@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class KeySlotInfo : MonoBehaviour
 {
@@ -11,10 +12,12 @@ public class KeySlotInfo : MonoBehaviour
     //                                 - 디버퍼 - 디버프 선택 누르기
 
     public Detector detector;
+    public Button[] buttonArr = new Button[3];
 
     private void Awake()
     {
         if (detector == null) { detector = GameObject.FindObjectOfType<Detector>(); }
+        buttonArr = GetComponentsInChildren<Button>();
     }
 
     [SerializeField]

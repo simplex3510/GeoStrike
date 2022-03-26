@@ -30,7 +30,7 @@ public class Detector : MonoBehaviour
     public GameObject clickedObject;      // 클릭한 Object 저장
     public Unit clickedUnit;              // 배치모드에서 사용할 클릭한 Unit 저장
     Coroutine currentCoroutine;           // 배치모드 현재 실행중인 코루틴
-
+    Coroutine testCoroutine;
     
 
     private void Awake()
@@ -100,7 +100,12 @@ public class Detector : MonoBehaviour
                 clickedUnit = clickedObject.GetComponent<Unit>();
 
                 // 클릭한 obj 따라 Status, KeySlot창 띄우기
-                WhichObjInterface();
+                if (testCoroutine != null)
+                {
+                    StopCoroutine(testCoroutine);
+                    OnClickListenersClear();
+                }
+                testCoroutine = StartCoroutine(WhichObjInterface());
 
                 // 클릭한 유닛이 Idle (유닛타일에서 대기중) 일때 배치모드 실행
                 if (clickedObject.CompareTag("Unit") && clickedUnit.unitState == EUnitState.Idle)
@@ -118,9 +123,7 @@ public class Detector : MonoBehaviour
         }
     }
 
-
-
-    private void WhichObjInterface()
+    IEnumerator WhichObjInterface()
     {
         if (clickedObject.CompareTag("Tetromino"))
         {
@@ -129,6 +132,19 @@ public class Detector : MonoBehaviour
 
             keySlotPanel.SetActiveFalseAll();
             keySlotPanel.keySlotArr[0].gameObject.SetActive(true);
+
+            if(GameMgr.isMaster)
+            {
+                keySlotPanel.keySlotArr[0].buttonArr[0].onClick.AddListener(clickedObject.GetComponent<UnitCreator>().unitP1.OnEnforceDamage);
+                keySlotPanel.keySlotArr[0].buttonArr[1].onClick.AddListener(clickedObject.GetComponent<UnitCreator>().unitP1.OnEnforceDefense);
+                keySlotPanel.keySlotArr[0].buttonArr[2].onClick.AddListener(clickedObject.GetComponent<UnitCreator>().unitP1.OnEnforceHealth);
+            }
+            else
+            {
+                keySlotPanel.keySlotArr[0].buttonArr[0].onClick.AddListener(clickedObject.GetComponent<UnitCreator>().unitP2.OnEnforceDamage);
+                keySlotPanel.keySlotArr[0].buttonArr[1].onClick.AddListener(clickedObject.GetComponent<UnitCreator>().unitP2.OnEnforceDefense);
+                keySlotPanel.keySlotArr[0].buttonArr[2].onClick.AddListener(clickedObject.GetComponent<UnitCreator>().unitP2.OnEnforceHealth);
+            }
         }
         else if (clickedObject.CompareTag("Unit"))
         {
@@ -155,6 +171,7 @@ public class Detector : MonoBehaviour
 
             keySlotPanel.SetActiveFalseAll();
         }
+        yield return null;
     }
 
     // 테트로미노 빌드 이미지 위치설정 (테트로미노 타일에서만 이동가능)
@@ -174,6 +191,14 @@ public class Detector : MonoBehaviour
                     StartCoroutine(CBuildTetromino());
                 }
             }
+        }
+    }
+
+    private void OnClickListenersClear()
+    {
+        for (int idx = 0; idx < keySlotPanel.keySlotArr[0].buttonArr.Length; idx++)
+        {
+            keySlotPanel.keySlotArr[0].buttonArr[idx].onClick.RemoveAllListeners();
         }
     }
 

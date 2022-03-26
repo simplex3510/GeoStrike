@@ -9,7 +9,7 @@ public class Geo : MonoBehaviour
     [SerializeField] private Sprite getSprite;
     [SerializeField] private Text geoTXT;
     
-    private static float currentGeo;
+    private static float currentGeo = 100;
     public static float CurrentGeo { get { return currentGeo; } }
 
     public static readonly float GEO_SQUARE = 50;
@@ -24,7 +24,7 @@ public class Geo : MonoBehaviour
         if (GameMgr.instance.GetState() != EGameState.Standby)
         {
             GeoTxT();
-            DeltaGeo(Time.deltaTime * 10);
+            DeltaGeo(Time.deltaTime * 5);
 
             // 개발자모드
             if (Input.GetKeyDown(KeyCode.F3))

@@ -36,15 +36,15 @@ public class Warrior : Unit
         }
     }
 
-    public void OnEnforceAttackSpeed()
-    {
-        deltaStatus.attackSpeed -= 0.2f;    // 조정 필요
-        animator.speed = deltaStatus.attackSpeed;
-        if (photonView.IsMine)
-        {
-            photonView.RPC("OnEnforceAttackSpeed", RpcTarget.Others);
-        }
-    }
+    //public void OnEnforceAttackSpeed()
+    //{
+    //    deltaStatus.attackSpeed -= 0.2f;    // 조정 필요
+    //    animator.speed = deltaStatus.attackSpeed;
+    //    if (photonView.IsMine)
+    //    {
+    //        photonView.RPC("OnEnforceAttackSpeed", RpcTarget.Others);
+    //    }
+    //}
 
     protected override void Awake()
     {

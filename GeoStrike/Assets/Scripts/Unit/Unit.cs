@@ -243,6 +243,36 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         unitState = EUnitState.Attack;
     }
 
+    public void OnEnforceDamage()
+    {
+        deltaStatus.damage += 300f;
+        if (photonView.IsMine)
+        {
+            photonView.RPC("OnEnforceDamage", RpcTarget.Others);
+        }
+        print("OnEnforceDamage");
+    }
+
+    public void OnEnforceDefense()
+    {
+        deltaStatus.defense += 200f;
+        if (photonView.IsMine)
+        {
+            photonView.RPC("OnEnforceDefense", RpcTarget.Others);
+        }
+        print("OnEnforceDefense");
+    }
+
+    public void OnEnforceHealth()
+    {
+        deltaStatus.health += 300f;
+        if (photonView.IsMine)
+        {
+            photonView.RPC("OnEnforceHealth", RpcTarget.Others);
+        }
+        print("OnEnforceHealth");
+    }
+
     //public IEnumerator OnKnockback(Vector3 enemyPos, float count, float power)
     //{
     //    isKnockback = true;
