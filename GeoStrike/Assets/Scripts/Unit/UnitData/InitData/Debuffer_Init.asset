@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitIndex: 5
   unitName: Debuffer
-  health: 7
-  damage: 5
-  defense: 4
+  health: 8
+  damage: 4
+  defense: 0
   attackRange: 4
   detectRange: 10
-  attackSpeed: 3
+  attackSpeed: 2
   moveSpeed: 3

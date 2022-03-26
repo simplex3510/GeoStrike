@@ -36,19 +36,27 @@ public class Timer : MonoBehaviour
         if (keySlotPanel == null)     { keySlotPanel = GameObject.FindObjectOfType<KeySlotPanel>(); }
 
         slider.maxValue = battleTime;
+    }
+
+    private void Start()
+    {
+        StartCoroutine(CGameTimer());
+    }
+
+    IEnumerator CGameTimer()
+    {
+        yield return StartCoroutine(gameState.EStandbyCount());
 
         currentTime = (float)PhotonNetwork.Time;
         lastBattleTime = (float)PhotonNetwork.Time;
         lastWorldTime = (float)PhotonNetwork.Time;
-    }
 
-    private void Update()
-    {
-        if (GameMgr.instance.GetState() != EGameState.Standby)
+        while (GameMgr.instance.GetState() != EGameState.Standby)
         {
             currentTime = (float)PhotonNetwork.Time;
             BattleTime();
             WorldTime();
+            yield return null;
         }
     }
 

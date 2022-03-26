@@ -102,7 +102,7 @@ MonoBehaviour:
   shapeIdx: 1
   unitIdx: 1
   shapeName: 
-  cost: 0
+  cost: 175
   quaternion: {x: 0, y: 0, z: 0, w: 0}
   coordinate:
   - {x: 0, y: 0}

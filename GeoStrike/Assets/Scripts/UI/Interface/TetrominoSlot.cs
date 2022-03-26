@@ -11,12 +11,11 @@ public class TetrominoSlot : MonoBehaviour
     [HideInInspector] private CameraController cameraController;
     [HideInInspector] private Detector detector;
     [HideInInspector] public TetrominoMaker tetrominoMaker;
-    [HideInInspector] public RectTransform rectSlot;
     [HideInInspector] private Button button;
 
     // 자원량에 따른 이미지 색깔 변화
     [Header("< Manual Input Components >")]
-    [SerializeField] private Image image;
+    public Image image;
 
     // 프리뷰 이미지와 슬롯 이미지 초기화 변수
     [HideInInspector] public Image slotImage;
@@ -38,7 +37,6 @@ public class TetrominoSlot : MonoBehaviour
         if (cameraController == null) { cameraController = GameObject.FindObjectOfType<CameraController>(); }
         if (detector == null) { detector = GameObject.FindObjectOfType<Detector>(); }
         if (tetrominoMaker == null) { tetrominoMaker = GetComponent<TetrominoMaker>(); }
-        if (rectSlot == null) { rectSlot = GetComponent<RectTransform>(); }
         if (button == null) { button = GetComponentInChildren<Button>(); }
     }
 

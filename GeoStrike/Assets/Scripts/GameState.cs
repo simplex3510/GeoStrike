@@ -39,24 +39,17 @@ public class GameState : MonoBehaviourPun
     }
 
     // 게임 시작 전 준비 시간 (카운트 다운)
-    IEnumerator EStandbyCount()
+    public IEnumerator EStandbyCount()
     {
         // SelectSpecialSkill 활성화하기
-        while (0 <= stanbyCount /* && 선택완료할떄까지 */)
+        for (int count = GAMESTATE_STANDBYTIME; count > 0; count--)
         {
-            stanbyCount -= Time.deltaTime;
-            yield return null;
+            //if (스킬선택완료시) { break; }
+            //standbyCount.stanbyCountTXT.text = string.Format("{0}", count);
+            yield return new WaitForSeconds(GAMESTATE_COUNT);
         }
         // SelectSpecialSkill 비활성화하기
 
-        //-------------------------old-----------------------------
-        //for(int count = GAMESTATE_STANDBYTIME; count > 0; count--)
-        //{
-        //    //standbyCount.stanbyCountTXT.text = string.Format("{0}", count);
-        //    yield return new WaitForSeconds(GAMESTATE_COUNT);
-        //}
-
-        ////standbyCount.gameObject.SetActive(false);
 
         Debug.Log("Game Start");
         GameMgr.instance.SetState(EGameState.SpawnCount);

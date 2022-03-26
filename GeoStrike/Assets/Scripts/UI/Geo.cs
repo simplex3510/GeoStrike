@@ -9,11 +9,10 @@ public class Geo : MonoBehaviour
     [SerializeField] private Sprite getSprite;
     [SerializeField] private Text geoTXT;
     
-    private static float currentGeo = 0;
+    private static float currentGeo;
     public static float CurrentGeo { get { return currentGeo; } }
 
-    public static readonly float GEO_SQUARE = 3;
-    public static readonly float GEO_BOUNUS = 10;
+    public static readonly float GEO_SQUARE = 50;
 
     private void Awake()
     {
@@ -25,7 +24,13 @@ public class Geo : MonoBehaviour
         if (GameMgr.instance.GetState() != EGameState.Standby)
         {
             GeoTxT();
-            DeltaGeo(Time.deltaTime);
+            DeltaGeo(Time.deltaTime * 10);
+
+            // 개발자모드
+            if (Input.GetKeyDown(KeyCode.F3))
+            {
+                DeltaGeo(300);
+            }
         }
     }
 

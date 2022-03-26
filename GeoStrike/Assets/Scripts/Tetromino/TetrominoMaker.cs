@@ -37,14 +37,14 @@ public class TetrominoMaker : MonoBehaviourPun
 
     public void RandomTetromino()
     {
-        tetrominoSlot.rectSlot.rotation = Quaternion.identity; // 회전값 초기화
+        tetrominoSlot.image.transform.rotation = Quaternion.identity; // 회전값 초기화
 
         randomShape = Random.Range(0, 7);  //   7가지의 모양
         randomRotation = Random.Range(0, 4);    // 4가지의 회전값
 
         tetrominoObj = tetrominoArr[randomShape].gameObject;   // 슬롯에 랜덤으로 받은 테트로미노 Obj 전달
 
-        tetrominoSlot.rectSlot.Rotate(GetAngle());   // 슬롯 이미지 회전
+        tetrominoSlot.image.transform.Rotate(GetAngle());   // 슬롯 이미지 회전
         tetrominoSlot.slotImage.sprite = tetrominoObj.GetComponent<SpriteRenderer>().sprite;  // 슬롯 이미지 전달
 
         // 슬롯의 텍스트 

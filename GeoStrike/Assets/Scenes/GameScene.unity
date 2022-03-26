@@ -20000,7 +20000,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1554, y: -143}
+  m_AnchoredPosition: {x: -811, y: -341}
   m_SizeDelta: {x: 191.99991, y: 46.000004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &353670781
@@ -30905,8 +30905,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 85.8, y: -23.700006}
-  m_SizeDelta: {x: 135.6799, y: 135.7661}
+  m_AnchoredPosition: {x: 91.83904, y: -11.525}
+  m_SizeDelta: {x: 183.68, y: 230.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &912067513
 MonoBehaviour:
@@ -30921,7 +30921,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tetrominoMaker: {fileID: 912067517}
-  rectSlot: {fileID: 0}
   image: {fileID: 514118755}
   slotImage: {fileID: 514118755}
   tilePos: {x: 0, y: 0, z: 0}
@@ -30999,7 +30998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
+  m_Color: {r: 0.16981131, g: 0.053666778, b: 0.053666778, a: 0.3254902}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -38043,8 +38042,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 749.459, y: -194.50836}
-  m_SizeDelta: {x: -1728.2, y: -1033.1003}
+  m_AnchoredPosition: {x: -0.010009766, y: 0}
+  m_SizeDelta: {x: -0.019165, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1306418364
 MonoBehaviour:
@@ -38074,7 +38073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194f2cdf06723214593d9162eb665b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stanbyCount: 0
+  stanbyCount: 5
 --- !u!114 &1306418366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40101,8 +40100,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -74.74003, y: -23.7}
-  m_SizeDelta: {x: 135.6899, y: 135.7661}
+  m_AnchoredPosition: {x: -91.943, y: -11.527}
+  m_SizeDelta: {x: 183.89, y: 230.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1389848053
 MonoBehaviour:
@@ -40117,7 +40116,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tetrominoMaker: {fileID: 1389848057}
-  rectSlot: {fileID: 0}
   image: {fileID: 1840886454}
   slotImage: {fileID: 1840886454}
   tilePos: {x: 0, y: 0, z: 0}
@@ -40195,7 +40193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
+  m_Color: {r: 0.16981131, g: 0.053666778, b: 0.053666778, a: 0.3254902}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -42471,7 +42469,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.9, y: -48.1}
+  m_AnchoredPosition: {x: 750.7, y: -241.6}
   m_SizeDelta: {x: 169, y: 23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1488233305
@@ -49074,6 +49072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillList: []
+  skillImage: {fileID: 0}
 --- !u!1 &1831583728
 GameObject:
   m_ObjectHideFlags: 0
