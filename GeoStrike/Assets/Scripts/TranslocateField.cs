@@ -48,6 +48,10 @@ public class TranslocateField : MonoBehaviourPun
             unitList[idx].unitCreator.rowAndColumnQueue.Enqueue(unitList[idx].rowAndColumn);
             unitTileContainer.unitTransformArr[unitList[idx].row, unitList[idx].column] = null;
             unitList[idx].transform.parent = null;
+            if(unitList[idx].GetComponent<Buffer>() != null)
+            {
+                continue;
+            }
             unitList[idx].GetComponent<UnitMove>().SetMove();
         }
         unitList.Clear();
