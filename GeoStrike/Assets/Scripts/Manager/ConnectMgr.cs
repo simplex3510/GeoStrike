@@ -26,7 +26,7 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
     public Text roomNameText;
     public Text nicknameText;
 
-    readonly int MAX_PLAYER = 2;
+    readonly int MAX_PLAYER = 1;
     int readyPlayer = 0;
 
     void Awake()

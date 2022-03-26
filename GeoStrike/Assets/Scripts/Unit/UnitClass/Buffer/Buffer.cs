@@ -85,25 +85,17 @@ public class Buffer : Unit
         }
         else
         {
-            if (targetColliders[0].gameObject == this.gameObject)
-            {
-                target = targetColliders[1].gameObject;
-            }
-            else
-            {
-                target = targetColliders[0].gameObject;
-            }
-
-            if (target.gameObject.activeSelf == false)
+            if (target == null)
             {
                 float temp;
-                float distance;
+                float distance = detectRange;
                 int targetIndex = -1;
 
-                distance = 10;
+                // 대상들과의 최소 거리를 찾음
                 for (int i = 0; i < targetColliders.Length; i++)
                 {
-                    if (targetColliders[i].gameObject == this.gameObject)
+                    if (targetColliders[i].gameObject == this.gameObject ||     // 자기 자신이라면 건너뜀
+                        targetColliders[i].GetComponent<Buffer>() != null)      // 버퍼라면 건너뜀
                     {
                         continue;
                     }
@@ -117,7 +109,15 @@ public class Buffer : Unit
                     }
                 }
 
-                target = targetColliders[targetIndex].gameObject;
+                if (targetIndex == -1)
+                {
+                    agent.SetDestination(allyNexus.position);
+                    return;
+                }
+                else
+                {
+                    target = targetColliders[targetIndex].gameObject;
+                }
             }
 
             unitState = EUnitState.Approach;
@@ -131,15 +131,14 @@ public class Buffer : Unit
             return;
         }
 
-        targetColliders = Physics.OverlapSphere(transform.position, detectRange, opponentLayerMask);  // 범위 내 아군 탐색
-
-        if (1 < targetColliders.Length && target.activeSelf != false)                                 // 범위 내 아군이 있다면
+        if (target.activeSelf != false)                                 // 범위 내 아군이 있다면
         {
-            agent.SetDestination(target.transform.position * 1.05f);                                          // 아군에게 접근
+            agent.SetDestination(target.transform.position * 1.05f);    // 아군에게 접근
         }
-        else                                                                                          // 범위 내 아군이 없다면
+        else                                                            // 범위 내 아군이 없다면
         {
-            unitState = EUnitState.Move;                                                              // 아군 넥서스로 이동
+            target = null;
+            unitState = EUnitState.Move;                                // 아군 넥서스로 이동
         }
     }
 

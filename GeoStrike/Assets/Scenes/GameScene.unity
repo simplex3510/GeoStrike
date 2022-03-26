@@ -15960,7 +15960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1233569061901722399, guid: c4dee110a30cd0647b89371b35e54475, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1233569061901722399, guid: c4dee110a30cd0647b89371b35e54475, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16017,7 +16017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1110568053594303445, guid: 74e5a33fee91fa846b3e51c91aef4572, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1110568053594303445, guid: 74e5a33fee91fa846b3e51c91aef4572, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26592,6 +26592,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653295081}
   m_CullTransparentMesh: 1
+--- !u!1001 &654917783
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8020710291790958506, guid: 822a2a7982ce0da439b2ab581f2140e4, type: 3}
+      propertyPath: sceneViewId
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835580005163108067, guid: 822a2a7982ce0da439b2ab581f2140e4, type: 3}
+      propertyPath: m_Name
+      value: Buffer_Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835580005163108067, guid: 822a2a7982ce0da439b2ab581f2140e4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835580005163108078, guid: 822a2a7982ce0da439b2ab581f2140e4, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835580005163108078, guid: 822a2a7982ce0da439b2ab581f2140e4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -28.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835580005163108078, guid: 822a2a7982ce0da439b2ab581f2140e4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835580005163108078, guid: 822a2a7982ce0da439b2ab581f2140e4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835580005163108078, guid: 822a2a7982ce0da439b2ab581f2140e4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835580005163108078, guid: 822a2a7982ce0da439b2ab581f2140e4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835580005163108078, guid: 822a2a7982ce0da439b2ab581f2140e4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835580005163108078, guid: 822a2a7982ce0da439b2ab581f2140e4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835580005163108078, guid: 822a2a7982ce0da439b2ab581f2140e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835580005163108078, guid: 822a2a7982ce0da439b2ab581f2140e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835580005163108078, guid: 822a2a7982ce0da439b2ab581f2140e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 822a2a7982ce0da439b2ab581f2140e4, type: 3}
 --- !u!1 &660317977 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -49074,6 +49139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillList: []
+  skillImage: {fileID: 0}
 --- !u!1 &1831583728
 GameObject:
   m_ObjectHideFlags: 0
