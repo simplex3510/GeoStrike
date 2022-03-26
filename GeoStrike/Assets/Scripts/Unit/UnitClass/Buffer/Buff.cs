@@ -41,7 +41,6 @@ public class Buff : MonoBehaviourPun
         if(ally.gameObject.layer == LayerMask.NameToLayer("Ally"))
         {
             ally.GetComponent<Unit>().OnBuff((int)currentBuff, buffDeltaStatus);
-            //RPC 추가 필요
         }
 
     }
@@ -51,7 +50,6 @@ public class Buff : MonoBehaviourPun
         if (ally.gameObject.layer == LayerMask.NameToLayer("Ally"))
         {
             ally.GetComponent<Unit>().OffBuff((int)currentBuff, buffDeltaStatus);
-            //RPC 추가 필요
         }
     }
 }
