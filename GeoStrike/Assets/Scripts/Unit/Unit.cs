@@ -146,16 +146,17 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             opponentLayerMask = 1 << (int)EPlayer.Ally;
         }
 
-        #region Status Init
-        deltaStatus.unitIndex = initStatus.unitIndex;
-        deltaStatus.unitName = initStatus.unitIndex.ToString();
-        deltaStatus.health = initStatus.health;
-        deltaStatus.damage = initStatus.damage;
-        deltaStatus.defense = initStatus.defense;
-        deltaStatus.attackRange = initStatus.attackRange;
-        deltaStatus.detectRange = initStatus.detectRange;
-        deltaStatus.attackSpeed = initStatus.attackSpeed;
-        deltaStatus.moveSpeed = initStatus.moveSpeed;
+        #region deltaStatus Init
+        unitIndex = deltaStatus.unitIndex;
+        unitName = deltaStatus.unitName;
+        startHealth = deltaStatus.health;
+        currentHealth = startHealth;
+        damage = deltaStatus.damage;
+        defense = deltaStatus.defense;
+        attackRange = deltaStatus.attackRange;
+        detectRange = deltaStatus.detectRange;
+        attackSpeed = deltaStatus.attackSpeed;
+        moveSpeed = deltaStatus.moveSpeed;
         #endregion
     }
 
@@ -373,6 +374,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     private void OnApplicationQuit()
     {
         #region Return Status Init
+        deltaStatus.unitIndex = initStatus.unitIndex;
+        deltaStatus.unitName = initStatus.unitName;
         deltaStatus.health = initStatus.health;
         deltaStatus.damage = initStatus.damage;
         deltaStatus.defense = initStatus.defense;
