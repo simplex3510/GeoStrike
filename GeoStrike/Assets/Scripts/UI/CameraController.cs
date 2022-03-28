@@ -86,7 +86,7 @@ public class CameraController : MonoBehaviour
 
         velocity = transform.position + new Vector3(h, 0, v);
         velocity.x = Mathf.Clamp(velocity.x, -36, 36);
-        velocity.z = Mathf.Clamp(velocity.z, -20, 7);
+        velocity.z = Mathf.Clamp(velocity.z, -20, 17);
         
         transform.position = Vector3.Lerp(transform.position, velocity, cameraSpeed);
     }
