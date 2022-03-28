@@ -373,6 +373,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
     private void OnApplicationQuit()
     {
+        Debug.Log("Init End");
         #region Return Status Init
         deltaStatus.unitIndex = initStatus.unitIndex;
         deltaStatus.unitName = initStatus.unitName;
