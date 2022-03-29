@@ -48,6 +48,7 @@ public abstract class Tower : MonoBehaviourPun, IDamageable
         }
     }
 
+    [PunRPC]
     public void SetTowerActive(bool _isTrue)
     {
         gameObject.SetActive(_isTrue);
