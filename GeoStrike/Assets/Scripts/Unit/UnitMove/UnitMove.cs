@@ -89,25 +89,38 @@ public class UnitMove : MonoBehaviourPun
                 unit.unitState = EUnitState.Attack;
                 return;
             }
+            else
+            {
+                unit.unitState = EUnitState.Approach;
+                return;
+            }
         }
     }
 
     void Die()
     {
+        agent.enabled = false;
         SetStop();
     }
     #endregion 
 
     public void SetMove()
     {
-        agent.isStopped = false;
-        agent.updatePosition = true;
+        if(agent.enabled == true)
+        {
+            agent.isStopped = false;
+            agent.updatePosition = true;
+        }
     }
 
     public void SetStop()
     {
-        agent.isStopped = true;
-        agent.velocity = Vector3.zero;
-        agent.updatePosition = false;
+        if (agent.enabled == true)
+        {
+            agent.isStopped = true;
+            agent.velocity = Vector3.zero;
+            agent.updatePosition = false; 
+        }
+
     }
 }
