@@ -73,4 +73,9 @@ public class Debuffer : Unit
             unitState = EUnitState.Move;
         }
     }
+
+    protected override void OnApplicationQuit()
+    {
+        base.OnApplicationQuit();
+    }
 }

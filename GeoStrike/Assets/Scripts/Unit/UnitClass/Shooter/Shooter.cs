@@ -79,4 +79,9 @@ public class Shooter : Unit
             return;
         }
     }
+
+    protected override void OnApplicationQuit()
+    {
+        base.OnApplicationQuit();
+    }
 }

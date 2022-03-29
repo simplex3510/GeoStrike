@@ -79,4 +79,9 @@ public class Splasher : Unit
             return;
         }
     }
+
+    protected override void OnApplicationQuit()
+    {
+        base.OnApplicationQuit();
+    }
 }

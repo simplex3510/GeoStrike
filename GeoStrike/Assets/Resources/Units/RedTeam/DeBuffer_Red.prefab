@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initStatus: {fileID: 11400000, guid: f65361c24194869499012dec11730034, type: 2}
-  deltaStatus: {fileID: 11400000, guid: 75cedc10cf4e2ef40933511cf8cebd7b, type: 2}
+  deltaStatus: {fileID: 11400000, guid: 2a83aa16e7c473941b117a77a606859e, type: 2}
   unitTile: {fileID: 0}
   unitCreator: {fileID: 0}
   row: 0

@@ -14,7 +14,7 @@ public class Defender : Unit
     [PunRPC]
     public void OnEnforceStartHealth()
     {
-        deltaStatus.health += 5;
+        deltaStatus.Health += 5;
         if (photonView.IsMine)
         {
             photonView.RPC("OnEnforceStartHealth", RpcTarget.Others);
@@ -88,9 +88,8 @@ public class Defender : Unit
         unitState = EUnitState.Move;
     }
 
-    private void OnDrawGizmos()
+    protected override void OnApplicationQuit()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, detectRange);
+        base.OnApplicationQuit();
     }
 }

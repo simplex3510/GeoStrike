@@ -20,4 +20,4 @@ MonoBehaviour:
   attackRange: 3
   detectRange: 10
   attackSpeed: 0
-  moveSpeed: 3.5
+  moveSpeed: 3

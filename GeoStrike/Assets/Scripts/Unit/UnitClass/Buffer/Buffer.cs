@@ -20,7 +20,7 @@ public class Buffer : Unit
     [PunRPC]
     public void OnEnforceStartHealth()
     {
-        deltaStatus.health += 5;
+        deltaStatus.Health += 5;
         if (photonView.IsMine)
         {
             photonView.RPC("OnEnforceStartHealth", RpcTarget.Others);
@@ -148,4 +148,9 @@ public class Buffer : Unit
         StartCoroutine(DieAnimation(body));
     }
     #endregion
+
+    protected override void OnApplicationQuit()
+    {
+        base.OnApplicationQuit();
+    }
 }

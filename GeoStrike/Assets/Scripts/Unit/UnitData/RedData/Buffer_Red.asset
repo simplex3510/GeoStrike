@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5bd9e0a4759d7c438664996219f19ba, type: 3}
+  m_Script: {fileID: 11500000, guid: ed577f92e92d57c4f8673fe085ada401, type: 3}
   m_Name: Buffer_Red
   m_EditorClassIdentifier: 
-  unitIndex: 0
-  unitName: 
-  health: 0
+  unitIndex: 4
+  unitName: Buffer
+  health: 7
   damage: 0
-  defense: 0
-  attackRange: 0
-  detectRange: 0
+  defense: 1
+  attackRange: 3
+  detectRange: 10
   attackSpeed: 0
-  moveSpeed: 0
+  moveSpeed: 3

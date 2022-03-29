@@ -70,8 +70,8 @@ interface IDebuffable
 public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffable, IDebuffable, IPunObservable
 {
     // 스테이터스
-    public UnitData initStatus;
-    public UnitData deltaStatus;
+    public InitUnitData initStatus;
+    public DeltaUnitData deltaStatus;
 
     // 오브젝트 풀
     public Queue<Unit> myPool;
@@ -149,14 +149,14 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         #region deltaStatus Init
         unitIndex = deltaStatus.unitIndex;
         unitName = deltaStatus.unitName;
-        startHealth = deltaStatus.health;
+        startHealth = deltaStatus.Health;
         currentHealth = startHealth;
-        damage = deltaStatus.damage;
-        defense = deltaStatus.defense;
-        attackRange = deltaStatus.attackRange;
-        detectRange = deltaStatus.detectRange;
-        attackSpeed = deltaStatus.attackSpeed;
-        moveSpeed = deltaStatus.moveSpeed;
+        damage = deltaStatus.Damage;
+        defense = deltaStatus.Defense;
+        attackRange = deltaStatus.AttackRange;
+        detectRange = deltaStatus.DetectRange;
+        attackSpeed = deltaStatus.AttackSpeed;
+        moveSpeed = deltaStatus.MoveSpeed;
         #endregion
     }
 
@@ -165,14 +165,14 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         #region deltaStatus Init
         unitIndex = deltaStatus.unitIndex;
         unitName = deltaStatus.unitName;
-        startHealth = deltaStatus.health;
+        startHealth = deltaStatus.Health;
         currentHealth = startHealth;
-        damage = deltaStatus.damage;
-        defense = deltaStatus.defense;
-        attackRange = deltaStatus.attackRange;
-        detectRange = deltaStatus.detectRange;
-        attackSpeed = deltaStatus.attackSpeed;
-        moveSpeed = deltaStatus.moveSpeed;
+        damage = deltaStatus.Damage;
+        defense = deltaStatus.Defense;
+        attackRange = deltaStatus.AttackRange;
+        detectRange = deltaStatus.DetectRange;
+        attackSpeed = deltaStatus.AttackSpeed;
+        moveSpeed = deltaStatus.MoveSpeed;
         #endregion
 
         unitState = EUnitState.Idle;
@@ -246,7 +246,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
     public void OnEnforceDamage()
     {
-        deltaStatus.damage += 300f;
+        deltaStatus.Damage += 300f;
         if (photonView.IsMine)
         {
             photonView.RPC("OnEnforceDamage", RpcTarget.Others);
@@ -256,7 +256,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
     public void OnEnforceDefense()
     {
-        deltaStatus.defense += 200f;
+        deltaStatus.Defense += 200f;
         if (photonView.IsMine)
         {
             photonView.RPC("OnEnforceDefense", RpcTarget.Others);
@@ -266,7 +266,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
     public void OnEnforceHealth()
     {
-        deltaStatus.health += 300f;
+        deltaStatus.Health += 300f;
         if (photonView.IsMine)
         {
             photonView.RPC("OnEnforceHealth", RpcTarget.Others);
@@ -371,19 +371,20 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         gameObject.SetActive(false);
     }
 
-    private void OnApplicationQuit()
+    protected virtual void OnApplicationQuit()
     {
         Debug.Log("Init End");
+
         #region Return Status Init
         deltaStatus.unitIndex = initStatus.unitIndex;
         deltaStatus.unitName = initStatus.unitName;
-        deltaStatus.health = initStatus.health;
-        deltaStatus.damage = initStatus.damage;
-        deltaStatus.defense = initStatus.defense;
-        deltaStatus.attackRange = initStatus.attackRange;
-        deltaStatus.detectRange = initStatus.detectRange;
-        deltaStatus.attackSpeed = initStatus.attackSpeed;
-        deltaStatus.moveSpeed = initStatus.moveSpeed;
+        deltaStatus.Health = initStatus.Health;
+        deltaStatus.Damage = initStatus.Damage;
+        deltaStatus.Defense = initStatus.Defense;
+        deltaStatus.AttackRange = initStatus.AttackRange;
+        deltaStatus.DetectRange = initStatus.DetectRange;
+        deltaStatus.AttackSpeed = initStatus.AttackSpeed;
+        deltaStatus.MoveSpeed = initStatus.MoveSpeed;
         #endregion
     }
 

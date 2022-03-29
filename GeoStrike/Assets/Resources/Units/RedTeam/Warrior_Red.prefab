@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initStatus: {fileID: 11400000, guid: db64e86f038ebee4aadbfe50bd7eb844, type: 2}
-  deltaStatus: {fileID: 11400000, guid: ed8cf322a46988644979adbbf4f9f8c1, type: 2}
+  deltaStatus: {fileID: 11400000, guid: 954b66074f8d569439af989cd09449bc, type: 2}
   unitTile: {fileID: 0}
   unitCreator: {fileID: 0}
   row: 0

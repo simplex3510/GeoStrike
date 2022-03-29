@@ -11,7 +11,7 @@ public class Warrior : Unit
     [PunRPC]
     public void OnEnforceHealth()
     {
-        deltaStatus.health += 3f;
+        deltaStatus.Health += 3f;
         if (photonView.IsMine)
         {
             photonView.RPC("OnEnforceHealth", RpcTarget.Others);
@@ -20,7 +20,7 @@ public class Warrior : Unit
 
     public void OnEnforceDamage()
     {
-        deltaStatus.damage += 0.3f;
+        deltaStatus.Damage += 0.3f;
         if(photonView.IsMine)
         {
             photonView.RPC("OnEnforceDamage", RpcTarget.Others);
@@ -29,7 +29,7 @@ public class Warrior : Unit
 
     public void OnEnforceDefense()
     {
-        deltaStatus.defense += 0.2f;
+        deltaStatus.Defense += 0.2f;
         if(photonView.IsMine)
         {
             photonView.RPC("OnEnforceDefense", RpcTarget.Others);
@@ -49,7 +49,7 @@ public class Warrior : Unit
     protected override void Awake()
     {
         base.Awake();
-        animator.speed = initStatus.attackSpeed;
+        animator.speed = initStatus.AttackSpeed;
     }
 
     protected override void OnEnable()
@@ -108,5 +108,10 @@ public class Warrior : Unit
             unitState = EUnitState.Move;
             return;
         }
+    }
+
+    protected override void OnApplicationQuit()
+    {
+        base.OnApplicationQuit();
     }
 }
