@@ -25,12 +25,6 @@ public class GameState : MonoBehaviourPun
         //    stanbyCount = stanbyCount - Time.deltaTime;
         //}
 
-        if (Input.GetKeyDown(KeyCode.F2))
-        {
-            GameMgr.redNexus = false;
-            GameMgr.instance.SetState(EGameState.GameEnd);
-        }
-
         // 게임 승/패 결과
         if (GameMgr.instance.GetState() == EGameState.GameEnd)
         {
