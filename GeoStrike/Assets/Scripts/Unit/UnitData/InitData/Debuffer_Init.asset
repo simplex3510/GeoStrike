@@ -15,7 +15,7 @@ MonoBehaviour:
   unitIndex: 5
   unitName: Debuffer
   health: 8
-  damage: 4
+  damage: 2
   defense: 0
   attackRange: 4
   detectRange: 10

@@ -36,6 +36,7 @@ public class Bullet : MonoBehaviourPun
         if (transform.position == targetCollider.transform.position ||
             targetCollider.gameObject.activeSelf == false)
         {
+            Debug.Log("target location");
             SetBulletActive(false);
         }
 
@@ -78,6 +79,7 @@ public class Bullet : MonoBehaviourPun
         if (enemy.gameObject.layer == (int)EPlayer.Enemy)
         {
             enemy.gameObject.GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
+            Debug.Log("Hit");
             SetBulletActive(false);
         }
     }

@@ -304,28 +304,31 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     }
 
     #region buff & debuff
+    [PunRPC]
     public void OnBuff(int _buffType, float _buff)
     {
         switch((EBuffandDebuff)_buffType)
         {
             case EBuffandDebuff.Damage:
                 damage += _buff;
-                if (photonView.IsMine) { photonView.RPC("OnBuff", RpcTarget.Others, _buff); }
+                if (photonView.IsMine) { photonView.RPC("OnBuff", RpcTarget.Others, _buffType, _buff); }
                 break;
         }
     }
 
+    [PunRPC]
     public void OffBuff(int _buffType, float _buff)
     {
         switch ((EBuffandDebuff)_buffType)
         {
             case EBuffandDebuff.Damage:
                 damage -= _buff;
-                if (photonView.IsMine) { photonView.RPC("OnBuff", RpcTarget.Others, _buff); }
+                if (photonView.IsMine) { photonView.RPC("OnBuff", RpcTarget.Others, _buffType, _buff); }
                 break;
         }
     }
 
+    [PunRPC]
     public void OnDebuff(int _debuffType, float _debuff, float _applyTime)
     {
         StartCoroutine(Debuff(_debuffType,  _debuff, _applyTime));
