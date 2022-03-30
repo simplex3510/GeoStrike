@@ -144,7 +144,8 @@ public class Buffer : Unit
 
     new void Die()
     {
-        gameObject.GetComponent<Collider>().enabled = false;
+        agent.enabled = false;
+        // gameObject.GetComponent<Collider>().enabled = false;
         StartCoroutine(DieAnimation(body));
     }
     #endregion
