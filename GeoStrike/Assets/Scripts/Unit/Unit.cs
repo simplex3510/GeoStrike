@@ -366,12 +366,13 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             yield return null;
         }
 
+        // 버그 '시발'점
+
         if(_gameObject.name == "Body")
         {
             SetUnitActive(false);
         }
 
-        transform.position = ObjectPoolMgr.instance.transform.position;
         spriteRenderer.color = Color.white;
         gameObject.GetComponent<Collider>().enabled = true;
         gameObject.SetActive(false);                        // Pool로 되돌아 가는 시점
