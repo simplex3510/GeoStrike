@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -17,6 +18,7 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
     public const int MASTER_PLAYER = 0;
     public const int GUEST_PLAYER = 1;
 
+    [Header("Netwrok")]
     public Text stateText;
     public InputField roomName;
     public InputField nickname;
@@ -25,32 +27,47 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
     public Text roomNameText;
     public Text nicknameText;
 
+    [Header("Quit Check")]
+    public Button quitButton;
+    public Button undoButton;
+    public RectTransform checkPanel;
+    public Text checkText;
+    public Button yesButton;
+    public Button noButton;
+
     readonly int MAX_PLAYER = 2;
     int readyPlayer = 0;
 
+    #region Network
     void Awake()
     {
         if(!PhotonNetwork.IsConnected)
         {
             button.interactable = false;
-            stateText.text = "마스터 서버에 접속 중";
+            stateText.text = "Connecting to Master Server";
             if (!PhotonNetwork.IsConnected)
             {
                 PhotonNetwork.ConnectUsingSettings();
             }
         }
+        else
+        {
+            stateText.text = "Online : Master Server Connection Completed";
+            button.onClick.AddListener(OnClickJoinOrCreateRoom);
+            button.interactable = true;
+        }
     }
 
     public override void OnConnectedToMaster()
     {
-        stateText.text = "온라인 : 마스터 서버 접속 완료";
+        stateText.text = "Online : Master Server Connection Completed";
         button.onClick.AddListener(OnClickJoinOrCreateRoom);
         button.interactable = true;
     }
 
     public override void OnDisconnected(DisconnectCause cause)
     {
-        stateText.text = "오프라인 : 마스터 서버 재접속 중";
+        stateText.text = "Offline: Reconnecting to Master Server";
         PhotonNetwork.ConnectUsingSettings();
     }
 
@@ -63,11 +80,11 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
         }
         else if (roomName.text == "")
         {
-            stateText.text = "룸 이름 필요";
+            stateText.text = "Room name is required";
         }
         else
         {
-            stateText.text = "닉네임 필요";
+            stateText.text = "Nickname is required.";
         }
     }
 
@@ -103,13 +120,13 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
     {
         photonView.RPC("CurrentReady", RpcTarget.MasterClient, EReadyState.Ready);
         button.onClick.RemoveListener(OnClickReady);
-        button.onClick.AddListener(OnClickCancle);
+        button.onClick.AddListener(OnClickReadyCancle);
     }
 
-    public void OnClickCancle()
+    public void OnClickReadyCancle()
     {
         photonView.RPC("CurrentReady", RpcTarget.MasterClient, EReadyState.Cancle);
-        button.onClick.RemoveListener(OnClickCancle);
+        button.onClick.RemoveListener(OnClickReadyCancle);
         button.onClick.AddListener(OnClickReady);
     }
 
@@ -135,14 +152,14 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
     {
         print("RefreshReady");
         readyPlayer = _readyPlayer;
-        readyText.text = $"준비: {readyPlayer.ToString()} / {MAX_PLAYER.ToString()}";
+        readyText.text = $"Ready: {readyPlayer.ToString()} / {MAX_PLAYER.ToString()}";
     }
 
     [PunRPC]
     void UpReady()
     {
         readyPlayer++;
-        readyText.text = $"준비: {readyPlayer.ToString()} / {MAX_PLAYER.ToString()}";
+        readyText.text = $"Ready: {readyPlayer.ToString()} / {MAX_PLAYER.ToString()}";
 
         if(readyPlayer == MAX_PLAYER)
         {
@@ -154,6 +171,73 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
     void DownReady()
     {
         readyPlayer--;
-        readyText.text = $"준비: {readyPlayer.ToString()} / {MAX_PLAYER.ToString()}";
+        readyText.text = $"Ready: {readyPlayer.ToString()} / {MAX_PLAYER.ToString()}";
     }
+    #endregion
+
+    #region
+    public void OnClickCheck()
+    {
+        StartCoroutine(QuitCheck());
+    }
+
+    IEnumerator QuitCheck()
+    {
+        checkPanel.gameObject.SetActive(true);
+
+        checkText.gameObject.SetActive(true);
+        yesButton.gameObject.SetActive(true);
+        noButton.gameObject.SetActive(true);
+
+        float height = 0;
+        while(checkPanel.sizeDelta.y <= 249.9f)
+        {
+            height = Mathf.Lerp(height, 250, 0.05f);
+            checkPanel.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
+            yield return null;
+        }
+    }
+
+    public void OnClickQuit()
+    {
+        Application.Quit();
+    }
+
+    public void OnClickQuitCancle()
+    {
+        StartCoroutine(QuitCancle());
+    }
+
+    IEnumerator QuitCancle()
+    {
+        checkText.gameObject.SetActive(false);
+        yesButton.gameObject.SetActive(false);
+        noButton.gameObject.SetActive(false);
+
+        float height = 250;
+        while (0.1f <= checkPanel.sizeDelta.y)
+        {
+            height = Mathf.Lerp(height, 0, 0.05f);
+            checkPanel.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
+            yield return null;
+        }
+        checkPanel.gameObject.SetActive(false);
+    }
+
+    public void OnClickBack()
+    {
+        if(PhotonNetwork.InRoom)
+        {
+            PhotonNetwork.LeaveRoom();
+            PhotonNetwork.LoadLevel("ConnectScene");
+        }
+
+        if(SceneManager.GetActiveScene().name == "ConnectScene")
+        {
+            return;
+        }
+
+        
+    }
+    #endregion
 }
