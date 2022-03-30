@@ -192,7 +192,7 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
         float height = 0;
         while(checkPanel.sizeDelta.y <= 249.9f)
         {
-            height = Mathf.Lerp(height, 250, 0.05f);
+            height += Time.deltaTime * 1500f;
             checkPanel.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
             yield return null;
         }
@@ -217,10 +217,11 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
         float height = 250;
         while (0.1f <= checkPanel.sizeDelta.y)
         {
-            height = Mathf.Lerp(height, 0, 0.05f);
+            height -= Time.deltaTime * 1500f;
             checkPanel.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
             yield return null;
         }
+
         checkPanel.gameObject.SetActive(false);
     }
 
