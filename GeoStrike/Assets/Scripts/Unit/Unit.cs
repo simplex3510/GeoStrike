@@ -371,9 +371,10 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             SetUnitActive(false);
         }
 
+        transform.position = ObjectPoolMgr.instance.transform.position;
         spriteRenderer.color = Color.white;
         gameObject.GetComponent<Collider>().enabled = true;
-        gameObject.SetActive(false);
+        gameObject.SetActive(false);                        // Pool로 되돌아 가는 시점
     }
 
     protected virtual void OnApplicationQuit()

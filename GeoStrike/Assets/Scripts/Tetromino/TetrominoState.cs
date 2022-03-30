@@ -63,7 +63,6 @@ public class TetrominoState : MonoBehaviour
     {
         StartCoroutine(CInCompleteColor());
         yield return new WaitForSeconds(buildTime);
-        Debug.Log("Build Complete");
 
         SetState(ETetrominoState.FSM_Normal);
     }
@@ -75,7 +74,6 @@ public class TetrominoState : MonoBehaviour
         if (GameMgr.instance.GetState() == EGameState.SpawnCount)
         {
             // 유닛 소환
-            Debug.Log("Summone unit");
             unitCreation.UnitSpawn();
             SetState(ETetrominoState.FSM_Summoned);
         }
@@ -85,7 +83,6 @@ public class TetrominoState : MonoBehaviour
     // 배틀 타임이 될때까지 대기, 유닛이 이동되고 다시 소환대기 상태로 전환
     IEnumerator FSM_Summoned()
     {
-        Debug.Log("Summoned");
         while (GameMgr.instance.GetState() == EGameState.SpawnCount)
         {   
             yield return null;
