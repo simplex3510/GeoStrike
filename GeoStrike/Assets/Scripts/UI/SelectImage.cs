@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [DefaultExecutionOrder(202)]
-public class UnitSelectImage : MonoBehaviour
+public class SelectImage : MonoBehaviour
 {
     public Vector3 originPos;
 

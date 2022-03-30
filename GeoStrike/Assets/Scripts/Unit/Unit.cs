@@ -104,6 +104,10 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     // 유닛의 몸체(스프라이트)
     public GameObject body;
 
+    // Unit UI창
+    private Detector detector;
+    private SelectImage selectImage;
+
     #region Status
     [HideInInspector]
     public EUnitIndex unitIndex;
@@ -132,6 +136,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     {
         rigidBody = GetComponent<Rigidbody>();
         unitMove = GetComponent<UnitMove>();
+        detector = GameObject.FindObjectOfType<Detector>();
+        selectImage = GameObject.FindObjectOfType<SelectImage>();
 
         isPlayer1 = (photonView.ViewID / 1000) == 1 ? true : false;
 
@@ -355,6 +361,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     {
         unitState = EUnitState.Idle;
         gameObject.GetComponent<Collider>().enabled = false;
+        detector.clickedObject = null;
 
         var spriteRenderer = _gameObject.GetComponent<SpriteRenderer>();
         var color = spriteRenderer.color;
@@ -367,6 +374,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         }
 
         // 버그 '시발'점
+        Debug.Log(this.name + " : Die - 알파 끝");
 
         if(_gameObject.name == "Body")
         {
@@ -380,8 +388,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
     protected virtual void OnApplicationQuit()
     {
-        Debug.Log("Init End");
-
         #region Return Status Init
         deltaStatus.unitIndex = initStatus.unitIndex;
         deltaStatus.unitName = initStatus.unitName;

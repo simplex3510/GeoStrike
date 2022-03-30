@@ -9,7 +9,7 @@ public class Detector : MonoBehaviour
     [HideInInspector] private TetrominoCreater creater;
     [HideInInspector] private UnitTileContainer unitTileContainer;
     [HideInInspector] private UnitBatchModeImage unitBatchModeImage;
-    [HideInInspector] private UnitSelectImage unitSelectImage;
+    [HideInInspector] private SelectImage unitSelectImage;
     [HideInInspector] private StatusPanel statusPanel;
     [HideInInspector] private KeySlotPanel keySlotPanel;
 
@@ -39,7 +39,7 @@ public class Detector : MonoBehaviour
         if (creater == null) { creater = GameObject.FindObjectOfType<TetrominoCreater>(); }
         if (unitTileContainer == null) { unitTileContainer = GameObject.FindObjectOfType<UnitTileContainer>(); }
         if (unitBatchModeImage == null) { unitBatchModeImage = GameObject.FindObjectOfType<UnitBatchModeImage>(); }
-        if (unitSelectImage == null) { unitSelectImage = GameObject.FindObjectOfType<UnitSelectImage>(); }
+        if (unitSelectImage == null) { unitSelectImage = GameObject.FindObjectOfType<SelectImage>(); }
         if (statusPanel == null) { statusPanel = GameObject.FindObjectOfType<StatusPanel>(); }
         if (keySlotPanel == null) { keySlotPanel = GameObject.FindObjectOfType<KeySlotPanel>(); }
     }
@@ -71,6 +71,10 @@ public class Detector : MonoBehaviour
             {
                 Unit unit = clickedObject.GetComponent<Unit>();
                 statusPanel.statusInfoArr[1].UnitStatusInfo(unit.GetComponentInChildren<SpriteRenderer>(), unit.initStatus.unitName, unit.currentHealth, unit.damage, unit.defense);
+                if (unit == null)
+                {
+                    statusPanel.SetActiveFalseAll();
+                }
             }
             else if (clickedObject.CompareTag("Tower"))
             {
