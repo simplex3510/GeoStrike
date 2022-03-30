@@ -54,6 +54,7 @@ public class TranslocateField : MonoBehaviourPun
             }
             unitList[idx].transform.parent = null;
             unitList[idx].GetComponent<NavMeshAgent>().enabled = true;
+            unitList[idx].GetComponent<UnitMove>().enabled = true;
             unitList[idx].GetComponent<UnitMove>().SetMove();
         }
         unitList.Clear();

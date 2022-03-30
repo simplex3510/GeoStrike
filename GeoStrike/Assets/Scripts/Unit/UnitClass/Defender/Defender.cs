@@ -9,7 +9,7 @@ public class Defender : Unit
     public Animator animator;
     public GameObject shild;
 
-    float stunTime = 1.5f;
+    float stunTime = 3f;
 
     [PunRPC]
     public void OnEnforceStartHealth()

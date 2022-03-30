@@ -215,6 +215,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
     protected virtual void Die()    // À¯´Ö »ç¸Á
     {
+        unitMove.enabled = false;
+        unitMove.agent.enabled = false;
         StartCoroutine(DieAnimation(body));
     }
 

@@ -99,7 +99,6 @@ public class UnitMove : MonoBehaviourPun
 
     void Die()
     {
-        agent.enabled = false;
         SetStop();
     }
     #endregion 
