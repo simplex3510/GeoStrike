@@ -48,12 +48,12 @@ public class TranslocateField : MonoBehaviourPun
         {
             unitList[idx].unitCreator.rowAndColumnQueue.Enqueue(unitList[idx].rowAndColumn);    // 배치 자리 기억
             unitTileContainer.unitTransformArr[unitList[idx].row, unitList[idx].column] = null; // 해당 자리의 빈 자리 체크
+            unitList[idx].transform.parent = null;
+            unitList[idx].GetComponent<NavMeshAgent>().enabled = true;
             if(unitList[idx].GetComponent<Buffer>() != null)
             {
                 continue;
             }
-            unitList[idx].transform.parent = null;
-            unitList[idx].GetComponent<NavMeshAgent>().enabled = true;
             unitList[idx].GetComponent<UnitMove>().enabled = true;
             unitList[idx].GetComponent<UnitMove>().SetMove();
         }

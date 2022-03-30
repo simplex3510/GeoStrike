@@ -73,7 +73,7 @@ public class Buffer : Unit
     #region FSM
     void Move()
     {
-        if(!photonView.IsMine)
+        if(!photonView.IsMine || !GetComponent<NavMeshAgent>().enabled)
         {
             return;
         }
