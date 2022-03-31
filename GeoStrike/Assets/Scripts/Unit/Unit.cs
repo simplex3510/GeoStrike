@@ -36,7 +36,7 @@ public enum EBuffandDebuff
     Damage,
     Defence,
     Haste
-    // Ãß°¡
+    // ï¿½ß°ï¿½
 }
 
 public struct RowAndColumn
@@ -66,21 +66,21 @@ interface IDebuffable
     public void OnDebuff(int _debuffType, float _debuff, float _applyTime);
     public IEnumerator Debuff(int _debuffType, float _debuff, float _applyTime);
 }
-[SelectionBase] // ºÎ¸ð ¼±ÅÃ
+[SelectionBase] // ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffable, IDebuffable, IPunObservable
 {
-    // ½ºÅ×ÀÌÅÍ½º
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í½ï¿½
     public InitUnitData initStatus;
     public DeltaUnitData deltaStatus;
 
-    // ¿ÀºêÁ§Æ® Ç®
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ç®
     public Queue<Unit> myPool;
 
-    // ¹èÄ¡»óÅÂÀÇ À§Ä¡ ÀúÀå Components
+    // ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ Components
     [HideInInspector] public UnitTile unitTile;
     [HideInInspector] public UnitCreator unitCreator;
 
-    // UnitÀÇ Spawn À§Ä¡ ±â¾ï 
+    // Unitï¿½ï¿½ Spawn ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ 
     public RowAndColumn rowAndColumn
     {
         get
@@ -94,19 +94,18 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     [HideInInspector] public int row;
     [HideInInspector] public int column;
 
-    // À¯´ÖÀÌ Çàµ¿À» ÃëÇÒ ´ë»ó
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½àµ¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
     public LayerMask opponentLayerMask { get; protected set; }
 
-    // À¯´ÖÀÇ FSMÀÇ »óÅÂ
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ FSMï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     /*[HideInInspector]*/
     public EUnitState unitState;
 
-    // À¯´ÖÀÇ ¸öÃ¼(½ºÇÁ¶óÀÌÆ®)
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®)
     public GameObject body;
 
-    // Unit UIÃ¢
+    // Unit UI InterfaceÃ¢
     private Detector detector;
-    private SelectImage selectImage;
 
     #region Status
     [HideInInspector]
@@ -122,7 +121,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     public float moveSpeed { get; protected set; }
     #endregion
 
-    protected Collider enemyCollider;   // °ø°Ý ´ë»ó
+    protected Collider enemyCollider;   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
     protected UnitMove unitMove;
     protected Rigidbody rigidBody;
     protected double lastAttackTime;
@@ -137,7 +136,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         rigidBody = GetComponent<Rigidbody>();
         unitMove = GetComponent<UnitMove>();
         detector = GameObject.FindObjectOfType<Detector>();
-        selectImage = GameObject.FindObjectOfType<SelectImage>();
 
         isPlayer1 = (photonView.ViewID / 1000) == 1 ? true : false;
 
@@ -204,7 +202,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             case EUnitState.Approach:
                 break;
             case EUnitState.Attack:
-                //°¢ Unit Class ¸¶´Ù Attck ±¸Çö
+                //ï¿½ï¿½ Unit Class ï¿½ï¿½ï¿½ï¿½ Attck ï¿½ï¿½ï¿½ï¿½
                 break;
             case EUnitState.Die:
                 Die();
@@ -219,7 +217,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
     public virtual void Attack() { }
 
-    protected virtual void Die()    // À¯´Ö »ç¸Á
+    protected virtual void Die()    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
     {
         unitMove.enabled = false;
         unitMove.agent.enabled = false;
@@ -361,7 +359,12 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     {
         unitState = EUnitState.Idle;
         gameObject.GetComponent<Collider>().enabled = false;
-        //detector.clickedObject = null;
+
+        // Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ Ã¢ ï¿½Ê±ï¿½È­
+        if (detector.clickedObject == this.gameObject)
+        {
+            detector.InitInterface();
+        }
 
         var spriteRenderer = _gameObject.GetComponent<SpriteRenderer>();
         var color = spriteRenderer.color;
@@ -373,8 +376,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             yield return null;
         }
 
-        // ¹ö±× '½Ã¹ß'Á¡
-        Debug.Log(this.name + " : Die - ¾ËÆÄ ³¡");
+        // ï¿½ï¿½ï¿½ï¿½ 'ï¿½Ã¹ï¿½'ï¿½ï¿½
+        Debug.Log(this.name + " : Die - ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½");
 
         if(_gameObject.name == "Body")
         {
@@ -383,7 +386,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
         spriteRenderer.color = Color.white;
         gameObject.GetComponent<Collider>().enabled = true;
-        gameObject.SetActive(false);                        // Pool·Î µÇµ¹¾Æ °¡´Â ½ÃÁ¡
+        gameObject.SetActive(false);                        // Poolï¿½ï¿½ ï¿½Çµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     protected virtual void OnApplicationQuit()
@@ -401,7 +404,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         #endregion
     }
 
-    // Idle¿¡¼­ Move°¡ µÇ´Â Á¶°Ç
+    // Idleï¿½ï¿½ï¿½ï¿½ Moveï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½
     public IEnumerator IdleToMoveCondition()
     {
         while (GameMgr.instance.GetState() == EGameState.SpawnCount)
