@@ -222,6 +222,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         unitMove.enabled = false;
         unitMove.agent.enabled = false;
         StartCoroutine(DieAnimation(body));
+        photonView.RPC("Die", RpcTarget.Others);
     }
 
     [PunRPC]
@@ -355,6 +356,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     }
     #endregion
 
+    [PunRPC]
     protected IEnumerator DieAnimation(GameObject _gameObject)
     {
         unitState = EUnitState.Idle;
@@ -376,9 +378,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             yield return null;
         }
 
-        // ���� '�ù�'��
-        Debug.Log(this.name + " : Die - ���� ��");
-
         if(_gameObject.name == "Body")
         {
             SetUnitActive(false);
@@ -386,7 +385,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
         spriteRenderer.color = Color.white;
         gameObject.GetComponent<Collider>().enabled = true;
-        gameObject.SetActive(false);                        // Pool�� �ǵ��� ���� ����
+        gameObject.SetActive(false);                        // Pool로 되돌아가는 시점
     }
 
     protected virtual void OnApplicationQuit()

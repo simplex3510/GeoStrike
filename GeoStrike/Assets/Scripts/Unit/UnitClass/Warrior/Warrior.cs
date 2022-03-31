@@ -82,7 +82,6 @@ public class Warrior : Unit
                 break;
             case EUnitState.Die:
                 StartCoroutine(DieAnimation(sword));
-                StartCoroutine(DieAnimation(body));
                 break;
         }
     }

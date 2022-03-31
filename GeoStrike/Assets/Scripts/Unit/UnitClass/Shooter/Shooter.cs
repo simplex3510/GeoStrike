@@ -44,7 +44,6 @@ public class Shooter : Unit
                 Attack();
                 break;
             case EUnitState.Die:
-                StartCoroutine(DieAnimation(body));
                 break;
         }
     }

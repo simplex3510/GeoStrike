@@ -38195,7 +38195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worldTimeTXT: {fileID: 353670781}
   sec: 0
-  battleTime: 10
+  battleTime: 25
   slider: {fileID: 1488233306}
 --- !u!114 &1306418365
 MonoBehaviour:
