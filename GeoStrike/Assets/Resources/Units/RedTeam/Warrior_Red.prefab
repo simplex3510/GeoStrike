@@ -96,6 +96,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 1234357198173039138}
   - {fileID: -352233727883452531}
+  - {fileID: 0}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
