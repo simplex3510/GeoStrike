@@ -55488,7 +55488,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6657674478387373857}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6657674478387373860}
+        m_TargetAssemblyTypeName: Giveup, Assembly-CSharp
+        m_MethodName: giveup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6657674478387373857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55531,6 +55543,7 @@ GameObject:
   - component: {fileID: 6657674478387373870}
   - component: {fileID: 6657674478387373857}
   - component: {fileID: 6657674478387373856}
+  - component: {fileID: 6657674478387373860}
   m_Layer: 5
   m_Name: GiveUp
   m_TagString: Untagged
@@ -55558,6 +55571,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0005493164, y: 0.00048828125}
   m_SizeDelta: {x: -0.6566467, y: -1.5449219}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6657674478387373860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6657674478387373858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f9bb7769f02f0a43af4caa187084a06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nexus1: {fileID: 0}
+  nexus2: {fileID: 0}
 --- !u!222 &6657674478387373870
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -56383,6 +56410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c3d1f4355e417346ab93ceeeb496ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statusPanel: {fileID: 0}
   mask:
     serializedVersion: 2
     m_Bits: 8896
