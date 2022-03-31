@@ -107,7 +107,8 @@ public class UnitMove : MonoBehaviourPun
     {
         if(agent.enabled == true)
         {
-            agent.isStopped = false;
+            agent.speed = 3f;
+            //agent.isStopped = false;
             agent.updatePosition = true;
         }
     }
@@ -116,7 +117,8 @@ public class UnitMove : MonoBehaviourPun
     {
         if (agent.enabled == true)
         {
-            agent.isStopped = true;
+            agent.speed = 0;
+            //agent.isStopped = true;
             agent.velocity = Vector3.zero;
             agent.updatePosition = false; 
         }

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0afa610d07e5a34dab5f56a303e2245, type: 3}
   m_Name: TurretData_Init
   m_EditorClassIdentifier: 
-  health: 100
+  health: 7000
   defense: 3

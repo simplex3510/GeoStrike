@@ -66,7 +66,7 @@ interface IDebuffable
     public void OnDebuff(int _debuffType, float _debuff, float _applyTime);
     public IEnumerator Debuff(int _debuffType, float _debuff, float _applyTime);
 }
-
+[SelectionBase] // 부모 선택
 public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffable, IDebuffable, IPunObservable
 {
     // 스테이터스
@@ -361,7 +361,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     {
         unitState = EUnitState.Idle;
         gameObject.GetComponent<Collider>().enabled = false;
-        detector.clickedObject = null;
+        //detector.clickedObject = null;
 
         var spriteRenderer = _gameObject.GetComponent<SpriteRenderer>();
         var color = spriteRenderer.color;
