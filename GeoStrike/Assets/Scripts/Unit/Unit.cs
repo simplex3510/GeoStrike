@@ -104,9 +104,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     // 유닛의 몸체(스프라이트)
     public GameObject body;
 
-    // Unit UI창
+    // Unit UI Interface창
     private Detector detector;
-    private SelectImage selectImage;
 
     #region Status
     [HideInInspector]
@@ -137,7 +136,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         rigidBody = GetComponent<Rigidbody>();
         unitMove = GetComponent<UnitMove>();
         detector = GameObject.FindObjectOfType<Detector>();
-        selectImage = GameObject.FindObjectOfType<SelectImage>();
 
         isPlayer1 = (photonView.ViewID / 1000) == 1 ? true : false;
 
@@ -361,7 +359,12 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     {
         unitState = EUnitState.Idle;
         gameObject.GetComponent<Collider>().enabled = false;
-        detector.clickedObject = null;
+
+        // 클릭한 유닛이 죽을시 인터페이스 창 초기화
+        if (detector.clickedObject == this.gameObject)
+        {
+            detector.InitInterface();
+        }
 
         var spriteRenderer = _gameObject.GetComponent<SpriteRenderer>();
         var color = spriteRenderer.color;

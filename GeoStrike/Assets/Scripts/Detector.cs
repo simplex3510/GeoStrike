@@ -5,12 +5,12 @@ using UnityEngine;
 public class Detector : MonoBehaviour
 {
     // Components
+    [HideInInspector] public StatusPanel statusPanel;
     [HideInInspector] private CameraController cameraController;
     [HideInInspector] private TetrominoCreater creater;
     [HideInInspector] private UnitTileContainer unitTileContainer;
     [HideInInspector] private UnitBatchModeImage unitBatchModeImage;
-    [HideInInspector] private SelectImage unitSelectImage;
-    [HideInInspector] private StatusPanel statusPanel;
+    [HideInInspector] private SelectImage selectImage;
     [HideInInspector] private KeySlotPanel keySlotPanel;
 
     // 마우스 위치, 클릭
@@ -39,7 +39,7 @@ public class Detector : MonoBehaviour
         if (creater == null) { creater = GameObject.FindObjectOfType<TetrominoCreater>(); }
         if (unitTileContainer == null) { unitTileContainer = GameObject.FindObjectOfType<UnitTileContainer>(); }
         if (unitBatchModeImage == null) { unitBatchModeImage = GameObject.FindObjectOfType<UnitBatchModeImage>(); }
-        if (unitSelectImage == null) { unitSelectImage = GameObject.FindObjectOfType<SelectImage>(); }
+        if (selectImage == null) { selectImage = GameObject.FindObjectOfType<SelectImage>(); }
         if (statusPanel == null) { statusPanel = GameObject.FindObjectOfType<StatusPanel>(); }
         if (keySlotPanel == null) { keySlotPanel = GameObject.FindObjectOfType<KeySlotPanel>(); }
     }
@@ -60,7 +60,7 @@ public class Detector : MonoBehaviour
     {
         if (clickedObject != null)
         {
-            unitSelectImage.transform.position = Camera.main.WorldToScreenPoint(clickedObject.transform.position);
+            selectImage.transform.position = Camera.main.WorldToScreenPoint(clickedObject.transform.position);
 
             if (clickedObject.CompareTag("Tetromino"))
             {
@@ -85,8 +85,16 @@ public class Detector : MonoBehaviour
         }
         else
         {
-            unitSelectImage.transform.position = unitSelectImage.originPos;
+            selectImage.transform.position = selectImage.originPos;
         }
+    }
+
+    public void InitInterface()
+    {
+        clickedObject = null;
+        clickedUnit = null;
+        statusPanel.SetActiveFalseAll();
+        selectImage.transform.position = selectImage.originPos;
     }
 
     // 클릭한 오브젝트 Data 가져오기
@@ -127,6 +135,34 @@ public class Detector : MonoBehaviour
         }
     }
 
+
+    // 테트로미노 빌드 이미지 위치설정 (테트로미노 타일에서만 이동가능)
+    private void CheckBuildPreview()
+    {
+        if (cameraController.mouseController.eMouseMode == MouseController.EMouseMode.build)
+        {
+            ray = cameraController.mainCamera.ScreenPointToRay(cameraController.mouseController.mousePos);
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            {
+                if (hit.transform.CompareTag("TetrominoTile"))
+                {
+                    // Get the index of the tile at the selected position
+                    tile = hit.transform.GetComponent<TetrominoTile>();
+
+                    // Check tile befor Build tetromino
+                    StartCoroutine(CBuildTetromino());
+                }
+            }
+        }
+    }
+
+    private void OnClickListenersClear()
+    {
+        for (int idx = 0; idx < keySlotPanel.keySlotArr[0].buttonArr.Length; idx++)
+        {
+            keySlotPanel.keySlotArr[0].buttonArr[idx].onClick.RemoveAllListeners();
+        }
+    }
     IEnumerator WhichObjInterface()
     {
         if (clickedObject.CompareTag("Tetromino"))
@@ -137,7 +173,7 @@ public class Detector : MonoBehaviour
             keySlotPanel.SetActiveFalseAll();
             keySlotPanel.keySlotArr[0].gameObject.SetActive(true);
 
-            if(GameMgr.isMaster)
+            if (GameMgr.isMaster)
             {
                 keySlotPanel.keySlotArr[0].buttonArr[0].onClick.AddListener(clickedObject.GetComponent<UnitCreator>().unitP1.OnEnforceDamage);
                 keySlotPanel.keySlotArr[0].buttonArr[1].onClick.AddListener(clickedObject.GetComponent<UnitCreator>().unitP1.OnEnforceDefense);
@@ -166,7 +202,7 @@ public class Detector : MonoBehaviour
             {
                 keySlotPanel.keySlotArr[1].gameObject.SetActive(true);
             }
-            
+
         }
         else if (clickedObject.CompareTag("Tower"))
         {
@@ -176,34 +212,6 @@ public class Detector : MonoBehaviour
             keySlotPanel.SetActiveFalseAll();
         }
         yield return null;
-    }
-
-    // 테트로미노 빌드 이미지 위치설정 (테트로미노 타일에서만 이동가능)
-    private void CheckBuildPreview()
-    {
-        if (cameraController.mouseController.eMouseMode == MouseController.EMouseMode.build)
-        {
-            ray = cameraController.mainCamera.ScreenPointToRay(cameraController.mouseController.mousePos);
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-            {
-                if (hit.transform.CompareTag("TetrominoTile"))
-                {
-                    // Get the index of the tile at the selected position
-                    tile = hit.transform.GetComponent<TetrominoTile>();
-
-                    // Check tile befor Build tetromino
-                    StartCoroutine(CBuildTetromino());
-                }
-            }
-        }
-    }
-
-    private void OnClickListenersClear()
-    {
-        for (int idx = 0; idx < keySlotPanel.keySlotArr[0].buttonArr.Length; idx++)
-        {
-            keySlotPanel.keySlotArr[0].buttonArr[idx].onClick.RemoveAllListeners();
-        }
     }
 
     IEnumerator CBuildTetromino()

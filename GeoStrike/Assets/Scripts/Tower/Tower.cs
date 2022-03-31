@@ -9,6 +9,8 @@ public abstract class Tower : MonoBehaviourPun, IDamageable
     public TowerData initStatus;
     public TowerData deltaStatus;
 
+    private Detector detector;
+
     #region Tower Data
     public float Health { get; private set; }
     public float Defense { get; private set; }
@@ -16,6 +18,8 @@ public abstract class Tower : MonoBehaviourPun, IDamageable
     
     protected virtual void Awake()
     {
+        detector = GameObject.FindObjectOfType<Detector>();
+
         #region Initialize Delta Tower Data
         deltaStatus.health = initStatus.health;
         deltaStatus.defense = initStatus.defense;
@@ -60,6 +64,12 @@ public abstract class Tower : MonoBehaviourPun, IDamageable
 
     protected IEnumerator DieAnimation()
     {
+        // 클릭한 오브젝트가 죽을때 인터페이스창 초기화
+        if (detector.clickedObject == this.gameObject)
+        {
+            detector.InitInterface();
+        }
+
         var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         var color = spriteRenderer.color;
         while (0 <= color.a)
