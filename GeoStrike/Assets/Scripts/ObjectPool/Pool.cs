@@ -55,7 +55,7 @@ public class Pool : MonoBehaviourPun
         if (ObjPoolQueue.Count > 0)
         {
             Unit obj = ObjPoolQueue.Dequeue();
-            obj.SetUnitActive(true);
+            //obj.SetUnitActive(true);
 
             return obj;
         }
@@ -64,7 +64,7 @@ public class Pool : MonoBehaviourPun
         {
             Unit newObj = CreateNewObject();
             ObjPoolQueue.Dequeue();
-            newObj.SetUnitActive(true);
+            //newObj.SetUnitActive(true);
 
             return newObj;
         }
