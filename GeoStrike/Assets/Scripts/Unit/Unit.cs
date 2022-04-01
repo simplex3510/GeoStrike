@@ -225,6 +225,16 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         photonView.RPC("Die", RpcTarget.Others);
     }
 
+    public virtual void Stun(float _stunTime)
+    {
+        StartCoroutine(OnStun(_stunTime));
+
+        if (photonView.IsMine)
+        {
+            photonView.RPC("OnStun", RpcTarget.Others, _stunTime);
+        }
+    }
+
     [PunRPC]
     public void OnDamaged(float _damage)
     {
