@@ -79,8 +79,7 @@ public class Defender : Unit
 
             if(enemyCollider.GetComponent<Unit>() != null)
             {
-                StartCoroutine(enemyCollider.GetComponent<Unit>().OnStun(stunTime));
-                //StartCoroutine(enemyCollider.GetComponent<Unit>().OnKnockback(transform.position, knockbackCount, knockbackPower));
+                enemyCollider.GetComponent<Unit>().Stun(stunTime);
             }
         }
 

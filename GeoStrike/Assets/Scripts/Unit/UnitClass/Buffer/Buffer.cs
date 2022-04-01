@@ -47,6 +47,11 @@ public class Buffer : Unit
 
     protected new void Update()
     {
+        if(!photonView.IsMine)
+        {
+            return;
+        }
+
         switch (unitState)
         {
             case EUnitState.Idle:

@@ -8,44 +8,6 @@ public class Warrior : Unit
     public Animator animator;
     public GameObject sword;
 
-    [PunRPC]
-    public void OnEnforceHealth()
-    {
-        deltaStatus.Health += 3f;
-        if (photonView.IsMine)
-        {
-            photonView.RPC("OnEnforceHealth", RpcTarget.Others);
-        }
-    }
-
-    public void OnEnforceDamage()
-    {
-        deltaStatus.Damage += 0.3f;
-        if(photonView.IsMine)
-        {
-            photonView.RPC("OnEnforceDamage", RpcTarget.Others);
-        }
-    }
-
-    public void OnEnforceDefense()
-    {
-        deltaStatus.Defense += 0.2f;
-        if(photonView.IsMine)
-        {
-            photonView.RPC("OnEnforceDefense", RpcTarget.Others);
-        }
-    }
-
-    //public void OnEnforceAttackSpeed()
-    //{
-    //    deltaStatus.attackSpeed -= 0.2f;    // 조정 필요
-    //    animator.speed = deltaStatus.attackSpeed;
-    //    if (photonView.IsMine)
-    //    {
-    //        photonView.RPC("OnEnforceAttackSpeed", RpcTarget.Others);
-    //    }
-    //}
-
     protected override void Awake()
     {
         base.Awake();

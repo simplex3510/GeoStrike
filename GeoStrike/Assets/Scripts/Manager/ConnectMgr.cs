@@ -35,7 +35,7 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
     public Button yesButton;
     public Button noButton;
 
-    readonly int MAX_PLAYER = 1;
+    readonly int MAX_PLAYER = 2;
     int readyPlayer = 0;
 
     #region Network
@@ -175,7 +175,7 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
     }
     #endregion
 
-    #region
+    #region Title
     public void OnClickCheck()
     {
         StartCoroutine(QuitCheck());
