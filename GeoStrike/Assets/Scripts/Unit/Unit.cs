@@ -36,7 +36,7 @@ public enum EBuffandDebuff
     Damage,
     Defence,
     Haste
-    // �߰�
+    // 추가
 }
 
 public struct RowAndColumn
@@ -73,14 +73,14 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     public InitUnitData initStatus;
     public DeltaUnitData deltaStatus;
 
-    // ������Ʈ Ǯ
+    // 오브젝트 풀 연결
     public Queue<Unit> myPool;
 
     // ��ġ������ ��ġ ���� Components
     [HideInInspector] public UnitTile unitTile;
     [HideInInspector] public UnitCreator unitCreator;
 
-    // Unit�� Spawn ��ġ ��� 
+    // Unit의 Spawn 위치 저장 
     public RowAndColumn rowAndColumn
     {
         get
@@ -222,7 +222,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         unitMove.enabled = false;
         unitMove.agent.enabled = false;
         StartCoroutine(DieAnimation(body));
-        photonView.RPC("Die", RpcTarget.Others);
     }
 
     public virtual void Stun(float _stunTime)
@@ -290,25 +289,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         }
         print("OnEnforceHealth");
     }
-
-    //public IEnumerator OnKnockback(Vector3 enemyPos, float count, float power)
-    //{
-    //    isKnockback = true;
-
-    //    Vector3 direct = (transform.position - enemyPos ).normalized;
-    //    Vector3 destiantion = transform.position + direct * power ;
-
-    //    Vector3 startPos = this.transform.position;
-
-    //    for (float i = count; i <= 1.0f; i+=count)
-    //    {
-    //        // this.transform.position = Vector3.Lerp(startPos, destiantion, i);
-    //        unitMove.agent.SetDestination(destiantion);
-    //        yield return null;
-    //    }
-
-    //    isKnockback = false;
-    //}
 
     [PunRPC]
     public void SetUnitActive(bool isTrue)
@@ -378,24 +358,26 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             detector.InitInterface();
         }
 
-        var spriteRenderer = _gameObject.GetComponent<SpriteRenderer>();
-        var color = spriteRenderer.color;
-        while (0 <= color.a)
-        {
-            color.a -= 1.5f * Time.deltaTime;
-            spriteRenderer.color = color;
+        //var spriteRenderer = _gameObject.GetComponent<SpriteRenderer>();
+        //var color = spriteRenderer.color;
+        //while (0 <= color.a)
+        //{
+        //    color.a -= 1.5f * Time.deltaTime;
+        //    spriteRenderer.color = color;
 
-            yield return null;
-        }
+        //    yield return null;
+        //}
 
         if(_gameObject.name == "Body")
         {
             SetUnitActive(false);
         }
 
-        spriteRenderer.color = Color.white;
+        //spriteRenderer.color = Color.white;
         gameObject.GetComponent<Collider>().enabled = true;
         gameObject.SetActive(false);                        // Pool로 되돌아가는 시점
+        transform.position = ObjectPoolMgr.instance.transform.position;         // 유닛 위치 초기화
+        yield return null;
     }
 
     protected virtual void OnApplicationQuit()
@@ -413,7 +395,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         #endregion
     }
 
-    // Idle���� Move�� �Ǵ� ����
+    // Idle에서 Move로 전환 조건
     public IEnumerator IdleToMoveCondition()
     {
         while (GameMgr.instance.GetState() == EGameState.SpawnCount)
