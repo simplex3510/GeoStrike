@@ -63,6 +63,7 @@ public class TetrominoSlot : MonoBehaviour
 
     public void ClickSlot()
     {
+        if (cameraController.mouseController.eMouseMode != MouseController.EMouseMode.normal) { return; }
         ChoiceTetrominoSlot();
         cameraController.autoMoveCamera.MoveToBuildZone();
         PreviewImgSize();
