@@ -45,11 +45,12 @@ public class UnitCreator : MonoBehaviourPun
                         {
                             Unit unit = ObjectPoolMgr.instance.poolArr[(int)unitP1.initStatus.unitIndex].GetObject();    // 내 Pool에서 내 유닛 꺼내기
                             unit.unitCreator = this;
-                            unit.StartCoroutine(unit.IdleToMoveCondition());
 
                             if (spawnPos == Vector3.zero)
                             {
                                 unit.transform.position = unitTileContainer.unitTileArr[ConnectMgr.MASTER_PLAYER, row, column].transform.position; // 내 유닛 타일에 배치                          
+                                unit.SetUnitActive(true);
+                                unit.StartCoroutine(unit.IdleToMoveCondition());
 
                                 unit.row = row;
                                 unit.column = column;
@@ -60,6 +61,8 @@ public class UnitCreator : MonoBehaviourPun
                             else
                             {
                                 unit.transform.position = spawnPos;
+                                unit.SetUnitActive(true);
+                                unit.StartCoroutine(unit.IdleToMoveCondition());
 
                                 // 전장으로 이동된 유닛의 row, column가 저장된 Queue에서 값을 가져와서 새로 Spawn된 유닛에 부여
                                 RowAndColumn rowAndColumn = rowAndColumnQueue.Dequeue();
@@ -99,12 +102,12 @@ public class UnitCreator : MonoBehaviourPun
                         {
                             Unit unit = ObjectPoolMgr.instance.poolArr[(int)unitP2.initStatus.unitIndex].GetObject();    // 내 Pool에서 내 유닛 꺼내기
                             unit.unitCreator = this;
-                            unit.StartCoroutine(unit.IdleToMoveCondition());
 
                             if (spawnPos == Vector3.zero)
                             {
                                 unit.transform.position = unitTileContainer.unitTileArr[ConnectMgr.GUEST_PLAYER, row, column].transform.position; // 내 유닛 타일에 배치
-
+                                unit.SetUnitActive(true);
+                                unit.StartCoroutine(unit.IdleToMoveCondition());
 
                                 unit.row = row;
                                 unit.column = column;
@@ -115,6 +118,8 @@ public class UnitCreator : MonoBehaviourPun
                             else
                             {
                                 unit.transform.position = spawnPos;
+                                unit.SetUnitActive(true);
+                                unit.StartCoroutine(unit.IdleToMoveCondition());
 
                                 // 전장으로 이동된 유닛의 row, column가 저장된 Queue에서 값을 가져와서 새로 Spawn된 유닛에 부여
                                 RowAndColumn rowAndColumn = rowAndColumnQueue.Dequeue();
