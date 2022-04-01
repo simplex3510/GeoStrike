@@ -47,7 +47,7 @@ public class Buffer : Unit
 
     protected new void Update()
     {
-        if(!photonView.IsMine)
+        if (!photonView.IsMine)
         {
             return;
         }
@@ -78,72 +78,91 @@ public class Buffer : Unit
     #region FSM
     void Move()
     {
-        if(!photonView.IsMine || !GetComponent<NavMeshAgent>().enabled)
+        try
         {
-            return;
-        }
-
-        targetColliders = Physics.OverlapSphere(transform.position, detectRange, opponentLayerMask);
-        if (targetColliders.Length <= 1)
-        {
-            agent.SetDestination(allyNexus.position);
-        }
-        else
-        {
-            if (target == null)
+            if (!photonView.IsMine || !GetComponent<NavMeshAgent>().enabled)
             {
-                float temp;
-                float distance = detectRange;
-                int targetIndex = -1;
-
-                // 대상들과의 최소 거리를 찾음
-                for (int i = 0; i < targetColliders.Length; i++)
-                {
-                    if (targetColliders[i].gameObject == this.gameObject ||     // 자기 자신이라면 건너뜀
-                        targetColliders[i].GetComponent<Buffer>() != null)      // 버퍼라면 건너뜀
-                    {
-                        continue;
-                    }
-
-                    temp = Vector3.Distance(this.transform.position, targetColliders[i].transform.position);
-
-                    if (temp < distance)
-                    {
-                        distance = temp;
-                        targetIndex = i;
-                    }
-                }
-
-                if (targetIndex == -1)
-                {
-                    agent.SetDestination(allyNexus.position);
-                    return;
-                }
-                else
-                {
-                    target = targetColliders[targetIndex].gameObject;
-                }
+                return;
             }
 
-            unitState = EUnitState.Approach;
+            targetColliders = Physics.OverlapSphere(transform.position, detectRange, opponentLayerMask);
+            if (targetColliders.Length <= 1)
+            {
+                agent.SetDestination(allyNexus.position);
+            }
+            else
+            {
+                if (target == null)
+                {
+                    float temp;
+                    float distance = detectRange;
+                    int targetIndex = -1;
+
+                    // 대상들과의 최소 거리를 찾음
+                    for (int i = 0; i < targetColliders.Length; i++)
+                    {
+                        if (targetColliders[i].gameObject == this.gameObject ||     // 자기 자신이라면 건너뜀
+                            targetColliders[i].GetComponent<Buffer>() != null)      // 버퍼라면 건너뜀
+                        {
+                            continue;
+                        }
+
+                        temp = Vector3.Distance(this.transform.position, targetColliders[i].transform.position);
+
+                        if (temp < distance)
+                        {
+                            distance = temp;
+                            targetIndex = i;
+                        }
+                    }
+
+                    if (targetIndex == -1)
+                    {
+                        agent.SetDestination(allyNexus.position);
+                        return;
+                    }
+                    else
+                    {
+                        target = targetColliders[targetIndex].gameObject;
+                    }
+                }
+
+                unitState = EUnitState.Approach;
+            }
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(e);
+            throw;
         }
     }
 
     void Approach() // 아군에게 접근
     {
-        if (!photonView.IsMine)
+        try
         {
-            return;
-        }
 
-        if (target.activeSelf != false)                                 // 범위 내 아군이 있다면
-        {
-            agent.SetDestination(target.transform.position * 0.9f);    // 아군에게 접근
+            if (!photonView.IsMine)
+            {
+                return;
+            }
+
+            if (target.activeSelf != false)                                 // 범위 내 아군이 있다면
+            {
+
+
+                agent.SetDestination(target.transform.position * 0.9f);    // 아군에게 접근
+            }
+            else                                                            // 범위 내 아군이 없다면
+            {
+                target = null;
+                unitState = EUnitState.Move;                                // 아군 넥서스로 이동
+            }
         }
-        else                                                            // 범위 내 아군이 없다면
+        catch (System.Exception e)
         {
-            target = null;
-            unitState = EUnitState.Move;                                // 아군 넥서스로 이동
+            Debug.Log(e);
+            throw;
         }
     }
 

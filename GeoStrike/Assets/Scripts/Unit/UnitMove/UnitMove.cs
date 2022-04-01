@@ -52,19 +52,27 @@ public class UnitMove : MonoBehaviourPun
     #region FSM
     void Move()
     {
-        agent.SetDestination(destination);  // 실질적 이동
-
-        enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, unit.detectRange, unit.opponentLayerMask);
-        if (enemyColliders.Length == 0)     // 탐지 범위 내에 적이 없다면
+        try
         {
-            destination = enemyNexus.position;
+            agent.SetDestination(destination);  // 실질적 이동
+
+            enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, unit.detectRange, unit.opponentLayerMask);
+            if (enemyColliders.Length == 0)     // 탐지 범위 내에 적이 없다면
+            {
+                destination = enemyNexus.position;
+            }
+            else                                // 탐지 범위 내에 적이 있다면
+            {
+                destination = enemyColliders[0].transform.position;
+
+                unit.unitState = EUnitState.Approach;
+                return;
+            }
         }
-        else                                // 탐지 범위 내에 적이 있다면
+        catch (System.Exception e)
         {
-            destination = enemyColliders[0].transform.position;
-
-            unit.unitState = EUnitState.Approach;
-            return;
+            Debug.Log(e);
+            throw;
         }
     }
 
@@ -105,7 +113,7 @@ public class UnitMove : MonoBehaviourPun
 
     public void SetMove()
     {
-        if(agent.enabled == true)
+        if (agent.enabled == true)
         {
             agent.speed = 3f;
             //agent.isStopped = false;
