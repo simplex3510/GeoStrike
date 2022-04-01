@@ -63,7 +63,7 @@ public class Debuffer : Unit
                 enemyColliders[i].GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
                 if(enemyColliders[i].GetComponent<Unit>() != null)
                 {
-                    enemyColliders[i].GetComponent<Unit>().OnDebuff((int)currentDebuff, debuffDeltaStatus, applyTime);
+                    enemyColliders[i].GetComponent<Unit>().Debuff((int)currentDebuff, debuffDeltaStatus, applyTime);
                 }
             }
         }
