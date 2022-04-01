@@ -63,8 +63,8 @@ interface IBuffable
 
 interface IDebuffable
 {
-    public void OnDebuff(int _debuffType, float _debuff, float _applyTime);
-    public IEnumerator Debuff(int _debuffType, float _debuff, float _applyTime);
+    public void Debuff(int _debuffType, float _debuff, float _applyTime);
+    public IEnumerator OnDebuff(int _debuffType, float _debuff, float _applyTime);
 }
 [SelectionBase] // �θ� ����
 public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffable, IDebuffable, IPunObservable
@@ -326,12 +326,12 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     }
 
     [PunRPC]
-    public void OnDebuff(int _debuffType, float _debuff, float _applyTime)
+    public void Debuff(int _debuffType, float _debuff, float _applyTime)
     {
-        StartCoroutine(Debuff(_debuffType,  _debuff, _applyTime));
+        StartCoroutine(OnDebuff(_debuffType,  _debuff, _applyTime));
     }
 
-    public IEnumerator Debuff(int _debuffType, float _debuff, float _applyTime)
+    public IEnumerator OnDebuff(int _debuffType, float _debuff, float _applyTime)
     {
         float time = 0;
         switch ((EBuffandDebuff)_debuffType)
@@ -339,7 +339,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             case EBuffandDebuff.Damage:
                 hasDebuff = false;
                 damage -= _debuff;
-                if (photonView.IsMine) { photonView.RPC("OnDebuff", RpcTarget.Others, _debuffType, _debuff, _applyTime); }
+                if (photonView.IsMine) { photonView.RPC("Debuff", RpcTarget.Others, _debuffType, _debuff, _applyTime); }
                 while (time <= _applyTime) { time += Time.deltaTime; yield return null; }
                 break;
         }
