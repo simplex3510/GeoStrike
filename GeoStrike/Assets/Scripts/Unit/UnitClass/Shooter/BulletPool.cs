@@ -18,7 +18,7 @@ public class BulletPool : MonoBehaviourPun
 
             newBullet.myPool = bulletQueue;                     // 투사체 풀(Queue) 설정
             newBullet.SetBulletActive(false);                   // 투사체 비활성화
-            newBullet.transform.SetParent(this.transform);      // 투사체 부모 객체 설정
+            newBullet.transform.SetParent(null);                // 투사체 부모 객체 설정
             return newBullet;
         }
         else

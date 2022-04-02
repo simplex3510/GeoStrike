@@ -80,6 +80,13 @@ public class Splasher : Unit
         }
     }
 
+    protected override void Die()
+    {
+        enemyCollider = null;
+        enemyColliders = null;
+        base.Die();
+    }
+
     protected override void OnApplicationQuit()
     {
         base.OnApplicationQuit();

@@ -79,6 +79,12 @@ public class Shooter : Unit
         }
     }
 
+    protected override void Die()
+    {
+        enemyCollider = null;
+        base.Die();
+    }
+
     protected override void OnApplicationQuit()
     {
         base.OnApplicationQuit();

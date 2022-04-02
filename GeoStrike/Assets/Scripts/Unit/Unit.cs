@@ -358,6 +358,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             detector.InitInterface();
         }
 
+        enemyCollider = null;
+
         //var spriteRenderer = _gameObject.GetComponent<SpriteRenderer>();
         //var color = spriteRenderer.color;
         //while (0 <= color.a)
@@ -375,7 +377,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
         //spriteRenderer.color = Color.white;
         gameObject.GetComponent<Collider>().enabled = true;
-        gameObject.SetActive(false);                        // Pool로 되돌아가는 시점
+        gameObject.SetActive(false);                                            // Pool로 되돌아가는 시점
         transform.position = ObjectPoolMgr.instance.transform.position;         // 유닛 위치 초기화
         yield return null;
     }
