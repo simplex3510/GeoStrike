@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Minimap : MonoBehaviour
+public class Minimap : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Camera minimapCamera;
@@ -14,14 +15,24 @@ public class Minimap : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
-        {
-            rectTransform = GetComponent<RectTransform>();
+        //if (Input.GetMouseButton(0))
+        //{
+        //    rectTransform = GetComponent<RectTransform>();
 
-            mousePos = Input.mousePosition;
-            mousePos = minimapCamera.ScreenToWorldPoint(mousePos);
+        //    mousePos = Input.mousePosition;
+        //    mousePos = minimapCamera.ScreenToWorldPoint(mousePos);
 
-            mainCamera.transform.position = new Vector3(mousePos.x, 10, mousePos.z);
-        }
+        //    mainCamera.transform.position = new Vector3(mousePos.x, 10, mousePos.z);
+        //}
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        rectTransform = GetComponent<RectTransform>();
+
+        mousePos = Input.mousePosition;
+        mousePos = minimapCamera.ScreenToWorldPoint(mousePos);
+
+        mainCamera.transform.position = new Vector3(mousePos.x, 10, mousePos.z);
     }
 }

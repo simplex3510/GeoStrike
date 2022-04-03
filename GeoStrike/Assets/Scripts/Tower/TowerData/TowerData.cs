@@ -8,7 +8,4 @@ public class TowerData : ScriptableObject
     [Header("<Tower Status>")]
     public float health;
     public float defense;
-    public float attackRange;
-    public float attackSpeed;
-    public float damage;
 }

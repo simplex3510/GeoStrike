@@ -4,21 +4,11 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public enum ETowerState
-{
-    Idle,
-    Attack
-}
-
 public abstract class Tower : MonoBehaviourPun, IDamageable
 {
-    public ETowerState towerState;
-
     protected Collider enemyCollider;
     public TowerData initStatus;
     public TowerData deltaStatus;
-
-    Collider[] enemyColliders;
 
     private Detector detector;
 
@@ -27,9 +17,6 @@ public abstract class Tower : MonoBehaviourPun, IDamageable
     #region Tower Data
     public float Health { get; private set; }
     public float Defense { get; private set; }
-    public float attackRange { get; protected set; }
-    public float attackSpeed { get; protected set; }
-    public float damage { get; protected set; }
     #endregion
 
     protected virtual void Awake()
@@ -48,17 +35,11 @@ public abstract class Tower : MonoBehaviourPun, IDamageable
         #region Initialize Delta Tower Data
         deltaStatus.health = initStatus.health;
         deltaStatus.defense = initStatus.defense;
-        deltaStatus.attackRange = initStatus.attackRange;
-        deltaStatus.attackSpeed = initStatus.attackSpeed;
-        deltaStatus.damage = initStatus.damage;
         #endregion
 
         #region Initialize Tower Data
         Health = deltaStatus.health;
         Defense = deltaStatus.defense;
-        attackRange = deltaStatus.attackRange;
-        attackSpeed = deltaStatus.attackSpeed;
-        damage = deltaStatus.damage;
         #endregion
 
         if (photonView.IsMine)
@@ -71,18 +52,25 @@ public abstract class Tower : MonoBehaviourPun, IDamageable
         }
     }
 
-    private void Update()
-    {
-        switch (towerState)
-        {
-            case ETowerState.Idle:
-                break;
-            case ETowerState.Attack:
-                break;
-        }
-    }
+    //void Idle()
+    //{
+    //    enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, detectRange, opponentLayerMask);
+    //    if (enemyColliders.Length == 0)         // 탐지 범위 내에 적이 없어졌다면
+    //    {
+    //        towerState = ETowerState.Idle;
+    //        return;
+    //    }
+    //    else                                    // 탐지 범위 내에 적이 있고
+    //    {
+    //        enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask);
+    //        if (enemyColliders.Length != 0)     // 공격 범위 내에 적이 있다면
+    //        {
+    //            towerState = ETowerState.Attack;
+    //            return;
+    //        }
+    //    }
 
-
+    //}
 
     [PunRPC]
     public void OnDamaged(float _damage)
@@ -133,9 +121,6 @@ public abstract class Tower : MonoBehaviourPun, IDamageable
         #region Return Status Init
         deltaStatus.health = initStatus.health;
         deltaStatus.defense = initStatus.defense;
-        deltaStatus.attackRange = initStatus.attackRange;
-        deltaStatus.attackSpeed = initStatus.attackSpeed;
-        deltaStatus.damage = initStatus.damage;
         #endregion
     }
 
