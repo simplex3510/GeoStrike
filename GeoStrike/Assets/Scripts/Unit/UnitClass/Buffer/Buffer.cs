@@ -141,7 +141,6 @@ public class Buffer : Unit
     {
         try
         {
-
             if (!photonView.IsMine)
             {
                 return;
@@ -149,9 +148,7 @@ public class Buffer : Unit
 
             if (target.activeSelf != false)                                 // 범위 내 아군이 있다면
             {
-
-
-                agent.SetDestination(target.transform.position * 0.9f);    // 아군에게 접근
+                agent.SetDestination(target.transform.position * 0.85f);    // 아군에게 접근
             }
             else                                                            // 범위 내 아군이 없다면
             {
