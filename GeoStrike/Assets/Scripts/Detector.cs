@@ -132,6 +132,10 @@ public class Detector : MonoBehaviour
                     currentCoroutine = StartCoroutine(CBatchMode());
                 }
             }
+            else
+            {
+                InitInterface();
+            }
         }
     }
 
@@ -226,6 +230,16 @@ public class Detector : MonoBehaviour
 
     IEnumerator CBatchMode()
     {
+        // 카메라 위치 유닛필드로 이동
+        if (GameMgr.isMaster)
+        {
+            cameraController.transform.position = cameraController.GetCameraStartPos("p1") + new Vector3(15.5f, 0f, 0f);
+        }
+        else
+        {
+            cameraController.transform.position = cameraController.GetCameraStartPos("p2") + new Vector3(15.5f, 0f, 0f);
+        }
+
         int h = 0;
         int v = 0;
         Transform temp;

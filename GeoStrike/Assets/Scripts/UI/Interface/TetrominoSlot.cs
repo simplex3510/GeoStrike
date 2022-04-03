@@ -68,7 +68,7 @@ public class TetrominoSlot : MonoBehaviour
         cameraController.autoMoveCamera.MoveToBuildZone();
         PreviewImgSize();
 
-        cameraController.mouseController.CursorVisible(false);
+        //cameraController.mouseController.CursorVisible(false);
     }
 
     // Set preview size

@@ -33,6 +33,6 @@ public class TetrominoPreview : MonoBehaviour
         rectTransform.rotation = Quaternion.identity;                // 회전값 초기화
         rectTransform.sizeDelta = m_previewOriginSize;               // 사이즈 초기화
         clickSlot = null;                                            // 클릭 슬롯 정보 초기화
-        m_cameraController.mouseController.CursorVisible(true);      // 마우스 커서 초기화
+        //m_cameraController.mouseController.CursorVisible(true);      // 마우스 커서 초기화
     }
 }

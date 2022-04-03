@@ -25,8 +25,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float zoomOut = 0f;
 
     // Start Pos
-    private Vector3 p1Pos = new Vector3(-32.5f, 10f, -16f);
-    private Vector3 p2Pos = new Vector3( 32.5f, 10f, -16f);
+    private Vector3 p1Pos = new Vector3(-32.5f, 1f, -16f);
+    private Vector3 p2Pos = new Vector3( 32.5f, 1f, -16f);
 
     // Auto Move BuildZone
     public bool onZone { get; set; }
