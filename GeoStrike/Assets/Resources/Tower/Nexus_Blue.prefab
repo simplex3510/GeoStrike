@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68fcc13ef9d8b534087fdcc027d59090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerState: 0
   initStatus: {fileID: 11400000, guid: c529bc6e4d00a814c8a022b02f250d8a, type: 2}
   deltaStatus: {fileID: 11400000, guid: 98eee67a4ac15b742a9783604d858e0d, type: 2}
 --- !u!114 &6386195217646654433
