@@ -6,14 +6,16 @@ using Photon.Pun;
 public class TurretAttack : Unit
 {
     Collider[] enemyColliders;
-    EBuffandDebuff currentDebuff;
     float debuffDeltaStatus = 2f;
     float applyTime = 2f;
 
     protected override void Awake()
     {
         base.Awake();
+    }
 
+    private void Start()
+    {
         unitState = EUnitState.Move;
     }
 
@@ -63,10 +65,6 @@ public class TurretAttack : Unit
             for (int i = 0; i < 4 && i < enemyColliders.Length; i++)
             {
                 enemyColliders[i].GetComponent<PhotonView>().RPC("OnDamaged", RpcTarget.All, damage);
-                if (enemyColliders[i].GetComponent<Unit>() != null)
-                {
-                    enemyColliders[i].GetComponent<Unit>().Debuff((int)currentDebuff, debuffDeltaStatus, applyTime);
-                }
             }
         }
         else if (enemyColliders.Length == 0)
