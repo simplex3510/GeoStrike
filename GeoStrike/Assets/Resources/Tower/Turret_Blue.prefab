@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3674539283034588941}
   - component: {fileID: 3674539283034588940}
   - component: {fileID: 3674539283034588977}
+  - component: {fileID: -5881596936086029519}
   - component: {fileID: 3674539283034588942}
   - component: {fileID: 4490861895555407229}
   - component: {fileID: 7347612631739932146}
@@ -101,6 +102,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initStatus: {fileID: 11400000, guid: 9adc1f3c9c3dbb045a9bb08f60b782aa, type: 2}
   deltaStatus: {fileID: 11400000, guid: 6a0569d2de15264499d7f5c9770deeb9, type: 2}
+  enemyCollider: {fileID: 0}
+  bulletPool: {fileID: -5881596936086029519}
+  bullet: {fileID: -7795045542651076442, guid: deefab25f82810142a0b05cffdec53fa, type: 3}
+--- !u!114 &-5881596936086029519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3674539283034588938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55c00935070669a4d9187c9a56339230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: -7795045542651076442, guid: deefab25f82810142a0b05cffdec53fa, type: 3}
 --- !u!114 &3674539283034588942
 MonoBehaviour:
   m_ObjectHideFlags: 0

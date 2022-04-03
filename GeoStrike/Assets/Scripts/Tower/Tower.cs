@@ -4,30 +4,61 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
+public enum ETowerState
+{
+    Idle,
+    Attack
+}
+
 public abstract class Tower : MonoBehaviourPun, IDamageable
 {
+    public ETowerState towerState;
+
+    protected Collider enemyCollider;
     public TowerData initStatus;
     public TowerData deltaStatus;
 
+    Collider[] enemyColliders;
+
     private Detector detector;
+
+    public LayerMask opponentLayerMask { get; protected set; }
 
     #region Tower Data
     public float Health { get; private set; }
     public float Defense { get; private set; }
+    public float attackRange { get; protected set; }
+    public float attackSpeed { get; protected set; }
+    public float damage { get; protected set; }
     #endregion
-    
+
     protected virtual void Awake()
     {
         detector = GameObject.FindObjectOfType<Detector>();
 
+        if (photonView.IsMine)
+        {
+            opponentLayerMask = 1 << (int)EPlayer.Enemy;
+        }
+        else
+        {
+            opponentLayerMask = 1 << (int)EPlayer.Ally;
+        }
+
         #region Initialize Delta Tower Data
         deltaStatus.health = initStatus.health;
         deltaStatus.defense = initStatus.defense;
+        deltaStatus.attackRange = initStatus.attackRange;
+        deltaStatus.attackSpeed = initStatus.attackSpeed;
+        deltaStatus.damage = initStatus.damage;
         #endregion
 
         #region Initialize Tower Data
         Health = deltaStatus.health;
         Defense = deltaStatus.defense;
+        attackRange = deltaStatus.attackRange;
+        attackSpeed = deltaStatus.attackSpeed;
+        damage = deltaStatus.damage;
         #endregion
 
         if (photonView.IsMine)
@@ -39,6 +70,19 @@ public abstract class Tower : MonoBehaviourPun, IDamageable
             gameObject.layer = LayerMask.NameToLayer("Enemy");
         }
     }
+
+    private void Update()
+    {
+        switch (towerState)
+        {
+            case ETowerState.Idle:
+                break;
+            case ETowerState.Attack:
+                break;
+        }
+    }
+
+
 
     [PunRPC]
     public void OnDamaged(float _damage)
@@ -89,6 +133,9 @@ public abstract class Tower : MonoBehaviourPun, IDamageable
         #region Return Status Init
         deltaStatus.health = initStatus.health;
         deltaStatus.defense = initStatus.defense;
+        deltaStatus.attackRange = initStatus.attackRange;
+        deltaStatus.attackSpeed = initStatus.attackSpeed;
+        deltaStatus.damage = initStatus.damage;
         #endregion
     }
 
