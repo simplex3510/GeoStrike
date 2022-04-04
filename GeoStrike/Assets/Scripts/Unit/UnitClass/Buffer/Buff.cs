@@ -5,9 +5,7 @@ using Photon.Pun;
 
 public class Buff : MonoBehaviourPun
 {
-    LayerMask opponentLayerMask;
 
-    EBuffandDebuff currentBuff = EBuffandDebuff.Damage;
     public EBuffandDebuff CurrentBuff 
     {
         get { return currentBuff; }
@@ -27,18 +25,32 @@ public class Buff : MonoBehaviourPun
         }    
     } 
 
+    List<GameObject> buffedAlly = new List<GameObject>();
+    EBuffandDebuff currentBuff = EBuffandDebuff.Damage;
+
     // Buff Status Delta
     float buffDeltaStatus = 2f;
 
-    protected void Awake()
+    private void OnDisable()
     {
-        opponentLayerMask = 1 << (int)EPlayer.Ally;
+        for (int i = 0; i < buffedAlly.Count; i++)
+        {
+            if(buffedAlly[i] == this.gameObject)
+            {
+                continue;
+            }
+
+            buffedAlly[i].GetComponent<Unit>().OffBuff((int)currentBuff, buffDeltaStatus);
+        }
+
+        buffedAlly.Clear();
     }
 
     private void OnTriggerEnter(Collider ally)
     {
-        if(photonView.IsMine)
+        if(photonView.IsMine && ally.GetComponent<Unit>() != null)
         {
+            buffedAlly.Add(ally.gameObject);
             ally.GetComponent<Unit>().OnBuff((int)currentBuff, buffDeltaStatus);
         }
 
@@ -46,8 +58,9 @@ public class Buff : MonoBehaviourPun
 
     private void OnTriggerExit(Collider ally)
     {
-        if (photonView.IsMine)
+        if (photonView.IsMine && ally.GetComponent<Unit>() != null)
         {
+            buffedAlly.Remove(ally.gameObject);
             ally.GetComponent<Unit>().OffBuff((int)currentBuff, buffDeltaStatus);
         }
     }
