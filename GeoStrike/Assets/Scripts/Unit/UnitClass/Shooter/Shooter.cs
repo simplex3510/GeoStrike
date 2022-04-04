@@ -5,6 +5,10 @@ using Photon.Pun;
 
 public class Shooter : Unit
 {
+    private AudioSource theAudio;
+
+    [SerializeField] private AudioClip clip;
+
     //public Animator animator;
     public Transform[] bulletSpawnPos;
     public BulletPool bulletPool;
@@ -16,6 +20,8 @@ public class Shooter : Unit
     {
         base.Awake();
         bulletPool = GetComponent<BulletPool>();
+
+        theAudio = GetComponent<AudioSource>();
     }
 
     protected override void OnEnable()
@@ -68,6 +74,9 @@ public class Shooter : Unit
             bullet.damage = this.damage;                                        // 투사체 대미지 설정
             bullet.targetCollider = enemyCollider;                              // 투사체의 목표를 설정
             bullet.SetBulletActive(true);                                       // 투사체 활성화
+
+            theAudio.clip = clip;
+            theAudio.Play();
 
             bulletPosIdx = 0 != bulletPosIdx ? 0 : 1;
         }
