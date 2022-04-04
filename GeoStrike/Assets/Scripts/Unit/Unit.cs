@@ -320,7 +320,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         {
             case EBuffandDebuff.Damage:
                 damage -= _buff;
-                if (photonView.IsMine) { photonView.RPC("OnBuff", RpcTarget.Others, _buffType, _buff); }
+                if (photonView.IsMine) { photonView.RPC("OffBuff", RpcTarget.Others, _buffType, _buff); }
                 break;
         }
     }

@@ -89,6 +89,10 @@ public class Buffer : Unit
             if (targetColliders.Length <= 1)
             {
                 agent.SetDestination(allyNexus.position);
+                if (agent.destination.x == Mathf.Infinity)
+                {
+                    Debug.Log("wrong Vector3");
+                }
             }
             else
             {

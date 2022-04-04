@@ -53,6 +53,7 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
         else
         {
             stateText.text = "Online : Master Server Connection Completed";
+            button.onClick.RemoveAllListeners();
             button.onClick.AddListener(OnClickJoinOrCreateRoom);
             button.interactable = true;
         }
@@ -229,6 +230,10 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
     {
         if(PhotonNetwork.InRoom)
         {
+            //if(PhotonNetwork.CurrentRoom.PlayerCount - 1 == 0)
+            //{
+            
+            //}
             PhotonNetwork.LeaveRoom();
             PhotonNetwork.LoadLevel("ConnectScene");
         }
@@ -237,8 +242,6 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
         {
             return;
         }
-
-        
     }
     #endregion
 }
