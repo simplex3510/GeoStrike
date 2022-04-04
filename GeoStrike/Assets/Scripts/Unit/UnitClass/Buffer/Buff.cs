@@ -37,7 +37,7 @@ public class Buff : MonoBehaviourPun
 
     private void OnTriggerEnter(Collider ally)
     {
-        if(ally.gameObject.layer == LayerMask.NameToLayer("Ally"))
+        if(photonView.IsMine)
         {
             ally.GetComponent<Unit>().OnBuff((int)currentBuff, buffDeltaStatus);
         }
@@ -46,7 +46,7 @@ public class Buff : MonoBehaviourPun
 
     private void OnTriggerExit(Collider ally)
     {
-        if (ally.gameObject.layer == LayerMask.NameToLayer("Ally"))
+        if (photonView.IsMine)
         {
             ally.GetComponent<Unit>().OffBuff((int)currentBuff, buffDeltaStatus);
         }

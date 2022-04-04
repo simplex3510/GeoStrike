@@ -319,6 +319,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     [PunRPC]
     public void OnBuff(int _buffType, float _buff)
     {
+        if(GetComponent<Buffer>() != null)
+        {
+            return;
+        }
+
         switch((EBuffandDebuff)_buffType)
         {
             case EBuffandDebuff.Damage:
