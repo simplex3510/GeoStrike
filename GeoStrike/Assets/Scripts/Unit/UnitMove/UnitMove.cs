@@ -68,6 +68,11 @@ public class UnitMove : MonoBehaviourPun
             }
 
             agent.SetDestination(destination);  // 실질적 이동
+            if (agent.destination.x == Mathf.Infinity)
+            {
+                agent.destination = Vector3.zero;
+                Debug.Log("wrong Vector3");
+            }
         }
         catch (System.Exception e)
         {
