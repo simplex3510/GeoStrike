@@ -164,6 +164,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         #endregion
     }
 
+    Vector3 startPos;
     protected virtual void OnEnable()
     {
         #region deltaStatus Init
@@ -179,6 +180,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         moveSpeed = deltaStatus.MoveSpeed;
         #endregion
 
+        startPos = this.transform.position;
         unitState = EUnitState.Idle;
     }
 
@@ -188,6 +190,19 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         if (photonView.IsMine)
         {
             myPool.Enqueue(this);
+        }
+        else
+        {
+            transform.position = startPos;
+        }
+
+        if(PhotonNetwork.IsMasterClient)
+        {
+            transform.eulerAngles = new Vector3(0, 90, 0);
+        }
+        else
+        {
+            transform.eulerAngles = new Vector3(0, 270, 0);
         }
     }
 
