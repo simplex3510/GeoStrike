@@ -27,7 +27,6 @@ public class Buff : MonoBehaviourPun
         }    
     } 
 
-
     // Buff Status Delta
     float buffDeltaStatus = 2f;
 

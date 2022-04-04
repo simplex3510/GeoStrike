@@ -88,10 +88,10 @@ public class Buffer : Unit
             targetColliders = Physics.OverlapSphere(transform.position, detectRange, opponentLayerMask);
             if (targetColliders.Length <= 1)
             {
-                agent.SetDestination(allyNexus.position);
-                if (agent.destination.x == Mathf.Infinity)
+                if (!agent.SetDestination(allyNexus.position))
                 {
-                    Debug.Log("wrong Vector3");
+                    agent.enabled = false;
+                    agent.enabled = true;
                 }
             }
             else
@@ -122,7 +122,11 @@ public class Buffer : Unit
 
                     if (targetIndex == -1)
                     {
-                        agent.SetDestination(allyNexus.position);
+                        if(!agent.SetDestination(allyNexus.position))
+                        {
+                            agent.enabled = false;
+                            agent.enabled = true;
+                        }
                         return;
                     }
                     else

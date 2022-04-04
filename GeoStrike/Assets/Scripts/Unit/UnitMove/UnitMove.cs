@@ -67,11 +67,10 @@ public class UnitMove : MonoBehaviourPun
                 return;
             }
 
-            agent.SetDestination(destination);  // 실질적 이동
-            if (agent.destination.x == Mathf.Infinity)
+            if (!agent.SetDestination(destination)) // 실질적 이동
             {
-                agent.destination = Vector3.zero;
-                Debug.Log("wrong Vector3");
+                agent.enabled = false;
+                agent.enabled = true;
             }
         }
         catch (System.Exception e)
@@ -102,7 +101,11 @@ public class UnitMove : MonoBehaviourPun
             }
         }
 
-        agent.SetDestination(destination);      // 실질적 이동
+        if(!agent.SetDestination(destination))      // 실질적 이동
+        {
+            agent.enabled = false;
+            agent.enabled = true;
+        }
     }
 
     void Die()
