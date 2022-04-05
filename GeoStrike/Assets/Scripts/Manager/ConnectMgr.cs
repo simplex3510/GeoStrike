@@ -41,7 +41,9 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
     #region Network
     void Awake()
     {
-        if(!PhotonNetwork.IsConnected)
+        //PhotonNetwork.AutomaticallySyncScene = true;
+
+        if (!PhotonNetwork.IsConnected)
         {
             button.interactable = false;
             stateText.text = "Connecting to Master Server";
@@ -164,7 +166,7 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
 
         if(readyPlayer == MAX_PLAYER)
         {
-            PhotonNetwork.LoadLevel("GameScene");
+            LoadingSceneController.LoadScene("GameScene");
         }
     }
 
@@ -230,10 +232,10 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
     {
         if(PhotonNetwork.InRoom)
         {
-            //if(PhotonNetwork.CurrentRoom.PlayerCount - 1 == 0)
-            //{
-            
-            //}
+            if (PhotonNetwork.CurrentRoom.PlayerCount - 1 == 0)
+            {
+                PhotonNetwork.CurrentRoom.EmptyRoomTtl = 0;
+            }
             PhotonNetwork.LeaveRoom();
             PhotonNetwork.LoadLevel("ConnectScene");
         }
