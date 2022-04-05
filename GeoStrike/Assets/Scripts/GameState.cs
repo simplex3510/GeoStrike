@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -9,22 +10,19 @@ using Photon.Realtime;
 [DefaultExecutionOrder(202)]
 public class GameState : MonoBehaviourPun
 {
-    public static readonly int GAMESTATE_STANDBYTIME = 5;
-    public static readonly int GAMESTATE_COUNT = 1;
-    public float stanbyCount; 
+    //public GameObject standbyCountObj;
+    //public Text countText;
+    //public float count;
 
-    private void Start()
-    {
-        StartCoroutine(EStandbyCount());
-    }
+    //public static readonly int GAMESTATE_STANDBYTIME = 5;
+
+    //private void Start()
+    //{
+    //    StartCoroutine(EStandbyCount());
+    //}
 
     private void Update()
     {
-        //if (GameMgr.instance.GetState() == EGameState.Standby)
-        //{
-        //    stanbyCount = stanbyCount - Time.deltaTime;
-        //}
-
         // 게임 승/패 결과
         if (GameMgr.instance.GetState() == EGameState.GameEnd)
         {
@@ -33,21 +31,22 @@ public class GameState : MonoBehaviourPun
     }
 
     // 게임 시작 전 준비 시간 (카운트 다운)
-    public IEnumerator EStandbyCount()
-    {
-        // SelectSpecialSkill 활성화하기
-        for (int count = GAMESTATE_STANDBYTIME; count > 0; count--)
-        {
-            //if (스킬선택완료시) { break; }
-            //standbyCount.stanbyCountTXT.text = string.Format("{0}", count);
-            yield return new WaitForSeconds(GAMESTATE_COUNT);
-        }
-        // SelectSpecialSkill 비활성화하기
+    //public IEnumerator EStandbyCount()
+    //{
+    //    count = GAMESTATE_STANDBYTIME;
+    //    standbyCountObj.SetActive(true);
 
+    //    while (count >= 0)
+    //    {
+    //        count -= Time.deltaTime;
+    //        countText.text = ((int)count).ToString();
+    //        yield return null;
+    //    }
 
-        Debug.Log("Game Start");
-        GameMgr.instance.SetState(EGameState.SpawnCount);
-    }
+    //    Debug.Log("Game Start");
+    //    standbyCountObj.SetActive(false);
+    //    GameMgr.instance.SetState(EGameState.SpawnCount);
+    //}
 
     public void GameEnd()
     {

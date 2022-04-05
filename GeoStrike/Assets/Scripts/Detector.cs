@@ -120,7 +120,7 @@ public class Detector : MonoBehaviour
                 testCoroutine = StartCoroutine(WhichObjInterface());
 
                 // 클릭한 유닛이 Idle (유닛타일에서 대기중) 일때 배치모드 실행
-                if (clickedObject.CompareTag("Unit") && clickedUnit.unitState == EUnitState.Idle)
+                if (clickedObject.CompareTag("Unit") && clickedUnit.unitState == EUnitState.Idle && clickedUnit.photonView.IsMine)
                 {
                     // 첫 코루틴 예외처리
                     if (currentCoroutine != null)

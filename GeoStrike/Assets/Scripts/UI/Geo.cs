@@ -21,7 +21,7 @@ public class Geo : MonoBehaviour
 
     private void Update()
     {
-        if (GameMgr.instance.GetState() != EGameState.Standby)
+        if (GameMgr.instance.GetState() != EGameState.GameEnd)
         {
             GeoTxT();
             DeltaGeo(Time.deltaTime * 5);
