@@ -46,7 +46,7 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
         if (!PhotonNetwork.IsConnected)
         {
             button.interactable = false;
-            stateText.text = "Connecting to Master Server";
+            stateText.text = "Connecting to Server";
             if (!PhotonNetwork.IsConnected)
             {
                 PhotonNetwork.ConnectUsingSettings();
@@ -54,7 +54,7 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
         }
         else
         {
-            stateText.text = "Online : Master Server Connection Completed";
+            stateText.text = "Online : Server Connected";
             button.onClick.RemoveAllListeners();
             button.onClick.AddListener(OnClickJoinOrCreateRoom);
             button.interactable = true;
@@ -63,14 +63,14 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        stateText.text = "Online : Master Server Connection Completed";
+        stateText.text = "Online : Server Connected";
         button.onClick.AddListener(OnClickJoinOrCreateRoom);
         button.interactable = true;
     }
 
     public override void OnDisconnected(DisconnectCause cause)
     {
-        stateText.text = "Offline: Reconnecting to Master Server";
+        stateText.text = "Offline: Reconnecting to Server";
         PhotonNetwork.ConnectUsingSettings();
     }
 
