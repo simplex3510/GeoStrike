@@ -5,6 +5,10 @@ using Photon.Pun;
 
 public class Debuffer : Unit
 {
+    private AudioSource theAudio;
+
+    [SerializeField] private AudioClip clip;
+
     Collider[] enemyColliders;
     EBuffandDebuff currentDebuff;
     float debuffDeltaStatus = 2f;
@@ -13,6 +17,7 @@ public class Debuffer : Unit
     protected override void Awake()
     {
         base.Awake();
+        theAudio = GetComponent<AudioSource>();
     }
 
     protected override void OnEnable()
@@ -64,6 +69,9 @@ public class Debuffer : Unit
                 if(enemyColliders[i].GetComponent<Unit>() != null)
                 {
                     enemyColliders[i].GetComponent<Unit>().Debuff((int)currentDebuff, debuffDeltaStatus, applyTime);
+
+                    theAudio.clip = clip;
+                    theAudio.Play();
                 }
             }
         }

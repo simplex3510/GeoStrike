@@ -5,6 +5,10 @@ using Photon.Pun;
 
 public class Splasher : Unit
 {
+    private AudioSource theAudio;
+
+    [SerializeField] private AudioClip clip;
+
     //public Animator animator;
     public Transform grenadeSpawnPos;
     public GrenadePool grenadePool;
@@ -16,6 +20,8 @@ public class Splasher : Unit
     {
         base.Awake();
         grenadePool = GetComponent<GrenadePool>();
+
+        theAudio = GetComponent<AudioSource>();
     }
 
     protected override void OnEnable()
@@ -69,6 +75,8 @@ public class Splasher : Unit
             grenade.parent = this.transform;                                    // 투사체 부모 설정 (폭발후 다시 부모의 하위로 돌아감)
             grenade.transform.SetParent(null);                                  // 투사체 공격 유지 : 부모가 죽어도 이미 발사된 투사체는 계속해서 나아감
             grenade.SetGrenadeActive(true);                                     // 투사체 활성화
+            theAudio.clip = clip;
+            theAudio.Play();
             grenade.SetShootActive(true);                                       // 투사체 이펙트 활성화
             grenade.SetExplosionActive(false);                                  // 투사체 폭발 이펙트 비활성화
         }

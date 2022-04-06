@@ -6,6 +6,10 @@ using Photon.Pun;
 
 public class Defender : Unit
 {
+    private AudioSource theAudio;
+
+    [SerializeField] private AudioClip clip;
+
     public Animator animator;
     public GameObject shild;
 
@@ -26,6 +30,8 @@ public class Defender : Unit
         base.Awake();
 
         shild.layer = this.gameObject.layer;
+
+        theAudio = GetComponent<AudioSource>();
     }
 
     protected override void OnEnable()
@@ -72,6 +78,9 @@ public class Defender : Unit
         enemyCollider = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask).Length != 0 ?
                         Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask)[0] :
                         null;
+
+        theAudio.clip = clip;
+        theAudio.Play();
 
         if (enemyCollider != null)
         {

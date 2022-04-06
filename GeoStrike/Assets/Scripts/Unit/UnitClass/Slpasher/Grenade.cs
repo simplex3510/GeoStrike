@@ -6,6 +6,10 @@ using Photon.Realtime;
 
 public class Grenade : MonoBehaviourPun
 {
+    private AudioSource theAudio;
+
+    [SerializeField] private AudioClip clip;
+
     // Bullet Pool
     public Queue<Grenade> myPool;
 
@@ -21,6 +25,11 @@ public class Grenade : MonoBehaviourPun
 
     float speed = 3f;   // 투사체 속도
     bool onExplosion = false;
+
+    private void Awake()
+    {
+        theAudio = GetComponent<AudioSource>();
+    }
 
     private void OnDisable()
     {
@@ -76,6 +85,9 @@ public class Grenade : MonoBehaviourPun
         if (photonView.IsMine)
         {
             photonView.RPC("SetExplosionActive", RpcTarget.Others, isTrue);
+
+            theAudio.clip = clip;
+            theAudio.Play();
         }
     }
 
