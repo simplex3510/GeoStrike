@@ -10,16 +10,19 @@ using Photon.Realtime;
 [DefaultExecutionOrder(202)]
 public class GameState : MonoBehaviourPun
 {
-    //public GameObject standbyCountObj;
-    //public Text countText;
-    //public float count;
+    public GameObject standbyCountObj;
+    public Text countText;
 
-    //public static readonly int GAMESTATE_STANDBYTIME = 5;
+    public double startTime;
+    public double currentTime;
+    public double targetTime;
 
-    //private void Start()
-    //{
-    //    StartCoroutine(EStandbyCount());
-    //}
+    public static readonly int STANDBYTIME = 5;
+
+    private void Start()
+    {
+        StartCoroutine(EStandbyCount());
+    }
 
     private void Update()
     {
@@ -30,23 +33,26 @@ public class GameState : MonoBehaviourPun
         }
     }
 
-    // 게임 시작 전 준비 시간 (카운트 다운)
-    //public IEnumerator EStandbyCount()
-    //{
-    //    count = GAMESTATE_STANDBYTIME;
-    //    standbyCountObj.SetActive(true);
+    //게임 시작 전 준비 시간(카운트 다운)
+    public IEnumerator EStandbyCount()
+    {
+        startTime = PhotonNetwork.Time;
+        currentTime = PhotonNetwork.Time;
+        targetTime = startTime + STANDBYTIME;
 
-    //    while (count >= 0)
-    //    {
-    //        count -= Time.deltaTime;
-    //        countText.text = ((int)count).ToString();
-    //        yield return null;
-    //    }
+        standbyCountObj.SetActive(true);
 
-    //    Debug.Log("Game Start");
-    //    standbyCountObj.SetActive(false);
-    //    GameMgr.instance.SetState(EGameState.SpawnCount);
-    //}
+        while (currentTime <= targetTime)
+        {
+            
+            countText.text = ((int)(targetTime - currentTime)).ToString();
+            yield return null;
+        }
+
+        Debug.Log("Game Start");
+        standbyCountObj.SetActive(false);
+        GameMgr.instance.SetState(EGameState.SpawnCount);
+    }
 
     public void GameEnd()
     {

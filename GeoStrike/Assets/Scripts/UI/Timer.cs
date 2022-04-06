@@ -45,13 +45,13 @@ public class Timer : MonoBehaviour
 
     IEnumerator CGameTimer()
     {
-        //yield return StartCoroutine(gameState.EStandbyCount());
+        yield return StartCoroutine(gameState.EStandbyCount());
 
         currentTime = (float)PhotonNetwork.Time;
         lastBattleTime = (float)PhotonNetwork.Time;
         lastWorldTime = (float)PhotonNetwork.Time;
 
-        while (GameMgr.instance.GetState() != EGameState.GameEnd)
+        while (GameMgr.instance.GetState() != EGameState.Standby)
         {
             currentTime = (float)PhotonNetwork.Time;
             BattleTime();
