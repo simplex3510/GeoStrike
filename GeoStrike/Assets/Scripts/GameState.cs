@@ -13,9 +13,8 @@ public class GameState : MonoBehaviourPun
     public GameObject standbyCountObj;
     public Text countText;
 
-    public double startTime;
-    public double currentTime;
-    public double targetTime;
+    public double startTime = 0f;
+    public double targetTime = 0f;
 
     public static readonly int STANDBYTIME = 5;
 
@@ -36,22 +35,38 @@ public class GameState : MonoBehaviourPun
     //게임 시작 전 준비 시간(카운트 다운)
     public IEnumerator EStandbyCount()
     {
-        startTime = PhotonNetwork.Time;
-        currentTime = PhotonNetwork.Time;
-        targetTime = startTime + STANDBYTIME;
+        if(PhotonNetwork.IsMasterClient)
+        {
+            startTime = PhotonNetwork.Time;
+            targetTime = startTime + STANDBYTIME;
+            photonView.RPC("SyncStartTime", RpcTarget.Others, startTime, targetTime);
+        }
+        else
+        {
+            while (startTime == 0f)
+            {
+                yield return null;
+            }
+        }
 
         standbyCountObj.SetActive(true);
 
-        while (currentTime <= targetTime)
+        while (PhotonNetwork.Time <= targetTime)
         {
-            
-            countText.text = ((int)(targetTime - currentTime)).ToString();
+            countText.text = ((int)(targetTime - PhotonNetwork.Time)).ToString();
             yield return null;
         }
 
         Debug.Log("Game Start");
         standbyCountObj.SetActive(false);
         GameMgr.instance.SetState(EGameState.SpawnCount);
+    }
+
+    [PunRPC]
+    void SyncStartTime(double _startTime, double _targetTime)
+    {
+        startTime = _startTime;
+        targetTime = _targetTime;
     }
 
     public void GameEnd()
