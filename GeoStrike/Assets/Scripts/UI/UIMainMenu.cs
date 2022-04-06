@@ -11,8 +11,19 @@ public class UIMainMenu : MonoBehaviour
 
     public Animation ani; // 에니메이션 리스트를 가진다.
 
+    public Slider[] soundSlider;
+    public Text[] soundValue;
+
     void Awake()
     {
+    }
+
+    private void Update()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            soundValue[i].text = soundSlider[i].value.ToString();
+        }
     }
 
     public void Click_OpenClose()
