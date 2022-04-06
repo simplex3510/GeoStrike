@@ -77,6 +77,7 @@ public abstract class Tower : MonoBehaviourPun, IDamageable
     {
         _damage -= Defense;
         Health -= 0 < _damage ? _damage : 0;
+        Debug.Log("라ㅓㅏㅣㄹ덪매ㅑㄻ너야ㅐ럼내ㅑ러ㅑㅐㄴ러냉");
 
         if (Health <= 0)
         {
