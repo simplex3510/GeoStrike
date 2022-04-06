@@ -14,7 +14,7 @@ public class LoadingSceneController : MonoBehaviour
     public static void LoadScene(string sceneName)
     {
         nextScene = sceneName;
-        PhotonNetwork.LoadLevel("LoadScene");
+        SceneManager.LoadScene("LoadScene");
     }
 
     private void Start()
@@ -24,33 +24,26 @@ public class LoadingSceneController : MonoBehaviour
 
     IEnumerator LoadSceneProgress()
     {
-        PhotonNetwork.LoadLevel(nextScene);
-        //AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
-        //op.allowSceneActivation = false;
+        AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
+        op.allowSceneActivation = false;
 
-        //float timer = 0f;
+        float timer = 0f;
 
-        while(true/*!op.allowSceneActivation*/)
+        while (!op.allowSceneActivation)
         {
-            progressBar.fillAmount = PhotonNetwork.LevelLoadingProgress;
-            //if(true/*PhotonNetwork.LevelLoadingProgress < 0.9f*/)
-            //{
-            //}
-            //else
-            //{
-            //    timer += Time.deltaTime;
-            //    progressBar.fillAmount = Mathf.Lerp(0.9f, 1.0f, timer);
-            //    if(1.0f <= progressBar.fillAmount)
-            //    {
-            //        //op.allowSceneActivation = true;
-            //        yield break;
-            //    }
-            //}
-
-            if (1.0f <= progressBar.fillAmount)
+            if (op.progress < 0.9f)
             {
-                //op.allowSceneActivation = true;
-                yield break;
+                progressBar.fillAmount = op.progress;
+            }
+            else
+            {
+                timer += Time.deltaTime;
+                progressBar.fillAmount = Mathf.Lerp(0.9f, 1.0f, timer);
+                if (1.0f <= progressBar.fillAmount)
+                {
+                    op.allowSceneActivation = true;
+                    yield break;
+                }
             }
 
             yield return null;
