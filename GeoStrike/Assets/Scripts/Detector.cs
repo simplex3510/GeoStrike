@@ -237,7 +237,7 @@ public class Detector : MonoBehaviour
         }
         else
         {
-            cameraController.transform.position = cameraController.GetCameraStartPos("p2") + new Vector3(15.5f, 0f, 0f);
+            cameraController.transform.position = cameraController.GetCameraStartPos("p2") + new Vector3(-15.5f, 0f, 0f);
         }
 
         int h = 0;
