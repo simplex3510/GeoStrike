@@ -14,7 +14,7 @@ public class LoadingSceneController : MonoBehaviour
     public static void LoadScene(string sceneName)
     {
         nextScene = sceneName;
-        SceneManager.LoadScene("LoadScene");
+        PhotonNetwork.LoadLevel("LoadScene");
     }
 
     private void Start()
