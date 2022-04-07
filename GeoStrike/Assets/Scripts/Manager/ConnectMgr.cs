@@ -166,7 +166,8 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
 
         if(readyPlayer == MAX_PLAYER)
         {
-            LoadingSceneController.LoadScene("GameScene");
+            // LoadingSceneController.LoadScene("GameScene");
+            PhotonNetwork.LoadLevel("GameScene");
         }
     }
 

@@ -16,7 +16,7 @@ public class GameState : MonoBehaviourPun
     public double startTime = 0f;
     public double targetTime = 0f;
 
-    public static readonly int STANDBYTIME = 5;
+    public static readonly int STANDBYTIME = 7;
 
     private void Start()
     {
