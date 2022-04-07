@@ -16,7 +16,7 @@ public class GameState : MonoBehaviourPun
     public double startTime = 0f;
     public double targetTime = 0f;
 
-    public static readonly int STANDBYTIME = 7;
+    public static readonly int STANDBYTIME = 10;
 
     private void Start()
     {
@@ -34,7 +34,7 @@ public class GameState : MonoBehaviourPun
 
     //게임 시작 전 준비 시간(카운트 다운)
     public IEnumerator EStandbyCount()
-    {
+    {   
         if(PhotonNetwork.IsMasterClient)
         {
             startTime = PhotonNetwork.Time;
@@ -48,12 +48,15 @@ public class GameState : MonoBehaviourPun
                 yield return null;
             }
         }
+        Slider slider = standbyCountObj.GetComponentInChildren<Slider>();
+        slider.maxValue = STANDBYTIME;
 
         standbyCountObj.SetActive(true);
 
-        while (PhotonNetwork.Time <= targetTime)
+        while (PhotonNetwork.Time - startTime <= STANDBYTIME)
         {
-            countText.text = ((int)(targetTime - PhotonNetwork.Time)).ToString();
+            countText.text = ((int)(PhotonNetwork.Time - startTime)).ToString();
+            slider.value = (int)(PhotonNetwork.Time - startTime);
             yield return null;
         }
 

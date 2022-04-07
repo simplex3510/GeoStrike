@@ -6,6 +6,7 @@ using UnityEngine;
 public class TowerData : ScriptableObject
 {
     [Header("<Tower Status>")]
+    public string towerName;
     public float health;
     public float defense;
 }

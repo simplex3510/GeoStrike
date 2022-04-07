@@ -15,6 +15,7 @@ public abstract class Tower : MonoBehaviourPun, IDamageable
     public LayerMask opponentLayerMask { get; protected set; }
 
     #region Tower Data
+    public string towerName { get; private set; }
     public float Health { get; private set; }
     public float Defense { get; private set; }
     #endregion
@@ -38,6 +39,7 @@ public abstract class Tower : MonoBehaviourPun, IDamageable
         #endregion
 
         #region Initialize Tower Data
+        towerName = initStatus.towerName;
         Health = deltaStatus.health;
         Defense = deltaStatus.defense;
         #endregion

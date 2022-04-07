@@ -80,7 +80,7 @@ public class Detector : MonoBehaviour
             {
                 // 터렛 이름 설정해주기, 미구현 : 공격력
                 Tower tower = clickedObject.GetComponent<Tower>();
-                statusPanel.statusInfoArr[2].TowerStatusInfo(tower.GetComponent<SpriteRenderer>(), tower.initStatus.name, tower.Health, tower.Defense);
+                statusPanel.statusInfoArr[2].TowerStatusInfo(tower.GetComponent<SpriteRenderer>(), tower.towerName, tower.Health, 0, tower.Defense); ;
             }
         }
         else
