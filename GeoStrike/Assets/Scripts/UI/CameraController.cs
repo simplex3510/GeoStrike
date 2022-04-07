@@ -42,8 +42,11 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        CameraMovement();
-        CameraZoom();
+        if (mouseController.eMouseMode == MouseController.EMouseMode.normal)
+        {
+            CameraMovement();
+            CameraZoom();
+        }
     }
 
     private void InitStartPos()
@@ -65,21 +68,21 @@ public class CameraController : MonoBehaviour
         int v = 0;
 
         // Camera move horizotnal
-        if ( mouseController.mousePos.x >= rectTransform.rect.width - 10 || (Input.GetKey(KeyCode.RightArrow)))
+        if ( mouseController.mousePos.x >= rectTransform.rect.width - 10 || (Input.GetKey(KeyCode.D)))
         {
             h = 1;
         }
-        else if (mouseController.mousePos.x <= ZERO + 10 || (Input.GetKey(KeyCode.LeftArrow)))
+        else if (mouseController.mousePos.x <= ZERO + 10 || (Input.GetKey(KeyCode.A)))
         {
             h = -1;
         }
 
         // Camera move verticals
-        if (mouseController.mousePos.y >= rectTransform.rect.height - 10 || (Input.GetKey(KeyCode.UpArrow)))
+        if (mouseController.mousePos.y >= rectTransform.rect.height - 10 || (Input.GetKey(KeyCode.W)))
         {
             v = 1;
         }
-        else if (mouseController.mousePos.y <= ZERO + 10 || (Input.GetKey(KeyCode.DownArrow)))
+        else if (mouseController.mousePos.y <= ZERO + 10 || (Input.GetKey(KeyCode.S)))
         {
             v = -1;
         }
@@ -93,14 +96,7 @@ public class CameraController : MonoBehaviour
 
     private void CameraZoom()
     {
-        if (mouseController.eMouseMode == MouseController.EMouseMode.normal)
-        {
-            float zoomDir = Input.GetAxis("Mouse ScrollWheel");
-            float currentSize = mainCamera.orthographicSize - zoomDir * zoomSpeed;
-
-            mainCamera.orthographicSize = Mathf.Clamp(currentSize, zoomIn, zoomOut);
-        }
-        else
+        if (mouseController.eMouseMode != MouseController.EMouseMode.normal)
         {
             mainCamera.orthographicSize = zoomIn;
         }

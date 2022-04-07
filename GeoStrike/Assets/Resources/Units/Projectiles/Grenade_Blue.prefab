@@ -4867,6 +4867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 4fbce4851fea94445a150f094fdf9428, type: 3}
+  effect: {fileID: 0}
   parent: {fileID: 0}
   targetCollider: {fileID: 0}
   targetPos: {x: 0, y: 0, z: 0}

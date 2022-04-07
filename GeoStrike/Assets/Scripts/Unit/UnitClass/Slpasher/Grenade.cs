@@ -15,9 +15,9 @@ public class Grenade : MonoBehaviourPun
     // Bullet Pool
     public Queue<Grenade> myPool;
 
-    public Transform parent;
-    public Collider targetCollider;
-    public Vector3 targetPos;
+    [HideInInspector] public Transform parent;
+    [HideInInspector] public Collider targetCollider;
+    [HideInInspector] public Vector3 targetPos;
 
     public GameObject shootEffect;          // Æø¹ßÀü ÀÌÆåÆ®
     public GameObject explosionEffect;      // Æø¹ß ÀÌÆåÆ®
