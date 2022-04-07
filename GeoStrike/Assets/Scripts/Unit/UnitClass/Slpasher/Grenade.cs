@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 
@@ -9,6 +10,7 @@ public class Grenade : MonoBehaviourPun
     private AudioSource theAudio;
 
     [SerializeField] private AudioClip clip;
+    [SerializeField] private Slider effect;
 
     // Bullet Pool
     public Queue<Grenade> myPool;
@@ -42,6 +44,8 @@ public class Grenade : MonoBehaviourPun
 
     private void Update()
     {
+        theAudio.volume = effect.value;
+
         if (!photonView.IsMine)
         {
             return;
