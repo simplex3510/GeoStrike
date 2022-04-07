@@ -41,7 +41,7 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
     #region Network
     void Awake()
     {
-        //PhotonNetwork.AutomaticallySyncScene = true;
+        Screen.SetResolution(1920, 1080, true);
 
         if (!PhotonNetwork.IsConnected)
         {

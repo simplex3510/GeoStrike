@@ -65,21 +65,21 @@ public class CameraController : MonoBehaviour
         int v = 0;
 
         // Camera move horizotnal
-        if ( mouseController.mousePos.x >= rectTransform.rect.width || (Input.GetKey(KeyCode.RightArrow)))
+        if ( mouseController.mousePos.x >= rectTransform.rect.width - 10 || (Input.GetKey(KeyCode.RightArrow)))
         {
             h = 1;
         }
-        else if (mouseController.mousePos.x <= ZERO || (Input.GetKey(KeyCode.LeftArrow)))
+        else if (mouseController.mousePos.x <= ZERO + 10 || (Input.GetKey(KeyCode.LeftArrow)))
         {
             h = -1;
         }
 
         // Camera move verticals
-        if (mouseController.mousePos.y >= rectTransform.rect.height || (Input.GetKey(KeyCode.UpArrow)))
+        if (mouseController.mousePos.y >= rectTransform.rect.height - 10 || (Input.GetKey(KeyCode.UpArrow)))
         {
             v = 1;
         }
-        else if (mouseController.mousePos.y <= ZERO || (Input.GetKey(KeyCode.DownArrow)))
+        else if (mouseController.mousePos.y <= ZERO + 10 || (Input.GetKey(KeyCode.DownArrow)))
         {
             v = -1;
         }
