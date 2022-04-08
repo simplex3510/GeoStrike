@@ -42,11 +42,8 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        if (mouseController.eMouseMode == MouseController.EMouseMode.normal)
-        {
-            CameraMovement();
-            CameraZoom();
-        }
+        CameraMovement();
+        CameraZoom();
     }
 
     private void InitStartPos()
@@ -63,6 +60,8 @@ public class CameraController : MonoBehaviour
 
     private void CameraMovement()
     {
+        if (mouseController.eMouseMode != MouseController.EMouseMode.normal) { return; }
+
         Vector3 velocity;
         int h = 0;
         int v = 0;
@@ -96,16 +95,16 @@ public class CameraController : MonoBehaviour
 
     private void CameraZoom()
     {
-        if (mouseController.eMouseMode != MouseController.EMouseMode.normal)
-        {
-            mainCamera.orthographicSize = zoomIn;
-        }
-        else
+        if (mouseController.eMouseMode == MouseController.EMouseMode.normal)
         {
             float zoomDir = Input.GetAxis("Mouse ScrollWheel");
             float currentSize = mainCamera.orthographicSize - zoomDir * zoomSpeed;
 
             mainCamera.orthographicSize = Mathf.Clamp(currentSize, zoomIn, zoomOut);
+        }
+        else
+        {
+            mainCamera.orthographicSize = zoomIn;
         }
     }
     
