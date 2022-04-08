@@ -100,6 +100,13 @@ public class CameraController : MonoBehaviour
         {
             mainCamera.orthographicSize = zoomIn;
         }
+        else
+        {
+            float zoomDir = Input.GetAxis("Mouse ScrollWheel");
+            float currentSize = mainCamera.orthographicSize - zoomDir * zoomSpeed;
+
+            mainCamera.orthographicSize = Mathf.Clamp(currentSize, zoomIn, zoomOut);
+        }
     }
     
     public Vector3 GetCameraStartPos(string _pNum)
