@@ -132,6 +132,7 @@ MonoBehaviour:
   unitState: 0
   body: {fileID: 6918781755836907139}
   unitIndex: 0
+  theAudio: {fileID: -1909997243028024634}
   clip: {fileID: 8300000, guid: 12dd2d29519633542a13d85cfb4816d9, type: 3}
 --- !u!195 &-2369398689286784635
 NavMeshAgent:
@@ -189,7 +190,7 @@ AudioSource:
   Priority: 0
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 40
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -224,7 +225,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.5
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

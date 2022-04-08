@@ -114,6 +114,7 @@ MonoBehaviour:
   unitState: 0
   body: {fileID: 5116392966917540537}
   unitIndex: 0
+  theAudio: {fileID: 6805284978394237760}
   clip: {fileID: 8300000, guid: 6a578bc9232395b49aab685ca7c10fa8, type: 3}
   grenadeSpawnPos: {fileID: 8628165896533552057}
   grenadePool: {fileID: 635828793969947218}
@@ -207,7 +208,7 @@ AudioSource:
   Priority: 0
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 40
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -242,7 +243,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.5
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

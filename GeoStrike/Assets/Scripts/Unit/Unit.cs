@@ -131,6 +131,8 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     bool isStun;
     bool hasDebuff;
 
+    public AudioSource theAudio;
+
     protected virtual void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();

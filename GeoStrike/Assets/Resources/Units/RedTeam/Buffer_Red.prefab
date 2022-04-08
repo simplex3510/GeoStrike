@@ -269,6 +269,7 @@ MonoBehaviour:
   unitState: 0
   body: {fileID: 2542567662369464466}
   unitIndex: 0
+  theAudio: {fileID: -1945599756234480933}
   allyNexus: {fileID: 2396335744122673610, guid: 7fd3023528f8a90429039979d224f094, type: 3}
   animator: {fileID: 8835580005163108076}
   buff: {fileID: 1861839153013920146}
@@ -388,7 +389,7 @@ AudioSource:
   Priority: 0
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 40
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -423,7 +424,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.5
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
