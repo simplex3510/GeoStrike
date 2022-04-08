@@ -35,7 +35,7 @@ public class ConnectMgr : MonoBehaviourPunCallbacks
     public Button yesButton;
     public Button noButton;
 
-    readonly int MAX_PLAYER = 2;
+    readonly int MAX_PLAYER = 1;
     int readyPlayer = 0;
 
     #region Network

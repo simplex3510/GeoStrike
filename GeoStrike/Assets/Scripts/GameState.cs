@@ -48,6 +48,7 @@ public class GameState : MonoBehaviourPun
                 yield return null;
             }
         }
+
         Slider slider = standbyCountObj.GetComponentInChildren<Slider>();
         slider.maxValue = STANDBYTIME;
 
@@ -55,8 +56,15 @@ public class GameState : MonoBehaviourPun
 
         while (PhotonNetwork.Time - startTime <= STANDBYTIME)
         {
-            countText.text = ((int)(PhotonNetwork.Time - startTime)).ToString();
-            slider.value = (int)(PhotonNetwork.Time - startTime);
+            if(1f <= targetTime - PhotonNetwork.Time)
+            {
+                countText.text = $" Loading...{((int)(targetTime - PhotonNetwork.Time)).ToString()}";
+            }
+            else
+            {
+                countText.text = "Game Start";
+            }
+            slider.value = (float)(PhotonNetwork.Time - startTime);
             yield return null;
         }
 

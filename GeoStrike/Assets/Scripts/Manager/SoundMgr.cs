@@ -14,7 +14,7 @@ public class SoundMgr : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(instance);
+            // DontDestroyOnLoad(instance);
         }
         else
         {
