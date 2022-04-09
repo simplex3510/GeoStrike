@@ -31715,6 +31715,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   units: []
+  grenades: []
+  effect: {fileID: 1600641595}
 --- !u!1 &941271702 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1930232651926191783, guid: e01b7d5cca44ac144ba75eb7c3d2af99, type: 3}
@@ -45829,19 +45831,7 @@ MonoBehaviour:
   m_Value: 0.2
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 939832267}
-        m_TargetAssemblyTypeName: SoundMgr, Assembly-CSharp
-        m_MethodName: SFXSound
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1001 &1602050710
 PrefabInstance:
   m_ObjectHideFlags: 0
