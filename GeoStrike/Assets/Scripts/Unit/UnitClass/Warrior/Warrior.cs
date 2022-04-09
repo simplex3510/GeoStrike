@@ -73,8 +73,6 @@ public class Warrior : Unit
 
     public void AttackSound()
     {
-        Debug.Log("Attack");
-
         theAudio.clip = clip;
         theAudio.Play();
     }

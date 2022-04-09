@@ -58,7 +58,7 @@ public class GameState : MonoBehaviourPun
         {
             if(1f <= targetTime - PhotonNetwork.Time)
             {
-                countText.text = $" Loading...{((int)(targetTime - PhotonNetwork.Time)).ToString()}";
+                countText.text = "Loading...";
             }
             else
             {
