@@ -5,7 +5,6 @@ using UnityEngine;
 public class SoundMgr : MonoBehaviour
 {
     public static SoundMgr instance;
-    public AudioSource[] unitSound;
     public Unit[] units;
 
 
@@ -20,23 +19,11 @@ public class SoundMgr : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        if (unitSound == null)
-        {
-            return;
-        }
-        for (int i = 0; i < unitSound.Length; i++)
-        {
-            unitSound[i] = GetComponent<AudioSource>();
-        }
     }
 
     private void Update()
     {
-        for (int i = 0; i < units.Length; i++)
-        {
-            units[i] = FindObjectOfType<Unit>();
-        }
+        units = FindObjectsOfType<Unit>();
     }
 
     public void SFXSound(float volume)

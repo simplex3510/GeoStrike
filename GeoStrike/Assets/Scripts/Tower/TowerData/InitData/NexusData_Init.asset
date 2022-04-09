@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: NexusData_Init
   m_EditorClassIdentifier: 
   towerName: Nexus
-  health: 10000
+  health: 5000
   defense: 4
