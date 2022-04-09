@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundMgr : MonoBehaviour
 {
     public static SoundMgr instance;
-    public Unit[] units;
+    public List<Unit> units;
+    public List<Grenade> grenades;
+
+    public Slider effect;
 
 
     private void Awake()
@@ -13,7 +17,6 @@ public class SoundMgr : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            // DontDestroyOnLoad(instance);
         }
         else
         {
@@ -23,14 +26,18 @@ public class SoundMgr : MonoBehaviour
 
     private void Update()
     {
-        units = FindObjectsOfType<Unit>();
+        SFXSound(effect.value);
     }
 
     public void SFXSound(float volume)
     {
-        for (int i = 0; i < units.Length; i++)
+        for (int i = 0; i < units.Count; i++)
         {
             units[i].theAudio.volume = volume;
+        }
+        for (int i = 0; i < grenades.Count; i++)
+        {
+            grenades[i].theAudio.volume = volume;
         }
     }
 }

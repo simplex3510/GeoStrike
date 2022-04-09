@@ -42,8 +42,11 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        CameraMovement();
-        CameraZoom();
+        if (GameMgr.instance.GetState() != EGameState.Standby)
+        {
+            CameraMovement();
+            CameraZoom();
+        }
     }
 
     private void InitStartPos()

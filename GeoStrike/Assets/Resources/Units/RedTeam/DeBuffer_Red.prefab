@@ -131,9 +131,9 @@ MonoBehaviour:
   column: 0
   unitState: 0
   body: {fileID: 6918781755836907139}
-  unitIndex: 0
   theAudio: {fileID: -1909997243028024634}
   clip: {fileID: 8300000, guid: 12dd2d29519633542a13d85cfb4816d9, type: 3}
+  unitIndex: 0
 --- !u!195 &-2369398689286784635
 NavMeshAgent:
   m_ObjectHideFlags: 0

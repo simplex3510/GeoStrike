@@ -72,9 +72,9 @@ MonoBehaviour:
   column: 0
   unitState: 0
   body: {fileID: 3933890940465753944}
-  unitIndex: 0
   theAudio: {fileID: -8807760761003169362}
   clip: {fileID: 8300000, guid: 12dd2d29519633542a13d85cfb4816d9, type: 3}
+  unitIndex: 0
 --- !u!114 &1599485226406806687
 MonoBehaviour:
   m_ObjectHideFlags: 0

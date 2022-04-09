@@ -7,10 +7,9 @@ using Photon.Realtime;
 
 public class Grenade : MonoBehaviourPun
 {
-    private AudioSource theAudio;
+    public AudioSource theAudio;
 
     [SerializeField] private AudioClip clip;
-    [SerializeField] private Slider effect;
 
     // Bullet Pool
     public Queue<Grenade> myPool;
@@ -30,6 +29,7 @@ public class Grenade : MonoBehaviourPun
 
     private void Awake()
     {
+        SoundMgr.instance.grenades.Add(this);
         theAudio = GetComponent<AudioSource>();
     }
 
@@ -44,8 +44,6 @@ public class Grenade : MonoBehaviourPun
 
     private void Update()
     {
-        theAudio.volume = effect.value;
-
         if (!photonView.IsMine)
         {
             return;

@@ -238,9 +238,9 @@ MonoBehaviour:
   column: 0
   unitState: 0
   body: {fileID: 1715835706}
-  unitIndex: 0
   theAudio: {fileID: 5377879708209508078}
   clip: {fileID: 8300000, guid: b7e968867f6c953488ce344881242cb6, type: 3}
+  unitIndex: 0
   animator: {fileID: 7501077593732519817}
   sword: {fileID: 3443019731302398212}
 --- !u!114 &8506501462537962974

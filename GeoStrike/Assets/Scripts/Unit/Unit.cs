@@ -104,6 +104,10 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     // ������ ��ü(��������Ʈ)
     public GameObject body;
 
+    // sound
+    public AudioSource theAudio;
+    public AudioClip clip;
+
     // Unit UI Interfaceâ
     private Detector detector;
 
@@ -131,13 +135,15 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     bool isStun;
     bool hasDebuff;
 
-    public AudioSource theAudio;
 
     protected virtual void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
         unitMove = GetComponent<UnitMove>();
         detector = GameObject.FindObjectOfType<Detector>();
+
+        theAudio = GetComponent<AudioSource>();
+        SoundMgr.instance.units.Add(this);
 
         isPlayer1 = (photonView.ViewID / 1000) == 1 ? true : false;
 
