@@ -67,6 +67,7 @@ MonoBehaviour:
   - OnStun
   - Debuff
   - SyncStartTime
+  - DieTranslate
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
