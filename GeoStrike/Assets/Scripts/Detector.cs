@@ -21,6 +21,9 @@ public class Detector : MonoBehaviour
     [HideInInspector] public TetrominoTile tile;    // 마우스 위치의 타일 정보
     public static bool canBuild = true;
 
+    //
+    [SerializeField] private LayerMask tetroTileMask;
+
     // 선택된 테트로미노 정보 변수
     [HideInInspector] public GameObject tetrominoObj;
     [HideInInspector] public Tetromino tetromino;
@@ -146,7 +149,7 @@ public class Detector : MonoBehaviour
         if (cameraController.mouseController.eMouseMode == MouseController.EMouseMode.build)
         {
             ray = cameraController.mainCamera.ScreenPointToRay(cameraController.mouseController.mousePos);
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, tetroTileMask))
             {
                 if (hit.transform.CompareTag("TetrominoTile"))
                 {
