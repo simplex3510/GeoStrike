@@ -268,9 +268,8 @@ MonoBehaviour:
   column: 0
   unitState: 0
   body: {fileID: 4715634741368314133}
-  theAudio: {fileID: 1453961380977399659}
-  clip: {fileID: 0}
   unitIndex: 0
+  theAudio: {fileID: 1453961380977399659}
   allyNexus: {fileID: 6386195217646654438, guid: 4c7f64cfe28661646977f7f1ef733cef, type: 3}
   animator: {fileID: 8835580005163108076}
   buff: {fileID: 205257173124744665}
