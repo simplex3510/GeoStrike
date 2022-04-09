@@ -5,10 +5,6 @@ using Photon.Pun;
 
 public class Warrior : Unit
 {
-    private AudioSource theAudio;
-
-    [SerializeField] private AudioClip clip;
-
     public Animator animator;
     public GameObject sword;
 
@@ -16,8 +12,6 @@ public class Warrior : Unit
     {
         base.Awake();
         animator.speed = initStatus.AttackSpeed;
-
-        theAudio = GetComponent<AudioSource>();
     }
 
     protected override void OnEnable()

@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class SoundMgr : MonoBehaviour
 {
     public static SoundMgr instance;
-    public Unit[] units;
-    public Grenade[] grenades;
+    public List<Unit> units;
+    public List<Grenade> grenades;
 
     public Slider effect;
 
@@ -17,7 +17,6 @@ public class SoundMgr : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            // DontDestroyOnLoad(instance);
         }
         else
         {
@@ -27,18 +26,16 @@ public class SoundMgr : MonoBehaviour
 
     private void Update()
     {
-        units = FindObjectsOfType<Unit>();
-        grenades = FindObjectsOfType<Grenade>();
         SFXSound(effect.value);
     }
 
     public void SFXSound(float volume)
     {
-        for (int i = 0; i < units.Length; i++)
+        for (int i = 0; i < units.Count; i++)
         {
             units[i].theAudio.volume = volume;
         }
-        for (int i = 0; i < grenades.Length; i++)
+        for (int i = 0; i < grenades.Count; i++)
         {
             grenades[i].theAudio.volume = volume;
         }

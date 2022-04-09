@@ -5,10 +5,6 @@ using Photon.Pun;
 
 public class Splasher : Unit
 {
-    private AudioSource theAudio;
-
-    [SerializeField] private AudioClip clip;
-
     //public Animator animator;
     public Transform grenadeSpawnPos;
     public GrenadePool grenadePool;
@@ -20,8 +16,6 @@ public class Splasher : Unit
     {
         base.Awake();
         grenadePool = GetComponent<GrenadePool>();
-
-        theAudio = GetComponent<AudioSource>();
     }
 
     protected override void OnEnable()

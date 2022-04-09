@@ -6,10 +6,6 @@ using Photon.Pun;
 
 public class Defender : Unit
 {
-    private AudioSource theAudio;
-
-    [SerializeField] private AudioClip clip;
-
     public Animator animator;
     public GameObject shild;
 
@@ -30,8 +26,6 @@ public class Defender : Unit
         base.Awake();
 
         shild.layer = this.gameObject.layer;
-
-        theAudio = GetComponent<AudioSource>();
     }
 
     protected override void OnEnable()

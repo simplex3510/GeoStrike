@@ -5,10 +5,6 @@ using Photon.Pun;
 
 public class Shooter : Unit
 {
-    private AudioSource theAudio;
-
-    [SerializeField] private AudioClip clip;
-
     //public Animator animator;
     public Transform[] bulletSpawnPos;
     public BulletPool bulletPool;
@@ -20,8 +16,6 @@ public class Shooter : Unit
     {
         base.Awake();
         bulletPool = GetComponent<BulletPool>();
-
-        theAudio = GetComponent<AudioSource>();
     }
 
     protected override void OnEnable()

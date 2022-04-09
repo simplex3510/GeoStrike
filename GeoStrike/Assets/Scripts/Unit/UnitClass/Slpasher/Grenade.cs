@@ -29,6 +29,7 @@ public class Grenade : MonoBehaviourPun
 
     private void Awake()
     {
+        SoundMgr.instance.grenades.Add(this);
         theAudio = GetComponent<AudioSource>();
     }
 
