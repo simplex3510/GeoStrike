@@ -154,9 +154,9 @@ MonoBehaviour:
   column: 0
   unitState: 0
   body: {fileID: 8401870176638755151}
-  unitIndex: 0
   theAudio: {fileID: 2183959977273988864}
   clip: {fileID: 8300000, guid: 12670efe03f72584d85c56958dca69ee, type: 3}
+  unitIndex: 0
   animator: {fileID: 8173733403797653950}
   shild: {fileID: 8173733402153910181}
 --- !u!114 &-3991912423502629211
