@@ -13,7 +13,6 @@ public class Bullet : MonoBehaviourPun
     public float damage;
 
     float speed = 7f;   // 투사체 속도
-    //bool isRotate;
 
     private void OnDisable()
     {
@@ -38,11 +37,6 @@ public class Bullet : MonoBehaviourPun
         {
             SetBulletActive(false);
         }
-
-        //if (!isRotate)
-        //{
-        //    StartCoroutine(RotateAnimation(targetCollider));
-        //}
     }
 
     [PunRPC]
@@ -54,24 +48,6 @@ public class Bullet : MonoBehaviourPun
             photonView.RPC("SetBulletActive", RpcTarget.Others, isTrue);
         }
     }
-
-    //IEnumerator RotateAnimation(Collider enemy)
-    //{
-    //    isRotate = true;
-
-    //    Vector3 direct = enemy.transform.position - transform.position;     // 방향을 구함
-    //    float angle = Mathf.Atan2(direct.y, direct.x) * Mathf.Rad2Deg;      // 두 객체 간의 각을 구함
-    //    Quaternion target = Quaternion.AngleAxis(angle, Vector3.forward);   // 최종적으로 회전해야 하는 회전값
-
-    //    while (!Mathf.Approximately(transform.rotation.z, target.z))
-    //    {
-    //        transform.rotation = Quaternion.RotateTowards(transform.rotation, target, 1.5f);
-
-    //        yield return null;
-    //    }
-
-    //    isRotate = false;
-    //}
 
     private void OnTriggerEnter(Collider enemy)
     {
