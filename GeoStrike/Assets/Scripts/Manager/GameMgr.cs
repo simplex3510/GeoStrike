@@ -15,7 +15,6 @@ public enum EGameState
 [DefaultExecutionOrder(201)]
 public class GameMgr : MonoBehaviourPun
 {
-    // public static IconMgr instance { get; private set; }
     private static GameMgr _instance = null;
     public static GameMgr instance
     {

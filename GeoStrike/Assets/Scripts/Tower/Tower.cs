@@ -54,26 +54,6 @@ public abstract class Tower : MonoBehaviourPun, IDamageable
         }
     }
 
-    //void Idle()
-    //{
-    //    enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, detectRange, opponentLayerMask);
-    //    if (enemyColliders.Length == 0)         // 탐지 범위 내에 적이 없어졌다면
-    //    {
-    //        towerState = ETowerState.Idle;
-    //        return;
-    //    }
-    //    else                                    // 탐지 범위 내에 적이 있고
-    //    {
-    //        enemyColliders = Physics.OverlapCapsule(transform.position, transform.position, attackRange, opponentLayerMask);
-    //        if (enemyColliders.Length != 0)     // 공격 범위 내에 적이 있다면
-    //        {
-    //            towerState = ETowerState.Attack;
-    //            return;
-    //        }
-    //    }
-
-    //}
-
     [PunRPC]
     public void OnDamaged(float _damage)
     {
