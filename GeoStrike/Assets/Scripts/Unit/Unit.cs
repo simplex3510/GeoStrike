@@ -381,13 +381,24 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
         enemyCollider = null;
 
+        //var spriteRenderer = _gameObject.GetComponent<SpriteRenderer>();
+        //var color = spriteRenderer.color;
+        //while (0 <= color.a)
+        //{
+        //    color.a -= 1.5f * Time.deltaTime;
+        //    spriteRenderer.color = color;
+
+        //    yield return null;
+        //}
+
         if(_gameObject.name == "Body")
         {
             SetUnitActive(false);
         }
 
+        //spriteRenderer.color = Color.white;
         gameObject.GetComponent<Collider>().enabled = true;
-        photonView.RPC("DieTranslate", RpcTarget.All, ObjectPoolMgr.instance.transform.position);
+        transform.position = ObjectPoolMgr.instance.transform.position;         // 유닛 위치 초기화
         gameObject.SetActive(false);                                            // Pool로 되돌아가는 시점
         yield return null;
     }
@@ -428,11 +439,5 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         {
             unitState = (EUnitState)stream.ReceiveNext();
         }
-    }
-
-    [PunRPC]
-    private void DieTranslate(Vector3 _pos)
-    {
-        this.transform.position = _pos;
     }
 }
