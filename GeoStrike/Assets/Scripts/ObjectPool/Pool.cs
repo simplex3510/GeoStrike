@@ -11,8 +11,6 @@ public class Pool : MonoBehaviourPun
     public Unit unitP1;
     public Unit unitP2;
 
-    //public GameObject testBlue;
-
 
     // 초기 Object 생성
     public void InitObjectPool(int _num)
@@ -64,7 +62,6 @@ public class Pool : MonoBehaviourPun
         {
             Unit newObj = CreateNewObject();
             ObjPoolQueue.Dequeue();
-            //newObj.SetUnitActive(true);
 
             return newObj;
         }

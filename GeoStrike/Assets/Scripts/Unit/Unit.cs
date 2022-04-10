@@ -66,17 +66,15 @@ interface IDebuffable
     public void Debuff(int _debuffType, float _debuff, float _applyTime);
     public IEnumerator OnDebuff(int _debuffType, float _debuff, float _applyTime);
 }
-[SelectionBase] // �θ� ����
+[SelectionBase]
 public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffable, IDebuffable, IPunObservable
 {
-    // �������ͽ�
     public InitUnitData initStatus;
     public DeltaUnitData deltaStatus;
 
     // 오브젝트 풀 연결
     public Queue<Unit> myPool;
 
-    // ��ġ������ ��ġ ���� Components
     [HideInInspector] public UnitTile unitTile;
     [HideInInspector] public UnitCreator unitCreator;
 
@@ -94,14 +92,11 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     [HideInInspector] public int row;
     [HideInInspector] public int column;
 
-    // ������ �ൿ�� ���� ���
     public LayerMask opponentLayerMask { get; protected set; }
 
-    // ������ FSM�� ����
     /*[HideInInspector]*/
     public EUnitState unitState;
 
-    // ������ ��ü(��������Ʈ)
     public GameObject body;
 
     // sound
@@ -125,7 +120,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
     public float moveSpeed { get; protected set; }
     #endregion
 
-    protected Collider enemyCollider;   // ���� ���
+    protected Collider enemyCollider;
     protected UnitMove unitMove;
     protected Rigidbody rigidBody;
     protected double lastAttackTime;
@@ -225,7 +220,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
             case EUnitState.Approach:
                 break;
             case EUnitState.Attack:
-                //�� Unit Class ���� Attck ����
                 break;
             case EUnitState.Die:
                 Die();
@@ -240,7 +234,7 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
 
     public virtual void Attack() { }
 
-    protected virtual void Die()    // ���� ���
+    protected virtual void Die()
     {
         unitMove.enabled = false;
         unitMove.agent.enabled = false;
@@ -380,7 +374,6 @@ public abstract class Unit : MonoBehaviourPun, IDamageable, IActivatable, IBuffa
         unitState = EUnitState.Idle;
         gameObject.GetComponent<Collider>().enabled = false;
 
-        // Ŭ���� ������ ������ �������̽� â �ʱ�ȭ
         if (detector.clickedObject == this.gameObject)
         {
             detector.InitInterface();
