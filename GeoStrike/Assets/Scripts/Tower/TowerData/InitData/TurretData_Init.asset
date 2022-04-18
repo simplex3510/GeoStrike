@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TurretData_Init
   m_EditorClassIdentifier: 
   towerName: Turret
-  health: 3000
+  health: 100
   defense: 3
